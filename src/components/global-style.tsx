@@ -6,7 +6,7 @@ const styles = css`
     margin: 0;
   }
 
-  h1 {
+  h1, h2, h3 {
     margin: 0;
   }
 `;

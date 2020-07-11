@@ -4,16 +4,19 @@ import { GlobalfStyle } from "./global-style"
 import { GlobalHeader } from "./global-header"
 
 const mainCss = css`
-  margin: 0 auto;
-  max-width: 700px;
+  padding: 0 9rem;
 `
+
+const contentCss = css`
+    padding: 2rem;
+`;
 
 const LayoutComponent = ({ children }) => (
   <div>
     <GlobalfStyle />
     <GlobalHeader />
     <main css={mainCss}>
-      <div>{children}</div>
+      <div css={contentCss}>{children}</div>
     </main>
   </div>
 )
