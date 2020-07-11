@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import React from "react"
-import { Global as GlobalEm, css, jsx } from "@emotion/core"
+import { Global as GlobalEm, css } from "@emotion/core"
 
 const styles = css`
   body {

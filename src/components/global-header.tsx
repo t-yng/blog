@@ -1,21 +1,20 @@
-/** @jsx jsx */
 import React, { FC } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { css, jsx } from "@emotion/core"
+import { css } from "@emotion/core"
+import { GlobalHeaderNav } from "./global-header-nav"
 
 interface GlobalHeaderProps {
-    data: {
-        site: {
-            siteMetadata: {
-                title: string;
-            }
-        }
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
     }
+  }
 }
 
 const rootCss = css`
   background-color: #f0f0f0;
-  height: 110px;
   width: 100vw;
   position: relative;
   top: 0;
@@ -25,12 +24,14 @@ const rootCss = css`
 
 const siteTitleCss = css`
   margin: 0;
+  margin-bottom: 1.25rem;
 `
 
 const GlobalHeaderComponent: FC<GlobalHeaderProps> = ({ data }) => (
   <header css={rootCss}>
     <div>
       <h1 css={siteTitleCss}>{data.site.siteMetadata.title}</h1>
+      <GlobalHeaderNav />
     </div>
   </header>
 )
@@ -46,7 +47,7 @@ export const GlobalHeader: FC = () => {
         }
       }
     `
-  );
+  )
 
   return <GlobalHeaderComponent data={data} />
 }
