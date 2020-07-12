@@ -10,6 +10,7 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -22,10 +23,16 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-prismjs"
-          }
-        ]
-      }
+            resolve: "gatsby-remark-prismjs",
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
     },
     "gatsby-plugin-emotion",
   ],
