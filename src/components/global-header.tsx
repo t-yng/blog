@@ -20,7 +20,7 @@ const style = {
     position: relative;
     top: 0;
     left: 0;
-    padding: 1rem 9rem;
+    padding: 1rem 9rem 12px 9rem;
   `,
   siteTitleLink: css`
     text-decoration: none;
