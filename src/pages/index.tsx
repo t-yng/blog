@@ -22,33 +22,35 @@ interface IndexPageProps extends PageProps {
   }
 }
 
-const dateCss = css`
-  color: #555;
-`
-
-const borderCss = css`
-  margin: 1.125rem 0;
-`
-
-const excerptCss = css`
-  margin-bottom: 1.125rem;
-`
-
-const footerCss = css`
-  display: flex;
-  justify-content: space-between;
-`
+const style = {
+  post: css`
+    margin-bottom: 2rem;
+  `,
+  date: css`
+    color: #555;
+  `,
+  border: css`
+    margin: 1.125rem 0;
+  `,
+  excerpt: css`
+    margin-bottom: 1.125rem;
+  `,
+  footer: css`
+    display: flex;
+    justify-content: space-between;
+  `,
+}
 
 const Index: FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
+        <div key={node.id} css={style.post}>
           <h2>{node.frontmatter.title}</h2>
-          <div css={dateCss}>{node.frontmatter.date}</div>
-          <hr css={borderCss}></hr>
-          <div css={excerptCss}>{node.excerpt}</div>
-          <div css={footerCss}>
+          <div css={style.date}>{node.frontmatter.date}</div>
+          <hr css={style.border}></hr>
+          <div css={style.excerpt}>{node.excerpt}</div>
+          <div css={style.footer}>
             <Tags tags={node.frontmatter.tags} />
             <a href="/">続きを読む</a>
           </div>
