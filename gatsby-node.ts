@@ -1,5 +1,6 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+import * as path from "path"
+import { createFilePath } from "gatsby-source-filesystem"
+import { createTagLink } from "./src/utils/link";
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -17,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      postsRemark: allMarkdownRemark {
         edges {
           node {
             fields {
@@ -26,15 +27,34 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `)
 
-  return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const posts = result.data.postsRemark.edges
+
+  posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/blog-post.tsx`),
       context: {
         slug: node.fields.slug,
+      },
+    })
+  })
+
+  const tags = result.data.tags.group
+
+  tags.forEach(tag => {
+    createPage({
+      path: createTagLink(tag.fieldValue),
+      component: path.resolve("./src/templates/tags.tsx"),
+      context: {
+        tag: tag.fieldValue,
       },
     })
   })

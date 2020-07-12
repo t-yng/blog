@@ -1,9 +1,11 @@
 import React, { FC } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/core"
+import { Link } from "./link"
+import { createTagLink } from "../utils/link"
 
 interface CategoryItem {
-  text: string
+  tag: string
   count: number
 }
 
@@ -35,9 +37,11 @@ export const SideBarComponent: FC<SideBarProps> = ({ categories }) => (
     <div css={summaryCss}>カテゴリ</div>
     <ul css={categoriesCss}>
       {categories.map(category => (
-        <li css={categoryItemCss}>
-          {category.text} ({category.count})
-        </li>
+        <Link decoration={false} to={createTagLink(category.tag)}>
+          <li css={categoryItemCss}>
+            {category.tag} ({category.count})
+          </li>
+        </Link>
       ))}
     </ul>
   </div>
@@ -55,7 +59,7 @@ export const SideBar = () => {
     }
   `)
   const categories: CategoryItem[] = data.allMarkdownRemark.group.map(tag => ({
-    text: tag.fieldValue,
+    tag: tag.fieldValue,
     count: tag.totalCount,
   }))
 
