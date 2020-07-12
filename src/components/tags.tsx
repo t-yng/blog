@@ -18,7 +18,7 @@ const style = {
 export const Tags: FC<TagsProps> = ({ tags }) => (
   <div css={style.tags}>
     {tags.map(tag => (
-      <Tag css={style.tag} name={tag} />
+      <Tag css={style.tag} tag={tag} />
     ))}
   </div>
 )
