@@ -35,14 +35,14 @@ const excerptCss = css`
 const footerCss = css`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const tagCss = css`
   background-color: #c4c4c4;
   border-radius: 4px;
   font-size: 0.75rem;
   padding: 5px;
-`;
+`
 
 const Index: FC<IndexPageProps> = ({ data }) => {
   return (
