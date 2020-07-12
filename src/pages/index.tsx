@@ -2,6 +2,7 @@ import React, { FC } from "react"
 import { css } from "@emotion/core"
 import { PageProps, graphql } from "gatsby"
 import { Layout } from "../components/layout"
+import { Tags } from "../components/tags"
 
 interface IndexPageProps extends PageProps {
   data: {
@@ -13,6 +14,7 @@ interface IndexPageProps extends PageProps {
           frontmatter: {
             date: string
             title: string
+            tags: string[]
           }
         }
       }[]
@@ -37,13 +39,6 @@ const footerCss = css`
   justify-content: space-between;
 `
 
-const tagCss = css`
-  background-color: #c4c4c4;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  padding: 5px;
-`
-
 const Index: FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout>
@@ -54,9 +49,7 @@ const Index: FC<IndexPageProps> = ({ data }) => {
           <hr css={borderCss}></hr>
           <div css={excerptCss}>{node.excerpt}</div>
           <div css={footerCss}>
-            <div>
-              <div css={tagCss}>フロントエンド</div>
-            </div>
+            <Tags tags={node.frontmatter.tags} />
             <a href="/">続きを読む</a>
           </div>
         </div>
@@ -77,6 +70,7 @@ export const query = graphql`
           frontmatter {
             date(formatString: "YYYY年 MM月 DD日")
             title
+            tags
           }
         }
       }
