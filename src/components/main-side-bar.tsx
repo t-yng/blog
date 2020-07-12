@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/core"
 
 interface CategoryItem {
@@ -35,7 +36,7 @@ export const SideBarComponent: FC<SideBarProps> = ({ categories }) => (
     <ul css={categoriesCss}>
       {categories.map(category => (
         <li css={categoryItemCss}>
-          {category.text}（{category.count}）
+          {category.text} ({category.count})
         </li>
       ))}
     </ul>
@@ -43,16 +44,20 @@ export const SideBarComponent: FC<SideBarProps> = ({ categories }) => (
 )
 
 export const SideBar = () => {
-  const categories: CategoryItem[] = [
-    {
-      text: "フロントエンド",
-      count: 1,
-    },
-    {
-      text: "Rust",
-      count: 12,
-    },
-  ]
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
+      }
+    }
+  `)
+  const categories: CategoryItem[] = data.allMarkdownRemark.group.map(tag => ({
+    text: tag.fieldValue,
+    count: tag.totalCount,
+  }))
 
   return <SideBarComponent categories={categories} />
 }
