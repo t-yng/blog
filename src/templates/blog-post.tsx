@@ -5,12 +5,12 @@ import { Layout } from "../components/layout"
 import { Tags } from "../components/tags"
 
 const style = {
-    title: css`
-        margin-bottom: 0.75rem;
-    `,
-    border: css`
-        margin: 1rem 0;
-    `,
+  title: css`
+    margin-bottom: 0.75rem;
+  `,
+  border: css`
+    margin: 1rem 0;
+  `,
 }
 
 const BlogPost = ({ data }) => (

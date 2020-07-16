@@ -1,8 +1,8 @@
-import * as path from "path"
 import { createFilePath } from "gatsby-source-filesystem"
-import { createTagLink } from "./src/utils/link";
+import * as path from "path"
+import { createTagLink } from "../src/utils/link"
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+export const onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({ node, getNode, basePath: "content/posts" })
@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.tsx`),
+      component: path.resolve(__dirname, "../src/templates/blog-post.tsx"),
       context: {
         slug: node.fields.slug,
       },
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
   tags.forEach(tag => {
     createPage({
       path: createTagLink(tag.fieldValue),
-      component: path.resolve("./src/templates/tags.tsx"),
+      component: path.resolve(__dirname, "../src/templates/tags.tsx"),
       context: {
         tag: tag.fieldValue,
       },
