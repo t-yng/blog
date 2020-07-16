@@ -2,6 +2,7 @@ import React, { FC } from "react"
 import { css, SerializedStyles } from "@emotion/core"
 import { Link } from "gatsby"
 import { createTagLink } from "../utils/link"
+import { colors } from "../styles/color"
 
 interface TagProps {
   tag: string
@@ -13,7 +14,7 @@ const style = {
     color: inherit;
   `,
   tag: css`
-    background-color: #c4c4c4;
+    background-color: ${colors.black4};
     border-radius: 4px;
     font-size: 0.75rem;
     padding: 5px;

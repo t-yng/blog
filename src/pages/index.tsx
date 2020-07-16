@@ -3,6 +3,7 @@ import { css } from "@emotion/core"
 import { PageProps, graphql, Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { Tags } from "../components/tags"
+import { colors } from "../styles/color"
 
 interface IndexPageProps extends PageProps {
   data: {
@@ -34,7 +35,7 @@ const style = {
     color: inherit;
   `,
   date: css`
-    color: #555;
+    color: ${colors.black2};
   `,
   border: css`
     margin: 1.125rem 0;
