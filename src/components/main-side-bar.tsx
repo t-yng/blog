@@ -1,49 +1,18 @@
 import React, { FC } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { css } from "@emotion/core"
-import { Link } from "./link"
-import { createTagLink } from "../utils/link"
+import { SideBarTags, SideBarTagsProps } from "./side-bar-tags"
 
-interface CategoryItem {
-  tag: string
-  count: number
-}
-
-interface SideBarProps {
-  categories: CategoryItem[]
-}
+type SideBarProps = SideBarTagsProps;
 
 const sidebarCss = css`
   padding: 2rem 1rem;
   width: 20%;
 `
 
-const summaryCss = css`
-  font-weight: bold;
-`
-
-const categoriesCss = css`
-  list-style: none;
-  margin: 10px 0;
-  padding-left: 1.5rem;
-`
-
-const categoryItemCss = css`
-  margin-bottom: 10px;
-`
-
-export const SideBarComponent: FC<SideBarProps> = ({ categories }) => (
+export const SideBarComponent: FC<SideBarProps> = ({ tags }) => (
   <div css={sidebarCss}>
-    <div css={summaryCss}>カテゴリ</div>
-    <ul css={categoriesCss}>
-      {categories.map(category => (
-        <Link decoration={false} to={createTagLink(category.tag)}>
-          <li css={categoryItemCss}>
-            {category.tag} ({category.count})
-          </li>
-        </Link>
-      ))}
-    </ul>
+    <SideBarTags tags={tags} />
   </div>
 )
 
@@ -58,10 +27,10 @@ export const SideBar = () => {
       }
     }
   `)
-  const categories: CategoryItem[] = data.allMarkdownRemark.group.map(tag => ({
-    tag: tag.fieldValue,
+  const tags: SideBarTagsProps['tags'] = data.allMarkdownRemark.group.map(tag => ({
+    name: tag.fieldValue,
     count: tag.totalCount,
   }))
 
-  return <SideBarComponent categories={categories} />
+  return <SideBarComponent tags={tags} />
 }
