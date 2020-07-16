@@ -1,6 +1,7 @@
 import React, { FC } from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
+import { colors } from "../styles/color"
 
 interface NavItem {
   id: number
@@ -13,21 +14,27 @@ interface GlobalHeaderNavProps {
 }
 
 const style = {
+  root: css`
+    background-color: ${colors.white};
+    padding: 0.5rem 9rem 1rem 9rem;
+    border-bottom: 0.5px solid ${colors.black4};
+  `,
   link: css`
     text-decoration: none;
-    color: inherit;
-    padding-bottom: 8px;
+    padding-bottom: 1rem;
     &:hover {
-      border-bottom: 8px solid #c4c4c4;
+      border-bottom: 5px solid ${colors.accent};
     }
   `,
   active: {
-    borderBottom: "8px solid #c4c4c4",
+    borderBottom: `5px solid ${colors.accent}`,
+    color: colors.accent,
+    fontWeight: 'bold',
   },
 }
 
 const GlobalHeaderNavComponent: FC<GlobalHeaderNavProps> = ({ items }) => (
-  <div>
+  <div css={style.root}>
     {items.map(item => (
       <Link
         key={item.id}
