@@ -11,7 +11,7 @@ const mainCss = css`
 
 const contentCss = css`
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 2rem 2rem 0 0;
   width: 80%;
 `
 
