@@ -5,35 +5,35 @@
  */
 
 module.exports = {
-  siteMetadata: {
-    title: "やってみたいを大事に",
-  },
-  /* Your site config here */
-  plugins: [
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "content",
-        path: `${__dirname}/content/`,
-      },
+    siteMetadata: {
+        title: 'やってみたいを大事に',
     },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-prismjs",
-          },
-          {
-            resolve: "gatsby-remark-images",
+    /* Your site config here */
+    plugins: [
+        'gatsby-plugin-sharp',
+        {
+            resolve: 'gatsby-source-filesystem',
             options: {
-              maxWidth: 590,
+                name: 'content',
+                path: `${__dirname}/content/`,
             },
-          },
-        ],
-      },
-    },
-    "gatsby-plugin-emotion",
-  ],
-}
+        },
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    {
+                        resolve: 'gatsby-remark-prismjs',
+                    },
+                    {
+                        resolve: 'gatsby-remark-images',
+                        options: {
+                            maxWidth: 590,
+                        },
+                    },
+                ],
+            },
+        },
+        'gatsby-plugin-emotion',
+    ],
+};
