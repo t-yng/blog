@@ -20,7 +20,7 @@ const style = {
         padding-left: 0;
     `,
     tag: css`
-        margin-bottom: 6px;
+        margin-bottom: 0.5rem;
         &:hover {
             color: ${colors.accent};
         }

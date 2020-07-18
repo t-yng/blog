@@ -11,13 +11,13 @@ const style = {
         display: flex;
     `,
     tag: css`
-        margin-right: 5px;
+        margin-right: 0.5rem;
     `,
 };
 
 export const Tags: FC<TagsProps> = ({ tags }) => (
     <div css={style.tags}>
-        {tags.map(tag => (
+        {tags.sort().map(tag => (
             <Tag css={style.tag} tag={tag} key={tag} />
         ))}
     </div>

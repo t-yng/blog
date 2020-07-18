@@ -52,7 +52,21 @@ export const Sidebar = () => {
             name: tag.fieldValue,
             count: tag.totalCount,
         })
-    );
+    )
+    .sort((a, b) => {
+        const nameA = a.name.toLowerCase()
+        const nameB = b.name.toLowerCase()
+
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    });
+
     const profile: SidebarProps['profile'] = data.site.siteMetadata.profile;
 
     return <SidebarComponent tags={tags} profile={profile} />;
