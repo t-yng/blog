@@ -41,6 +41,7 @@ const GlobalHeaderNavComponent: FC<GlobalHeaderNavProps> = ({ items }) => (
                 css={style.link}
                 to={item.to}
                 activeStyle={style.active}
+                partiallyActive={true}
             >
                 {item.text}
             </Link>
