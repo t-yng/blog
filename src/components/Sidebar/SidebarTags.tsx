@@ -17,11 +17,11 @@ const summaryCss = css`
     font-weight: bold;
     padding-bottom: 4px;
     border-bottom: 1px solid ${colors.accent};
+    margin-bottom: 1rem;
 `;
 
 const tagsCss = css`
     list-style: none;
-    margin: 0.75rem 0;
     padding-left: 0;
 `;
 

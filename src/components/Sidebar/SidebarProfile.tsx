@@ -17,7 +17,7 @@ const style = {
         font-weight: bold;
         padding-bottom: 4px;
         border-bottom: 1px solid ${colors.accent};
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
     `,
     wrapper: css`
         display: flex;
