@@ -129,7 +129,7 @@ for await (const req of s) {
 ### 実行
 ファイル読み込みをしているので `--allow-read` フラグを新たに指定しています。
 
-```sh
+```shell
 $ deno --allow-net --allow-read server.ts
 access to http://localhost:8000/
 ```
