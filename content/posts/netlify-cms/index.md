@@ -110,7 +110,7 @@ Publish directory: public/
 
 <ブログのドメイン名>/admin にアクセスすれば管理画面を表示できます。
 
-<img src="./blog-template.png" width="80%"/>
+![](./blog-template.png)
 
 テンプレートのままですが、自分のブログが公開されました (*'ω'ﾉﾉﾞ☆ﾊﾟﾁﾊﾟﾁ
 
