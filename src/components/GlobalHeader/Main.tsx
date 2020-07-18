@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
-import { GlobalHeaderNav } from './global-header-nav';
-import { colors } from '../styles/color';
+import { GlobalHeaderNav } from './Nav';
+import { colors } from '../../styles/color';
 
 interface GlobalHeaderMainProps {
     data: {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'gatsby';
 import { css } from '@emotion/core';
-import { colors } from '../styles/color';
+import { colors } from '../../styles/color';
 
 interface NavItem {
     id: number;
