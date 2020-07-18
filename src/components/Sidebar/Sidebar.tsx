@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
-import { SidebarTags, SidebarTagsProps } from './Tags';
-import { SidebarProfile, SidebarProfileProps } from './Profile';
+import { SidebarTags, SidebarTagsProps } from './SidebarTags';
+import { SidebarProfile, SidebarProfileProps } from './SidebarProfile';
 
 type SidebarProps = {
     tags: SidebarTagsProps['tags'];
