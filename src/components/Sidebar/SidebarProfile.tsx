@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { colors } from '../../styles/color';
+import { SidebarSection } from './SidebarSection';
 
 export interface SidebarProfileProps {
     name: string;
@@ -13,16 +14,9 @@ export interface SidebarProfileProps {
 }
 
 const style = {
-    summary: css`
-        font-weight: bold;
-        padding-bottom: 4px;
-        border-bottom: 1px solid ${colors.accent};
-        margin-bottom: 10px;
-    `,
     wrapper: css`
         display: flex;
     `,
-    body: css``,
     avatar: css`
         border-radius: 50%;
         margin-right: 0.5rem;
@@ -52,8 +46,7 @@ export const SidebarProfile = ({
     github,
     ...others
 }: SidebarProfileProps) => (
-    <div {...others}>
-        <div css={style.summary}>プロフィール</div>
+    <SidebarSection title="プロフィール" {...others}>
         <div css={style.wrapper}>
             <img css={style.avatar} src={avatar} />
             <div>
@@ -66,5 +59,5 @@ export const SidebarProfile = ({
                 </div>
             </div>
         </div>
-    </div>
+    </SidebarSection>
 );

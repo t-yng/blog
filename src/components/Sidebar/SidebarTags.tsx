@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { Link } from '../Common/Link';
 import { createTagLink } from '../../utils/link';
 import { colors } from '../../styles/color';
+import { SidebarSection } from './SidebarSection';
 
 interface Tag {
     name: string;
@@ -13,33 +14,29 @@ export interface SidebarTagsProps {
     tags: Tag[];
 }
 
-const summaryCss = css`
-    font-weight: bold;
-    padding-bottom: 4px;
-    border-bottom: 1px solid ${colors.accent};
-`;
+const style = {
+    tags: css`
+        list-style: none;
+        padding-left: 0;
+    `,
+    tag: css`
+        margin-bottom: 0.5rem;
+        &:hover {
+            color: ${colors.accent};
+        }
+    `,
+};
 
-const tagsCss = css`
-    list-style: none;
-    margin: 0.75rem 0;
-    padding-left: 0;
-`;
-
-const tagItemCss = css`
-    margin-bottom: 10px;
-`;
-
-export const SidebarTags: FC<SidebarTagsProps> = ({ tags }) => (
-    <section>
-        <div css={summaryCss}>タグ</div>
-        <ul css={tagsCss}>
+export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
+    <SidebarSection title="タグ" {...others}>
+        <ul css={style.tags}>
             {tags.map(tag => (
-                <Link decoration={false} to={createTagLink(tag.name)}>
-                    <li css={tagItemCss}>
+                <Link key={tag.name} decoration={false} to={createTagLink(tag.name)}>
+                    <li css={style.tag} >
                         {tag.name} ({tag.count})
                     </li>
                 </Link>
             ))}
         </ul>
-    </section>
+    </SidebarSection>
 );
