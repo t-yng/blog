@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { GlobalfStyle } from './global-style';
 import { GlobalHeader } from './global-header';
-import { Sidebar } from './sidebar/sidebar';
+import { Sidebar } from './Sidebar/Sidebar';
 
 const mainCss = css`
     display: flex;
