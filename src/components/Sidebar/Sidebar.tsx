@@ -35,20 +35,29 @@ export const Sidebar = () => {
                     totalCount
                 }
             }
+            site {
+                siteMetadata {
+                    profile {
+                        name
+                        speciality
+                        avatar
+                        github {
+                            icon
+                            url
+                        }
+                    }
+                }
+            }
         }
     `);
+
     const tags: SidebarProps['tags'] = data.allMarkdownRemark.group.map(
         tag => ({
             name: tag.fieldValue,
             count: tag.totalCount,
         })
     );
-    const profile: SidebarProps['profile'] = {
-        name: 't-yng',
-        speciality: 'フロントエンドエンジニア',
-        avatar: 'https://via.placeholder.com/150',
-        github: 'https://github.com/t-yng',
-    };
+    const profile: SidebarProps['profile'] = data.site.siteMetadata.profile;
 
     return <SidebarComponent tags={tags} profile={profile} />;
 };

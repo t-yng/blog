@@ -6,7 +6,10 @@ export interface SidebarProfileProps {
     name: string;
     speciality: string;
     avatar: string;
-    github: string;
+    github: {
+        icon: string;
+        url: string;
+    };
 }
 
 const style = {
@@ -19,13 +22,13 @@ const style = {
     wrapper: css`
         display: flex;
     `,
-    body: css`
-    `,
+    body: css``,
     avatar: css`
         border-radius: 50%;
         margin-right: 0.5rem;
-        width: 4rem;
+        object-fit: cover;
         height: 4rem;
+        width: 4rem;
     `,
     name: css`
         font-weight: bold;
@@ -35,6 +38,10 @@ const style = {
         font-size: 0.75rem;
         color: ${colors.black2};
         margin-bottom: 4px;
+    `,
+    icon: css`
+        height: 24px;
+        width: 24px;
     `,
 };
 
@@ -53,7 +60,9 @@ export const SidebarProfile = ({
                 <div css={style.name}>{name}</div>
                 <div css={style.speciality}>{speciality}</div>
                 <div>
-                    <img src={github} />
+                    <a href={github.url} target="_blank" rel="noopner">
+                        <img css={style.icon} src={github.icon} />
+                    </a>
                 </div>
             </div>
         </div>

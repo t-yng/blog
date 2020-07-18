@@ -7,6 +7,15 @@
 module.exports = {
     siteMetadata: {
         title: 'やってみたいを大事に',
+        profile: {
+            name: 't-yng',
+            speciality: 'フロントエンドエンジニア',
+            avatar: '/avatar.jpg',
+            github: {
+                icon: '/icons/github-32px.png',
+                url: 'https://github.com/t-yng',
+            },
+        }
     },
     /* Your site config here */
     plugins: [
