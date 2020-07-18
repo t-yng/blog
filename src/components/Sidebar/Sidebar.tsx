@@ -10,17 +10,13 @@ type SidebarProps = {
 };
 
 const style = {
-    sidebar: css`
-        padding: 0 1rem 0 1rem;
-        width: 20%;
-    `,
     section: css`
         margin-bottom: 2rem;
     `,
 };
 
 export const SidebarComponent: FC<SidebarProps> = ({ tags, profile }) => (
-    <div css={style.sidebar}>
+    <div>
         <SidebarProfile css={style.section} {...profile} />
         <SidebarTags tags={tags} />
     </div>
