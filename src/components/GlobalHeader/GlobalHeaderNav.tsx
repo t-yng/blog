@@ -25,13 +25,13 @@ const style = {
     `,
     link: css`
         text-decoration: none;
-        padding-bottom: 1rem;
+        padding-bottom: calc(1rem + 1px);
         &:hover {
-            border-bottom: 5px solid ${colors.accent};
+            border-bottom: 4px solid ${colors.accent};
         }
     `,
     active: {
-        borderBottom: `5px solid ${colors.accent}`,
+        borderBottom: `4px solid ${colors.accent}`,
         color: colors.accent,
         fontWeight: 'bold',
     },
