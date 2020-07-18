@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
-import { GlobalHeaderNav } from './Nav';
+import { GlobalHeaderNav } from './GlobalHeaderNav';
 import { colors } from '../../styles/color';
 
 interface GlobalHeaderMainProps {
