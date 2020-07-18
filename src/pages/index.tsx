@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { PageProps, graphql, Link } from 'gatsby';
-import { Layout } from '../components/layout';
-import { Tags } from '../components/tags';
+import { Layout } from '../components/Layout';
+import { Tags } from '../components/Tags';
 import { colors } from '../styles/color';
 
 interface IndexPageProps extends PageProps {
