@@ -31,8 +31,8 @@ export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
     <SidebarSection title="タグ" {...others}>
         <ul css={style.tags}>
             {tags.map(tag => (
-                <Link decoration={false} to={createTagLink(tag.name)}>
-                    <li css={style.tag}>
+                <Link key={tag.name} decoration={false} to={createTagLink(tag.name)}>
+                    <li css={style.tag} >
                         {tag.name} ({tag.count})
                     </li>
                 </Link>
