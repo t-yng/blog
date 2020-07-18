@@ -4,23 +4,25 @@ import { GlobalfStyle } from './GlobalStyle';
 import { GlobalHeader } from './GlobalHeader';
 import { Sidebar } from './Sidebar';
 
-const mainCss = css`
-    display: flex;
-    padding: 0 9rem;
-`;
-
-const contentCss = css`
-    box-sizing: border-box;
-    padding: 2rem 2rem 0 0;
-    width: 80%;
-`;
+const style = {
+    main: css`
+        display: flex;
+        padding: 2rem 9rem;
+    `,
+    content: css`
+        box-sizing: border-box;
+        margin-right: 2rem;
+        width: 80%;
+        overflow: auto;
+    `,
+};
 
 const LayoutComponent = ({ children }) => (
     <div>
         <GlobalfStyle />
         <GlobalHeader />
-        <main css={mainCss}>
-            <div css={contentCss}>{children}</div>
+        <main css={style.main}>
+            <div css={style.content}>{children}</div>
             <Sidebar />
         </main>
     </div>
