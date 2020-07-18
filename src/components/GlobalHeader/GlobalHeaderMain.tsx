@@ -18,7 +18,6 @@ const style = {
     globalHeaderMain: css`
         color: ${colors.white};
         background-color: ${colors.main};
-        width: 100vw;
         position: relative;
         top: 0;
         left: 0;
@@ -28,16 +27,12 @@ const style = {
         text-decoration: none;
         color: inherit;
     `,
-    siteTitle: css`
-        /* margin: 0; */
-        /* margin-bottom: 1.25rem; */
-    `,
 };
 
 const GlobalHeaderMainComponent: FC<GlobalHeaderMainProps> = ({ data }) => (
     <div css={style.globalHeaderMain}>
         <Link css={style.siteTitleLink} to="/">
-            <h1 css={style.siteTitle}>{data.site.siteMetadata.title}</h1>
+            <h1>{data.site.siteMetadata.title}</h1>
         </Link>
     </div>
 );

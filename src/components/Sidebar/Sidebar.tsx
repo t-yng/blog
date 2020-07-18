@@ -11,7 +11,7 @@ type SidebarProps = {
 
 const style = {
     sidebar: css`
-        padding: 2rem 1rem;
+        padding: 0 1rem 0 1rem;
         width: 20%;
     `,
     section: css`
