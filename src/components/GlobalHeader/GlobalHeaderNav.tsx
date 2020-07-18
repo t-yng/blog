@@ -16,8 +16,12 @@ interface GlobalHeaderNavProps {
 const style = {
     root: css`
         background-color: ${colors.white};
-        padding: 0.5rem 9rem 1rem 9rem;
         border-bottom: 0.5px solid ${colors.black4};
+    `,
+    globalHeaderNav: css`
+        padding: 0.5rem 20px 1rem 20px;
+        margin: 0 auto;
+        max-width: 1152px;
     `,
     link: css`
         text-decoration: none;
@@ -35,17 +39,19 @@ const style = {
 
 const GlobalHeaderNavComponent: FC<GlobalHeaderNavProps> = ({ items }) => (
     <div css={style.root}>
-        {items.map(item => (
-            <Link
-                key={item.id}
-                css={style.link}
-                to={item.to}
-                activeStyle={style.active}
-                partiallyActive={true}
-            >
-                {item.text}
-            </Link>
-        ))}
+        <div css={style.globalHeaderNav}>
+            {items.map(item => (
+                <Link
+                    key={item.id}
+                    css={style.link}
+                    to={item.to}
+                    activeStyle={style.active}
+                    partiallyActive={true}
+                >
+                    {item.text}
+                </Link>
+            ))}
+        </div>
     </div>
 );
 

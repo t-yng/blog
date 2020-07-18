@@ -6,13 +6,17 @@ import { Sidebar } from './Sidebar';
 
 const style = {
     main: css`
-        display: flex;
-        padding: 2rem 9rem;
+        display: grid;
+        grid-template-columns: auto 220px;
+        grid-gap: 3rem;
+        margin: 0 auto;
+        max-width: 1152px;
+        padding: 2rem 20px;
+        @media (max-width: 850px) {
+            grid-template-columns: 1fr;
+        }
     `,
     content: css`
-        box-sizing: border-box;
-        margin-right: 2rem;
-        width: 80%;
         overflow: auto;
     `,
 };

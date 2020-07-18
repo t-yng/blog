@@ -15,13 +15,17 @@ interface GlobalHeaderMainProps {
 }
 
 const style = {
+    wrapper: css`
+        background-color: ${colors.main};
+    `,
     globalHeaderMain: css`
         color: ${colors.white};
-        background-color: ${colors.main};
         position: relative;
         top: 0;
         left: 0;
-        padding: 1rem 9rem 12px 9rem;
+        padding: 0.75rem 20px;
+        max-width: 1152px;
+        margin: 0 auto;
     `,
     siteTitleLink: css`
         text-decoration: none;
@@ -30,10 +34,12 @@ const style = {
 };
 
 const GlobalHeaderMainComponent: FC<GlobalHeaderMainProps> = ({ data }) => (
-    <div css={style.globalHeaderMain}>
-        <Link css={style.siteTitleLink} to="/">
-            <h1>{data.site.siteMetadata.title}</h1>
-        </Link>
+    <div css={style.wrapper}>
+        <div css={style.globalHeaderMain}>
+            <Link css={style.siteTitleLink} to="/">
+                <h1>{data.site.siteMetadata.title}</h1>
+            </Link>
+        </div>
     </div>
 );
 
