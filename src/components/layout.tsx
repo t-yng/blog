@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { GlobalfStyle } from './global-style';
+import { GlobalfStyle } from './GlobalStyle';
 import { GlobalHeader } from './GlobalHeader';
 import { Sidebar } from './Sidebar';
 
