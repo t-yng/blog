@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { css } from '@emotion/core';
-import { Layout } from '../components/layout';
-import { Tags } from '../components/tags';
+import { Layout } from '../components/Layout';
+import { Tags } from '../components/Tags';
 
 const style = {
     title: css`
