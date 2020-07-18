@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
-import { SideBarTags, SideBarTagsProps } from './side-bar-tags';
-import { SideBarProfile, SideBarProfileProps } from './side-bar-profile';
+import { SidebarTags, SidebarTagsProps } from './tags';
+import { SidebarProfile, SidebarProfileProps } from './profile';
 
-type SideBarProps = {
-    tags: SideBarTagsProps['tags'];
-    profile: SideBarProfileProps;
+type SidebarProps = {
+    tags: SidebarTagsProps['tags'];
+    profile: SidebarProfileProps;
 };
 
 const style = {
@@ -19,14 +19,14 @@ const style = {
     `,
 };
 
-export const SideBarComponent: FC<SideBarProps> = ({ tags, profile }) => (
+export const SidebarComponent: FC<SidebarProps> = ({ tags, profile }) => (
     <div css={style.sidebar}>
-        <SideBarProfile css={style.section} {...profile} />
-        <SideBarTags tags={tags} />
+        <SidebarProfile css={style.section} {...profile} />
+        <SidebarTags tags={tags} />
     </div>
 );
 
-export const SideBar = () => {
+export const Sidebar = () => {
     const data = useStaticQuery(graphql`
         query {
             allMarkdownRemark {
@@ -37,18 +37,18 @@ export const SideBar = () => {
             }
         }
     `);
-    const tags: SideBarProps['tags'] = data.allMarkdownRemark.group.map(
+    const tags: SidebarProps['tags'] = data.allMarkdownRemark.group.map(
         tag => ({
             name: tag.fieldValue,
             count: tag.totalCount,
         })
     );
-    const profile: SideBarProps['profile'] = {
+    const profile: SidebarProps['profile'] = {
         name: 't-yng',
         speciality: 'フロントエンドエンジニア',
         avatar: 'https://via.placeholder.com/150',
         github: 'https://github.com/t-yng',
     };
 
-    return <SideBarComponent tags={tags} profile={profile} />;
+    return <SidebarComponent tags={tags} profile={profile} />;
 };

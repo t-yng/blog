@@ -1,17 +1,16 @@
 import React, { FC } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
-import { Link } from './link';
-import { createTagLink } from '../utils/link';
-import { colors } from '../styles/color';
+import { Link } from '../link';
+import { createTagLink } from '../../utils/link';
+import { colors } from '../../styles/color';
 
-interface TagItem {
+interface Tag {
     name: string;
     count: number;
 }
 
-export interface SideBarTagsProps {
-    tags: TagItem[];
+export interface SidebarTagsProps {
+    tags: Tag[];
 }
 
 const summaryCss = css`
@@ -30,7 +29,7 @@ const tagItemCss = css`
     margin-bottom: 10px;
 `;
 
-export const SideBarTags: FC<SideBarTagsProps> = ({ tags }) => (
+export const SidebarTags: FC<SidebarTagsProps> = ({ tags }) => (
     <section>
         <div css={summaryCss}>タグ</div>
         <ul css={tagsCss}>

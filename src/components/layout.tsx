@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { GlobalfStyle } from './global-style';
 import { GlobalHeader } from './global-header';
-import { SideBar } from './main-side-bar';
+import { Sidebar } from './sidebar/sidebar';
 
 const mainCss = css`
     display: flex;
@@ -21,7 +21,7 @@ const LayoutComponent = ({ children }) => (
         <GlobalHeader />
         <main css={mainCss}>
             <div css={contentCss}>{children}</div>
-            <SideBar />
+            <Sidebar />
         </main>
     </div>
 );

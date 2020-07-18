@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/core';
-import { colors } from '../styles/color';
+import { colors } from '../../styles/color';
 
-export interface SideBarProfileProps {
+export interface SidebarProfileProps {
     name: string;
     speciality: string;
     avatar: string;
@@ -38,13 +38,13 @@ const style = {
     `,
 };
 
-export const SideBarProfile = ({
+export const SidebarProfile = ({
     name,
     speciality,
     avatar,
     github,
     ...others
-}: SideBarProfileProps) => (
+}: SidebarProfileProps) => (
     <div {...others}>
         <div css={style.summary}>プロフィール</div>
         <div css={style.wrapper}>
