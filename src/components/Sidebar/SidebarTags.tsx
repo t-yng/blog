@@ -26,7 +26,10 @@ const tagsCss = css`
 `;
 
 const tagItemCss = css`
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+    &:hover {
+        color: ${colors.accent}
+    }
 `;
 
 export const SidebarTags: FC<SidebarTagsProps> = ({ tags }) => (
