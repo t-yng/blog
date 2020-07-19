@@ -15,11 +15,13 @@ module.exports = {
                 icon: '/icons/github-32px.png',
                 url: 'https://github.com/t-yng',
             },
-        }
+        },
     },
     /* Your site config here */
     plugins: [
         'gatsby-plugin-sharp',
+        'gatsby-plugin-emotion',
+        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -43,7 +45,11 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-emotion',
-        'gatsby-plugin-remove-serviceworker',
+        {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+                trackingId: 'UA-57390966-4',
+            },
+        },
     ],
 };
