@@ -19,9 +19,14 @@ module.exports = {
     },
     /* Your site config here */
     plugins: [
-        'gatsby-plugin-sharp',
-        'gatsby-plugin-emotion',
-        'gatsby-plugin-remove-serviceworker',
+        {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+                trackingId: 'UA-57390966-4',
+                head: true,
+                sampleRate: 100,
+            },
+        },
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -45,11 +50,8 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-google-analytics',
-            options: {
-                trackingId: 'UA-57390966-4',
-            },
-        },
+        'gatsby-plugin-sharp',
+        'gatsby-plugin-emotion',
+        'gatsby-plugin-remove-serviceworker',
     ],
 };
