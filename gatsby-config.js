@@ -25,6 +25,7 @@ module.exports = {
                 trackingId: 'UA-57390966-4',
                 head: true,
                 sampleRate: 100,
+                cookieDomain: 't-yng.jp'
             },
         },
         {
