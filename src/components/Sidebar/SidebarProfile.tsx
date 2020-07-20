@@ -48,13 +48,17 @@ export const SidebarProfile = ({
 }: SidebarProfileProps) => (
     <SidebarSection title="プロフィール" {...others}>
         <div css={style.wrapper}>
-            <img css={style.avatar} src={avatar} />
+            <img css={style.avatar} src={avatar} alt="筆者のアバター画像" />
             <div>
                 <div css={style.name}>{name}</div>
                 <div css={style.speciality}>{speciality}</div>
                 <div>
                     <a href={github.url} target="_blank" rel="noopner">
-                        <img css={style.icon} src={github.icon} />
+                        <img
+                            css={style.icon}
+                            src={github.icon}
+                            alt="Githubへのリンクアイコン"
+                        />
                     </a>
                 </div>
             </div>
