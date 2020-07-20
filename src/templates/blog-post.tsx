@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { css } from '@emotion/core';
 import { Layout } from '../components/Layout';
 import { Tags } from '../components/Tags';
+import { SEO } from '../components/Seo';
 
 const style = {
     title: css`
@@ -15,6 +16,10 @@ const style = {
 
 const BlogPost = ({ data }) => (
     <Layout>
+        <SEO
+            title={data.markdownRemark.frontmatter.title}
+            description={data.markdownRemark.frontmatter.description}
+        />
         <div>
             <h1 css={style.title}>{data.markdownRemark.frontmatter.title}</h1>
             <Tags tags={data.markdownRemark.frontmatter.tags} />
@@ -34,6 +39,7 @@ export const query = graphql`
             html
             frontmatter {
                 title
+                description
                 tags
             }
         }

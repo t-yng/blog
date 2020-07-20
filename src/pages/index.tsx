@@ -3,6 +3,7 @@ import { css } from '@emotion/core';
 import { PageProps, graphql, Link } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { Tags } from '../components/Tags';
+import { SEO } from '../components/Seo';
 import { colors } from '../styles/color';
 
 interface IndexPageProps extends PageProps {
@@ -52,6 +53,7 @@ const style = {
 const Index: FC<IndexPageProps> = ({ data }) => {
     return (
         <Layout>
+            <SEO />
             {data.allMarkdownRemark.edges.map(({ node }) => (
                 <div key={node.id} css={style.post}>
                     <Link css={style.titleLink} to={node.fields.slug}>
