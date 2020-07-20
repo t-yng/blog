@@ -64,7 +64,7 @@ const Index: FC<IndexPageProps> = ({ data }) => {
                     <div css={style.excerpt}>{node.excerpt}</div>
                     <div css={style.footer}>
                         <Tags tags={node.frontmatter.tags} />
-                        <Link to={node.fields.slug}>続きを読む</Link>
+                        <Link to={node.fields.slug}>記事の続きを読む</Link>
                     </div>
                 </div>
             ))}
