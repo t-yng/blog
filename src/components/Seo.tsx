@@ -8,10 +8,7 @@ interface SeoProps {
     description?: string;
 }
 
-export const SEO: FC<SeoProps> = ({
-    title,
-    description,
-}) => {
+export const SEO: FC<SeoProps> = ({ title, description }) => {
     const { pathname } = useLocation();
     const { site } = useStaticQuery(query);
 
@@ -25,6 +22,7 @@ export const SEO: FC<SeoProps> = ({
 
     return (
         <Helmet title={seo.title}>
+            <html lang="ja" />
             <meta name="description" content={seo.description} />
         </Helmet>
     );
