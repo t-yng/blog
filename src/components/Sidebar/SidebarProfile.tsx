@@ -53,7 +53,7 @@ export const SidebarProfile = ({
                 <div css={style.name}>{name}</div>
                 <div css={style.speciality}>{speciality}</div>
                 <div>
-                    <a href={github.url} target="_blank" rel="noopner">
+                    <a href={github.url} target="_blank" rel="noopener">
                         <img
                             css={style.icon}
                             src={github.icon}
