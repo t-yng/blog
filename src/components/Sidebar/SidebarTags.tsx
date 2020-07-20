@@ -31,11 +31,15 @@ export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
     <SidebarSection title="タグ" {...others}>
         <ul css={style.tags}>
             {tags.map(tag => (
-                <Link key={tag.name} decoration={false} to={createTagLink(tag.name)}>
-                    <li css={style.tag} >
+                <li key={tag.name} css={style.tag}>
+                    <Link
+                        key={tag.name}
+                        decoration={false}
+                        to={createTagLink(tag.name)}
+                    >
                         {tag.name} ({tag.count})
-                    </li>
-                </Link>
+                    </Link>
+                </li>
             ))}
         </ul>
     </SidebarSection>

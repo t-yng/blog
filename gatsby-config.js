@@ -7,6 +7,8 @@
 module.exports = {
     siteMetadata: {
         title: 'やってみたいを大事に',
+        description: '神奈川の田舎で働いてるフロントエンドエンジニアのブログ',
+        url: 'https://t-yng.jp',
         profile: {
             name: 't-yng',
             speciality: 'フロントエンドエンジニア',
