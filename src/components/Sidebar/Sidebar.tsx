@@ -33,8 +33,8 @@ export const Sidebar = () => {
             }
             site {
                 siteMetadata {
+                    author
                     profile {
-                        name
                         speciality
                         avatar
                         github {
@@ -67,7 +67,10 @@ export const Sidebar = () => {
         return 0;
     });
 
-    const profile: SidebarProps['profile'] = data.site.siteMetadata.profile;
+    const profile: SidebarProps['profile'] = {
+        name: data.site.siteMetadata.author,
+        ...data.site.siteMetadata.profile,
+    };
 
     return <SidebarComponent tags={tags} profile={profile} />;
 };
