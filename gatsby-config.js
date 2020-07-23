@@ -7,10 +7,10 @@
 module.exports = {
     siteMetadata: {
         title: 'やってみたいを大事に',
+        author: 't-yng',
         description: '神奈川の田舎で働いてるフロントエンドエンジニアのブログ',
         url: 'https://t-yng.jp',
         profile: {
-            name: 't-yng',
             speciality: 'フロントエンドエンジニア',
             avatar: '/avatar.jpg',
             github: {
