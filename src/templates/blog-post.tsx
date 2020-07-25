@@ -4,13 +4,25 @@ import { css } from '@emotion/core';
 import { Layout } from '../components/Layout';
 import { Tags } from '../components/Tags';
 import { SEO } from '../components/Seo';
+import { colors } from '../styles/color';
 
 const style = {
+    header: css`
+        margin-bottom: 2rem;
+    `,
     title: css`
         margin-bottom: 0.75rem;
     `,
-    border: css`
-        margin: 1rem 0;
+    content: css`
+        h2,
+        h3,
+        h4 {
+            margin-top: 2.5rem;
+        }
+        h2 {
+            border-bottom: 0.5px solid ${colors.black4};
+            padding-bottom: 0.5rem;
+        }
     `,
 };
 
@@ -21,10 +33,12 @@ const BlogPost = ({ data }) => (
             description={data.markdownRemark.frontmatter.description}
         />
         <div>
-            <h1 css={style.title}>{data.markdownRemark.frontmatter.title}</h1>
-            <Tags tags={data.markdownRemark.frontmatter.tags} />
-            <hr css={style.border} />
+            <header css={style.header}>
+                <h1 css={style.title}>{data.markdownRemark.frontmatter.title}</h1>
+                <Tags tags={data.markdownRemark.frontmatter.tags} />
+            </header>
             <div
+                css={style.content}
                 dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
             />
         </div>
