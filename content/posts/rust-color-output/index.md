@@ -5,7 +5,7 @@ description: Rustで標準出力に色を付ける
 tags: ['Rust']
 ---
 
-Rustで標準出力に色を付けるだけなら、次のように書けば可能です。
+Rustで標準出力に色を付けるだけなら、次のように書けば可能です。ただ、コードにこのまま書くのは保守性の面でも避けたいです。
 
 ```rust
 fn main() {
@@ -14,9 +14,7 @@ fn main() {
 }
 ```
 
-さすがに、コードにこのまま書くのは保守性の面でも避けたいです。
-
-### mackwic/colored
+## mackwic/colored
 [mackwic/colored](https://github.com/mackwic/colored) はターミナルの標準出力の色付けが簡単にできるクレートです。  
 これを利用すれば、簡単に実装ができます。
 
