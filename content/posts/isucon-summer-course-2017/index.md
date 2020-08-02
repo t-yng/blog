@@ -58,6 +58,36 @@ $ bin/bench -remotes 172.28.128.8 # imageマシンのIPアドレスを指定
 [isu7q-bench] 2020/07/26 09:34:02.557313 bench.go:260: Cannot increase Load Level. Reason: RecentErr 2020-07-26 09:34:02.336753948 +0000 UTC m=+16.304791155 リクエストがタイムアウトしました (POST /message ) Before 220.553901ms
 ```
 
+## MySQLに接続する
+
+sshの設定を確認する。MySQLの接続情報は [ansibleの設定ファイル](https://github.com/matsuu/ansible-isucon/blob/master/isucon7-qualifier/roles/mysql/tasks/main.yml) を参照しました。
+
+```shell
+$ vagrant ssh-config image
+Host image
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/tomohiro/workspace/isucon/vagrant-isucon/isucon7-qualifier/.vagrant/machines/image/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+```
+
+MySQLクライアントで次の設定でMySQLに接続します。
+
+```
+MySQLホスト: 127.0.0.1
+ユーザー名: isucon
+パスワード: isucon
+データベース: isubata
+SSHホスト: 192.168.33.10
+SSHユーザー: vagrant
+秘密鍵: ~/isucon7-qualifier/.vagrant/machines/image/virtualbox/private_key
+```
+
 ## 実装言語を変更する
 ISUCONでは複数の言語から自分たちが好きな言語を利用できます。ここでは、JavaScript(Node.js)に実装言語を変更します。参考実装の切り替えは、[ISUCON7 予選マニュアル](https://gist.github.com/941/8c64842b71995a2d448315e2594f62c2)を参照しました。
 
