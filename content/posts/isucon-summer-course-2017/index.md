@@ -1,8 +1,8 @@
 ---
 title: ISUCONの夏季講習2017をやった
 date: 2020-08-02
-description: Rustで標準出力に色を付ける
-tags: ['Rust']
+description: ISUCON 夏季講習 2017をやり、ボトルネック発見までの基本的なデータ収集の部分だけをまとめました。
+tags: ['ISUCON']
 ---
 
 ISUCON10に向けた復習として [ISUCON 夏季講習 2017](http://isucon.net/archives/50648750.html) をやりました。ボトルネック発見のための基本的なデータ収集の部分だけまとめています。
