@@ -11,6 +11,14 @@ ISUCON10に向けた復習として [ISUCON 夏季講習 2017](http://isucon.net
 仮想マシンとしてVirtualBoxを用いて、問題は [isucon7の予選問題](https://github.com/matsuu/vagrant-isucon/tree/master/isucon7-qualifier) を利用します。
 
 ```shell
+# プライベートネットワークのIPアドレスを指定
+$ vi Vagrantfile
+   # Create a private network, which allows host-only access to the machine
+   # using a specific IP.
+-  config.vm.network "private_network", ip: "192.168.33.10"
++  config.vm.network "private_network", ip: "192.168.33.10"
+
+# 仮想環境を構築
 $ g clone https://github.com/matsuu/vagrant-isucon.git
 $ cd vagrant-isucon/icuon7-qualifier
 $ vagrant up
@@ -56,6 +64,40 @@ $ bin/bench -remotes 172.28.128.8 # imageマシンのIPアドレスを指定
 [isu7q-bench] 2020/07/26 09:34:00.557278 bench.go:263: Cannot increase Load Level. Reason: SlowPath /message Before 11.790899ms
 [isu7q-bench] 2020/07/26 09:34:01.557413 bench.go:263: Cannot increase Load Level. Reason: SlowPath /profile/yamaoka_shinsuke Before 415.740187ms
 [isu7q-bench] 2020/07/26 09:34:02.557313 bench.go:260: Cannot increase Load Level. Reason: RecentErr 2020-07-26 09:34:02.336753948 +0000 UTC m=+16.304791155 リクエストがタイムアウトしました (POST /message ) Before 220.553901ms
+```
+
+## アプリケーションの動作確認
+
+ブラウザで [http://192.168.33.10](http://192.168.33.10) にアクセスすれば動作確認ができます。ベンチマーク実行前の場合はデータが無く動作確認がやり辛いので、ベンチマークを先に実行しておく事をオススメします。アカウントは適当に新規登録してログインしてください。
+
+## 仮想環境のMySQLに接続する
+
+sshの設定を確認する。MySQLの接続情報は [ansibleの設定ファイル](https://github.com/matsuu/ansible-isucon/blob/master/isucon7-qualifier/roles/mysql/tasks/main.yml) を参照しました。
+
+```shell
+$ vagrant ssh-config image
+Host image
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/tomohiro/workspace/isucon/vagrant-isucon/isucon7-qualifier/.vagrant/machines/image/virtualbox/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+```
+
+MySQLクライアントで次の設定でMySQLに接続します。
+
+```
+MySQLホスト: 127.0.0.1
+ユーザー名: isucon
+パスワード: isucon
+データベース: isubata
+SSHホスト: 192.168.33.10
+SSHユーザー: vagrant
+秘密鍵: ~/isucon7-qualifier/.vagrant/machines/image/virtualbox/private_key
 ```
 
 ## 実装言語を変更する
