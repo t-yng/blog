@@ -50,7 +50,7 @@ export const createPages = async ({ graphql, actions }) => {
             path: i === 0 ? '/' : `/page/${i+1}`,
             component: path.resolve(
                 __dirname,
-                '../src/templates/BlogPosts.tsx'
+                '../src/templates/blog-posts.tsx'
             ),
             context: {
                 limit: postsPerPage,
