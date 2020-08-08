@@ -78,11 +78,12 @@ const MiddlePageItems: FC<MiddlePageItems> = ({
                 <PageItem page={p} currentPage={currentPage} />
             ))}
         {middleNumPages <= currentPage &&
-            currentPage < numPages - middleNumPages &&
-            range(currentPage - middleNumPages - 1, middleNumPages).map(p => (
+            currentPage < (numPages - middleNumPages) &&
+            range(currentPage - 1, middleNumPages).map(p => (
                 <PageItem page={p} currentPage={currentPage} />
             ))}
-        {numPages - middleNumPages <= currentPage &&
+        {middleNumPages <= currentPage &&
+            (numPages - middleNumPages) <= currentPage &&
             range(numPages - middleNumPages, middleNumPages).map(p => (
                 <PageItem page={p} currentPage={currentPage} />
             ))}
@@ -104,9 +105,13 @@ export const Pagination: FC<PaginationProps> = ({
             </Link>
         )}
         <PageItem page={1} currentPage={currentPage} />
-        {currentPage > middleNumPages - 1 && (
+        {currentPage > middleNumPages && numPages > middleNumPages + 2 && (
             <div css={style.ellipsis}>...</div>
         )}
+        {numPages <= middleNumPages &&
+            range(2, numPages - middleNumPages + 1).map(p => (
+                <PageItem page={p} currentPage={currentPage} />
+            ))}
         {numPages > middleNumPages && (
             <MiddlePageItems
                 numPages={numPages}
@@ -114,9 +119,10 @@ export const Pagination: FC<PaginationProps> = ({
                 middleNumPages={middleNumPages}
             />
         )}
-        {currentPage < numPages - middleNumPages && (
-            <div css={style.ellipsis}>...</div>
-        )}
+        {currentPage < numPages - middleNumPages &&
+            numPages > middleNumPages + 2 && (
+                <div css={style.ellipsis}>...</div>
+            )}
         <PageItem page={numPages} currentPage={currentPage} />
         {currentPage !== numPages && (
             <Link to={`/page/${currentPage + 1}`} decoration={false}>

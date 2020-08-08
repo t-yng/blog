@@ -42,7 +42,7 @@ export const createPages = async ({ graphql, actions }) => {
     `);
 
     const posts = result.data.postsRemark.edges;
-    const postsPerPage = 3;
+    const postsPerPage = 6;
     const numPages = Math.ceil(posts.length / postsPerPage);
 
     [...Array(numPages)].forEach((_, i) => {{
