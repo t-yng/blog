@@ -3,7 +3,7 @@ import { Link as GaLink, GatsbyLinkProps } from 'gatsby';
 import { css } from '@emotion/core';
 
 interface LinkProps<TState> extends Omit<GatsbyLinkProps<TState>, 'ref'> {
-    decoration: boolean;
+    decoration?: boolean;
 }
 
 type LinkComponent<TState = {}> = FC<LinkProps<TState>>;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { Link } from '../Common/Link';
-import { createTagLink } from '../../utils/link';
+import { createTagLink } from '../../lib/link';
 import { colors } from '../../styles/color';
 import { SidebarSection } from './SidebarSection';
 

@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { colors } from '../../styles/color';
+import { range } from '../../lib/array';
 import { Link } from './Link';
 
 interface PaginationProps {
-    current: number;
-    pages: number[];
+    currentPage: number;
+    numPages: number;
+    middleNumPages: number;
 }
 
 const style = {
@@ -17,13 +19,15 @@ const style = {
     item: css`
         color: ${colors.black1};
         font-size: 1rem;
-        margin-left: 15px;
-        margin-right: 15px;
+        padding: 5px 15px;
         position: relative;
-        &:hover{
+        &:hover {
             color: ${colors.accent};
             cursor: pointer;
         }
+    `,
+    ellipsis: css`
+        cursor: default;
     `,
     current: css`
         align-items: center;
@@ -33,21 +37,91 @@ const style = {
         display: flex;
         justify-content: center;
         height: 28px;
+        padding: 0;
+        margin-left: 15px;
+        margin-right: 15px;
         width: 28px;
         &:hover {
             color: ${colors.white};
+            cursor: default;
         }
     `,
 };
 
-export const Pagination: FC<PaginationProps> = ({ current, pages }) => (
+interface PageItemProps {
+    page: number;
+    currentPage: number;
+}
+
+const PageItem: FC<PageItemProps> = ({ page, currentPage }) => (
+    <Link to={page === 1 ? '/' : `/page/${page}`} decoration={false}>
+        <div css={[style.item, page === currentPage ? style.current : null]}>
+            {page}
+        </div>
+    </Link>
+);
+
+interface MiddlePageItems {
+    numPages: number;
+    currentPage: number;
+    middleNumPages: number;
+}
+
+const MiddlePageItems: FC<MiddlePageItems> = ({
+    numPages,
+    currentPage,
+    middleNumPages,
+}) => (
+    <>
+        {currentPage < middleNumPages &&
+            range(2, middleNumPages).map(p => (
+                <PageItem page={p} currentPage={currentPage} />
+            ))}
+        {middleNumPages <= currentPage &&
+            currentPage < numPages - middleNumPages &&
+            range(currentPage - middleNumPages - 1, middleNumPages).map(p => (
+                <PageItem page={p} currentPage={currentPage} />
+            ))}
+        {numPages - middleNumPages <= currentPage &&
+            range(numPages - middleNumPages, middleNumPages).map(p => (
+                <PageItem page={p} currentPage={currentPage} />
+            ))}
+    </>
+);
+
+export const Pagination: FC<PaginationProps> = ({
+    currentPage,
+    numPages,
+    middleNumPages,
+}) => (
     <div css={style.box}>
-        <div css={style.item}>{'<'}</div>
-        {pages.map(p => (
-            <div css={[style.item, p === current ? style.current : null]}>
-                {p}
-            </div>
-        ))}
-        <div css={style.item}>{'>'}</div>
+        {currentPage > 1 && (
+            <Link
+                to={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}
+                decoration={false}
+            >
+                <div css={style.item}>{'<'}</div>
+            </Link>
+        )}
+        <PageItem page={1} currentPage={currentPage} />
+        {currentPage > middleNumPages - 1 && (
+            <div css={style.ellipsis}>...</div>
+        )}
+        {numPages > middleNumPages && (
+            <MiddlePageItems
+                numPages={numPages}
+                currentPage={currentPage}
+                middleNumPages={middleNumPages}
+            />
+        )}
+        {currentPage < numPages - middleNumPages && (
+            <div css={style.ellipsis}>...</div>
+        )}
+        <PageItem page={numPages} currentPage={currentPage} />
+        {currentPage !== numPages && (
+            <Link to={`/page/${currentPage + 1}`} decoration={false}>
+                <div css={style.item}>{'>'}</div>
+            </Link>
+        )}
     </div>
 );
