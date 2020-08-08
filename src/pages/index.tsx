@@ -4,6 +4,7 @@ import { PageProps, graphql, Link } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { Tags } from '../components/Tags';
 import { SEO } from '../components/Seo';
+import { Pagination } from '../components/Common/Pagination';
 import { colors } from '../styles/color';
 
 interface IndexPageProps extends PageProps {
@@ -68,6 +69,7 @@ const Index: FC<IndexPageProps> = ({ data }) => {
                     </div>
                 </div>
             ))}
+            <Pagination pages={[1, 2, 3, 4, 5]} current={1} />
         </Layout>
     );
 };
