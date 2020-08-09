@@ -1,6 +1,6 @@
 import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
-import { createTagLink } from '../src/utils/link';
+import { createTagLink } from '../src/lib/link';
 
 export const onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions;
@@ -22,7 +22,9 @@ export const createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
     const result = await graphql(`
         query {
-            postsRemark: allMarkdownRemark {
+            postsRemark: allMarkdownRemark (
+                sort: { fields: [frontmatter___date], order: DESC }
+            ) {
                 edges {
                     node {
                         fields {
@@ -40,6 +42,25 @@ export const createPages = async ({ graphql, actions }) => {
     `);
 
     const posts = result.data.postsRemark.edges;
+    const postsPerPage = 6;
+    const numPages = Math.ceil(posts.length / postsPerPage);
+
+    [...Array(numPages)].forEach((_, i) => {{
+        createPage({
+            path: i === 0 ? '/' : `/page/${i+1}`,
+            component: path.resolve(
+                __dirname,
+                '../src/templates/blog-posts.tsx'
+            ),
+            context: {
+                limit: postsPerPage,
+                skip: i * postsPerPage,
+                numPages,
+                currentPage: i + 1,
+            }
+        })
+    }})
+
 
     posts.forEach(({ node }) => {
         createPage({

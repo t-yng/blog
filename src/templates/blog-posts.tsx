@@ -4,28 +4,34 @@ import { PageProps, graphql, Link } from 'gatsby';
 import { Layout } from '../components/Layout';
 import { Tags } from '../components/Tags';
 import { SEO } from '../components/Seo';
+import { Pagination } from '../components/Common/Pagination';
 import { colors } from '../styles/color';
 
-interface IndexPageProps extends PageProps {
-    data: {
-        allMarkdownRemark: {
-            edges: {
-                node: {
-                    id: string;
-                    excerpt: string;
-                    fields: {
-                        slug: string;
-                    };
-                    frontmatter: {
-                        date: string;
-                        title: string;
-                        tags: string[];
-                    };
+interface DataType {
+    allMarkdownRemark: {
+        edges: {
+            node: {
+                id: string;
+                excerpt: string;
+                fields: {
+                    slug: string;
                 };
-            }[];
-        };
+                frontmatter: {
+                    date: string;
+                    title: string;
+                    tags: string[];
+                };
+            };
+        }[];
     };
 }
+
+interface PageContext {
+    numPages: number;
+    currentPage: number;
+}
+
+type BlogPosts = PageProps<DataType, PageContext>;
 
 const style = {
     post: css`
@@ -50,7 +56,7 @@ const style = {
     `,
 };
 
-const Index: FC<IndexPageProps> = ({ data }) => {
+const Index: FC<BlogPosts> = ({ pageContext, data }) => {
     return (
         <Layout>
             <SEO />
@@ -68,6 +74,11 @@ const Index: FC<IndexPageProps> = ({ data }) => {
                     </div>
                 </div>
             ))}
+            <Pagination
+                numPages={pageContext.numPages}
+                currentPage={pageContext.currentPage}
+                middleNumPages={3}
+            />
         </Layout>
     );
 };
@@ -75,8 +86,12 @@ const Index: FC<IndexPageProps> = ({ data }) => {
 export default Index;
 
 export const query = graphql`
-    {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    query blogPostsQuery($limit: Int!, $skip: Int!) {
+        allMarkdownRemark(
+            sort: { fields: [frontmatter___date], order: DESC }
+            limit: $limit
+            skip: $skip
+        ) {
             edges {
                 node {
                     id

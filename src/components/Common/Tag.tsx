@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { css, SerializedStyles } from '@emotion/core';
 import { Link } from 'gatsby';
-import { createTagLink } from '../../utils/link';
+import { createTagLink } from '../../lib/link';
 import { colors } from '../../styles/color';
 
 interface TagProps {
