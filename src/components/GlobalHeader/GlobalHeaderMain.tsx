@@ -23,7 +23,7 @@ const style = {
         position: relative;
         top: 0;
         left: 0;
-        padding: 0.75rem 20px;
+        padding: 1rem 20px;
         max-width: 1152px;
         margin: 0 auto;
     `,
@@ -31,13 +31,17 @@ const style = {
         text-decoration: none;
         color: inherit;
     `,
+    title: css`
+        font-size: 1.5rem;
+        font-weight: 600;
+    `,
 };
 
 const GlobalHeaderMainComponent: FC<GlobalHeaderMainProps> = ({ data }) => (
     <div css={style.wrapper}>
         <div css={style.globalHeaderMain}>
             <Link css={style.siteTitleLink} to="/">
-                <h1>{data.site.siteMetadata.title}</h1>
+                <h1 css={style.title}>{data.site.siteMetadata.title}</h1>
             </Link>
         </div>
     </div>
