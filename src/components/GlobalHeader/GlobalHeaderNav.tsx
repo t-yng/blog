@@ -33,7 +33,7 @@ const style = {
     active: {
         borderBottom: `4px solid ${colors.accent}`,
         color: colors.accent,
-        fontWeight: 'bold',
+        fontWeight: 400,
     },
 };
 
@@ -59,7 +59,7 @@ export const GlobalHeaderNav = () => {
     const items: NavItem[] = [
         {
             id: 1,
-            text: 'Blog',
+            text: 'ブログ',
             to: '/',
         },
     ];

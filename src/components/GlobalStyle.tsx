@@ -4,7 +4,9 @@ import { colors } from '../styles/color';
 
 const styles = css`
     body {
+        background-color: ${colors.background};
         color: ${colors.black1};
+        font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
         margin: 0;
     }
 

@@ -7,7 +7,7 @@ import { Sidebar } from './Sidebar';
 const style = {
     main: css`
         display: grid;
-        grid-template-columns: auto 220px;
+        grid-template-columns: auto 240px;
         grid-gap: 3rem;
         margin: 0 auto;
         max-width: 1152px;

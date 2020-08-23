@@ -7,6 +7,11 @@ import { SEO } from '../components/Seo';
 import { colors } from '../styles/color';
 
 const style = {
+    post: css`
+        background-color: ${colors.white};
+        border: 1px solid ${colors.black6};
+        padding: 1rem;
+    `,
     header: css`
         margin-bottom: 2rem;
     `,
@@ -32,7 +37,7 @@ const BlogPost = ({ data }) => (
             title={data.markdownRemark.frontmatter.title}
             description={data.markdownRemark.frontmatter.description}
         />
-        <div>
+        <div css={style.post}>
             <header css={style.header}>
                 <h1 css={style.title}>{data.markdownRemark.frontmatter.title}</h1>
                 <Tags tags={data.markdownRemark.frontmatter.tags} />

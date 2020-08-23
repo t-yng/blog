@@ -16,6 +16,7 @@ const style = {
     tag: css`
         background-color: ${colors.black5};
         border-radius: 4px;
+        color: ${colors.black2};
         font-size: 0.75rem;
         padding: 5px;
         &:hover {
