@@ -35,6 +35,9 @@ type BlogPosts = PageProps<DataType, PageContext>;
 
 const style = {
     post: css`
+        background-color: ${colors.white};
+        border: 1px solid ${colors.black6};
+        padding: 1rem;
         margin-bottom: 2rem;
     `,
     titleLink: css`
@@ -42,10 +45,14 @@ const style = {
         color: inherit;
     `,
     date: css`
-        color: ${colors.black2};
+        color: ${colors.black3};
+        font-size: 0.85rem;
     `,
     border: css`
-        margin: 1.125rem 0;
+        margin: 10px 0;
+        border: none;
+        height: 1px;
+        background-color: ${colors.black4};
     `,
     excerpt: css`
         margin-bottom: 1.125rem;
