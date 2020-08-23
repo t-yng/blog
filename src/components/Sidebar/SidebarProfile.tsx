@@ -34,8 +34,8 @@ const style = {
         margin-bottom: 4px;
     `,
     icon: css`
-        height: 24px;
-        width: 24px;
+        height: 20px;
+        width: 20px;
     `,
 };
 

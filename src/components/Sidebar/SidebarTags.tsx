@@ -17,9 +17,14 @@ export interface SidebarTagsProps {
 const style = {
     tags: css`
         list-style: none;
+        margin-top: 0;
+        margin-bottom: 0;
         padding-left: 0;
     `,
     tag: css`
+        color: ${colors.black2};
+        font-size: 0.875rem;
+        line-height: 1.15rem;
         margin-bottom: 0.5rem;
         &:hover {
             color: ${colors.accent};
