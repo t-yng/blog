@@ -12,6 +12,6 @@ const style = {
 export const GlobalHeader = () => (
     <header css={style.globalHeader}>
         <GlobalHeaderMain />
-        <GlobalHeaderNav />
+        {/* <GlobalHeaderNav />  */} {/* ブログだけなので表示しない */}
     </header>
 );

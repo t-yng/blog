@@ -19,29 +19,17 @@ const style = {
         background-color: ${colors.main};
     `,
     globalHeaderMain: css`
-        color: ${colors.white};
-        position: relative;
-        top: 0;
-        left: 0;
+        display: flex;
+        justify-content: center;
         padding: 1rem 20px;
-        max-width: 1152px;
-        margin: 0 auto;
-    `,
-    siteTitleLink: css`
-        text-decoration: none;
-        color: inherit;
-    `,
-    title: css`
-        font-size: 1.5rem;
-        font-weight: 600;
     `,
 };
 
 const GlobalHeaderMainComponent: FC<GlobalHeaderMainProps> = ({ data }) => (
     <div css={style.wrapper}>
         <div css={style.globalHeaderMain}>
-            <Link css={style.siteTitleLink} to="/">
-                <h1 css={style.title}>{data.site.siteMetadata.title}</h1>
+            <Link to="/">
+                <img src="/images/title.svg" />
             </Link>
         </div>
     </div>

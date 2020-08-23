@@ -4,6 +4,7 @@ import { colors } from '../styles/color';
 
 const styles = css`
     body {
+        background-color: ${colors.background};
         color: ${colors.black1};
         margin: 0;
     }

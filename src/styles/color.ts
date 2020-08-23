@@ -4,7 +4,8 @@ export const colors = {
     black3: 'rgba(0, 0, 0, 0.38)',
     black4: 'rgba(0, 0, 0, 0.12)',
     black5: 'rgba(0, 0, 0, 0.06)',
-    white: '#FFF',
-    main: '#73B83D',
-    accent: '#54862D',
+    white: 'hsl(0, 100%, 100%)',
+    main: 'hsl(109, 40%, 50%)',
+    accent: 'hsl(109, 50%, 35%)',
+    background: 'hsl(109, 6%, 95%)',
 };
