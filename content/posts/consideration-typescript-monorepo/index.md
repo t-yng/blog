@@ -1,5 +1,5 @@
 ---
-title: 既存のTypeScriptプロジェクトをモノリポ化した時のまとめ
+title: TypeScriptプロジェクトをモノリポ化した時のまとめ
 date: 2020-08-09
 description: ディレクトリ分割でフロントエンドとサーバーのコードを管理していたリポジトリをリファクタしてモノリポ化した時のまとめ。
 tags: ['TypeScript']
