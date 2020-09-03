@@ -6,7 +6,7 @@
 
 module.exports = {
     siteMetadata: {
-        title: 'みどりさるのエンジニア',
+        title: 'みどりのさるのエンジニア',
         author: 't-yng',
         description: '神奈川の田舎で働いてるフロントエンドエンジニアのブログ',
         url: 'https://t-yng.jp',
