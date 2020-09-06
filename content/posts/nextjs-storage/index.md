@@ -66,11 +66,10 @@ ReferenceError: sessionStorage is not defined
 ```
 
 ## useEffectで実行する
-この問題は `useEffect()` 内で非同期でユーザー情報を取得する事で解決できます。`useEffect()` の実行は ブラウザ上でのみ限定され、SSRやSSGのタイミングでは実行されます。この時、実行が非同期になるので、新しく `loading` 状態を追加します。
+この問題は `useEffect()` 内で非同期でユーザー情報を取得する事で解決できます。`useEffect()` の実行は ブラウザ上でのみ限定され、SSRやSSGのタイミングでは実行されません。実行が非同期になるので、新しく `loading` を状態として追加します。
 
 ```typescript
-// hooks/useState.ts
-
+// hooks/useUser.ts
 export const useUser = () => {
   const [user] = useState<User | undefined>(readUser());
 
@@ -115,9 +114,10 @@ const IndexPage = () => {
 ```
 
 上記の対応で `sessionStorage` を使えるようになりましたが、一つだけ問題が発生しました。せっかく `sessionStorage` にデータをキャッシュしているのに、`useEffect()` を利用する関係上、非同期で読み込む必要があるので、例えばページ遷移の度に「読み込み中...」が表示されてしまいます。  
+
 ※ デモは分かりやすくするために意図的に表示を遅らせています。
 
-![ページ読み込み](move-page.gif)
+![ページ読み込み](./move-page.gif)
 
 ## Dynamic import
 Next.js は [Dynamic import](https://nextjs.org/docs/advanced-features/dynamic-import) で読み込むことで、サーバーサイドでモジュールを読み込まないようにする事ができます。これにより、フロントでのみ `sessitionStorage` の参照します。
