@@ -1,11 +1,11 @@
 ---
 title: Next.jsでStorageオブジェクトを使う
 date: 2020-09-05
-description: Next.jsでStorageオブジェクトを使う
-tags: ['フロントエンド', 'React']
+description: Next.jsでブラウザの Storage オブジェクト を使う時の対応策をまとめています。
+tags: ['フロントエンド', 'React', 'Next.js']
 ---
 
-Next.jsでブラウザの Storage オブジェクト を使う時に、ちょっとだけハマるので気を付けることをまとめておきます。
+Next.jsでブラウザの Storage オブジェクト を使う時の対応策をまとめています。
 
 参考実装は [t-yng/examples/nextjs-localstorage](https://github.com/t-yng/examples/tree/master/nextjs-localstorage) を参照してください。
 
