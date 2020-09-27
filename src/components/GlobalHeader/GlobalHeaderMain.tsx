@@ -29,7 +29,7 @@ const GlobalHeaderMainComponent: FC<GlobalHeaderMainProps> = ({ data }) => (
     <div css={style.wrapper}>
         <div css={style.globalHeaderMain}>
             <Link to="/">
-                <img src="/images/title.svg" />
+                <img src="/images/title-logo.svg" />
             </Link>
         </div>
     </div>
