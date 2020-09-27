@@ -5,9 +5,13 @@ description: GatsbyJSで認証サイトを実装するチュートリアルを�
 tags: ['フロントエンド', 'GatsbyJS']
 ---
 
-[Making a Site with User Authentication \| Gatsby](https://www.gatsbyjs.com/tutorial/authentication-tutorial/) の作業を個人向けの備忘録としてまとめています。
+[Making a Site with User Authentication \| Gatsby](https://www.gatsbyjs.com/tutorial/authentication-tutorial/) のチュートリアルを試した時の作業を備忘録としてまとめました。
 
 全体の実装は [t-yng/examples/gatsby-auth](https://github.com/t-yng/examples/tree/master/gatsby-auth) を参照してください。
+
+## 要件
+* ログイン、ログアウトができる
+* 非ログイン状態で要認証ページが表示できないこと
 
 ## プロジェクトの作成
 
