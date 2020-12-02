@@ -14,13 +14,17 @@ const style = {
         color: inherit;
     `,
     tag: css`
-        background-color: ${colors.black5};
+        background-color: ${colors.black6};
         border-radius: 4px;
         color: ${colors.black2};
+        display: flex;
+        flex-direction: column;
         font-size: 0.75rem;
-        padding: 5px;
+        justify-content: center;
+        line-height: 1.5;
+        padding: 4px 8px;
         &:hover {
-            background-color: ${colors.black4}
+            background-color: ${colors.black5};
         }
     `,
 };

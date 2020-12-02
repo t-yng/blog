@@ -28,6 +28,13 @@ const style = {
             border-bottom: 0.5px solid ${colors.black4};
             padding-bottom: 0.5rem;
         }
+        blockquote {
+            border-left: 5px solid ${colors.black5};
+            color: ${colors.black2};
+            padding: 1rem;
+            padding-right: 0;
+            margin: 1.5rem 0;
+        }
     `,
 };
 

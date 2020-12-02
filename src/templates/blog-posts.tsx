@@ -47,7 +47,7 @@ const Index: FC<BlogPosts> = ({ pageContext, data }) => {
             <Pagination
                 numPages={pageContext.numPages}
                 currentPage={pageContext.currentPage}
-                middleNumPages={3}
+                middleNumPages={2}
             />
         </Layout>
     );
