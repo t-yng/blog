@@ -6,6 +6,8 @@ tags: ['フロントエンド']
 ---
 ![wasm-othello](./wasm-othello.png)
 
+この記事は [Hamee Advent Calendar 2020](https://qiita.com/advent-calendar/2020/hamee) の3日目の記事です。  
+
 ↓のURLからオセロが遊べるので、ぜひ遊んでみてください！  
 https://wasm-othello.t-yng.jp/
 
@@ -13,7 +15,8 @@ https://wasm-othello.t-yng.jp/
 
 全体のソースコードは [t-yng/wasm-othello](https://github.com/t-yng/wasm-othello) に置いてあります。
 
-この記事は [Hamee Advent Calendar 2020](https://qiita.com/advent-calendar/2020/hamee)の3日目の記事です。
+実装したのは2020年3月頃とかなり前なのですが供養も兼ねて記事にまとめました。  
+余談ですが、もうすぐ令和2年が終わるという事実に衝撃を受けながら、この記事を書いています。
 
 ## はじめに
 
