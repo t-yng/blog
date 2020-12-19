@@ -9,4 +9,5 @@ export const colors = {
     main: 'hsl(109, 40%, 50%)',
     accent: 'hsl(109, 50%, 35%)',
     background: 'hsl(109, 6%, 95%)',
+    textBlack: 'hsl(208, 14%, 27%)',
 };
