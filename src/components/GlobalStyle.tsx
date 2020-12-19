@@ -5,7 +5,7 @@ import { colors } from '../styles/color';
 const styles = css`
     body {
         background-color: ${colors.background};
-        color: ${colors.black1};
+        color: ${colors.textBlack};
         font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
         margin: 0;
     }
@@ -14,6 +14,10 @@ const styles = css`
     h2,
     h3 {
         margin: 0;
+    }
+
+    p, ul {
+        line-height: 1.8
     }
 `;
 
