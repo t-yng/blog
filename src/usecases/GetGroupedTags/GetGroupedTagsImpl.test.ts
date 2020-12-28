@@ -1,14 +1,14 @@
 import { instance, mock, verify, when } from 'ts-mockito';
 import { Post } from '../../entities/Post';
 import { PostsRepository } from '../../repositories/PostsRepository';
-import { GetAllTagsImpl } from './GetGroupedTagsImpl';
+import { GetGroupedTagsImpl } from './GetGroupedTagsImpl';
 
 describe('GetGoupedTagsImpl', () => {
     let mockPostsRepository: PostsRepository;
     let mockPosts: Post[];
 
     const getUsecase = (postsRepository: PostsRepository) =>
-        new GetAllTagsImpl(postsRepository);
+        new GetGroupedTagsImpl(postsRepository);
 
     beforeAll(() => {
         mockPosts = [...Array(2)].map(() => mock<Post>());
@@ -27,19 +27,21 @@ describe('GetGoupedTagsImpl', () => {
 
         verify(mockPostsRepository.getAllPosts()).times(1);
         expect(result.length).toEqual(3);
-        expect(result).toEqual([
-            {
-                name: 'TypeScript',
-                count: 2,
-            },
-            {
-                name: 'フロントエンド',
-                count: 1,
-            },
-            {
-                name: 'サーバー',
-                count: 1,
-            },
-        ]);
+        expect(result).toEqual(
+            expect.arrayContaining([
+                {
+                    name: 'TypeScript',
+                    count: 2,
+                },
+                {
+                    name: 'フロントエンド',
+                    count: 1,
+                },
+                {
+                    name: 'サーバー',
+                    count: 1,
+                },
+            ])
+        );
     });
 });

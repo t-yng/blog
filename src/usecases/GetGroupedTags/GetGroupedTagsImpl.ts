@@ -3,13 +3,12 @@ import { Tag } from '../../entities/Tag';
 import { PostsRepository } from '../../repositories/PostsRepository';
 import { GetGoupedTags } from './GetGroupedTags';
 
-export class GetAllTagsImpl implements GetGoupedTags {
+export class GetGroupedTagsImpl implements GetGoupedTags {
     constructor(private postsRespository: PostsRepository) {}
 
     invoke(): Tag[] {
         const posts = this.postsRespository.getAllPosts();
-        const tags = this.groupTags(posts);
-        return tags.sort((a, b) => b.count - a.count); // countの降順でソートする
+        return this.groupTags(posts);
     }
 
     private groupTags(posts: Post[]): Tag[] {
