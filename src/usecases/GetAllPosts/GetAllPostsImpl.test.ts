@@ -1,7 +1,7 @@
-import { mock, when, verify } from 'ts-mockito';
-import { PostsRepository } from '../repositories/PostsRepository';
+import { mock, when, verify, instance } from 'ts-mockito';
+import { PostsRepository } from '../../repositories/PostsRepository';
 import { GetAllPostsImpl } from './GetAllPostsImpl';
-import { Post } from '../entities/Post';
+import { Post } from '../../entities/Post';
 
 describe('GetAllPostsImpl', () => {
     let mockPostsRepository: PostsRepository;
@@ -18,7 +18,7 @@ describe('GetAllPostsImpl', () => {
     });
 
     it('invoke retusns post array', () => {
-        const useCase = getUseCase(mockPostsRepository);
+        const useCase = getUseCase(instance(mockPostsRepository));
         const result = useCase.invoke();
 
         verify(mockPostsRepository.getAllPosts()).times(1);
