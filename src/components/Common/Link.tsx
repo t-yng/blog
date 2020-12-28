@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import { Link as GaLink, GatsbyLinkProps } from 'gatsby';
+import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { css } from '@emotion/core';
 
-interface LinkProps<TState> extends Omit<GatsbyLinkProps<TState>, 'ref'> {
+type LinkProps = NextLinkProps & {
+    text: string;
     decoration?: boolean;
-}
-
-type LinkComponent<TState = {}> = FC<LinkProps<TState>>;
+};
 
 const style = {
     nonDecoration: css`
@@ -15,14 +14,17 @@ const style = {
     `,
 };
 
-export const Link: LinkComponent = ({
-    children,
+export const Link: FC<LinkProps> = ({
     decoration = true,
+    text,
     ...others
 }) => {
     return (
-        <GaLink css={decoration ? undefined : style.nonDecoration} {...others}>
-            {children}
-        </GaLink>
+        <NextLink
+            css={decoration ? undefined : style.nonDecoration}
+            {...others}
+        >
+            <a>{text}</a>
+        </NextLink>
     );
 };
