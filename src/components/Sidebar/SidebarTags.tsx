@@ -32,10 +32,14 @@ const style = {
     `,
 };
 
+const sortTags = (tags: Tag[]): Tag[] => {
+    return tags.sort((a, b) => b.count - a.count);
+};
+
 export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
     <SidebarSection title="タグ" {...others}>
         <ul css={style.tags}>
-            {tags.map(tag => (
+            {sortTags(tags).map(tag => (
                 <li key={tag.name} css={style.tag}>
                     <Link
                         key={tag.name}

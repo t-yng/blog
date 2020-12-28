@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { css } from '@emotion/core';
-import { SidebarTags, SidebarTagsProps } from './SidebarTags';
-import { SidebarProfile, SidebarProfileProps } from './SidebarProfile';
+import { SidebarTags } from './SidebarTags';
+import { SidebarProfile } from './SidebarProfile';
+import { Tag } from '../../entities/Tag';
+import { Profile } from '../../constants/profile';
 
 type SidebarProps = {
-    tags: SidebarTagsProps['tags'];
-    profile: SidebarProfileProps;
+    tags: Tag[];
+    profile: Profile;
 };
 
 const style = {
@@ -15,62 +16,9 @@ const style = {
     `,
 };
 
-export const SidebarComponent: FC<SidebarProps> = ({ tags, profile }) => (
+export const Sidebar: FC<SidebarProps> = ({ tags, profile }) => (
     <div>
-        <SidebarProfile css={style.section} {...profile} />
+        <SidebarProfile css={style.section} profile={profile} />
         <SidebarTags tags={tags} />
     </div>
 );
-
-export const Sidebar = () => {
-    const data = useStaticQuery(graphql`
-        query {
-            allMarkdownRemark {
-                group(field: frontmatter___tags) {
-                    fieldValue
-                    totalCount
-                }
-            }
-            site {
-                siteMetadata {
-                    author
-                    profile {
-                        speciality
-                        avatar
-                        github {
-                            icon
-                            url
-                        }
-                    }
-                }
-            }
-        }
-    `);
-
-    const tags: SidebarProps['tags'] = data.allMarkdownRemark.group.map(
-        tag => ({
-            name: tag.fieldValue,
-            count: tag.totalCount,
-        })
-    )
-    .sort((a, b) => {
-        const nameA = a.name.toLowerCase()
-        const nameB = b.name.toLowerCase()
-
-        if (nameA < nameB) {
-            return -1;
-        }
-        if (nameA > nameB) {
-            return 1;
-        }
-
-        return 0;
-    });
-
-    const profile: SidebarProps['profile'] = {
-        name: data.site.siteMetadata.author,
-        ...data.site.siteMetadata.profile,
-    };
-
-    return <SidebarComponent tags={tags} profile={profile} />;
-};

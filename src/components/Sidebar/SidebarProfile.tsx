@@ -2,15 +2,10 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { colors } from '../../styles/color';
 import { SidebarSection } from './SidebarSection';
+import { Profile } from '../../constants/profile';
 
 export interface SidebarProfileProps {
-    name: string;
-    speciality: string;
-    avatar: string;
-    github: {
-        icon: string;
-        url: string;
-    };
+    profile: Profile;
 }
 
 const style = {
@@ -39,24 +34,22 @@ const style = {
     `,
 };
 
-export const SidebarProfile = ({
-    name,
-    speciality,
-    avatar,
-    github,
-    ...others
-}: SidebarProfileProps) => (
+export const SidebarProfile = ({ profile, ...others }: SidebarProfileProps) => (
     <SidebarSection title="プロフィール" {...others}>
         <div css={style.wrapper}>
-            <img css={style.avatar} src={avatar} alt="筆者のアバター画像" />
+            <img
+                css={style.avatar}
+                src={profile.avatar}
+                alt="筆者のアバター画像"
+            />
             <div>
-                <div css={style.name}>{name}</div>
-                <div css={style.speciality}>{speciality}</div>
+                <div css={style.name}>{profile.name}</div>
+                <div css={style.speciality}>{profile.speciality}</div>
                 <div>
-                    <a href={github.url} target="_blank" rel="noopener">
+                    <a href={profile.github.url} target="_blank" rel="noopener">
                         <img
                             css={style.icon}
-                            src={github.icon}
+                            src={profile.github.icon}
                             alt="Githubへのリンクアイコン"
                         />
                     </a>
