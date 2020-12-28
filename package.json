@@ -32,11 +32,14 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.2",
+    "@types/react-test-renderer": "^17.0.0",
     "date-fns": "^2.16.1",
     "gatsby-remark-copy-linked-files": "^2.3.13",
     "gray-matter": "^4.0.2",
     "jest": "^26.6.3",
     "prettier": "2.0.5",
+    "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.4.4",
     "ts-mockito": "^2.6.1",
     "ts-node": "^8.10.2",
