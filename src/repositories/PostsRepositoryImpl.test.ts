@@ -1,4 +1,5 @@
 import { join } from 'path';
+import { profile } from '../constants/profile';
 import { PostsRepositoryImpl } from './PostsRepositoryImpl';
 
 describe('PostsRepositoryImpl', () => {
@@ -19,7 +20,11 @@ describe('PostsRepositoryImpl', () => {
             expect(result[0].slug).toBe('test-post');
             expect(result[0].date).toBe('2020年 04月 19日');
             expect(result[0].title).toBe('Test Post Title');
+            expect(result[0].description).toEqual(
+                'This is test post description'
+            );
             expect(result[0].tags).toEqual(['test']);
+            expect(result[0].author).toEqual(profile.name);
             expect(result[0].content).toEqual('This is test post.\n');
         });
     });

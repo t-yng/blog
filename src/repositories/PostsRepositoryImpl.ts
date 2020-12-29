@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import matter from 'gray-matter';
 import { Post } from '../entities/Post';
 import { PostsRepository } from './PostsRepository';
+import { profile } from '../constants/profile';
 
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {
@@ -37,7 +38,9 @@ export class PostsRepositoryImpl implements PostsRepository {
             slug,
             date: this.formatDate(data['date']),
             title: data['title'],
+            description: data['description'],
             tags: data['tags'],
+            author: data['author'] || profile.name,
             content,
         };
     }
