@@ -47,7 +47,10 @@ export class PostsRepositoryImpl implements PostsRepository {
 
     getPostsByTag(tag: string) {
         const posts = this.getAllPosts();
-        return posts.filter(post => post.tags.includes(tag));
+        return posts.filter(post => {
+            const tags = post.tags.map(tag => tag.toLowerCase());
+            return tags.includes(tag.toLowerCase());
+        });
     }
 
     private formatDate(date: Date) {

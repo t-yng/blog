@@ -46,14 +46,9 @@ describe('PostsRepositoryImpl', () => {
     });
 
     describe('getPostsByTag', () => {
-        let mockPosts: Post[];
-
-        beforeEach(() => {
-            mockPosts = [...Array(3)].map(() => mock<Post>());
-        });
-
         it('returns posts by tag', () => {
             const repo = new PostsRepositoryImpl();
+            const mockPosts: Post[] = [...Array(3)].map(() => mock<Post>());
             when(mockPosts[0].tags).thenReturn([
                 'TypeScript',
                 'フロントエンド',
@@ -66,6 +61,18 @@ describe('PostsRepositoryImpl', () => {
 
             const result = repo.getPostsByTag('TypeScript');
             expect(result.length).toBe(2);
+        });
+
+        it('ignores Upper or Lower', () => {
+            const repo = new PostsRepositoryImpl();
+            const mockPosts: Post[] = [mock<Post>()];
+            when(mockPosts[0].tags).thenReturn(['TypeScript']);
+            Object.defineProperty(repo, 'getAllPosts', {
+                value: () => mockPosts.map(mockPost => instance(mockPost)),
+            });
+
+            const result = repo.getPostsByTag('typescript');
+            expect(result.length).toBe(1);
         });
     });
 });
