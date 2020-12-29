@@ -1,18 +1,7 @@
 import React, { FC } from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import Link from 'next/link';
 import { css } from '@emotion/core';
-import { GlobalHeaderNav } from './GlobalHeaderNav';
 import { colors } from '../../styles/color';
-
-interface GlobalHeaderMainProps {
-    data: {
-        site: {
-            siteMetadata: {
-                title: string;
-            };
-        };
-    };
-}
 
 const style = {
     wrapper: css`
@@ -25,28 +14,12 @@ const style = {
     `,
 };
 
-const GlobalHeaderMainComponent: FC<GlobalHeaderMainProps> = ({ data }) => (
+export const GlobalHeaderMain: FC = () => (
     <div css={style.wrapper}>
         <div css={style.globalHeaderMain}>
-            <Link to="/">
+            <Link href="/">
                 <img src="/images/title-logo.svg" />
             </Link>
         </div>
     </div>
 );
-
-export const GlobalHeaderMain: FC = () => {
-    const data = useStaticQuery(
-        graphql`
-            query {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
-            }
-        `
-    );
-
-    return <GlobalHeaderMainComponent data={data} />;
-};
