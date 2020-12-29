@@ -1,10 +1,14 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
-import { GlobalfStyle } from '../components/GlobalStyle';
-import { GlobalHeader } from '../components/GlobalHeader';
-import { Sidebar } from '../components/Sidebar';
-import { usecases } from '../usecases/UsecaseContainer';
+import { GlobalfStyle } from './GlobalStyle';
+import { GlobalHeader } from './GlobalHeader';
+import { Sidebar } from './Sidebar';
 import { profile } from '../constants/profile';
+import { Tag } from '../entities/Tag';
+
+export type LayoutProps = {
+    tags: Tag[];
+};
 
 const style = {
     main: css`
@@ -23,9 +27,7 @@ const style = {
     `,
 };
 
-const LayoutComponent: FC = ({ children }) => {
-    const tags = usecases.getGroupedTags.invoke();
-
+export const Layout: FC<LayoutProps> = ({ children, tags }) => {
     return (
         <div>
             <GlobalfStyle />
@@ -37,5 +39,3 @@ const LayoutComponent: FC = ({ children }) => {
         </div>
     );
 };
-
-export const Layout = LayoutComponent;
