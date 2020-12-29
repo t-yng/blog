@@ -12,7 +12,7 @@ interface PostEntryProps {
         date: string;
         title: string;
         tags: string[];
-    }
+    };
 }
 
 const style = {
@@ -41,9 +41,9 @@ const style = {
     `,
 };
 
-export const PostEntry: FC<PostEntryProps> = (props) => (
+export const PostEntry: FC<PostEntryProps> = props => (
     <div key={props.id} css={style.postEntry}>
-        <Link href={props.slug} decoration={false}>
+        <Link href={`/posts/${props.slug}`} decoration={false}>
             <h2>{props.frontmatter.title}</h2>
         </Link>
         <div css={style.date}>{props.frontmatter.date}</div>
@@ -51,7 +51,7 @@ export const PostEntry: FC<PostEntryProps> = (props) => (
         <div css={style.excerpt}>{props.excerpt}</div>
         <div css={style.footer}>
             <Tags tags={props.frontmatter.tags} />
-            <Link href={props.slug}>記事の続きを読む</Link>
+            <Link href={`/posts/${props.slug}`}>記事の続きを読む</Link>
         </div>
     </div>
 );
