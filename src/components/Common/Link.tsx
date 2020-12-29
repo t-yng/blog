@@ -3,7 +3,6 @@ import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { css } from '@emotion/core';
 
 type LinkProps = NextLinkProps & {
-    text: string;
     decoration?: boolean;
 };
 
@@ -16,15 +15,12 @@ const style = {
 
 export const Link: FC<LinkProps> = ({
     decoration = true,
-    text,
+    children,
     ...others
 }) => {
     return (
-        <NextLink
-            css={decoration ? undefined : style.nonDecoration}
-            {...others}
-        >
-            <a>{text}</a>
+        <NextLink {...others}>
+            <a css={decoration ? undefined : style.nonDecoration}>{children}</a>
         </NextLink>
     );
 };

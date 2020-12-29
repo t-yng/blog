@@ -45,8 +45,7 @@ export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
                         key={tag.name}
                         decoration={false}
                         href={createTagLink(tag.name)}
-                        text={`${tag.name} (${tag.count})`}
-                    />
+                    >{`${tag.name} (${tag.count})`}</Link>
                 </li>
             ))}
         </ul>

@@ -54,7 +54,7 @@ interface PageItemProps {
 }
 
 const PageItem: FC<PageItemProps> = ({ page, currentPage }) => (
-    <Link to={page === 1 ? '/' : `/page/${page}`} decoration={false}>
+    <Link href={page === 1 ? '/' : `/page/${page}`} decoration={false}>
         <div css={[style.item, page === currentPage ? style.current : null]}>
             {page}
         </div>
@@ -78,12 +78,12 @@ const MiddlePageItems: FC<MiddlePageItems> = ({
                 <PageItem page={p} currentPage={currentPage} />
             ))}
         {middleNumPages <= currentPage &&
-            currentPage < (numPages - middleNumPages) &&
+            currentPage < numPages - middleNumPages &&
             range(currentPage - 1, middleNumPages).map(p => (
                 <PageItem page={p} currentPage={currentPage} />
             ))}
         {middleNumPages <= currentPage &&
-            (numPages - middleNumPages) <= currentPage &&
+            numPages - middleNumPages <= currentPage &&
             range(numPages - middleNumPages, middleNumPages).map(p => (
                 <PageItem page={p} currentPage={currentPage} />
             ))}
@@ -98,7 +98,7 @@ export const Pagination: FC<PaginationProps> = ({
     <div css={style.box}>
         {currentPage > 1 && (
             <Link
-                to={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}
+                href={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}
                 decoration={false}
             >
                 <div css={style.item}>{'<'}</div>
@@ -125,7 +125,7 @@ export const Pagination: FC<PaginationProps> = ({
             )}
         <PageItem page={numPages} currentPage={currentPage} />
         {currentPage !== numPages && (
-            <Link to={`/page/${currentPage + 1}`} decoration={false}>
+            <Link href={`/page/${currentPage + 1}`} decoration={false}>
                 <div css={style.item}>{'>'}</div>
             </Link>
         )}
