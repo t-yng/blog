@@ -9,15 +9,22 @@ import { PostsRepository } from './PostsRepository';
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {
         const slugs = this.getPostsSlugs();
-        return slugs.map(slug => this.getPostBySlug(slug));
+        return slugs
+            .map(slug => this.getPostBySlug(slug))
+            .filter((x): x is Post => x != null);
     }
 
-    private getPostBySlug(slug: string): Post {
+    getPostBySlug(slug: string): Post | null {
         const fullPath = join(
             PostsRepositoryImpl.postsDirectory(),
             slug,
             'index.md'
         );
+
+        if (!fs.existsSync(fullPath)) {
+            return null;
+        }
+
         const fileContent = fs.readFileSync(fullPath);
         const { data, content, excerpt } = matter(fileContent, {
             excerpt: true,
