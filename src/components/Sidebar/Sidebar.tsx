@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { SidebarTags } from './SidebarTags';
 import { SidebarProfile } from './SidebarProfile';
 import { Tag } from '../../entities/Tag';

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/core';
-import { GlobalfStyle } from './GlobalStyle';
+import { css } from '@emotion/react';
+import { GlobalStyle } from './GlobalStyle';
 import { GlobalHeader } from './GlobalHeader';
 import { Sidebar } from './Sidebar';
 import { profile } from '../constants/profile';
@@ -30,7 +30,7 @@ const style = {
 export const Layout: FC<LayoutProps> = ({ children, tags }) => {
     return (
         <div>
-            <GlobalfStyle />
+            <GlobalStyle />
             <GlobalHeader />
             <main css={style.main}>
                 <div css={style.content}>{children}</div>

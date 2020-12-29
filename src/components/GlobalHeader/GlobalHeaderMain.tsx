@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from '../Common/Link';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { colors } from '../../styles/color';
 
 const style = {

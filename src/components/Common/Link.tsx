@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 type LinkProps = NextLinkProps & {
     decoration?: boolean;

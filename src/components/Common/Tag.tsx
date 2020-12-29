@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import { Link } from '../Common/Link';
 import { createTagLink } from '../../lib/link';
 import { colors } from '../../styles/color';
@@ -9,10 +9,6 @@ interface TagProps {
 }
 
 const style = {
-    link: css`
-        text-decoration: none;
-        color: inherit;
-    `,
     tag: css`
         background-color: ${colors.black6};
         border-radius: 4px;
@@ -30,7 +26,7 @@ const style = {
 };
 
 export const Tag: FC<TagProps> = ({ tag, ...others }) => (
-    <Link css={style.link} href={createTagLink(tag)}>
+    <Link href={createTagLink(tag)} decoration={false}>
         <div css={style.tag} {...others}>
             {tag}
         </div>
