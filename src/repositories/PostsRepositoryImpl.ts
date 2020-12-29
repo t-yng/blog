@@ -9,7 +9,7 @@ import { profile } from '../constants/profile';
 
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {
-        const slugs = this.getPostsSlugs();
+        const slugs = this.getAllSlugs();
         return slugs
             .map(slug => this.getPostBySlug(slug))
             .filter((x): x is Post => x != null);
@@ -45,11 +45,16 @@ export class PostsRepositoryImpl implements PostsRepository {
         };
     }
 
+    getPostsByTag(tag: string) {
+        const posts = this.getAllPosts();
+        return posts.filter(post => post.tags.includes(tag));
+    }
+
     private formatDate(date: Date) {
         return format(date, 'yyyy年 MM月 dd日');
     }
 
-    private getPostsSlugs(): string[] {
+    private getAllSlugs(): string[] {
         return fs.readdirSync(PostsRepositoryImpl.postsDirectory());
     }
 

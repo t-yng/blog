@@ -1,5 +1,7 @@
 import { join } from 'path';
+import { instance, mock, when } from 'ts-mockito';
 import { profile } from '../constants/profile';
+import { Post } from '../entities/Post';
 import { PostsRepositoryImpl } from './PostsRepositoryImpl';
 
 describe('PostsRepositoryImpl', () => {
@@ -40,6 +42,30 @@ describe('PostsRepositoryImpl', () => {
             const repo = new PostsRepositoryImpl();
             const result = repo.getPostBySlug('not-exist-slug');
             expect(result).toBeNull();
+        });
+    });
+
+    describe('getPostsByTag', () => {
+        let mockPosts: Post[];
+
+        beforeEach(() => {
+            mockPosts = [...Array(3)].map(() => mock<Post>());
+        });
+
+        it('returns posts by tag', () => {
+            const repo = new PostsRepositoryImpl();
+            when(mockPosts[0].tags).thenReturn([
+                'TypeScript',
+                'フロントエンド',
+            ]);
+            when(mockPosts[1].tags).thenReturn(['TypeScript', 'サーバー']);
+            when(mockPosts[2].tags).thenReturn(['フロントエンド']);
+            Object.defineProperty(repo, 'getAllPosts', {
+                value: () => mockPosts.map(mockPost => instance(mockPost)),
+            });
+
+            const result = repo.getPostsByTag('TypeScript');
+            expect(result.length).toBe(2);
         });
     });
 });
