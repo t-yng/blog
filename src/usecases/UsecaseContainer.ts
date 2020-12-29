@@ -7,7 +7,7 @@ import { GetPostBySlugImpl } from './GetPostBySlug/GetPostBySlugImpl';
 
 export type Usecases = {
     getAllPosts: GetAllPosts;
-    getPosyBySlug: GetPostBySlug;
+    getPostBySlug: GetPostBySlug;
     getGroupedTags: GetGoupedTags;
 };
 
@@ -21,6 +21,6 @@ const getGroupedTagsImpl: GetGoupedTags = new GetGroupedTagsImpl(
 
 export const usecases: Usecases = {
     getAllPosts: getAllPostsImpl,
-    getPosyBySlug: getPostBySlugImpl,
+    getPostBySlug: getPostBySlugImpl,
     getGroupedTags: getGroupedTagsImpl,
 };

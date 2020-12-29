@@ -81,7 +81,7 @@ type Params = {
 export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
     context
 ): Promise<GetStaticPropsResult<PostPageProps>> => {
-    const post = usecases.getPosyBySlug.invoke(context.params?.slug!);
+    const post = usecases.getPostBySlug.invoke(context.params?.slug!);
     const tags = usecases.getGroupedTags.invoke();
     const html = await markdown.toHtml(post.content);
 
