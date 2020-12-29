@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
-import { Tag } from './Common/Tag';
+import { Tag as TagComponent } from './Common/Tag';
+import { Tag } from '../entities/Tag';
 
 interface TagsProps {
     tags: string[];
@@ -15,10 +16,27 @@ const style = {
     `,
 };
 
+const sortTags = (tags: string[]): string[] => {
+    return tags.sort((a, b) => {
+        const aName = a.toUpperCase();
+        const bName = b.toUpperCase();
+
+        if (aName < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        }
+
+        return 0;
+    });
+};
+
 export const Tags: FC<TagsProps> = ({ tags }) => (
     <div css={style.tags}>
-        {tags.sort().map(tag => (
-            <Tag css={style.tag} tag={tag} key={tag} />
-        ))}
+        {sortTags(tags).map(tag => {
+            return (
+                <TagComponent css={style.tag} tag={tag} key={tag} />
+            );
+        })}
     </div>
 );
