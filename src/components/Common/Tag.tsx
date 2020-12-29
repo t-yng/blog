@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { css, SerializedStyles } from '@emotion/core';
-import { Link } from 'gatsby';
+import { css } from '@emotion/core';
+import { Link } from '../Common/Link';
 import { createTagLink } from '../../lib/link';
 import { colors } from '../../styles/color';
 
@@ -30,7 +30,7 @@ const style = {
 };
 
 export const Tag: FC<TagProps> = ({ tag, ...others }) => (
-    <Link css={style.link} to={createTagLink(tag)}>
+    <Link css={style.link} href={createTagLink(tag)}>
         <div css={style.tag} {...others}>
             {tag}
         </div>

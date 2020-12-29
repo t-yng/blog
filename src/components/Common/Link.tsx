@@ -19,7 +19,7 @@ export const Link: FC<LinkProps> = ({
     ...others
 }) => {
     return (
-        <NextLink {...others}>
+        <NextLink {...others} passHref>
             <a css={decoration ? undefined : style.nonDecoration}>{children}</a>
         </NextLink>
     );

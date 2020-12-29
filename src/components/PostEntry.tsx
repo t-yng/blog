@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
-import { Link } from 'gatsby';
+import { Link } from './Common/Link';
 import { Tags } from './Tags';
 import { colors } from '../styles/color';
 
@@ -21,10 +21,6 @@ const style = {
         border: 1px solid ${colors.black6};
         padding: 1rem;
         margin-bottom: 2rem;
-    `,
-    titleLink: css`
-        text-decoration: none;
-        color: inherit;
     `,
     date: css`
         color: ${colors.black3};
@@ -47,7 +43,7 @@ const style = {
 
 export const PostEntry: FC<PostEntryProps> = (props) => (
     <div key={props.id} css={style.postEntry}>
-        <Link css={style.titleLink} to={props.slug}>
+        <Link href={props.slug} decoration={false}>
             <h2>{props.frontmatter.title}</h2>
         </Link>
         <div css={style.date}>{props.frontmatter.date}</div>
@@ -55,7 +51,7 @@ export const PostEntry: FC<PostEntryProps> = (props) => (
         <div css={style.excerpt}>{props.excerpt}</div>
         <div css={style.footer}>
             <Tags tags={props.frontmatter.tags} />
-            <Link to={props.slug}>記事の続きを読む</Link>
+            <Link href={props.slug}>記事の続きを読む</Link>
         </div>
     </div>
 );
