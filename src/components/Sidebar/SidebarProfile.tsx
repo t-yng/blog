@@ -41,6 +41,7 @@ export const SidebarProfile = ({ profile, ...others }: SidebarProfileProps) => (
                 css={style.avatar}
                 src={profile.avatar}
                 alt="筆者のアバター画像"
+                data-testid="avatar-image"
             />
             <div>
                 <div css={style.name}>{profile.name}</div>
@@ -51,6 +52,7 @@ export const SidebarProfile = ({ profile, ...others }: SidebarProfileProps) => (
                             css={style.icon}
                             src={profile.github.icon}
                             alt="Githubへのリンクアイコン"
+                            data-testid="github-image"
                         />
                     </a>
                 </div>
