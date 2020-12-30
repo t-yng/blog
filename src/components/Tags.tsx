@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
-import { Tag as TagComponent } from './Common/Tag';
-import { Tag } from '../entities/Tag';
+import { Tag } from './Common/Tag';
 
 interface TagsProps {
     tags: string[];
@@ -35,7 +34,7 @@ export const Tags: FC<TagsProps> = ({ tags }) => (
     <div css={style.tags}>
         {sortTags(tags).map(tag => {
             return (
-                <TagComponent css={style.tag} tag={tag} key={tag} />
+                <Tag css={style.tag} tag={tag} key={tag} />
             );
         })}
     </div>
