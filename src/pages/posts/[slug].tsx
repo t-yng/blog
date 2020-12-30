@@ -5,6 +5,7 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
+import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
 import { Layout } from '../../components/Layout';
 import { Tags } from '../../components/Tags';
 import { Seo } from '../../components/Seo';
@@ -12,7 +13,6 @@ import { colors } from '../../styles/color';
 import { Tag } from '../../entities/Tag';
 import { usecases } from '../../usecases/UsecaseContainer';
 import { Post } from '../../entities/Post';
-import { markdown } from '../../lib/markdown';
 
 const style = {
     post: css`
@@ -44,15 +44,29 @@ const style = {
             margin: 1.5rem 0;
         }
     `,
+    image: css`
+        max-width: 80%;
+    `,
+    picture: css`
+        display: inline-block;
+        text-align: center;
+    `,
 };
 
 type PostPageProps = {
     post: Post;
     tags: Tag[];
-    html: string;
 };
 
-const PostPage: FC<PostPageProps> = ({ post, tags, html }) => (
+const rederers: ReactMarkdownProps['renderers'] = {
+    image: ({ src, alt }) => (
+        <picture css={style.picture}>
+            <img alt={alt} src={src} css={style.image} />
+        </picture>
+    ),
+};
+
+const PostPage: FC<PostPageProps> = ({ post, tags }) => (
     <Layout tags={tags}>
         <Seo
             title={post.title}
@@ -64,9 +78,10 @@ const PostPage: FC<PostPageProps> = ({ post, tags, html }) => (
                 <h1 css={style.title}>{post.title}</h1>
                 <Tags tags={post.tags} />
             </header>
-            <div
+            <ReactMarkdown
                 css={style.content}
-                dangerouslySetInnerHTML={{ __html: html }}
+                renderers={rederers}
+                children={post.content}
             />
         </div>
     </Layout>
@@ -83,13 +98,11 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
 ): Promise<GetStaticPropsResult<PostPageProps>> => {
     const post = usecases.getPostBySlug.invoke(context.params?.slug!);
     const tags = usecases.getGroupedTags.invoke();
-    const html = await markdown.toHtml(post.content);
 
     return {
         props: {
             post: post,
             tags: tags,
-            html: html,
         },
     };
 };

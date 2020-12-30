@@ -9,7 +9,7 @@ tags: ['フロントエンド']
 この記事は [Hamee Advent Calendar 2020](https://qiita.com/advent-calendar/2020/hamee) の3日目の記事です。  
 
 ↓のURLからオセロが遊べるので、ぜひ遊んでみてください！  
-https://wasm-othello.t-yng.jp/
+[https://wasm-othello.t-yng.jp/](https://wasm-othello.t-yng.jp/)
 
 最上位のレベル6は普通に強いです！CPUのアルゴリズムは自分の普段の思考をベースにしているので、レベル6に勝てない人はリアルで僕とオセロをやっても勝てないレベルです。(多分)
 
