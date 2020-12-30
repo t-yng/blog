@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from '../Common/Link';
+import { Link } from '../common/Link';
 import { css } from '@emotion/react';
 import { colors } from '../../styles/color';
 

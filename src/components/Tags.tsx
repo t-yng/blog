@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
-import { Tag } from './Common/Tag';
+import { Tag } from './common/Tag';
 
 interface TagsProps {
     tags: string[];
