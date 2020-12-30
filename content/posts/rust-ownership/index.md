@@ -37,7 +37,7 @@ fn main() {
 ここで登場している String 型 は可変の値なので、コンパイル時にサイズを決定する事ができないので、値はヒープ領域に配置されます。  
 このとき「値を所有する変数がスコープを抜けたら、値は破棄される」の規則に則り、s1 がスコープから抜ける時に、"hello" のメモリ解放がされます。
 
-![memory1](./memory1.png)
+![memory1](/images/posts/rust-ownership/memory1.png)
 
 ### 所有権のムーブ
 
@@ -54,7 +54,7 @@ fn main() {
 ちょっと待ってください、ここで問題が発生しました！  
 "hello" のメモリは既に解放されているため、s1 でも同様にメモリ解放を実行すると、無効なメモリを解放する事になるのでエラーが発生します。
 
-<!-- ![memory2](./memory2.png) -->
+<!-- ![memory2](/images/posts/rust-ownership/memory2.png) -->
 
 しかし、対象のコードはコンパイルに成功して正常に実行されます。  
 なぜでしょうか？
@@ -63,7 +63,7 @@ fn main() {
 
 この、値を所有する変数が移動することを **所有権のムーブ** といいます。
 
-![move_ownership](./move_ownership.png)
+![move_ownership](/images/posts/rust-ownership/move_ownership.png)
 
 この仕組みを考えると、例えば、次のコードはどうなるのでしょうか？
 
@@ -117,7 +117,7 @@ fn main() {
 
 メモリ状態を表現すると次のようになります。
 
-![memory3](./memory3.png)
+![memory3](/images/posts/rust-ownership/memory3.png)
 
 この借用を用いることで、所有権をムーブさせずに値を参照することができます。
 

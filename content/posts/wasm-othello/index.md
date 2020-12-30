@@ -4,7 +4,7 @@ date: 2020-12-02
 description: WebAssemblyの速度を体感するために、WebAssemblyでオセロのゲームアルゴリズムを実装しました
 tags: ['フロントエンド']
 ---
-![wasm-othello](./wasm-othello.png)
+![wasm-othello](/images/posts/wasm-othello/wasm-othello.png)
 
 この記事は [Hamee Advent Calendar 2020](https://qiita.com/advent-calendar/2020/hamee) の3日目の記事です。  
 
@@ -34,20 +34,20 @@ WebAssemblyの実装にはRustを利用しています。Rustを選択した理�
 ## WebAssemblyを利用した動作イメージ
 最善手を探索するビジネスロジック部分をRustで実装・コンパイルして .wasm 形式のバイナリコードを出力します。このファイルをJavaScriptファイルを同じ要領で配信して、ブラウザ上で読み込ます。JavaScriptからwasmのバイナリコードを呼び出すことで、一部のビジネスロジックをWebAssemblyで実行できます。
 
-![WebAssemblyを利用したイメージ図](./wasm.png)
+![WebAssemblyを利用したイメージ図](/images/posts/wasm-othello/wasm.png)
 
 ## ミニマックス法を用いたCPUの実装
 ミニマックス法とは、オセロや将棋などのゲームアルゴリズムを実装する時に利用される事の多い探索手法の一つです。評価関数を用いて盤面の評価値を計算して、自分の手番では評価値が最大となり、相手の手番では評価値が最小となる最善手を選択するアルゴリズムです。
 
 例えば、次の盤面での白の打つべき最善手を考えてみます。ここでは、簡略化のためにAとBの2箇所に絞って探索を行い、2手先までを探索してみます。
 
-![盤面](./board.png)
+![盤面](/images/posts/wasm-othello/board.png)
 
 相手は常に最前手を打つと予測するので、Aを打った場合は最大評価値は100となる位置に石を置いてきます。これに対してBに打った場合は最大評価値は15の位置に石を置いてきます。ここではBに打った方が自分が有利なので、Bを最善手として決定します。
 
-![Aに打った場合](./board_select_A.png)
+![Aに打った場合](/images/posts/wasm-othello/board_select_A.png)
 
-![Bに打った場合](./board_select_B.png)
+![Bに打った場合](/images/posts/wasm-othello/board_select_B.png)
 
 このアルゴリズムではよりN手先を探索する方が精度が上がり最善手の精度が高くなります。しかし、探索の深さが増えるほどに探索範囲が爆発的に増えて計算時間が膨大になるため、ある一定の深さで探索を打ち切るという事をします。逆に言えば、処理速度を向上させればそれだけ探索範囲を深くできるためCPUを強くすることができます。  
 
@@ -71,7 +71,7 @@ WebAssemblyの実装にはRustを利用しています。Rustを選択した理�
 ## 速度結果
 TypeScript実装とWebAssembly（Rust実装）での処理速度をグラフで可視化してみました。
 
-![処理速度のグラフ](./speed.png)
+![処理速度のグラフ](/images/posts/wasm-othello/speed.png)
 
 盤面によっては7~8倍ぐらいの速度差が出ておりWebAssemblyの速度に驚きました。
 

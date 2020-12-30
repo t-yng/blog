@@ -194,7 +194,7 @@ FILE SYS    Used  Total   2020-07-26 12:37:55 (ongoing) - CPU_USER (74.8)
 #### netdata
 ブラウザで http://<imageマシンのIPアドレス>:19999 にアクセスします。今回の場合は、http://172.28.128.8:19999/ にアクセスすれば確認ができます。
 
-![netdata](./netdata.png)
+![netdata](/images/posts/isucon-summer-course-2017/netdata.png)
 
 ## alpでアクセスログを解析
 

@@ -13,7 +13,7 @@ tags: ['フロントエンド', 'GatsbyJS']
 
 最初にGoogleタグマネージャーのコンテナを作成しておきます。
 
-![コンテナの作成](./gtm-container-new.png)
+![コンテナの作成](/images/posts/gatsbyjs-gtm/gtm-container-new.png)
 
 # Googleアナリティクスの設定
 
@@ -59,7 +59,7 @@ gastby-config.js にプラグインの設定を追記します。
 
 設定する値は 管理 > Live（公開中）> コードを取得 の埋め込みコードから確認することができます。
 
-![Googleタグマネージャーの埋め込みコード](./gtm-script.png)
+![Googleタグマネージャーの埋め込みコード](/images/posts/gatsbyjs-gtm/gtm-script.png)
 
 # Googleタグマネージャーの設定
 
@@ -71,7 +71,7 @@ GatsbyJSはSPAでCSRで動作するため、変更の履歴をトリガーとし
 
 GAのトラッキングIDを設定した Googleアナリティクス設定 を変数として設定します。
 
-![Googleアナリティクスの変数を作成](./gtm-ga-variable.png)
+![Googleアナリティクスの変数を作成](/images/posts/gatsbyjs-gtm/gtm-ga-variable.png)
 
 ## タグの作成
 
@@ -81,7 +81,7 @@ Googleアナリティクスの設定には上で作成した変数を指定し�
 
 初回のページ読み込みもトリガーさせるために、「ページビュー」も指定しています。
 
-![タグの作成](./gtm-tag.png)
+![タグの作成](/images/posts/gatsbyjs-gtm/gtm-tag.png)
 
 # リリース前の確認
 
