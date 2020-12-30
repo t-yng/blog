@@ -4,9 +4,9 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
-import { Layout } from '../../components/Layout';
-import { Seo } from '../../components/Seo';
-import { Post } from '../../components/Post';
+import { Layout } from '../../components/common/Layout/Layout';
+import { Seo } from '../../components/common/Seo/Seo';
+import { Post } from '../../components/post/Post';
 import { Tag } from '../../entities/Tag';
 import { Post as PostEntity } from '../../entities/Post';
 import { usecases } from '../../usecases/UsecaseContainer';

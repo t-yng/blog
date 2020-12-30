@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
-import { Layout } from '../components/Layout';
-import { Seo } from '../components/Seo';
+import { Layout } from '../components/common/Layout/Layout';
+import { Seo } from '../components/common/Seo/Seo';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
 import { Tag } from '../entities/Tag';
 import { siteMeatadata } from '../constants/siteMetadata';
-import { PostEntries } from '../components/PostEntries';
+import { PostEntries } from '../components/home/PostEntries/PostEntries';
 
 type IndexPageProps = {
     posts: Post[];

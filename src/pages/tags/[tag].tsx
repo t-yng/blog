@@ -5,8 +5,8 @@ import {
     GetStaticPropsResult,
 } from 'next';
 import React, { FC } from 'react';
-import { Layout } from '../../components/Layout';
-import { PostEntry } from '../../components/PostEntry';
+import { Layout } from '../../components/common/Layout/Layout';
+import { PostEntry } from '../../components/home/PostEntry/PostEntry';
 import { Post } from '../../entities/Post';
 import { Tag } from '../../entities/Tag';
 import { usecases } from '../../usecases/UsecaseContainer';
