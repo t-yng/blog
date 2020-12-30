@@ -8,8 +8,6 @@
     "develop": "next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "next start",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
     "test": "jest",
     "test:coverage": "yarn test --coverage"
   },
