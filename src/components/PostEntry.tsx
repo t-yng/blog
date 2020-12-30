@@ -6,7 +6,6 @@ import { colors } from '../styles/color';
 
 interface PostEntryProps {
     id: string;
-    excerpt: string;
     slug: string;
     frontmatter: {
         date: string;
@@ -48,7 +47,6 @@ export const PostEntry: FC<PostEntryProps> = props => (
         </Link>
         <div css={style.date}>{props.frontmatter.date}</div>
         <hr css={style.border}></hr>
-        <div css={style.excerpt}>{props.excerpt}</div>
         <div css={style.footer}>
             <Tags tags={props.frontmatter.tags} />
             <Link href={`/posts/${props.slug}`}>記事の続きを読む</Link>

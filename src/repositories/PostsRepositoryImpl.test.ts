@@ -18,7 +18,6 @@ describe('PostsRepositoryImpl', () => {
 
             expect(result.length).toBe(1);
             expect(result[0].id).not.toBe('');
-            expect(result[0].excerpt).not.toBe('');
             expect(result[0].slug).toBe('test-post');
             expect(result[0].date).toBe('2020年 04月 19日');
             expect(result[0].title).toBe('Test Post Title');

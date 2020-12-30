@@ -27,14 +27,10 @@ export class PostsRepositoryImpl implements PostsRepository {
         }
 
         const fileContent = fs.readFileSync(fullPath);
-        const { data, content, excerpt } = matter(fileContent, {
-            excerpt: true,
-            excerpt_separator: '\n',
-        });
+        const { data, content } = matter(fileContent);
 
         return {
             id: crypto.createHash('md5').update(slug).digest('hex'),
-            excerpt: excerpt ?? '',
             slug,
             date: this.formatDate(data['date']),
             title: data['title'],

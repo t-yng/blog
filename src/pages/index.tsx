@@ -25,7 +25,6 @@ const IndexPage: FC<IndexPageProps> = ({ posts, tags }) => {
                 <PostEntry
                     key={post.id}
                     id={post.id}
-                    excerpt={post.excerpt}
                     slug={post.slug}
                     frontmatter={{
                         date: post.date,
