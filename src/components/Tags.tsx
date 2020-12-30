@@ -30,8 +30,8 @@ const sortTags = (tags: string[]): string[] => {
     });
 };
 
-export const Tags: FC<TagsProps> = ({ tags }) => (
-    <div css={style.tags}>
+export const Tags: FC<TagsProps> = ({ tags, ...others }) => (
+    <div css={style.tags} {...others}>
         {sortTags(tags).map(tag => {
             return (
                 <Tag css={style.tag} tag={tag} key={tag} />

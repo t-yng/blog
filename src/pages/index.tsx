@@ -1,12 +1,12 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
 import { Layout } from '../components/Layout';
-import { PostEntry } from '../components/PostEntry';
 import { Seo } from '../components/Seo';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
 import { Tag } from '../entities/Tag';
 import { siteMeatadata } from '../constants/siteMetadata';
+import { PostEntries } from '../components/PostEntries';
 
 type IndexPageProps = {
     posts: Post[];
@@ -21,18 +21,7 @@ const IndexPage: FC<IndexPageProps> = ({ posts, tags }) => {
                 description={siteMeatadata.description}
                 author={siteMeatadata.author}
             />
-            {posts.map(post => (
-                <PostEntry
-                    key={post.id}
-                    id={post.id}
-                    slug={post.slug}
-                    frontmatter={{
-                        date: post.date,
-                        title: post.title,
-                        tags: post.tags,
-                    }}
-                />
-            ))}
+            <PostEntries posts={posts} />
         </Layout>
     );
 };
