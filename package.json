@@ -10,7 +10,7 @@
     "start": "next start",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
