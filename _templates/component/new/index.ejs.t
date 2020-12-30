@@ -1,4 +1,4 @@
 ---
-to: src/components/<%= Name %>/index.ts
+to: src/components/<%= directory %>/<%= Name %>/index.ts
 ---
 export * from './<%= Name %>';

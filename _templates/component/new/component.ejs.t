@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= Name %>/<%= Name %>.tsx
+to: src/components/<%= directory %>/<%= Name %>/<%= Name %>.tsx
 ---
 <%
     const Props = `${Name}Props`

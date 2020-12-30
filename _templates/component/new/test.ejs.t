@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= Name %>/<%= Name %>.test.tsx
+to: src/components/<%= directory %>/<%= Name %>/<%= Name %>.test.tsx
 ---
 import { render, screen } from '@testing-library/react';
 import { <%= Name %> } from './<%= Name %>';
