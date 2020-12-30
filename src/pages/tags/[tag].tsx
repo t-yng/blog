@@ -21,14 +21,7 @@ const TagPostsPage: FC<TagPostsPageProps> = ({ posts, tags }) => (
         {posts.map(post => (
             <PostEntry
                 key={post.id}
-                id={post.id}
-                excerpt={post.excerpt}
-                slug={post.slug}
-                frontmatter={{
-                    date: post.date,
-                    title: post.title,
-                    tags: post.tags,
-                }}
+                post={post}
             />
         ))}
     </Layout>
