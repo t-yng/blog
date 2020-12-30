@@ -4,6 +4,7 @@ import { Link } from './Common/Link';
 import { Tags } from './Tags';
 import { colors } from '../styles/color';
 import { Post } from '../entities/Post';
+import { formatDate } from '../lib/format';
 
 interface PostEntryProps {
     post: Post;
@@ -27,7 +28,7 @@ const style = {
 
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
     <div css={style.postEntry}>
-        <div css={style.date}>{post.formattedDate}</div>
+        <div css={style.date}>{formatDate(post.date)}</div>
         <Link href={`/posts/${post.slug}`} decoration={false}>
             <h3 css={style.title}>{post.title}</h3>
         </Link>

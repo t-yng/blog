@@ -21,7 +21,9 @@ type PostEntriesProps = {
 };
 
 const sortPostsByDateDesc = (posts: Post[]): Post[] => {
-    return posts.sort((a, b) => compareDesc(a.date, b.date));
+    return posts.sort((a, b) =>
+        compareDesc(new Date(a.date), new Date(b.date))
+    );
 };
 
 export const PostEntries: FC<PostEntriesProps> = ({ posts }) => (

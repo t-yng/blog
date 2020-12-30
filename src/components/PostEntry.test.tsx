@@ -11,7 +11,7 @@ describe('PostEntry', () => {
     beforeEach(() => {
         mockPost = mock<Post>();
         when(mockPost.title).thenReturn('Post title');
-        when(mockPost.formattedDate).thenReturn('2020年 12月 30日');
+        when(mockPost.date).thenReturn('2020-04-19T00:00:00.000Z');
         when(mockPost.slug).thenReturn('test-slug');
         when(mockPost.tags).thenReturn([]);
     });
@@ -33,15 +33,18 @@ describe('PostEntry', () => {
     });
 
     it('renders post date', () => {
+        when(mockPost.date).thenReturn('2020-04-19T00:00:00.000Z');
+
         const post = instance(mockPost);
         render(<PostEntry post={post} />);
 
-        expect(screen.queryByText(post.formattedDate)).toBeInTheDocument();
+        expect(screen.queryByText('2020年 04月 19日')).toBeInTheDocument();
     });
 
     it('renders Tags component', () => {
         const tags = ['TypeScript', 'フロントエンド'];
         when(mockPost.tags).thenReturn(tags);
+
         const post = instance(mockPost);
         const root = renderer.create(<PostEntry post={post} />).root;
 

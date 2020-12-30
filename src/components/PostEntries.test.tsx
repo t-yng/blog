@@ -9,8 +9,7 @@ describe('PostEntries', () => {
         {
             id: '1',
             slug: 'test-slug',
-            date: new Date(2020, 10, 15),
-            formattedDate: '2020年 11月 15日',
+            date: '2020-11-15T00:00:00.000Z',
             title: 'title',
             description: 'description',
             tags: [],
@@ -20,8 +19,7 @@ describe('PostEntries', () => {
         {
             id: '2',
             slug: 'test-slug',
-            date: new Date(2020, 11, 30),
-            formattedDate: '2020年 12月 30日',
+            date: '2020-12-30T00:00:00.000Z',
             title: 'title',
             description: 'description',
             tags: [],

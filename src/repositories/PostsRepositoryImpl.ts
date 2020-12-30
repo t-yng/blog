@@ -1,7 +1,6 @@
 import fs from 'fs';
 import crypto from 'crypto';
 import { join } from 'path';
-import { format } from 'date-fns';
 import matter from 'gray-matter';
 import { Post } from '../entities/Post';
 import { PostsRepository } from './PostsRepository';
@@ -32,8 +31,7 @@ export class PostsRepositoryImpl implements PostsRepository {
         return {
             id: crypto.createHash('md5').update(slug).digest('hex'),
             slug,
-            date: new Date(data['date']),
-            formattedDate: this.formatDate(new Date(data['date'])),
+            date: data['date'],
             title: data['title'],
             description: data['description'],
             tags: data['tags'],
@@ -48,10 +46,6 @@ export class PostsRepositoryImpl implements PostsRepository {
             const tags = post.tags.map(tag => tag.toLowerCase());
             return tags.includes(tag.toLowerCase());
         });
-    }
-
-    private formatDate(date: Date) {
-        return format(date, 'yyyy年 MM月 dd日');
     }
 
     private getAllSlugs(): string[] {
