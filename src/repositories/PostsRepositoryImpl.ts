@@ -31,7 +31,7 @@ export class PostsRepositoryImpl implements PostsRepository {
         return {
             id: crypto.createHash('md5').update(slug).digest('hex'),
             slug,
-            date: data['date'],
+            date: data['date'].toISOString(),
             title: data['title'],
             description: data['description'],
             tags: data['tags'],
