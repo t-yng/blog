@@ -26,8 +26,8 @@ const sortPostsByDateDesc = (posts: Post[]): Post[] => {
     );
 };
 
-export const PostEntries: FC<PostEntriesProps> = ({ posts }) => (
-    <div css={style.postEntries}>
+export const PostEntries: FC<PostEntriesProps> = ({ posts, ...others }) => (
+    <div css={style.postEntries} {...others}>
         {sortPostsByDateDesc(posts).map((post, i) => (
             <Fragment key={post.id}>
                 <PostEntry post={post} />
