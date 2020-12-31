@@ -6,7 +6,7 @@ import {
 } from 'next';
 import React, { FC } from 'react';
 import { Layout } from '../../components/common/Layout/Layout';
-import { PostEntry } from '../../components/home/PostEntry/PostEntry';
+import { PostEntries } from '../../components/home/PostEntries';
 import { Post } from '../../entities/Post';
 import { Tag } from '../../entities/Tag';
 import { usecases } from '../../usecases/UsecaseContainer';
@@ -18,12 +18,7 @@ type TagPostsPageProps = {
 
 const TagPostsPage: FC<TagPostsPageProps> = ({ posts, tags }) => (
     <Layout tags={tags}>
-        {posts.map(post => (
-            <PostEntry
-                key={post.id}
-                post={post}
-            />
-        ))}
+        <PostEntries posts={posts} />
     </Layout>
 );
 
