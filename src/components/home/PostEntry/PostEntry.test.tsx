@@ -29,7 +29,7 @@ describe('PostEntry', () => {
 
         const link = screen.queryByRole('link');
         expect(link).toBeInTheDocument();
-        expect(link).toHaveAttribute('href', `/posts/${post.slug}`);
+        expect(link).toHaveAttribute('href', `/post/${post.slug}`);
     });
 
     it('renders post date', () => {
