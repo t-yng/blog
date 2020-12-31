@@ -43,6 +43,7 @@ const style = {
     picture: css`
         display: inline-block;
         text-align: center;
+        width: 100%;
     `,
 };
 
