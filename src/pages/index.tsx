@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
 import { css } from '@emotion/react';
-import { compareDesc } from 'date-fns';
 import { Layout } from '../components/common/Layout/Layout';
 import { Seo } from '../components/common/Seo/Seo';
 import { Post } from '../entities/Post';
@@ -11,6 +10,7 @@ import { siteMeatadata } from '../constants/siteMetadata';
 import { PostEntries } from '../components/home/PostEntries/PostEntries';
 import { Pagination } from '../components/home/Pagination';
 import { MIDDLE_PAGES, POST_COUNT_PER_PAGE } from '../constants/pagination';
+import { sortPostsByDateDesc } from '../lib/sort';
 
 const style = {
     postEntries: css`
@@ -44,16 +44,10 @@ const IndexPage: FC<IndexPageProps> = ({ posts, tags, pagination }) => {
 
 export default IndexPage;
 
-const sortPostsByDateDesc = (posts: Post[]): Post[] => {
-    return posts.sort((a, b) =>
-        compareDesc(new Date(a.date), new Date(b.date))
-    );
-};
-
 export const getStaticProps = async (): Promise<
     GetStaticPropsResult<IndexPageProps>
 > => {
-    const posts = usecases.getAllPosts.invoke();
+    const posts = sortPostsByDateDesc(usecases.getAllPosts.invoke());
     const tags = usecases.getGroupedTags.invoke();
     const pagination = {
         currentPage: 1,
@@ -63,7 +57,7 @@ export const getStaticProps = async (): Promise<
 
     return {
         props: {
-            posts: sortPostsByDateDesc(posts).slice(0, POST_COUNT_PER_PAGE),
+            posts: posts.slice(0, POST_COUNT_PER_PAGE),
             tags,
             pagination,
         },
