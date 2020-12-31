@@ -1,6 +1,5 @@
 import React, { FC, Fragment } from 'react';
 import { css } from '@emotion/react';
-import { compareDesc } from 'date-fns';
 import { Post } from '../../../entities/Post';
 import { colors } from '../../../styles/color';
 import { PostEntry } from '../PostEntry/PostEntry';
@@ -20,15 +19,9 @@ type PostEntriesProps = {
     posts: Post[];
 };
 
-const sortPostsByDateDesc = (posts: Post[]): Post[] => {
-    return posts.sort((a, b) =>
-        compareDesc(new Date(a.date), new Date(b.date))
-    );
-};
-
 export const PostEntries: FC<PostEntriesProps> = ({ posts, ...others }) => (
     <div css={style.postEntries} {...others}>
-        {sortPostsByDateDesc(posts).map((post, i) => (
+        {posts.map((post, i) => (
             <Fragment key={post.id}>
                 <PostEntry post={post} />
                 {i < posts.length - 1 && <hr css={style.border} />}

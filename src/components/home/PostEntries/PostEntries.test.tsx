@@ -29,19 +29,11 @@ describe('PostEntries', () => {
     ];
 
     it('renders PostEntry', () => {
-        const posts = mockPosts.slice(0, 1);
-        const root = renderer.create(<PostEntries posts={posts} />).root;
-
-        const postEntry = root.findByType(PostEntry);
-        expect(postEntry).not.toBeNull();
-        expect(postEntry.props.post).toBe(posts[0]);
-    });
-
-    it('sort posts by date desc', () => {
         const posts = mockPosts.slice();
         const root = renderer.create(<PostEntries posts={posts} />).root;
 
         const postEntries = root.findAllByType(PostEntry);
-        expect(postEntries[0].props.post.id).toBe('2');
+        expect(postEntries.length).toBe(posts.length);
+        expect(postEntries[0].props.post).toBe(posts[0]);
     });
 });
