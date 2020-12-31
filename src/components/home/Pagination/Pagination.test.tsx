@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
+import { PageNumber } from './PageNumber';
 import { Pagination } from './Pagination';
 
 describe('Pagination', () => {
@@ -25,6 +26,14 @@ describe('Pagination', () => {
             <Pagination currentPage={10} numPages={10} middleNumPages={4} />
         );
         expect(screen.queryByTestId('pagination-next')).not.toBeInTheDocument();
+    });
+
+    it('renders success if currentPage is last', () => {
+        const root = renderer.create(
+            <Pagination currentPage={3} numPages={3} middleNumPages={3} />
+        ).root;
+
+        expect(root.findAllByType(PageNumber).length).toBe(3);
     });
 
     // 1 2 3 4 5 6 7

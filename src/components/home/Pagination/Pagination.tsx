@@ -30,10 +30,11 @@ export const Pagination: FC<PaginationProps> = ({
     const shouldShowPrev = currentPage > 1;
     const shouldShowNext = currentPage !== numPages;
     let middleStartPage = currentPage - Math.floor(middleNumPages / 2);
+    if (middleStartPage + middleNumPages > numPages) {
+        middleStartPage = numPages - middleNumPages;
+    }
     if (middleStartPage < 2) {
         middleStartPage = 2;
-    } else if (middleStartPage + middleNumPages > numPages) {
-        middleStartPage = numPages - middleNumPages;
     }
     const middlePages = range(middleStartPage, middleNumPages).filter(
         page => page < numPages
