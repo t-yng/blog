@@ -7,6 +7,7 @@ import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
 import { formatDate } from '../../../lib/format';
 import { vscDarkPlus } from '../../../styles/syntaxHighlight/prism';
+import { commonSyntaxHighlightStyle } from '../../../styles/syntaxHighlight/common';
 
 const style = {
     post: css`
@@ -37,6 +38,11 @@ const style = {
             padding: 1rem;
             padding-right: 0;
             margin: 1.5rem 0;
+        }
+        & :not(pre) code {
+            background: ${colors.black6};
+            font-family: ${commonSyntaxHighlightStyle.fontFamily};
+            padding: 0.1em 0.4em;
         }
     `,
     image: css`
