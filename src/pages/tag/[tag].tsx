@@ -35,7 +35,6 @@ export const getStaticProps: GetStaticProps<
     TagPostsPageProps,
     Params
 > = async ({ params }): Promise<GetStaticPropsResult<TagPostsPageProps>> => {
-    console.log(params);
     const tag = params?.tag!;
     const posts = sortPostsByDateDesc(usecases.getPostsByTag.invoke(tag));
     const tags = usecases.getGroupedTags.invoke();
