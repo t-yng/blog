@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { Prism } from 'react-syntax-highlighter';
-import { nord as prismTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Prism as SyntaxHilighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
 import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
 import { Post as PostEntity } from '../../../entities/Post';
 import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
 import { formatDate } from '../../../lib/format';
+import { vscDarkPlus } from '../../../styles/syntaxHighlight/prism';
 
 const style = {
     post: css`
@@ -60,9 +60,19 @@ const rederers: ReactMarkdownProps['renderers'] = {
         </picture>
     ),
     code: ({ language, value }) => (
-        <Prism language={language} style={prismTheme}>
+        <SyntaxHilighter
+            language={language}
+            style={vscDarkPlus.style}
+            customStyle={vscDarkPlus.customStyle}
+            codeTagProps={{ style: vscDarkPlus.codeTagStyle }}
+        >
             {value}
-        </Prism>
+        </SyntaxHilighter>
+    ),
+    link: ({ children, href }) => (
+        <a href={href} target="_blank" rel="noopner noreferrer">
+            {children}
+        </a>
     ),
 };
 
@@ -78,7 +88,6 @@ export const Post: FC<PostProps> = ({ post }) => (
             renderers={rederers}
             children={post.content}
             data-testid="content"
-            linkTarget="_blank"
         />
     </div>
 );
