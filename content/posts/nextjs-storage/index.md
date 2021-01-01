@@ -31,7 +31,7 @@ export const useUser = () => {
 };
 ```
 
-```typescript
+```tsx
 // pages/index.tsx
 import { useUser } from "../hooks/useUser";
 
@@ -88,7 +88,7 @@ export const useUser = () => {
 };
 ```
 
-```typescript
+```tsx
 // pages/index.tsx
 const IndexPage = () => {
   const { user, loading } = useUser();
@@ -122,7 +122,7 @@ const IndexPage = () => {
 ## Dynamic import
 Next.js は [Dynamic import](https://nextjs.org/docs/advanced-features/dynamic-import) で読み込むことで、サーバーサイドでモジュールを読み込まないようにする事ができます。これにより、フロントでのみ `sessitionStorage` の参照します。
 
-```typescript
+```tsx
 // pages/user.tsx
 import Link from "next/link";
 import dynamic from "next/dynamic";
