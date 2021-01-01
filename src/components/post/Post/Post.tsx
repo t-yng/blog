@@ -78,6 +78,7 @@ export const Post: FC<PostProps> = ({ post }) => (
             renderers={rederers}
             children={post.content}
             data-testid="content"
+            linkTarget="_blank"
         />
     </div>
 );
