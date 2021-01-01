@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import { Prism } from 'react-syntax-highlighter';
+import { nord as prismTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { css } from '@emotion/react';
 import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
 import { Post as PostEntity } from '../../../entities/Post';
@@ -56,6 +58,11 @@ const rederers: ReactMarkdownProps['renderers'] = {
         <picture css={style.picture}>
             <img alt={alt} src={src} css={style.image} />
         </picture>
+    ),
+    code: ({ language, value }) => (
+        <Prism language={language} style={prismTheme}>
+            {value}
+        </Prism>
     ),
 };
 
