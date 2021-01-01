@@ -1,4 +1,3 @@
-import { useTheme } from '@emotion/react';
 import {
     GetStaticPathsResult,
     GetStaticProps,
@@ -9,6 +8,7 @@ import { Layout } from '../../components/common/Layout/Layout';
 import { PostEntries } from '../../components/home/PostEntries';
 import { Post } from '../../entities/Post';
 import { Tag } from '../../entities/Tag';
+import { sortPostsByDateDesc } from '../../lib/sort';
 import { usecases } from '../../usecases/UsecaseContainer';
 
 type TagPostsPageProps = {
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps<
 > = async ({ params }): Promise<GetStaticPropsResult<TagPostsPageProps>> => {
     console.log(params);
     const tag = params?.tag!;
-    const posts = usecases.getPostsByTag.invoke(tag);
+    const posts = sortPostsByDateDesc(usecases.getPostsByTag.invoke(tag));
     const tags = usecases.getGroupedTags.invoke();
 
     return {
