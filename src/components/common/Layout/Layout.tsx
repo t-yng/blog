@@ -5,9 +5,12 @@ import { GlobalHeader } from '../GlobalHeader';
 import { Sidebar } from '../Sidebar';
 import { profile } from '../../../constants/profile';
 import { Tag } from '../../../entities/Tag';
+import { SeoMetadata } from '../../../entities/SeoMetadata';
+import { Seo } from '../Seo';
 
 export type LayoutProps = {
     tags: Tag[];
+    seoMetadata: SeoMetadata;
 };
 
 const style = {
@@ -27,9 +30,14 @@ const style = {
     `,
 };
 
-export const Layout: FC<LayoutProps> = ({ children, tags }) => {
+export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
     return (
         <div>
+            <Seo
+                title={seoMetadata.title}
+                description={seoMetadata.description}
+                author={seoMetadata.author}
+            />
             <GlobalStyle />
             <GlobalHeader />
             <main css={style.main}>

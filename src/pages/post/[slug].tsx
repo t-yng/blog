@@ -5,24 +5,20 @@ import {
     GetStaticPropsResult,
 } from 'next';
 import { Layout } from '../../components/common/Layout/Layout';
-import { Seo } from '../../components/common/Seo/Seo';
 import { Post } from '../../components/post/Post';
 import { Tag } from '../../entities/Tag';
 import { Post as PostEntity } from '../../entities/Post';
 import { usecases } from '../../usecases/UsecaseContainer';
+import { SeoMetadata } from '../../entities/SeoMetadata';
 
 type PostPageProps = {
     post: PostEntity;
     tags: Tag[];
+    seoMetadata: SeoMetadata;
 };
 
-const PostPage: FC<PostPageProps> = ({ post, tags }) => (
-    <Layout tags={tags}>
-        <Seo
-            title={post.title}
-            description={post.description}
-            author={post.author}
-        />
+const PostPage: FC<PostPageProps> = ({ post, tags, seoMetadata }) => (
+    <Layout tags={tags} seoMetadata={seoMetadata}>
         <Post post={post} />
     </Layout>
 );
@@ -43,6 +39,11 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
         props: {
             post: post,
             tags: tags,
+            seoMetadata: {
+                title: post.title,
+                description: post.description,
+                author: post.author,
+            },
         },
     };
 };

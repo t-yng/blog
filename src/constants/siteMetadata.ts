@@ -1,13 +1,7 @@
-type SiteMetadata = {
-    title: string;
-    author: string;
-    description: string;
-    url: string;
-};
+import { SeoMetadata } from '../entities/SeoMetadata';
 
-export const siteMeatadata: SiteMetadata = {
+export const siteMeatadata: SeoMetadata = {
     title: 'みどりのさるのエンジニア',
     author: 't-yng',
     description: '神奈川の田舎で働いてるフロントエンドエンジニアのブログ',
-    url: 'https://t-yng.jp',
 };

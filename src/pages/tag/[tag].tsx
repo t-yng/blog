@@ -6,7 +6,9 @@ import {
 import React, { FC } from 'react';
 import { Layout } from '../../components/common/Layout/Layout';
 import { PostEntries } from '../../components/home/PostEntries';
+import { siteMeatadata } from '../../constants/siteMetadata';
 import { Post } from '../../entities/Post';
+import { SeoMetadata } from '../../entities/SeoMetadata';
 import { Tag } from '../../entities/Tag';
 import { sortPostsByDateDesc } from '../../lib/sort';
 import { usecases } from '../../usecases/UsecaseContainer';
@@ -14,10 +16,11 @@ import { usecases } from '../../usecases/UsecaseContainer';
 type TagPostsPageProps = {
     posts: Post[];
     tags: Tag[];
+    seoMetadata: SeoMetadata;
 };
 
-const TagPostsPage: FC<TagPostsPageProps> = ({ posts, tags }) => (
-    <Layout tags={tags}>
+const TagPostsPage: FC<TagPostsPageProps> = ({ posts, tags, seoMetadata }) => (
+    <Layout tags={tags} seoMetadata={seoMetadata}>
         <PostEntries posts={posts} />
     </Layout>
 );
@@ -41,6 +44,7 @@ export const getStaticProps: GetStaticProps<
         props: {
             posts: posts,
             tags: tags,
+            seoMetadata: siteMeatadata,
         },
     };
 };

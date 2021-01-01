@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
 import { css } from '@emotion/react';
 import { Layout } from '../components/common/Layout/Layout';
-import { Seo } from '../components/common/Seo/Seo';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
 import { Tag } from '../entities/Tag';
@@ -11,6 +10,7 @@ import { PostEntries } from '../components/home/PostEntries/PostEntries';
 import { Pagination } from '../components/home/Pagination';
 import { MIDDLE_PAGES, POST_COUNT_PER_PAGE } from '../constants/pagination';
 import { sortPostsByDateDesc } from '../lib/sort';
+import { SeoMetadata } from '../entities/SeoMetadata';
 
 const style = {
     postEntries: css`
@@ -21,6 +21,7 @@ const style = {
 type IndexPageProps = {
     posts: Post[];
     tags: Tag[];
+    seoMetadata: SeoMetadata;
     pagination: {
         currentPage: number;
         numPages: number;
@@ -28,14 +29,14 @@ type IndexPageProps = {
     };
 };
 
-const IndexPage: FC<IndexPageProps> = ({ posts, tags, pagination }) => {
+const IndexPage: FC<IndexPageProps> = ({
+    posts,
+    tags,
+    pagination,
+    seoMetadata,
+}) => {
     return (
-        <Layout tags={tags}>
-            <Seo
-                title={siteMeatadata.title}
-                description={siteMeatadata.description}
-                author={siteMeatadata.author}
-            />
+        <Layout tags={tags} seoMetadata={seoMetadata}>
             <PostEntries posts={posts} css={style.postEntries} />
             <Pagination {...pagination} />
         </Layout>
@@ -60,6 +61,7 @@ export const getStaticProps = async (): Promise<
             posts: posts.slice(0, POST_COUNT_PER_PAGE),
             tags,
             pagination,
+            seoMetadata: siteMeatadata,
         },
     };
 };
