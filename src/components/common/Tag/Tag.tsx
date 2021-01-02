@@ -5,7 +5,7 @@ import { createTagLink } from '../../../lib/link';
 import { colors } from '../../../styles/color';
 
 interface TagProps {
-    tag: string;
+    name: string;
 }
 
 const style = {
@@ -25,10 +25,10 @@ const style = {
     `,
 };
 
-export const Tag: FC<TagProps> = ({ tag, ...others }) => (
-    <Link href={createTagLink(tag)} decoration={false}>
+export const Tag: FC<TagProps> = ({ name, ...others }) => (
+    <Link href={createTagLink(name)} decoration={false}>
         <div css={style.tag} {...others}>
-            {tag}
+            {name}
         </div>
     </Link>
 );
