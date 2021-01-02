@@ -28,7 +28,7 @@ tags: ['フロントエンド', 'GatsbyJS']
 
 ### インストール
 
-```
+```bash
 $ yarn add gatsby-plugin-google-tagmanager
 ```
 

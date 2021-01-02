@@ -20,7 +20,7 @@ fn main() {
 
 #### インストール
 
-```
+```toml
 [dependencies]
 colored = "1.9" # バージョンは随時更新してください
 ```

@@ -18,13 +18,14 @@ OS: MacOS Catalina 10.15.3
 グラッフィックス: Intel Iris Plus Graphics 640 1536 MB  
 GPU: なし
 
-# インストール
+## インストール
 
 ### miniconda3 をインストール  
 [Installing on macOS — conda 4\.8\.3\.post14\+07a113d8 documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html#installing-on-macos)
 
 [Miniconda — Conda documentation](https://docs.conda.io/en/latest/miniconda.html#macosx-installers) よりインストーラーをダウンロードする。  
-```
+
+```bash
 # 対話シェルが起動するので、内容に沿ってインストールを進める。
 $ zsh Miniconda3-latest-MacOSX-x86_64.sh
 $ export PATH="$HOME/miniconda3/bin:$PATH"
@@ -32,7 +33,7 @@ $ export PATH="$HOME/miniconda3/bin:$PATH"
 
 ### avatarify のリポジトリをクローンしてインストール
 
-```
+```bash
 $ git clone https://github.com/alievk/avatarify.git
 $ cd avatarify
 $ zsh scripts/install_mac.sh
@@ -46,13 +47,13 @@ $ conda activate avatarify
 ### CamTwist をダウンロード  
 [ここ](http://camtwiststudio.com/download/)からダウンロードする
 
-# 実行
+## 実行
 
 ### avatify を起動  
 "Cannot open camera" のエラーが発生したら、scripts/settings.sh の CAMID を 0 から 1, 2, ... に変更する。  
 自分の場合は 1 に変更したら、正常に起動しました。
 
-```
+```bash
 $ zsh run_mac.sh
 ```
 
@@ -66,7 +67,7 @@ $ zsh run_mac.sh
 ### Zoomdでバーチャルカメラを利用できるようにする  
 Mac の Zoom v4.6.8 以降のバージョンでは仮想カメラが使えないようになっているので、ライブラリ署名を削除して仮想カメラを利用できるようにする。
 
-```
+```bash
 $ codesign --remove-signature /Applications/zoom.us.app
 ```
 
