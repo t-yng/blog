@@ -22,7 +22,8 @@
       "node",
       "jest",
       "testing-library__jest-dom",
-      "@emotion/react/types/css-prop"
+      "@emotion/react/types/css-prop",
+      "gtag.js"
     ]
   },
   "include": [
