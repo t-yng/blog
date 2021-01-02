@@ -1,1 +1,1 @@
-export const createTagLink = (tag: string) => `/tags/${tag.toLowerCase()}`;
+export const createTagLink = (tag: string) => `/tag/${tag.toLowerCase()}`;

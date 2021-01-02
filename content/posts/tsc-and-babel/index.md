@@ -69,7 +69,7 @@ Babelを利用する上で `Plugins` と `Presets` という二つの概念だ�
 - @babel/preset-typescript: TypeScriptをトランスパイルする
 - core-js@3: PromiseなどのPolyfillを定義したモジュール
 
-```
+```bash
 # babelと関連するプリセットのインストール
 $ yarn add -D @babel/cli @babel/core @babel/preset-env @babel/preset-typescript
 $ yarn add core-js@3
@@ -151,7 +151,7 @@ $ yarn babel src/index.ts
 
 そのため、Babelでトランスパイルをする場合は、事前にtscで別途型チェックを実施する必要があります。
 
-```
+```bash
 $ tsc --noEmit src/index.ts && babel src/index.ts
 src/test.ts:1:7 - error TS2322: Type 'string' is not assignable to type 'number'.
 ```

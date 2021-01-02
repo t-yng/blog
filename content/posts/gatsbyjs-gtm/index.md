@@ -9,26 +9,26 @@ tags: ['フロントエンド', 'GatsbyJS']
 
 今回はGatsby製のブログにGoogleタグマネージャーを設定する方法をまとめておきます。
 
-# Googleタグマネージャーのコンテナ作成
+## Googleタグマネージャーのコンテナ作成
 
 最初にGoogleタグマネージャーのコンテナを作成しておきます。
 
-![コンテナの作成](./gtm-container-new.png)
+![コンテナの作成](/images/posts/gatsbyjs-gtm/gtm-container-new.png)
 
-# Googleアナリティクスの設定
+## Googleアナリティクスの設定
 
 管理 > +プロパティを作成 から新たに計測用のプロパティを作成しておきます。
 
-# プラグインの追加
+## プラグインの追加
 
-## gatsby-plugin-google-tagmanager
+### gatsby-plugin-google-tagmanager
 
 [gatsby-plugin-google-tagmanager](https://www.gatsbyjs.org/packages/gatsby-plugin-google-tagmanager/) を利用してGoogleタグマネージャーをページに埋め込みます。  
 （\<head>タグに直接\<script>タグを埋め込む方法がが分からず、公式のプラグインがあったので利用しました。）
 
-## インストール
+### インストール
 
-```
+```bash
 $ yarn add gatsby-plugin-google-tagmanager
 ```
 
@@ -59,21 +59,21 @@ gastby-config.js にプラグインの設定を追記します。
 
 設定する値は 管理 > Live（公開中）> コードを取得 の埋め込みコードから確認することができます。
 
-![Googleタグマネージャーの埋め込みコード](./gtm-script.png)
+![Googleタグマネージャーの埋め込みコード](/images/posts/gatsbyjs-gtm/gtm-script.png)
 
-# Googleタグマネージャーの設定
+## Googleタグマネージャーの設定
 
-## トリガーの作成
+### トリガーの作成
 
 GatsbyJSはSPAでCSRで動作するため、変更の履歴をトリガーとして作成しておきます。
 
-## 変数の作成
+### 変数の作成
 
 GAのトラッキングIDを設定した Googleアナリティクス設定 を変数として設定します。
 
-![Googleアナリティクスの変数を作成](./gtm-ga-variable.png)
+![Googleアナリティクスの変数を作成](/images/posts/gatsbyjs-gtm/gtm-ga-variable.png)
 
-## タグの作成
+### タグの作成
 
 Googleアナリティクスにページビューを送信するタグを作成します。
 
@@ -81,9 +81,9 @@ Googleアナリティクスの設定には上で作成した変数を指定し�
 
 初回のページ読み込みもトリガーさせるために、「ページビュー」も指定しています。
 
-![タグの作成](./gtm-tag.png)
+![タグの作成](/images/posts/gatsbyjs-gtm/gtm-tag.png)
 
-# リリース前の確認
+## リリース前の確認
 
 Googleタグマネージャーのプレビューモードを利用すれば、ローカルで埋め込みが正常に出来ているか確認できます。  
 
@@ -101,11 +101,11 @@ includeInDevelopment: true,
 
 正常にタグが埋め込まれている場合は、ローカルで表示したページ下部にGoogleタグマネージャーのプレビュー画面が表示されます。
 
-# リリース
+## リリース
 
 以上の設定を終えたら、Googleタグマネージャーの公開 と プラグイン追加の変更を本番環境にリリースすれば導入は完了です。
 
-# おまけ
+## おまけ
 
 自分のアクセスを計測対象外とするために [Google Analytics オプトアウト アドオン (by Google)](https://chrome.google.com/webstore/detail/google-analytics-opt-out/fllaojicojecljbmefodhfapmkghcbnh) を利用しています。  
 「ga.jsと連携して...」と書いてありますが、Googleタグマネージャーを経由する場合でも正常に動作してくれました。

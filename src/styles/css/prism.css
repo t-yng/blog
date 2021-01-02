@@ -1,8 +1,0 @@
-/**
- * prism.jsのスタイルを上書きする
- */
-
-code[class*="language-"],
-pre[class*="language-"] {
-  color: hsl(208, 14%, 27%);
-}

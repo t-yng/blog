@@ -7,14 +7,14 @@ tags: ['セキュリティ']
 JPEG画像にJavaScriptのコードを埋め込む手法が紹介されていたので試してみました。  
 今回は次の画像に対してコードの埋め込んでみます。
 
-![埋め込み画像](./donarudo.jpg)
+![埋め込み画像](/images/posts/inject-jpeg-js/donarudo.jpg)
 
-# 注意
+## 注意
 
 この記事は攻撃方法を知ることでセキュリティを学ぶことを前提としており、実験も仮想環境上で実行しています。  
 決して外部サイトに対して実行しないようにしてください。
 
-# 画像のバイナリを見てみる
+## 画像のバイナリを見てみる
 
 今回試す方法は画像のバイナリを変更してコードを埋め込んでいます。  
 そこで、最初は画像のバイナリを確認してみます。
@@ -46,7 +46,7 @@ $ node
 '616c6572742831293b'
 ```
 
-# jsコードを埋め込む
+## jsコードを埋め込む
 
 ↓がバイナリを変更して、jsコードを埋め込んでみた様子です。  
 
@@ -116,7 +116,7 @@ const hexBinary = new Buffer(injectedJsJpeg, 'hex');
 fs.writeFileSync('bad-donarudo.jpg', hexBinary);
 ```
 
-# JPEG画像を読み込んでみる
+## JPEG画像を読み込んでみる
 
 jsを埋め込んだ画像を読み込んでみます。
 
@@ -134,14 +134,14 @@ jsを埋め込んだ画像を読み込んでみます。
 </html>
 ```
 
-![JavaScriptを埋め込んだ画像](./donarudo-xss.png)
+![JavaScriptを埋め込んだ画像](/images/posts/inject-jpeg-js/donarudo-xss.png)
 
 正常に画像は表示されて、jsファイルとしても読み込む事ができました！  
 Chromeでは対策済みでアラートが表示されず、IE11でアラートの表示が確認できました。
 
 実現可能なブラウザは限られますが、日本国内ではまだまだIE11の利用ユーザーは多いので無視できない手法です。
 
-# 攻撃の使われ方
+## 攻撃の使われ方
 
 これで簡単にXSSが出来るのかなと思ったのですが、<img>タグで読み込んだ場合はあくまで画像として処理されるので、コードが実行されることはありません。  
 あくまで、攻撃対象のサイト上で \<script>タグで画像を読み込ませる必要があります。  
@@ -159,7 +159,7 @@ CSPが有効になっているWebサイトでは別ドメインからのjsファ
 
 最近はS3などにアップロードした画像が配置されるパターンが多く、その場合は画像読み込みがCSPのポリシー対象である外部ドメインとなるので、利用できる状況はかなり限定的なのかな？と思います。
 
-# 参考文献
+## 参考文献
 * [Hiding JavaScript in Picture Files for XSS](https://www.youtube.com/watch?v=memPcI94YGA)
 * [Hiding JS in a JPEG header.](https://medium.com/@codedbrain/hiding-js-in-a-jpeg-header-454386f9e20)
 * [Bypassing CSP using polyglot JPEGs](https://portswigger.net/research/bypassing-csp-using-polyglot-jpegs)
