@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-hello-world",
   "description": "egineer blog of t-yng",
-  "version": "0.1.0",
+  "version": "2.0",
   "license": "MIT",
   "scripts": {
     "build": "next build && next export",
