@@ -8,6 +8,7 @@
     "develop": "next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "next start",
+    "bundle-analyze": "ANALYZE=true next build",
     "test": "jest",
     "test:coverage": "yarn test --coverage"
   },
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^11.0.0",
+    "@next/bundle-analyzer": "^10.0.5",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@types/gtag.js": "^0.0.4",
