@@ -1,4 +1,4 @@
-import { vscDarkPlus as defaultVscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import defaultVscDarkPlus from 'react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus';
 import { commonSyntaxHighlightStyle } from '../common';
 
 export const vscDarkPlus = {

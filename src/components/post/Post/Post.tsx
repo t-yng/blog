@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Prism as SyntaxHilighter } from 'react-syntax-highlighter';
+import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
 import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
 import { Post as PostEntity } from '../../../entities/Post';
