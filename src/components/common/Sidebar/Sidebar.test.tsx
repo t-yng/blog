@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { profile } from '../../../constants/profile';
+import { profile } from '../../../config/profile';
 import { Sidebar } from './Sidebar';
 import { SidebarProfile } from './SidebarProfile';
 import { SidebarTags } from './SidebarTags';

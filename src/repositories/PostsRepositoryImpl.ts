@@ -4,7 +4,7 @@ import { join } from 'path';
 import matter from 'gray-matter';
 import { Post } from '../entities/Post';
 import { PostsRepository } from './PostsRepository';
-import { profile } from '../constants/profile';
+import { profile } from '../config/profile';
 
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {

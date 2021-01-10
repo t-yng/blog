@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { SidebarTags } from './SidebarTags';
 import { SidebarProfile } from './SidebarProfile';
 import { Tag } from '../../../entities/Tag';
-import { Profile } from '../../../constants/profile';
+import { Profile } from '../../../config/profile';
 
 type SidebarProps = {
     tags: Tag[];

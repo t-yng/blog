@@ -5,7 +5,7 @@ import { Layout } from '../components/common/Layout/Layout';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
 import { Tag } from '../entities/Tag';
-import { siteMeatadata } from '../constants/siteMetadata';
+import { siteMeatadata } from '../config/siteMetadata';
 import { PostEntries } from '../components/home/PostEntries/PostEntries';
 import { Pagination } from '../components/home/Pagination';
 import { MIDDLE_PAGES, POST_COUNT_PER_PAGE } from '../constants/pagination';

@@ -9,7 +9,7 @@ import { Layout } from '../../components/common/Layout';
 import { Pagination } from '../../components/home/Pagination';
 import { PostEntries } from '../../components/home/PostEntries';
 import { POST_COUNT_PER_PAGE, MIDDLE_PAGES } from '../../constants/pagination';
-import { siteMeatadata } from '../../constants/siteMetadata';
+import { siteMeatadata } from '../../config/siteMetadata';
 import { Post } from '../../entities/Post';
 import { Tag } from '../../entities/Tag';
 import { sortPostsByDateDesc } from '../../lib/sort';
