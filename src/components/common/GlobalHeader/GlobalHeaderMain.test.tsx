@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { TITLE_LOGO_IMAGE_URL } from '../../../constants';
-import { GlobalHeader } from './GlobalHeader';
+import { TITLE_LOGO_IMAGE_ALT, TITLE_LOGO_IMAGE_URL } from '../../../constants';
 import { GlobalHeaderMain } from './GlobalHeaderMain';
 
-describe('GlobalHeader', () => {
+describe('GlobalHeaderMain', () => {
     it('renders title logo', () => {
         render(<GlobalHeaderMain />);
         const image = screen.queryByRole('img');
@@ -13,9 +12,15 @@ describe('GlobalHeader', () => {
 
     describe('title logo', () => {
         it('link to index page', () => {
-            render(<GlobalHeader />);
-            const link = screen.queryByRole('link');
-            expect(link).toHaveAttribute('href', '/');
+            render(<GlobalHeaderMain />);
+            const logo = screen.queryByRole('link');
+            expect(logo).toHaveAttribute('href', '/');
+        });
+
+        it('has alt attribute', () => {
+            render(<GlobalHeaderMain />);
+            const logo = screen.queryByRole('img');
+            expect(logo).toHaveAttribute('alt', TITLE_LOGO_IMAGE_ALT);
         });
     });
 });

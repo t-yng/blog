@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Link } from '../Link/Link';
 import { css } from '@emotion/react';
 import { colors } from '../../../styles/color';
-import { TITLE_LOGO_IMAGE_URL } from '../../../constants';
+import { TITLE_LOGO_IMAGE_URL, TITLE_LOGO_IMAGE_ALT } from '../../../constants';
 
 const style = {
     wrapper: css`
@@ -22,7 +22,11 @@ export const GlobalHeaderMain: FC = () => (
     <div css={style.wrapper}>
         <div css={style.globalHeaderMain}>
             <Link href="/">
-                <img src={TITLE_LOGO_IMAGE_URL} css={style.titleLogoImg} />
+                <img
+                    src={TITLE_LOGO_IMAGE_URL}
+                    alt={TITLE_LOGO_IMAGE_ALT}
+                    css={style.titleLogoImg}
+                />
             </Link>
         </div>
     </div>
