@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Link } from '../Link/Link';
 import { css } from '@emotion/react';
 import { colors } from '../../../styles/color';
-import { TITLE_LOGO_IMAGE_URL } from '../../../constants/url';
+import { TITLE_LOGO_IMAGE_URL } from '../../../constants';
 
 const style = {
     wrapper: css`

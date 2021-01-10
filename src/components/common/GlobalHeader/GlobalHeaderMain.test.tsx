@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
-import { TITLE_LOGO_IMAGE_URL } from '../../../constants/url';
+import { TITLE_LOGO_IMAGE_URL } from '../../../constants';
 import { GlobalHeader } from './GlobalHeader';
 import { GlobalHeaderMain } from './GlobalHeaderMain';
 
