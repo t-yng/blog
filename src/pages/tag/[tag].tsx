@@ -6,7 +6,7 @@ import {
 import React, { FC } from 'react';
 import { Layout } from '../../components/common/Layout/Layout';
 import { PostEntries } from '../../components/home/PostEntries';
-import { siteMeatadata } from '../../constants/siteMetadata';
+import { siteMeatadata } from '../../config/siteMetadata';
 import { Post } from '../../entities/Post';
 import { SeoMetadata } from '../../entities/SeoMetadata';
 import { Tag } from '../../entities/Tag';

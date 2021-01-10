@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { colors } from '../../../styles/color';
 import { SidebarSection } from './SidebarSection';
-import { Profile } from '../../../constants/profile';
+import { Profile } from '../../../config/profile';
 
 export interface SidebarProfileProps {
     profile: Profile;

@@ -8,8 +8,11 @@ import { css } from '@emotion/react';
 import { Layout } from '../../components/common/Layout';
 import { Pagination } from '../../components/home/Pagination';
 import { PostEntries } from '../../components/home/PostEntries';
-import { POST_COUNT_PER_PAGE, MIDDLE_PAGES } from '../../constants/pagination';
-import { siteMeatadata } from '../../constants/siteMetadata';
+import {
+    PAGINATION_POST_COUNT_PER_PAGE,
+    PAGINATION_MIDDLE_PAGES,
+} from '../../constants';
+import { siteMeatadata } from '../../config/siteMetadata';
 import { Post } from '../../entities/Post';
 import { Tag } from '../../entities/Tag';
 import { sortPostsByDateDesc } from '../../lib/sort';
@@ -62,15 +65,15 @@ export const getStaticProps: GetStaticProps<PagePageProps, UrlQuery> = async ({
     const tags = usecases.getGroupedTags.invoke();
     const pagination = {
         currentPage: page,
-        numPages: Math.ceil(posts.length / POST_COUNT_PER_PAGE),
-        middleNumPages: MIDDLE_PAGES,
+        numPages: Math.ceil(posts.length / PAGINATION_POST_COUNT_PER_PAGE),
+        middleNumPages: PAGINATION_MIDDLE_PAGES,
     };
 
     return {
         props: {
             posts: posts.slice(
-                (page - 1) * POST_COUNT_PER_PAGE,
-                page * POST_COUNT_PER_PAGE
+                (page - 1) * PAGINATION_POST_COUNT_PER_PAGE,
+                page * PAGINATION_POST_COUNT_PER_PAGE
             ),
             tags,
             pagination,
@@ -83,7 +86,7 @@ export const getStaticPaths = async (): Promise<
     GetStaticPathsResult<UrlQuery>
 > => {
     const posts = sortPostsByDateDesc(usecases.getAllPosts.invoke());
-    const numPages = Math.ceil(posts.length / POST_COUNT_PER_PAGE);
+    const numPages = Math.ceil(posts.length / PAGINATION_POST_COUNT_PER_PAGE);
     const pages = range(2, numPages);
 
     return {

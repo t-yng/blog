@@ -5,10 +5,13 @@ import { Layout } from '../components/common/Layout/Layout';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
 import { Tag } from '../entities/Tag';
-import { siteMeatadata } from '../constants/siteMetadata';
+import { siteMeatadata } from '../config/siteMetadata';
 import { PostEntries } from '../components/home/PostEntries/PostEntries';
 import { Pagination } from '../components/home/Pagination';
-import { MIDDLE_PAGES, POST_COUNT_PER_PAGE } from '../constants/pagination';
+import {
+    PAGINATION_MIDDLE_PAGES,
+    PAGINATION_POST_COUNT_PER_PAGE,
+} from '../constants';
 import { sortPostsByDateDesc } from '../lib/sort';
 import { SeoMetadata } from '../entities/SeoMetadata';
 
@@ -52,13 +55,13 @@ export const getStaticProps = async (): Promise<
     const tags = usecases.getGroupedTags.invoke();
     const pagination = {
         currentPage: 1,
-        numPages: Math.ceil(posts.length / POST_COUNT_PER_PAGE),
-        middleNumPages: MIDDLE_PAGES,
+        numPages: Math.ceil(posts.length / PAGINATION_POST_COUNT_PER_PAGE),
+        middleNumPages: PAGINATION_MIDDLE_PAGES,
     };
 
     return {
         props: {
-            posts: posts.slice(0, POST_COUNT_PER_PAGE),
+            posts: posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE),
             tags,
             pagination,
             seoMetadata: siteMeatadata,

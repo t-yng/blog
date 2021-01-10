@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { GlobalStyle } from '../../GlobalStyle';
 import { GlobalHeader } from '../GlobalHeader';
 import { Sidebar } from '../Sidebar';
-import { profile } from '../../../constants/profile';
+import { profile } from '../../../config/profile';
 import { Tag } from '../../../entities/Tag';
 import { SeoMetadata } from '../../../entities/SeoMetadata';
 import { Seo } from '../Seo';
