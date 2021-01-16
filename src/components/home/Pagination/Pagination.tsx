@@ -37,7 +37,7 @@ export const Pagination: FC<PaginationProps> = ({
         middleStartPage = 2;
     }
     const middlePages = range(middleStartPage, middleNumPages).filter(
-        page => page < numPages
+        (page) => page < numPages
     );
 
     return (
@@ -45,7 +45,7 @@ export const Pagination: FC<PaginationProps> = ({
             {shouldShowPrev && <PrevPage page={currentPage - 1} />}
             <PageNumber page={1} currentPage={currentPage} />
             {middleStartPage > 2 && <div css={style.ellipsis}>...</div>}
-            {middlePages.map(page => (
+            {middlePages.map((page) => (
                 <PageNumber key={page} page={page} currentPage={currentPage} />
             ))}
             {middleStartPage < numPages - middleNumPages && (

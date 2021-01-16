@@ -1,5 +1,5 @@
-import { Post } from "../../entities/Post";
+import { Post } from '../../entities/Post';
 
 export interface GetAllPosts {
-  invoke(): Post[];
+    invoke(): Post[];
 }

@@ -32,7 +32,13 @@ type Params = {
 export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
     context
 ): Promise<GetStaticPropsResult<PostPageProps>> => {
-    const post = usecases.getPostBySlug.invoke(context.params?.slug!);
+    if (context.params == null) {
+        return {
+            notFound: true,
+        };
+    }
+
+    const post = usecases.getPostBySlug.invoke(context.params.slug);
     const tags = usecases.getGroupedTags.invoke();
 
     return {
@@ -52,7 +58,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
     const posts = usecases.getAllPosts.invoke();
 
     return {
-        paths: posts.map(post => ({
+        paths: posts.map((post) => ({
             params: {
                 slug: post.slug,
             },

@@ -90,7 +90,7 @@ export const getStaticPaths = async (): Promise<
     const pages = range(2, numPages);
 
     return {
-        paths: pages.map(page => ({
+        paths: pages.map((page) => ({
             params: {
                 page: page.toString(),
             },

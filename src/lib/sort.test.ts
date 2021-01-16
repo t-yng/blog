@@ -12,7 +12,7 @@ describe('sort', () => {
             when(mockPosts[1].date).thenReturn('2020-05-30T00:00:00.000Z');
             when(mockPosts[2].id).thenReturn('3');
             when(mockPosts[2].date).thenReturn('2020-04-30T00:00:00.000Z');
-            const posts = mockPosts.map(post => instance(post));
+            const posts = mockPosts.map((post) => instance(post));
 
             const result = sortPostsByDateDesc(posts);
             expect(result[0].id).toBe('2');

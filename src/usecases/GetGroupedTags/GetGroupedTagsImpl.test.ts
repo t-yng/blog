@@ -17,7 +17,7 @@ describe('GetGoupedTagsImpl', () => {
 
         mockPostsRepository = mock<PostsRepository>();
         when(mockPostsRepository.getAllPosts()).thenReturn(
-            mockPosts.map(post => instance(post))
+            mockPosts.map((post) => instance(post))
         );
     });
 

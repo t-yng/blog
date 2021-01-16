@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { Tag } from '../../../entities/Tag';
 import { Tags } from './Tags';
 
 describe('Tags', () => {

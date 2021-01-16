@@ -1,5 +1,4 @@
 import renderer from 'react-test-renderer';
-import { mock, instance, when } from 'ts-mockito';
 import { Post } from '../../../entities/Post';
 import { PostEntries } from './PostEntries';
 import { PostEntry } from '../PostEntry/PostEntry';

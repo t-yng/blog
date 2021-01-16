@@ -7,7 +7,7 @@ module.exports = {
         '<rootDir>/src/usecases/UsecaseContainer.ts',
         '<rootDir>/src/styles/',
         '<rootDir>/src/constants/',
-        'index.ts'
+        'index.ts',
     ],
     globals: {
         'ts-jest': {
