@@ -18,10 +18,14 @@ const style = {
     `,
     body: css`
         padding: 10px 4px 6px 12px;
-    `
+    `,
 };
 
-export const SidebarSection: FC<SidebarSectionProps> = ({ children, title, ...others }) => (
+export const SidebarSection: FC<SidebarSectionProps> = ({
+    children,
+    title,
+    ...others
+}) => (
     <section {...others} css={style.main}>
         <header css={style.header}>{title}</header>
         <div css={style.body}>{children}</div>

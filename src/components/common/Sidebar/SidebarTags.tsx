@@ -39,7 +39,7 @@ const sortTags = (tags: Tag[]): Tag[] => {
 export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
     <SidebarSection title="タグ" {...others}>
         <ul css={style.tags}>
-            {sortTags(tags).map(tag => (
+            {sortTags(tags).map((tag) => (
                 <li key={tag.name} css={style.tag}>
                     <Link
                         key={tag.name}

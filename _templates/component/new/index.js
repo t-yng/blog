@@ -9,8 +9,8 @@ module.exports = {
             .readdirSync(componentsPath, {
                 withFileTypes: true,
             })
-            .filter(dirent => dirent.isDirectory())
-            .map(dirent => dirent.name);
+            .filter((dirent) => dirent.isDirectory())
+            .map((dirent) => dirent.name);
 
         return prompter
             .prompt({

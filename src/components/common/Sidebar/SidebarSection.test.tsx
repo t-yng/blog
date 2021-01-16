@@ -19,6 +19,6 @@ describe('SidebarSection', () => {
             </SidebarSection>
         ).root;
 
-        expect(root.findByType(Chilren)).not.toBeNull()
+        expect(root.findByType(Chilren)).not.toBeNull();
     });
 });

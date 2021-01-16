@@ -10,7 +10,7 @@ export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {
         const slugs = this.getAllSlugs();
         return slugs
-            .map(slug => this.getPostBySlug(slug))
+            .map((slug) => this.getPostBySlug(slug))
             .filter((x): x is Post => x != null);
     }
 
@@ -42,8 +42,8 @@ export class PostsRepositoryImpl implements PostsRepository {
 
     getPostsByTag(tag: string) {
         const posts = this.getAllPosts();
-        return posts.filter(post => {
-            const tags = post.tags.map(tag => tag.toLowerCase());
+        return posts.filter((post) => {
+            const tags = post.tags.map((tag) => tag.toLowerCase());
             return tags.includes(tag.toLowerCase());
         });
     }

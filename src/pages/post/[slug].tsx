@@ -58,7 +58,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
     const posts = usecases.getAllPosts.invoke();
 
     return {
-        paths: posts.map(post => ({
+        paths: posts.map((post) => ({
             params: {
                 slug: post.slug,
             },

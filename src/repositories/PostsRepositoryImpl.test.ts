@@ -55,7 +55,7 @@ describe('PostsRepositoryImpl', () => {
             when(mockPosts[1].tags).thenReturn(['TypeScript', 'サーバー']);
             when(mockPosts[2].tags).thenReturn(['フロントエンド']);
             Object.defineProperty(repo, 'getAllPosts', {
-                value: () => mockPosts.map(mockPost => instance(mockPost)),
+                value: () => mockPosts.map((mockPost) => instance(mockPost)),
             });
 
             const result = repo.getPostsByTag('TypeScript');
@@ -67,7 +67,7 @@ describe('PostsRepositoryImpl', () => {
             const mockPosts: Post[] = [mock<Post>()];
             when(mockPosts[0].tags).thenReturn(['TypeScript']);
             Object.defineProperty(repo, 'getAllPosts', {
-                value: () => mockPosts.map(mockPost => instance(mockPost)),
+                value: () => mockPosts.map((mockPost) => instance(mockPost)),
             });
 
             const result = repo.getPostsByTag('typescript');

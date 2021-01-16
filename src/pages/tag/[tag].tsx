@@ -56,7 +56,7 @@ export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
     const tags = usecases.getGroupedTags.invoke();
 
     return {
-        paths: tags.map(tag => ({
+        paths: tags.map((tag) => ({
             params: {
                 tag: tag.name.toLowerCase(),
             },
