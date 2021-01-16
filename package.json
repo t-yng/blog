@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build && next export",
     "develop": "next dev",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "start": "next start",
     "bundle-analyze": "ANALYZE=true next build",
     "test": "jest",
@@ -14,10 +14,12 @@
     "lint": "eslint --ext ts,tsx ./"
   },
   "husky": {
-    "pre-commit": "lint-staged"
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
-    "*.[ts|tsx|js]": "yarn format && yarn lint"
+    "*{ts,tsx,js}": ["yarn format", "yarn lint"]
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
