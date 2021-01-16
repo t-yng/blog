@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { css } from '@emotion/react';
 

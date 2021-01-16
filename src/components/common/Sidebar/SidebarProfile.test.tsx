@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { mock, when } from 'ts-mockito';
-import { profile, Profile } from '../../../config/profile';
+import { profile } from '../../../config/profile';
 import { SidebarProfile } from './SidebarProfile';
 
 describe('SidebarProfile', () => {

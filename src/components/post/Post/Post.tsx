@@ -92,8 +92,9 @@ export const Post: FC<PostProps> = ({ post }) => (
         <ReactMarkdown
             css={style.content}
             renderers={rederers}
-            children={post.content}
             data-testid="content"
-        />
+        >
+            {post.content}
+        </ReactMarkdown>
     </div>
 );

@@ -31,11 +31,15 @@ type Params = {
     tag: string;
 };
 
-export const getStaticProps: GetStaticProps<
-    TagPostsPageProps,
-    Params
-> = async ({ params }): Promise<GetStaticPropsResult<TagPostsPageProps>> => {
-    const tag = params?.tag!;
+export const getStaticProps: GetStaticProps<TagPostsPageProps, Params> = async (
+    context
+): Promise<GetStaticPropsResult<TagPostsPageProps>> => {
+    if (context.params == null) {
+        return {
+            notFound: true,
+        };
+    }
+    const tag = context.params.tag;
     const posts = sortPostsByDateDesc(usecases.getPostsByTag.invoke(tag));
     const tags = usecases.getGroupedTags.invoke();
 
