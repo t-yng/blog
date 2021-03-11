@@ -8,7 +8,7 @@ tags: ['TypeScript']
 先日、TypeScriptのテンプレートリテラル型を使う機会がありました。
 
 ## モチベーション
-フロントエンドで i18n を導入するために [i18next/i18next: i18next: learn once \- translate everywhere](https://github.com/i18next/i18next) を利用して文字列の辞書対応を進めていました。
+フロントエンドで i18n を導入するために [i18next/i18next](https://github.com/i18next/i18next) を利用して文字列の辞書対応を進めていました。
 
 辞書ファイルを入れ子のオブジェクトとして定義ができますが、キーを指定する場合は `common.badge.required` と指定する必要があります。TypeScripeで実装をするときの問題として、キーの文字列に対して型チェックが有効にならないため、タイポをしても気づかない問題があります。
 
