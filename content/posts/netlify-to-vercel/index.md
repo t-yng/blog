@@ -2,7 +2,7 @@
 title: NetlifyからVercelに移行した
 date: 2021-05-26
 description: 技術ブログのホスティングをNetlifyからVercelに移行しました
-tags: ['Netlify', 'Vercel']
+tags: ['Netlify', 'Vercel', 'Next.js']
 ---
 
 この技術ブログはNetflifyでホスティングをしていますが、前からNetlifyは無料枠だとCDNのエッジサーバーが日本国内にはなくレイテンシーが発生して、遅いという話が気になっていました。
