@@ -1,3 +1,6 @@
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
 import React, { FC } from 'react';
 import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
@@ -62,7 +65,12 @@ type PostProps = {
 const rederers: ReactMarkdownProps['renderers'] = {
     image: ({ src, alt }) => (
         <picture css={style.picture}>
-            <img alt={alt} src={src} css={style.image} />
+            <img
+                alt={alt}
+                data-src={src}
+                className="lazyload"
+                css={style.image}
+            />
         </picture>
     ),
     code: ({ language, value }) => (
