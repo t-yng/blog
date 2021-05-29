@@ -13,18 +13,6 @@ import { vscDarkPlus } from '../../../styles/syntaxHighlight/prism';
 import { commonSyntaxHighlightStyle } from '../../../styles/syntaxHighlight/common';
 
 const style = {
-    post: css`
-        background-color: ${colors.white};
-        border: 1px solid ${colors.black6};
-        padding: 1rem;
-    `,
-    header: css`
-        margin-bottom: 2rem;
-    `,
-    date: css`
-        color: ${colors.black3};
-        margin-bottom: 0.5rem;
-    `,
     content: css`
         h2,
         h3,
@@ -48,14 +36,6 @@ const style = {
             padding: 0.1em 0.4em;
         }
     `,
-    image: css`
-        max-width: 80%;
-    `,
-    picture: css`
-        display: inline-block;
-        text-align: center;
-        width: 100%;
-    `,
 };
 
 type PostProps = {
@@ -64,13 +44,8 @@ type PostProps = {
 
 const rederers: ReactMarkdownProps['renderers'] = {
     image: ({ src, alt }) => (
-        <picture css={style.picture}>
-            <img
-                alt={alt}
-                data-src={src}
-                className="lazyload"
-                css={style.image}
-            />
+        <picture className="inline-block text-center w-full">
+            <img alt={alt} data-src={src} className="lazyload max-w-8p" />
         </picture>
     ),
     code: ({ language, value }) => (
@@ -91,10 +66,10 @@ const rederers: ReactMarkdownProps['renderers'] = {
 };
 
 export const Post: FC<PostProps> = ({ post }) => (
-    <div css={style.post}>
-        <header css={style.header}>
+    <div className="bg-white border-solid border border-gray-100 p-4">
+        <header className="mb-8">
             <h1>{post.title}</h1>
-            <div css={style.date}>{formatDate(post.date)}</div>
+            <div className="text-gray-500 mb-2">{formatDate(post.date)}</div>
             <Tags tags={post.tags} />
         </header>
         <ReactMarkdown

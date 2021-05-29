@@ -1,23 +1,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --black1: 'rgba(0, 0, 0, 0.87)';
-    --black2: 'rgba(0, 0, 0, 0.54)';
-    --black3: 'rgba(0, 0, 0, 0.38)';
-    --black4: 'rgba(0, 0, 0, 0.24)';
-    --black5: 'rgba(0, 0, 0, 0.12)';
-    --black6: 'rgba(0, 0, 0, 0.06)';
-    --white: 'hsl(0, 100%, 100%)';
-    --main: 'hsl(109, 40%, 50%)';
-    --accent: 'hsl(109, 50%, 35%)';
-    --background: 'hsl(109, 6%, 95%)';
-    --textBlack: 'hsl(208, 14%, 27%)';
+@layer utilities {
+    .bg-green-gray {
+        background-color: hsl(109, 6%, 95%);
+    }
+
+    .max-w-8p {
+        max-width: 80%;
+    }
 }
 
 body {
-    background-color: var(--background);
-    color: var(--textBlack);
+    @apply bg-green-gray text-gray-700;
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
         'Hiragino Sans', Meiryo, sans-serif;
     margin: 0;
