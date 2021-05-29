@@ -1,51 +1,30 @@
 import React from 'react';
-import { css } from '@emotion/react';
-import { colors } from '../../../styles/color';
 import { SidebarSection } from './SidebarSection';
 import { Profile } from '../../../config/profile';
 
 export interface SidebarProfileProps {
     profile: Profile;
+    className?: string;
 }
 
-const style = {
-    wrapper: css`
-        display: flex;
-    `,
-    avatar: css`
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        object-fit: cover;
-        height: 4rem;
-        width: 4rem;
-    `,
-    name: css`
-        font-weight: bold;
-        margin-bottom: 4px;
-    `,
-    speciality: css`
-        font-size: 0.75rem;
-        color: ${colors.black2};
-        margin-bottom: 4px;
-    `,
-    icon: css`
-        height: 20px;
-        width: 20px;
-    `,
-};
-
-export const SidebarProfile = ({ profile, ...others }: SidebarProfileProps) => (
-    <SidebarSection title="プロフィール" {...others}>
-        <div css={style.wrapper}>
+export const SidebarProfile = ({
+    profile,
+    className,
+    ...others
+}: SidebarProfileProps) => (
+    <SidebarSection title="プロフィール" className={className} {...others}>
+        <div className={'flex'}>
             <img
-                css={style.avatar}
+                className="border-round mr-2 h-16 w-16 object-cover"
                 src={profile.avatar}
                 alt="筆者のアバター画像"
                 data-testid="avatar-image"
             />
             <div>
-                <div css={style.name}>{profile.name}</div>
-                <div css={style.speciality}>{profile.speciality}</div>
+                <div className="font-bold mb-1">{profile.name}</div>
+                <div className="text-xs mb-1 text-sidebar">
+                    {profile.speciality}
+                </div>
                 <div>
                     <a
                         href={profile.github.url}
@@ -53,7 +32,7 @@ export const SidebarProfile = ({ profile, ...others }: SidebarProfileProps) => (
                         rel="noopener noreferrer"
                     >
                         <img
-                            css={style.icon}
+                            className="h-5 w-5"
                             src={profile.github.icon}
                             alt="Githubへのリンクアイコン"
                             data-testid="github-image"

@@ -6,6 +6,11 @@ module.exports = {
             gridTemplateColumns: {
                 'main-layout': 'auto 240px',
             },
+            textColor: {
+                accent: 'var(--color-accent)',
+                sidebar: 'var(--color-black2)',
+                'sidebar-header': 'var(--color-white)',
+            },
         },
     },
     variants: {

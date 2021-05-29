@@ -2,8 +2,18 @@
 @tailwind utilities;
 
 :root {
+    --color-black1: rgba(0, 0, 0, 0.87);
+    --color-black2: rgba(0, 0, 0, 0.54);
+    --color-black3: rgba(0, 0, 0, 0.38);
+    --color-black4: rgba(0, 0, 0, 0.24);
+    --color-black5: rgba(0, 0, 0, 0.12);
+    --color-black6: rgba(0, 0, 0, 0.06);
+    --color-white: hsl(0, 100%, 100%);
     --color-main: hsl(109, 40%, 50%);
-    --global-header-bg: var(--color-main);
+    --color-accent: hsl(109, 50%, 35%);
+    --color-background: hsl(109, 6%, 95%);
+    --bg-page: hsl(109, 6%, 95%);
+    --default-text-color: hsl(208, 14%, 27%);
 }
 
 @layer utilities {
@@ -11,14 +21,26 @@
         background-color: var(--color-main);
     }
 
+    .bg-sidebar {
+        background-color: var(--color-white);
+    }
+
+    .bg-sideber-header {
+        background-color: var(--color-main)
+    }
+
     .max-w-8p {
         max-width: 80%;
+    }
+
+    .border-round {
+        border-radius: 50%;
     }
 }
 
 body {
-    @apply text-gray-700;
-    background-color: hsl(109, 6%, 95%);
+    background-color: var(--bg-page);
+    color: var(--default-text-color);
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
         'Hiragino Sans', Meiryo, sans-serif;
     margin: 0;

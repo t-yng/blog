@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/react';
 import { SidebarTags } from './SidebarTags';
 import { SidebarProfile } from './SidebarProfile';
 import { Tag } from '../../../entities/Tag';
@@ -10,15 +9,9 @@ type SidebarProps = {
     profile: Profile;
 };
 
-const style = {
-    section: css`
-        margin-bottom: 2rem;
-    `,
-};
-
 export const Sidebar: FC<SidebarProps> = ({ tags, profile }) => (
     <div>
-        <SidebarProfile css={style.section} profile={profile} />
+        <SidebarProfile className="mb-8" profile={profile} />
         <SidebarTags tags={tags} />
     </div>
 );
