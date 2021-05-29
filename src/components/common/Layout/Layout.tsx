@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/react';
 import { GlobalHeader } from '../GlobalHeader';
 import { Sidebar } from '../Sidebar';
 import { profile } from '../../../config/profile';
@@ -12,23 +11,6 @@ export type LayoutProps = {
     seoMetadata: SeoMetadata;
 };
 
-const style = {
-    main: css`
-        display: grid;
-        grid-template-columns: auto 240px;
-        grid-gap: 3rem;
-        margin: 0 auto;
-        max-width: 1152px;
-        padding: 2rem 20px;
-        @media (max-width: 850px) {
-            grid-template-columns: 1fr;
-        }
-    `,
-    content: css`
-        overflow: auto;
-    `,
-};
-
 export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
     return (
         <div>
@@ -38,8 +20,8 @@ export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
                 author={seoMetadata.author}
             />
             <GlobalHeader />
-            <main css={style.main}>
-                <div css={style.content}>{children}</div>
+            <main className="grid grid-cols-1 gap-12 my-0 mx-auto max-w-screen-lg py-8 px-5 md:grid-cols-main-layout">
+                <div className="overflow-auto">{children}</div>
                 <Sidebar tags={tags} profile={profile} />
             </main>
         </div>
