@@ -1,19 +1,11 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/react';
+import classnames from 'classnames';
 import { Tag } from '../Tag/Tag';
 
 interface TagsProps {
     tags: string[];
+    className?: string;
 }
-
-const style = {
-    tags: css`
-        display: flex;
-    `,
-    tag: css`
-        margin-right: 0.5rem;
-    `,
-};
 
 const sortTags = (tags: string[]): string[] => {
     return tags.sort((a, b) => {
@@ -30,10 +22,10 @@ const sortTags = (tags: string[]): string[] => {
     });
 };
 
-export const Tags: FC<TagsProps> = ({ tags, ...others }) => (
-    <div css={style.tags} {...others}>
+export const Tags: FC<TagsProps> = ({ tags, className }) => (
+    <div className={classnames(className, 'flex')}>
         {sortTags(tags).map((tag) => {
-            return <Tag css={style.tag} name={tag} key={tag} />;
+            return <Tag className="mr-2" name={tag} key={tag} />;
         })}
     </div>
 );
