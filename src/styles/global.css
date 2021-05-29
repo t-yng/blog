@@ -1,9 +1,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-main: hsl(109, 40%, 50%);
+    --global-header-bg: var(--color-main);
+}
+
 @layer utilities {
-    .bg-green-gray {
-        background-color: hsl(109, 6%, 95%);
+    .bg-global-header {
+        background-color: var(--color-main);
     }
 
     .max-w-8p {
@@ -12,7 +17,8 @@
 }
 
 body {
-    @apply bg-green-gray text-gray-700;
+    @apply text-gray-700;
+    background-color: hsl(109, 6%, 95%);
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
         'Hiragino Sans', Meiryo, sans-serif;
     margin: 0;
