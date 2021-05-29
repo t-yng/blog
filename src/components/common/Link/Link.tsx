@@ -1,17 +1,9 @@
 import { FC, HTMLAttributes } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { css } from '@emotion/react';
 
 type LinkProps = NextLinkProps & {
     decoration?: boolean;
     anchorProps?: HTMLAttributes<HTMLAnchorElement>;
-};
-
-const style = {
-    nonDecoration: css`
-        text-decoration: none;
-        color: inherit;
-    `,
 };
 
 export const Link: FC<LinkProps> = ({
@@ -24,7 +16,7 @@ export const Link: FC<LinkProps> = ({
         <NextLink {...others} passHref>
             <a
                 {...anchorProps}
-                css={decoration ? undefined : style.nonDecoration}
+                className={`${decoration ? '' : 'no-underline text-current'}`}
             >
                 {children}
             </a>
