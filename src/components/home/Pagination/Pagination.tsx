@@ -1,20 +1,8 @@
 import React, { FC } from 'react';
-import { css } from '@emotion/react';
 import { range } from '../../../lib/array';
 import { PageNumber } from './PageNumber';
 import { PrevPage } from './PrevPage';
 import { NextPage } from './NextPage';
-
-const style = {
-    pagination: css`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    `,
-    ellipsis: css`
-        cursor: default;
-    `,
-};
 
 type PaginationProps = {
     currentPage: number;
@@ -41,15 +29,15 @@ export const Pagination: FC<PaginationProps> = ({
     );
 
     return (
-        <div css={style.pagination}>
+        <div className="flex justify-center items-center text-pagination text-base">
             {shouldShowPrev && <PrevPage page={currentPage - 1} />}
             <PageNumber page={1} currentPage={currentPage} />
-            {middleStartPage > 2 && <div css={style.ellipsis}>...</div>}
+            {middleStartPage > 2 && <div className="cursor-default">...</div>}
             {middlePages.map((page) => (
                 <PageNumber key={page} page={page} currentPage={currentPage} />
             ))}
             {middleStartPage < numPages - middleNumPages && (
-                <div css={style.ellipsis}>...</div>
+                <div className="cursor-default">...</div>
             )}
             <PageNumber page={numPages} currentPage={currentPage} />
             {shouldShowNext && <NextPage page={currentPage + 1} />}
