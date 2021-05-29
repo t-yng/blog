@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/react';
-import { GlobalStyle } from '../../GlobalStyle';
 import { GlobalHeader } from '../GlobalHeader';
 import { Sidebar } from '../Sidebar';
 import { profile } from '../../../config/profile';
@@ -38,7 +37,6 @@ export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
                 description={seoMetadata.description}
                 author={seoMetadata.author}
             />
-            <GlobalStyle />
             <GlobalHeader />
             <main css={style.main}>
                 <div css={style.content}>{children}</div>
