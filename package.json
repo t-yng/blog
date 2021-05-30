@@ -21,7 +21,6 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.1.4",
     "classnames": "^2.3.1",
     "date-fns": "^2.16.1",
     "gray-matter": "^4.0.2",
@@ -34,7 +33,6 @@
     "react-syntax-highlighter": "^15.4.3"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^11.0.0",
     "@next/bundle-analyzer": "^10.0.5",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",

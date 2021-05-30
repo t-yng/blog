@@ -13,12 +13,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "types": [
       "node",
       "jest",
       "testing-library__jest-dom",
-      "@emotion/react/types/css-prop",
       "gtag.js"
     ]
   },
