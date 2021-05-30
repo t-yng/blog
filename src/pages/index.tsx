@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
-import { css } from '@emotion/react';
 import { Layout } from '../components/common/Layout/Layout';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
@@ -14,12 +13,6 @@ import {
 } from '../constants';
 import { sortPostsByDateDesc } from '../lib/sort';
 import { SeoMetadata } from '../entities/SeoMetadata';
-
-const style = {
-    postEntries: css`
-        margin-bottom: 2rem;
-    `,
-};
 
 type IndexPageProps = {
     posts: Post[];
@@ -40,7 +33,7 @@ const IndexPage: FC<IndexPageProps> = ({
 }) => {
     return (
         <Layout tags={tags} seoMetadata={seoMetadata}>
-            <PostEntries posts={posts} css={style.postEntries} />
+            <PostEntries posts={posts} className="mb-8" />
             <Pagination {...pagination} />
         </Layout>
     );
