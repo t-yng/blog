@@ -19,6 +19,7 @@ module.exports = {
             },
             backgroundColor: {
                 accent: 'var(--color-accent)',
+                horizon: 'var(--color-black4)',
                 tag: 'var(--color-black6)',
                 'tag-hover': 'var(--color-black5)',
             },
