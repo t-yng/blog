@@ -1,5 +1,5 @@
 module.exports = {
-    purge: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+    purge: ['./src/**/*.{ts,tsx}'],
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
@@ -22,6 +22,9 @@ module.exports = {
                 horizon: 'var(--color-black4)',
                 tag: 'var(--color-black6)',
                 'tag-hover': 'var(--color-black5)',
+            },
+            maxWidth: {
+                'main-layout': '1152px',
             },
         },
     },

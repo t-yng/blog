@@ -3,40 +3,12 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 import React, { FC } from 'react';
 import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
-import { css } from '@emotion/react';
 import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
 import { Post as PostEntity } from '../../../entities/Post';
-import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
 import { formatDate } from '../../../lib/format';
 import { vscDarkPlus } from '../../../styles/syntaxHighlight/prism';
-import { commonSyntaxHighlightStyle } from '../../../styles/syntaxHighlight/common';
-
-const style = {
-    content: css`
-        h2,
-        h3,
-        h4 {
-            margin-top: 2.5rem;
-        }
-        h2 {
-            border-bottom: 0.5px solid ${colors.black4};
-            padding-bottom: 0.5rem;
-        }
-        blockquote {
-            border-left: 5px solid ${colors.black5};
-            color: ${colors.black2};
-            padding: 1rem;
-            padding-right: 0;
-            margin: 1.5rem 0;
-        }
-        & :not(pre) code {
-            background: ${colors.black6};
-            font-family: ${commonSyntaxHighlightStyle.fontFamily};
-            padding: 0.1em 0.4em;
-        }
-    `,
-};
+import styles from './Post.module.css';
 
 type PostProps = {
     post: PostEntity;
@@ -73,7 +45,7 @@ export const Post: FC<PostProps> = ({ post }) => (
             <Tags tags={post.tags} />
         </header>
         <ReactMarkdown
-            css={style.content}
+            className={styles.content}
             renderers={rederers}
             data-testid="content"
         >
