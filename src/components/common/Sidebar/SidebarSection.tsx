@@ -13,7 +13,7 @@ export const SidebarSection: FC<SidebarSectionProps> = ({
     ...others
 }) => (
     <section {...others} className={classnames(className, 'bg-sidebar')}>
-        <header className="text-sidebar-header bg-sideber-header font-bold py-1 px-3">
+        <header className="text-sidebar-header bg-sidebar-header font-bold py-1 px-3">
             {title}
         </header>
         <div className="py-2 pr-1 pl-3">{children}</div>

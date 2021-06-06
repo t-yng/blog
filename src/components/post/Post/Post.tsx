@@ -17,7 +17,7 @@ type PostProps = {
 const rederers: ReactMarkdownProps['renderers'] = {
     image: ({ src, alt }) => (
         <picture className="inline-block text-center w-full">
-            <img alt={alt} data-src={src} className="lazyload max-w-8p" />
+            <img alt={alt} data-src={src} className="lazyload max-w-80p" />
         </picture>
     ),
     code: ({ language, value }) => (

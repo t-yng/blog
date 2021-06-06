@@ -21,9 +21,13 @@ module.exports = {
                 accent: 'var(--color-accent)',
                 horizon: 'var(--color-black4)',
                 tag: 'var(--color-black6)',
+                sidebar: 'var(--color-white)',
                 'tag-hover': 'var(--color-black5)',
+                'global-header': 'var(--color-primary)',
+                'sidebar-header': 'var(--color-primary)',
             },
             maxWidth: {
+                '80p': '80%',
                 'main-layout': '1152px',
             },
         },

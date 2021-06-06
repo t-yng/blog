@@ -15,7 +15,7 @@ export const SidebarProfile = ({
     <SidebarSection title="プロフィール" className={className} {...others}>
         <div className={'flex'}>
             <img
-                className="border-round mr-2 h-16 w-16 object-cover"
+                className="rounded-circle mr-2 h-16 w-16 object-cover"
                 src={profile.avatar}
                 alt="筆者のアバター画像"
                 data-testid="avatar-image"
