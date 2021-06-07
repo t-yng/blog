@@ -57,6 +57,6 @@ describe('Post', () => {
         expect(container.querySelector('picture')).toBeInTheDocument();
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('alt', '代替テキスト');
-        expect(img).toHaveAttribute('src', '/images/posts/slug/test.png');
+        expect(img).toHaveAttribute('data-src', '/images/posts/slug/test.png');
     });
 });
