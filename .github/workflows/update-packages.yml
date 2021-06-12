@@ -2,7 +2,7 @@ name: update npm packages
 on:
   push:
   schedule:
-    - cron: '0 17 12 * *'
+    - cron: '0 17 13 * *'
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       - name: check outdated npm packages
         run: |
           echo 'outdated_report<<EOF' >> $GITHUB_ENV
-          yarn outdated --json | npx format-yarn-outdated --changelogs >> $GITHUB_ENV
+          yarn outdated --json | npx -q -p yarn-outdated-formatter format-yarn-outdated --changelogs >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: upgrade npm packages
         run: yarn upgrade --latest
