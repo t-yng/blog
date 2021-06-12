@@ -13,8 +13,9 @@ describe('Sidebar', () => {
                 count: 2,
             },
         ];
-        const root = renderer.create(<Sidebar tags={tags} profile={profile} />)
-            .root;
+        const root = renderer.create(
+            <Sidebar tags={tags} profile={profile} />
+        ).root;
 
         expect(root.findByType(SidebarTags).props.tags).toEqual(tags);
         expect(root.findByType(SidebarProfile).props.profile).toEqual(profile);
