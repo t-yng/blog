@@ -1,0 +1,24 @@
+name: update npm packages
+on:
+  push:
+  schedule:
+    - cron: '0 19 10 * *'
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: check outdated npm packages
+        run: |
+          yarn add -D yarn-outdated-formatter
+          echo 'outdated_report<<EOF' >> $GITHUB_ENV
+          yarn outdated --json | $(yarn bin)/format-yarn-outdated --changelogs >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - name: create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: update outdated npm packages
+          branch: chore/update-outdated-packages
+          delete-branch: true
+          body: ${{ env.outdated_report}}
