@@ -4,7 +4,8 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import React, { FC } from 'react';
 import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
-import ReactMarkdown, { ReactMarkdownProps } from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
+import { Components } from 'react-markdown/src/ast-to-react';
 import { Post as PostEntity } from '../../../entities/Post';
 import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
@@ -62,29 +63,38 @@ type PostProps = {
     post: PostEntity;
 };
 
-const rederers: ReactMarkdownProps['renderers'] = {
-    image: ({ src, alt }) => (
+const components: Components = {
+    image: ({ src, ...props }) => (
         <picture css={style.picture}>
             <img
-                alt={alt}
                 data-src={src}
                 className="lazyload"
                 css={style.image}
+                {...props}
             />
         </picture>
     ),
-    code: ({ language, value }) => (
-        <SyntaxHilighter
-            language={language}
-            style={vscDarkPlus.style}
-            customStyle={vscDarkPlus.customStyle}
-            codeTagProps={{ style: vscDarkPlus.codeTagStyle }}
-        >
-            {value}
-        </SyntaxHilighter>
-    ),
-    link: ({ children, href }) => (
-        <a href={href} target="_blank" rel="noopner noreferrer">
+    code: ({ children, inline, className, ...props }) => {
+        const language = /language-(\w+)/.exec(className || '');
+
+        return inline ? (
+            <code className={className} {...props}>
+                {children}
+            </code>
+        ) : (
+            <SyntaxHilighter
+                style={vscDarkPlus.style}
+                customStyle={vscDarkPlus.customStyle}
+                codeTagProps={{ style: vscDarkPlus.codeTagStyle }}
+                language={language != null ? language[1] : ''}
+                {...props}
+            >
+                {String(children).replace(/\n$/, '')}
+            </SyntaxHilighter>
+        );
+    },
+    link: ({ children, ...props }) => (
+        <a target="_blank" rel="noopner noreferrer" {...props}>
             {children}
         </a>
     ),
@@ -99,7 +109,7 @@ export const Post: FC<PostProps> = ({ post }) => (
         </header>
         <ReactMarkdown
             css={style.content}
-            renderers={rederers}
+            components={components}
             data-testid="content"
         >
             {post.content}
