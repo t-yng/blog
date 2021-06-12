@@ -64,7 +64,8 @@ type PostProps = {
 };
 
 const components: Components = {
-    image: ({ src, ...props }) => (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    img: ({ node, src, ...props }) => (
         <picture css={style.picture}>
             <img
                 data-src={src}
@@ -74,7 +75,8 @@ const components: Components = {
             />
         </picture>
     ),
-    code: ({ children, inline, className, ...props }) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    code: ({ node, children, inline, className, ...props }) => {
         const language = /language-(\w+)/.exec(className || '');
 
         return inline ? (
@@ -93,7 +95,8 @@ const components: Components = {
             </SyntaxHilighter>
         );
     },
-    link: ({ children, ...props }) => (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    a: ({ node, children, ...props }) => (
         <a target="_blank" rel="noopner noreferrer" {...props}>
             {children}
         </a>
