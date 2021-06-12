@@ -11,12 +11,11 @@ jobs:
       - uses: actions/setup-node@v2
       - name: check outdated npm packages
         run: |
-          npx yarn-outdated-formatter
           echo 'outdated_report<<EOF' >> $GITHUB_ENV
-          yarn outdated --json | $(yarn bin)/format-yarn-outdated --changelogs >> $GITHUB_ENV
+          yarn outdated --json | npx format-yarn-outdated --changelogs >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: upgrade npm packages
-        run: yarn upgrade latest
+        run: yarn upgrade --latest
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
         with:
