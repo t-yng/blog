@@ -2,7 +2,7 @@ name: update npm packages
 on:
   push:
   schedule:
-    - cron: '0 19 10 * *'
+    - cron: '0 17 12 * *'
 jobs:
   update:
     runs-on: ubuntu-latest
