@@ -6,6 +6,8 @@ import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
 import ReactMarkdown from 'react-markdown';
 import { Components } from 'react-markdown/src/ast-to-react';
+import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { Post as PostEntity } from '../../../entities/Post';
 import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
@@ -47,6 +49,25 @@ const style = {
             background: ${colors.black6};
             font-family: ${commonSyntaxHighlightStyle.fontFamily};
             padding: 0.1em 0.4em;
+        }
+        table {
+            border-collapse: collapse;
+            display: block;
+            width: 100%;
+            overflow: auto;
+            margin: 1rem 0;
+        }
+        table th,
+        table td {
+            padding: 6px 13px;
+            border: 1px solid ${colors.black5};
+        }
+        thead th {
+            background: ${colors.black6};
+        }
+        table tr {
+            background-color: white;
+            border-top: 1px solid ${colors.black5};
         }
     `,
     image: css`
@@ -113,6 +134,8 @@ export const Post: FC<PostProps> = ({ post }) => (
         <ReactMarkdown
             css={style.content}
             components={components}
+            rehypePlugins={[rehypeRaw]}
+            plugins={[gfm]}
             data-testid="content"
         >
             {post.content}
