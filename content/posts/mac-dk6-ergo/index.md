@@ -18,4 +18,4 @@ DK6 Ergo は MacOS で動作させると左右のキーボードのキーの組�
 
 ### 解決
 
-[Karabiner-Elements]([https://karabiner-elements.pqrs.org/](https://karabiner-elements.pqrs.org/)) をインストールします。特別な設定は不要でアプリケーションを起動するだけで、左右キーボードのキーコンビネーションが動作します。
+[Karabiner-Elements](https://karabiner-elements.pqrs.org/) をインストールします。特別な設定は不要でアプリケーションを起動するだけで、左右キーボードのキーコンビネーションが動作します。

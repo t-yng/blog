@@ -45,7 +45,7 @@ console.log(name)
 
 `extends` オプションで `eslint:recommended` を指定することで、ベース設定を継承して一括で設定をすることができます。
 
-どのようなルールが設定されるかは [公式ドキュメント]([https://eslint.org/docs/rules/](https://eslint.org/docs/rules/)) を参照すれば確認することができます。
+どのようなルールが設定されるかは [公式ドキュメント](https://eslint.org/docs/rules/) を参照すれば確認することができます。
 
 ```json
 {
@@ -149,7 +149,7 @@ const Hello = ({ name }) => <div>{name}</div>;
 ```
 
 ### Parser
-ESLintはデフォルトで [Espree]([https://github.com/eslint/espree](https://github.com/eslint/espree)) を構文解析のパーサーとして利用しています。TypeScript を構文チェックする場合に type キーワードなどは ECMAScript の構文ではないなため構文解析に失敗します。そのため、 `Parser` オプションで別のパーサーを指定する必要があります。
+ESLintはデフォルトで [Espree](https://github.com/eslint/espree) を構文解析のパーサーとして利用しています。TypeScript を構文チェックする場合に type キーワードなどは ECMAScript の構文ではないなため構文解析に失敗します。そのため、 `Parser` オプションで別のパーサーを指定する必要があります。
 
 ```typescript
 // error  Parsing error: Unexpected token User
@@ -214,7 +214,7 @@ describe("test", () => {
 ```
 
 `env` オプションで `jest` を設定することで `describe` などのグローバル関数が定義済みであることを ESLint に伝えることで、構文エラーを解消することできます。  
-設定可能な環境の一覧は [公式のページ]([https://eslint.org/docs/user-guide/configuring#specifying-environments](https://eslint.org/docs/user-guide/configuring#specifying-environments)) で確認できます。
+設定可能な環境の一覧は [公式のページ](https://eslint.org/docs/user-guide/configuring#specifying-environments) で確認できます。
 
 ```json
 {
@@ -290,7 +290,7 @@ console.log(hoge)
 ESLintでは「JSX が記述されている場合は React モジュールがインポートされていること」などの独自ルールをプラグインという形で組み込むことができます。  
 `plugins` オプションでは利用したいプラグインを配列の形で指定します。また、プラグインを利用する場合は、事前にパッケージとしてインストールしておく必要があります。
 
-例として、React の構文チェックプラグインである [yannickcr/eslint-plugin-react]([https://github.com/yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)) を導入してみます。
+例として、React の構文チェックプラグインである [yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) を導入してみます。
 
 最初にプラグインをインストールします。
 
@@ -331,7 +331,7 @@ $ yarn add -D eslint-plugin-react
 ### Shared Settings
 `settins` オプションはESLintのルール実行時に参照される共通の設定値です。独自のカスタムルールから共通の値に参照したい場合などに利用できます。
 
- [yannickcr/eslint-plugin-react]([https://github.com/yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)) を利用する場合に次の設定を書く事でReactのバージョンを指定することができます。
+ [yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) を利用する場合に次の設定を書く事でReactのバージョンを指定することができます。
 
 ```json
 {
@@ -362,9 +362,9 @@ const getAllPostsImpl: GetAllPosts = new GetAllPostsImpl(
 );
 ```
 
-ESLint と Prettier の併用方法をインターネットで検索すると [eslint-plugin-prettier]([https://github.com/prettier/eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)) をインストールして、ESLint 上で Prettier を実行する方法を見かけることがあります。しかし、この方法では Prettier を直接実行するよりも処理に時間がかかったり、自動整形されるコードが構文エラーとして表示される問題があり [公式ページ]([https://prettier.io/docs/en/integrating-with-linters.html](https://prettier.io/docs/en/integrating-with-linters.html)) で非推奨とされています。
+ESLint と Prettier の併用方法をインターネットで検索すると [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) をインストールして、ESLint 上で Prettier を実行する方法を見かけることがあります。しかし、この方法では Prettier を直接実行するよりも処理に時間がかかったり、自動整形されるコードが構文エラーとして表示される問題があり [公式ページ](https://prettier.io/docs/en/integrating-with-linters.html) で非推奨とされています。
 
-公式の推奨する方法では [eslint-config-prettier]([https://github.com/prettier/eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)) を導入してPrettierと競合するルールをオフにして、`prettier && eslint` と先に Prettier でコードを整形をした後に ESLint で構文チェックを実行します。
+公式の推奨する方法では [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) を導入してPrettierと競合するルールをオフにして、`prettier && eslint` と先に Prettier でコードを整形をした後に ESLint で構文チェックを実行します。
 
 ```json
 {
@@ -386,7 +386,7 @@ $ prettier && eslint
 インストールするパッケージ
 
 - [yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
-- [eslint-plugin-react-hooks]([https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks))
+- [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks)
 
 React v17.0 以降を利用する場合は Reactのモジュールをインポートする必要がなくなったので `react/react-in-jsx-scope` を `off` にしておくことをオススメします。
 
@@ -423,8 +423,8 @@ React v17.0 以降を利用する場合は Reactのモジュールをインポ�
 
 インストールするパッケージ
 
-- [@typescript-eslint/pareser]([https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser))
-- [@typescript-eslint/eslint-plugin]([https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin))
+- [@typescript-eslint/pareser](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser)
+- [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)
 
 ```bash
 $ yarn add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
