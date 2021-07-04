@@ -362,9 +362,9 @@ const getAllPostsImpl: GetAllPosts = new GetAllPostsImpl(
 );
 ```
 
-ESLint と Prettier の併用方法をインターネットで検索すると [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) をインストールして、ESLint 上で Prettier を実行する方法を見かけることがあります。しかし、この方法では Prettier を直接実行するよりも処理に時間がかかったり、自動整形されるコードが構文エラーとして表示される問題があり [公式ページ](https://prettier.io/docs/en/integrating-with-linters.html) で非推奨とされています。
+ESLint と Prettier の併用方法をインターネットで検索すると [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) をインストールして、ESLint 上で Prettier を実行する方法を見かけることがあります。しかし、この方法では Prettier を直接実行するよりも処理に時間がかかったり、自動整形されるコードが構文エラーとして表示される問題があり [公式のドキュメント](https://prettier.io/docs/en/integrating-with-linters.html) で非推奨とされています。
 
-公式の推奨する方法では [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) を導入してPrettierと競合するルールをオフにして、`prettier && eslint` と先に Prettier でコードを整形をした後に ESLint で構文チェックを実行します。
+対応方法としては [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) を導入してPrettierと競合するルールをオフにして、`prettier && eslint` と先に Prettier でコードを整形をした後に ESLint で構文チェックを実行します。
 
 ```json
 {
@@ -379,8 +379,6 @@ ESLint と Prettier の併用方法をインターネットで検索すると [e
 # 実行
 $ prettier && eslint
 ```
-
-[Integrating with Linters · Prettier](https://prettier.io/docs/en/integrating-with-linters.html)
 
 ## Reactの設定例
 インストールするパッケージ
