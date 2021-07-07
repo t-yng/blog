@@ -1,5 +1,6 @@
 name: update npm packages
 on:
+  push:
   schedule:
     - cron: '00 10 10 * *'
 jobs:
