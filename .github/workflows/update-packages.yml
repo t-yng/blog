@@ -18,17 +18,12 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       - name: upgrade npm packages
         run: yarn upgrade --latest
-      - name: debug env
-        run: echo ${{ env.CURRENT_DATE }}
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
         with:
           title: update outdated npm packages
           commit-message: update outdated npm packages
-          branch: chore/update-outdated-packages-${{ steps.date.outputs.date }}
+          branch: chore/update-outdated-packages-${{ env.CURRENT_DATE }}
           delete-branch: true
           body: ${{ env.outdated_report}}
           assignees: t-yng
