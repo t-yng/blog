@@ -1,5 +1,7 @@
 name: update npm packages
-on: [pull_request]
+on:
+  schedule:
+    - cron: '30 14 7 * *'
 jobs:
   update:
     runs-on: ubuntu-latest
