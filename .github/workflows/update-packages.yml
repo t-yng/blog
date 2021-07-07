@@ -18,6 +18,8 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       - name: upgrade npm packages
         run: yarn upgrade --latest
+      - name: set env CURRENT_DATE
+        run: echo "CURRENT_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       - name: create pull request
         uses: peter-evans/create-pull-request@v3
         with:
