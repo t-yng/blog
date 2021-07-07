@@ -5,6 +5,8 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      CURRENT_DATE: $(date +'%Y-%m-%d')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -15,6 +17,8 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       - name: upgrade npm packages
         run: yarn upgrade --latest
+      - name: debug env
+        run: echo ${{ env.CURRENT_DATE }}
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
