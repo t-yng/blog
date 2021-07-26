@@ -4,9 +4,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const config = {
-    future: {
-        webpack5: true,
-    },
     webpack: (config, { isServer }) => {
         // fix Can't resolve 'fs'
         // @see: https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
