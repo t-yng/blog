@@ -1,4 +1,5 @@
 {
   "extends": ["config:base"],
-  "separateMajorMinor": false
+  "separateMajorMinor": false,
+  "schedule": "before 7pm on the 27 days of the month"
 }
