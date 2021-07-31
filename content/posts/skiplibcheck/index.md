@@ -9,7 +9,7 @@ tsconfig.json には [skipLibCheck](https://www.typescriptlang.org/ja/tsconfig#s
 このオプションの挙動やどんな時に設定するかについてまとめました。
 
 ## skipLibCheckの挙動
-このオプションのデフォルト値は false で true を設定することで `*.d.ts` ファイルに対する型チェックをスキップすることができます。
+このオプションのデフォルト値は `false` です。 `true` を設定することで `*.d.ts` ファイルに対する型チェックをスキップすることができます。
 
 次のようなサーバーのコードを考えてみます。
 
@@ -31,21 +31,7 @@ app.listen(3000, () => {
 });
 ```
 
-tsconfig.json では `skipLibCheck` は定義しておらず、デフォルトの false が設定されている状態です。
-
-```json
-{
-    "compilerOptions": {
-        "esModuleInterop": true,
-        "typeRoots": [
-            "node_modules/@types",
-            "types"
-        ]
-    }
-}
-```
-
-`req.tokens` は次のような型定義ファイルを作成して、 `express.Request` の型定義を拡張して新たにプロパティを定義しています。この時、 `tokens: Array` とジェネリクスを指定すべき箇所を誤って指定しているため、型定義エラーが発生しています。
+`req.tokens` は独自で型定義ファイルを作成して、 `express.Request` の型定義を拡張して新たにプロパティを定義しています。この時、 `tokens: Array` とジェネリクスを指定すべき箇所を誤って指定しているため、型定義ファイルでエラーが発生しています。
 
 ```typescript
 // types/express/index.d.ts
@@ -61,7 +47,7 @@ declare namespace Express {
 }
 ```
 
-この状態で、 tsconfig.json にて `skipLibCheck: true` を設定します。
+この状態で tsconfig.json を `skipLibCheck: true` に変更します。
 
 ```json
 {
@@ -72,7 +58,7 @@ declare namespace Express {
 }
 ```
 
-`*.d.ts` ファイルに対する型チェックがスキップされるのでエラーが消え、正しくない型定義ファイルが存在してもコンパイルエラーが出なくなってしまいました。
+`*.d.ts` ファイルに対する型チェックがスキップされるのでエラーが消え、正しくない型定義ファイルが存在してもコンパイルエラーが出なくなりました。
 
 ```typescript
 declare namespace Express {
@@ -117,7 +103,7 @@ Total time:                 1.17s
 ✨  Done in 1.49s.
 ```
 
-他のシナリオとしては、複数のパッケージが、それぞれが異なるバージョンの型定義ファイルに依存している（別々のパッケージ `@types/react@^16` と `@types/react@^17` に依存しているなど）場合に、同じ型定義ファイルが複数 node_modules にインストールされる場合があります。この時に `error TS2300: Duplicate Identifier` という型定義の重複エラーが発生してコンパイルに失敗します。  
+他のシナリオとしては、複数のパッケージがそれぞれが異なるバージョンの型定義ファイルに依存している（別々のパッケージが `@types/react@^16` と `@types/react@^17` に依存しているなど）場合に、バージョン違いの同じ型定義ファイルが node_modules にインストールされ、`error TS2300: Duplicate Identifier` という型定義の重複エラーが発生してコンパイルに失敗することがあります。
 
 解決策としては、パッケージのバージョンを上げるなどして依存関係を整理して重複を無くす方法があります。しかし、それが難しい場合は  `skipLibCheck: true` を指定することで型定義ファイルの型チェックをスキップすることで、エラーを回避することができます。
 
