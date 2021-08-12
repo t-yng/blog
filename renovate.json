@@ -1,5 +1,4 @@
 {
   "extends": ["config:base", ":preserveSemverRanges"],
-  "separateMajorMinor": false,
-  "schedule": "before 7pm on the 27 days of the month"
+  "separateMajorMinor": false
 }
