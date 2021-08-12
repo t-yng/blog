@@ -1,4 +1,5 @@
 {
   "extends": ["config:base", ":preserveSemverRanges"],
-  "separateMajorMinor": false
+  "separateMajorMinor": false,
+  "separateMultipleMajor": false
 }
