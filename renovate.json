@@ -3,7 +3,6 @@
   "rangeStrategy": "bump",
   "prHourlyLimit": 0,
   "timezone": "Asia/Tokyo",
-  "schedule": ["at 20:00 on the 14th day of the month"],
   "prTitle": "Update npm packages",
   "separateMinorPatch": true,
   "separateMajorMinor": true,
