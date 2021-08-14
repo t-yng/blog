@@ -1,7 +1,11 @@
 {
-  "extends": ["config:base", ":preserveSemverRanges"],
+  "extends": ["config:base"],
+  "rangeStrategy": "auto",
   "timezone": "Asia/Tokyo",
-  "schedule": "at 16:00 on the 14th day of the month",
+  "schedule": [
+    "at 16:00 on the 14th day of the month",
+    "at 17:00 on the 14th day of the month"
+  ],
   "prTitle": "Update npm packages",
   "separateMinorPatch": true,
   "separateMajorMinor": true,
