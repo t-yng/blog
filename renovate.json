@@ -1,7 +1,8 @@
 {
   "extends": ["config:base", ":preserveSemverRanges"],
   "timezone": "Asia/Tokyo",
-  "schedule": "at 15:00 on the 14th day of the month",
+  "schedule": "at 16:00 on the 14th day of the month",
+  "prTitle": "Update npm packages",
   "separateMajorMinor": false,
   "separateMultipleMajor": false,
   "groupName": "all"
