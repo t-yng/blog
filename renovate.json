@@ -2,10 +2,12 @@
   "extends": ["config:base"],
   "rangeStrategy": "bump",
   "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "timezone": "Asia/Tokyo",
   "prTitle": "Update npm packages",
   "separateMinorPatch": true,
   "separateMajorMinor": true,
   "separateMultipleMajor": false,
-  "groupName": "all"
+  "groupName": "all",
+  "recreateClosed": true
 }
