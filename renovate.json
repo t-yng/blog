@@ -5,8 +5,8 @@
   "prConcurrentLimit": 0,
   "timezone": "Asia/Tokyo",
   "prTitle": "Update npm packages",
-  "separateMinorPatch": true,
-  "separateMajorMinor": true,
+  "separateMinorPatch": false,
+  "separateMajorMinor": false,
   "separateMultipleMajor": false,
   "groupName": "all",
   "recreateClosed": true
