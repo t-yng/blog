@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base"],
+  "extends": ["config:base", "group:all"],
   "rangeStrategy": "bump",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
@@ -8,6 +8,5 @@
   "separateMinorPatch": false,
   "separateMajorMinor": false,
   "separateMultipleMajor": false,
-  "groupName": "all",
   "recreateClosed": true
 }
