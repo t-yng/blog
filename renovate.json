@@ -3,7 +3,8 @@
   "timezone": "Asia/Tokyo",
   "schedule": "at 16:00 on the 14th day of the month",
   "prTitle": "Update npm packages",
-  "separateMajorMinor": false,
+  "separateMinorPatch": true,
+  "separateMajorMinor": true,
   "separateMultipleMajor": false,
   "groupName": "all"
 }
