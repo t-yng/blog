@@ -3,7 +3,6 @@
   "commitMessage": "Update npm packages",
   "assignees": ["t-yng"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["at 12:00 on the 1st day of the month"],
   "rangeStrategy": "bump",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
