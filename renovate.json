@@ -8,6 +8,5 @@
   "prConcurrentLimit": 0,
   "separateMinorPatch": false,
   "separateMajorMinor": false,
-  "separateMultipleMajor": false,
-  "recreateClosed": true
+  "separateMultipleMajor": false
 }
