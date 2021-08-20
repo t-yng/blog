@@ -4,8 +4,7 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import React, { FC } from 'react';
 import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
-import ReactMarkdown from 'react-markdown';
-import { Components } from 'react-markdown/src/ast-to-react';
+import ReactMarkdown, { Options } from 'react-markdown';
 import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Post as PostEntity } from '../../../entities/Post';
@@ -84,7 +83,7 @@ type PostProps = {
     post: PostEntity;
 };
 
-const components: Components = {
+const components: Options['components'] = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     img: ({ node, src, ...props }) => (
         <picture css={style.picture}>
