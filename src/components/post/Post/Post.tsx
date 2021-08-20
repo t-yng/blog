@@ -2,7 +2,7 @@ import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 import React, { FC } from 'react';
-import { PrismAsync as SyntaxHilighter } from 'react-syntax-highlighter';
+import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import gfm from 'remark-gfm';
@@ -96,23 +96,23 @@ const components: Options['components'] = {
         </picture>
     ),
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    code: ({ node, children, inline, className, ...props }) => {
-        const language = /language-(\w+)/.exec(className || '');
+    code: ({ node, inline, className, children, ref, ...props }) => {
+        const match = /language-(\w+)/.exec(className || '');
 
-        return inline ? (
-            <code className={className} {...props}>
-                {children}
-            </code>
-        ) : (
-            <SyntaxHilighter
+        return !inline && match ? (
+            <SyntaxHighlighter
                 style={vscDarkPlus.style}
                 customStyle={vscDarkPlus.customStyle}
                 codeTagProps={{ style: vscDarkPlus.codeTagStyle }}
-                language={language != null ? language[1] : ''}
+                language={match[1]}
                 {...props}
             >
                 {String(children).replace(/\n$/, '')}
-            </SyntaxHilighter>
+            </SyntaxHighlighter>
+        ) : (
+            <code className={className} {...props}>
+                {children}
+            </code>
         );
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
