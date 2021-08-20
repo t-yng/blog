@@ -6,15 +6,27 @@
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "separateMultipleMajor": false,
-  "lockFileMaintenance": false,
   "recreateClosed": false,
-  "prBodyColumns": ["Package", "Type", "Update", "Change"],
+  "prBodyColumns": [
+    "Package",
+    "Update",
+    "Change",
+    "Age",
+    "Adoption",
+    "Confidence"
+  ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "groupName": "all dependencies",
-      "groupSlug": "all"
+      "groupSlug": "all-dependencies"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "all devDependencies",
+      "groupSlug": "all-dev-dependencies"
     }
   ]
 }
