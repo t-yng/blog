@@ -1,0 +1,33 @@
+{
+  "reviewers": ["t-yng"],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "separateMajorMinor": false,
+  "separateMinorPatch": false,
+  "separateMultipleMajor": false,
+  "recreateClosed": false,
+  "dependencyDashboard": true,
+  "prBodyColumns": [
+    "Package",
+    "Update",
+    "Change",
+    "Age",
+    "Adoption",
+    "Confidence"
+  ],
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "all dependencies",
+      "groupSlug": "all-dependencies"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "all devDependencies",
+      "groupSlug": "all-dev-dependencies"
+    }
+  ]
+}
