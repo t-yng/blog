@@ -8,26 +8,34 @@
   "separateMultipleMajor": false,
   "recreateClosed": false,
   "dependencyDashboard": true,
-  "prBodyColumns": [
-    "Package",
-    "Update",
-    "Change",
-    "Age",
-    "Adoption",
-    "Confidence"
-  ],
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "groupName": "all dependencies",
-      "groupSlug": "all-dependencies"
+      "groupSlug": "all-dependencies",
+      "prBodyColumns": [
+        "Package",
+        "Update",
+        "Change",
+        "Age",
+        "Adoption",
+        "Confidence"
+      ]
     },
     {
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "groupName": "all devDependencies",
-      "groupSlug": "all-dev-dependencies"
+      "groupSlug": "all-dev-dependencies",
+      "prBodyColumns": [
+        "Package",
+        "Update",
+        "Change",
+        "Age",
+        "Adoption",
+        "Confidence"
+      ]
     }
   ]
 }
