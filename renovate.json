@@ -1,0 +1,20 @@
+{
+  "reviewers": ["t-yng"],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "separateMajorMinor": false,
+  "separateMinorPatch": false,
+  "separateMultipleMajor": false,
+  "lockFileMaintenance": false,
+  "recreateClosed": false,
+  "prBodyColumns": ["Package", "Type", "Update", "Change"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "groupName": "all dependencies",
+      "groupSlug": "all"
+    }
+  ]
+}
