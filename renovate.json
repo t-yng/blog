@@ -21,7 +21,8 @@
         "Age",
         "Adoption",
         "Confidence"
-      ]
+      ],
+      "schedule": ["at 12:00 on the 1 day of the month"]
     },
     {
       "matchDepTypes": ["devDependencies"],
@@ -35,7 +36,8 @@
         "Age",
         "Adoption",
         "Confidence"
-      ]
+      ],
+      "schedule": ["at 12:00 on the 20 day of the month"]
     }
   ]
 }
