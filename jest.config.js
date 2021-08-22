@@ -1,6 +1,7 @@
 module.exports = {
-    preset: 'ts-jest',
+    preset: 'ts-jest/presets/js-with-babel',
     testEnvironment: 'jsdom',
+    transformIgnorePatterns: ['/node_modules/(?!react-markdown)/'],
     testMatch: ['<rootDir>/src/**/?(*.)+(spec|test).[jt]s?(x)'],
     setupFilesAfterEnv: ['./test/setup.ts'],
     collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}'],
