@@ -44,6 +44,12 @@ const style = {
             padding-right: 0;
             margin: 1.5rem 0;
         }
+
+        blockquote p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
         & :not(pre) code {
             background: ${colors.black6};
             font-family: ${commonSyntaxHighlightStyle.fontFamily};
