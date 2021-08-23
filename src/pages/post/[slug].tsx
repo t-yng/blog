@@ -5,7 +5,7 @@ import {
     GetStaticPropsResult,
 } from 'next';
 import { Layout } from '../../components/common/Layout/Layout';
-import { Post } from '../../components/post/Post';
+import { Post } from '../../components/post/Post/Post';
 import { Tag } from '../../entities/Tag';
 import { Post as PostEntity } from '../../entities/Post';
 import { usecases } from '../../usecases/UsecaseContainer';
