@@ -10,6 +10,7 @@ import { Tag } from '../../entities/Tag';
 import { Post as PostEntity } from '../../entities/Post';
 import { usecases } from '../../usecases/UsecaseContainer';
 import { SeoMetadata } from '../../entities/SeoMetadata';
+import { siteMeatadata } from '../../config/siteMetadata';
 
 type PostPageProps = {
     post: PostEntity;
@@ -46,7 +47,7 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
             post: post,
             tags: tags,
             seoMetadata: {
-                title: post.title,
+                title: `${post.title} - ${siteMeatadata.title}`,
                 description: post.description,
                 author: post.author,
             },
