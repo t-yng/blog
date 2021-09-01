@@ -223,5 +223,3 @@ if rand.Float64() <= dropProbability {
 17:00で更新が停止された状態でのダッシュボード上での最終スコア  
 
 ![ダッシュボードでの最終スコア](/images/posts/isucon11/dashboard-last-score.jpg)
-
-これは！？と予選結果を期待していたが、蓋を開けてみたら他のチームがばんばんスコアを上げており壁の高さを痛感しました。
