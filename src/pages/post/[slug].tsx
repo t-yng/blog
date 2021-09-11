@@ -1,16 +1,18 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import {
     GetStaticPathsResult,
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
+import dynamic from 'next/dynamic';
 import { Layout } from '../../components/common/Layout/Layout';
-// import { Post } from '../../components/post/Post/Post';
 import { Tag } from '../../entities/Tag';
 import { Post as PostEntity } from '../../entities/Post';
 import { usecases } from '../../usecases/UsecaseContainer';
 import { SeoMetadata } from '../../entities/SeoMetadata';
 import { siteMeatadata } from '../../config/siteMetadata';
+
+const Post = dynamic(() => import('../../components/post/Post'));
 
 type PostPageProps = {
     post: PostEntity;
@@ -20,7 +22,7 @@ type PostPageProps = {
 
 const PostPage: FC<PostPageProps> = ({ post, tags, seoMetadata }) => (
     <Layout tags={tags} seoMetadata={seoMetadata}>
-        {/* <Post post={post} /> */}
+        <Post post={post} />
     </Layout>
 );
 

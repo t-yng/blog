@@ -85,7 +85,7 @@ const style = {
     `,
 };
 
-type PostProps = {
+export type PostProps = {
     post: PostEntity;
 };
 
