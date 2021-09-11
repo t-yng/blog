@@ -3,7 +3,7 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Layout } from '../../components/common/Layout/Layout';
 import { PostEntries } from '../../components/home/PostEntries';
 import { siteMeatadata } from '../../config/siteMetadata';

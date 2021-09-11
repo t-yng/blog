@@ -1,7 +1,7 @@
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
 import ReactMarkdown, { Options } from 'react-markdown';

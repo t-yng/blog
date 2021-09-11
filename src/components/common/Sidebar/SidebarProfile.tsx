@@ -1,4 +1,3 @@
-import React from 'react';
 import { css } from '@emotion/react';
 import { colors } from '../../../styles/color';
 import { SidebarSection } from './SidebarSection';

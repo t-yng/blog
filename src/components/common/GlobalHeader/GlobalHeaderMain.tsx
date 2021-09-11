@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from '../Link/Link';
 import { css } from '@emotion/react';
 import { colors } from '../../../styles/color';

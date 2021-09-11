@@ -1,4 +1,3 @@
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { profile } from '../../../config/profile';
 import { Sidebar } from './Sidebar';
