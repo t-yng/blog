@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { css } from '@emotion/react';
 import { Post } from '../../../entities/Post';
 import { colors } from '../../../styles/color';

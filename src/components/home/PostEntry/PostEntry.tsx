@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { css } from '@emotion/react';
 import { Link } from '../../common/Link/Link';
 import { Tags } from '../../common/Tags/Tags';
@@ -29,7 +29,7 @@ const style = {
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
     <div css={style.postEntry}>
         <div css={style.date}>{formatDate(post.date)}</div>
-        <Link href={`/post/${post.slug}`} decoration={false}>
+        <Link href={`/post/${post.slug}`} decoration={false} prefetch={false}>
             <h3 css={style.title}>{post.title}</h3>
         </Link>
         <Tags tags={post.tags} css={style.tags} />

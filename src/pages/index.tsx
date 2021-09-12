@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
 import { css } from '@emotion/react';
 import { Layout } from '../components/common/Layout/Layout';

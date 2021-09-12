@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { PageItem } from './PageItem';
 import { Link } from '../../common/Link';
 
