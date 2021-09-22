@@ -22,7 +22,7 @@
         "Adoption",
         "Confidence"
       ],
-      "schedule": ["before 12:00 on the 1st day of the month"]
+      "schedule": ["after 10:00 on the 1st and 15th day of the month"]
     },
     {
       "matchDepTypes": ["devDependencies"],
@@ -37,7 +37,7 @@
         "Adoption",
         "Confidence"
       ],
-      "schedule": ["before 17:00 on the 22th day of the month"]
+      "schedule": ["after 10:00 on the 8th and 22th day of the month"]
     }
   ]
 }
