@@ -6,8 +6,6 @@
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "separateMultipleMajor": false,
-  "recreateClosed": false,
-  "dependencyDashboard": true,
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
@@ -22,7 +20,7 @@
         "Adoption",
         "Confidence"
       ],
-      "schedule": ["after 10:00 on the 1st and 15th day of the month"]
+      "schedule": ["after 10:00 on the 2nd and 15th day of the month"]
     },
     {
       "matchDepTypes": ["devDependencies"],
