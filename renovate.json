@@ -6,6 +6,7 @@
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "separateMultipleMajor": false,
+  "rebaseWhen": "never",
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
@@ -21,7 +22,7 @@
         "Confidence"
       ],
       "schedule": [
-        "after 10:00 on the 6th day of the month",
+        "after 10:00 on the 1st day of the month",
         "after 10:00 on the 15th day of the month"
       ]
     },
