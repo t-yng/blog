@@ -21,5 +21,9 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: install dependencies
         run: yarn install
-      - name: run test
+      - name: lint
+        run: yarn lint
+      - name: type check
+        run: yarn type-check
+      - name: unit test
         run: yarn test
