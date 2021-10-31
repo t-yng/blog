@@ -2,7 +2,6 @@ import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 import { FC } from 'react';
-import { PrismAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { css } from '@emotion/react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import gfm from 'remark-gfm';
@@ -11,8 +10,7 @@ import { Post as PostEntity } from '../../../entities/Post';
 import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
 import { formatDate } from '../../../lib/format';
-import { vscDarkPlus } from '../../../styles/syntaxHighlight/prism';
-import { commonSyntaxHighlightStyle } from '../../../styles/syntaxHighlight/common';
+import { Code } from '../Code';
 
 const style = {
     post: css`
@@ -52,7 +50,7 @@ const style = {
 
         & :not(pre) code {
             background: ${colors.black6};
-            font-family: ${commonSyntaxHighlightStyle.fontFamily};
+            font-family: '"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace';
             padding: 0.1em 0.4em;
         }
         table {
@@ -106,15 +104,10 @@ const components: Options['components'] = {
         const match = /language-(\w+)/.exec(className || '');
 
         return !inline && match ? (
-            <SyntaxHighlighter
-                style={vscDarkPlus.style}
-                customStyle={vscDarkPlus.customStyle}
-                codeTagProps={{ style: vscDarkPlus.codeTagStyle }}
+            <Code
+                code={String(children).replace(/\n$/, '')}
                 language={match[1]}
-                {...props}
-            >
-                {String(children).replace(/\n$/, '')}
-            </SyntaxHighlighter>
+            />
         ) : (
             <code className={className} {...props}>
                 {children}
@@ -129,21 +122,24 @@ const components: Options['components'] = {
     ),
 };
 
-export const Post: FC<PostProps> = ({ post }) => (
-    <div css={style.post}>
-        <header css={style.header}>
-            <h1>{post.title}</h1>
-            <div css={style.date}>{formatDate(post.date)}</div>
-            <Tags tags={post.tags} />
-        </header>
-        <ReactMarkdown
-            css={style.content}
-            components={components}
-            rehypePlugins={[rehypeRaw]}
-            plugins={[gfm]}
-            data-testid="content"
-        >
-            {post.content}
-        </ReactMarkdown>
-    </div>
-);
+export const Post: FC<PostProps> = ({ post }) => {
+    return (
+        <div css={style.post}>
+            <header css={style.header}>
+                <h1>{post.title}</h1>
+                <div css={style.date}>{formatDate(post.date)}</div>
+                <Tags tags={post.tags} />
+            </header>
+
+            <ReactMarkdown
+                css={style.content}
+                components={components}
+                rehypePlugins={[rehypeRaw]}
+                plugins={[gfm]}
+                data-testid="content"
+            >
+                {post.content}
+            </ReactMarkdown>
+        </div>
+    );
+};
