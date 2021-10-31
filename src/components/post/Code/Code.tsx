@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 import Prism from 'prismjs';
-import 'prismjs/themes/prism-tomorrow.css';
 import { css } from '@emotion/react';
 
 const style = {
