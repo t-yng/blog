@@ -16,6 +16,9 @@
     "type-check": "tsc",
     "prepare": "husky install"
   },
+  "engines": {
+    "node": "14.18.1"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json}": [
       "yarn format",
@@ -28,11 +31,11 @@
     "gray-matter": "4.0.3",
     "lazysizes": "5.3.2",
     "next": "11.1.2",
+    "prismjs": "^1.25.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-markdown": "7.0.1",
-    "react-syntax-highlighter": "15.4.4",
     "rehype-raw": "6.1.0",
     "remark-gfm": "3.0.0"
   },
@@ -42,11 +45,12 @@
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.1.2",
     "@types/gtag.js": "0.0.7",
+    "@types/prismjs": "^1.16.6",
     "@types/react-helmet": "6.1.4",
-    "@types/react-syntax-highlighter": "13.5.2",
     "@types/react-test-renderer": "17.0.1",
     "@typescript-eslint/eslint-plugin": "5.0.0",
     "@typescript-eslint/parser": "5.0.0",
+    "babel-plugin-prismjs": "^2.1.0",
     "eslint": "8.0.1",
     "eslint-config-next": "11.1.2",
     "eslint-config-prettier": "8.3.0",
