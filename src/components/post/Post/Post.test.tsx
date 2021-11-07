@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { instance, mock, when } from 'ts-mockito';
+import { TEST_IMAGES_DIR_ROOT } from '../../../../test/constants';
 import { Post as PostEntity } from '../../../entities/Post';
+import { parseImageTextWithSize } from '../../../lib/markdown';
 import { Post } from './Post';
 
 describe('Post', () => {
@@ -47,16 +49,21 @@ describe('Post', () => {
         expect(screen.queryByText('テストの内容です。')).toBeInTheDocument();
     });
 
-    it('renders img as child of picture', () => {
-        const markdown = '![代替テキスト](/images/posts/slug/test.png)';
+    it('renders image', () => {
+        const markdown = parseImageTextWithSize(
+            '![代替テキスト](/images/test1.jpg)',
+            TEST_IMAGES_DIR_ROOT
+        );
         when(mockPost.content).thenReturn(markdown);
         const post = instance(mockPost);
-        const { container } = render(<Post post={post} />);
+        render(<Post post={post} />);
 
         const img = screen.queryByRole('img');
-        expect(container.querySelector('picture')).toBeInTheDocument();
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('alt', '代替テキスト');
-        expect(img).toHaveAttribute('data-src', '/images/posts/slug/test.png');
+        expect(img).toHaveAttribute(
+            'src',
+            'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+        );
     });
 });

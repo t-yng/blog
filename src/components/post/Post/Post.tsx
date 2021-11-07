@@ -1,11 +1,9 @@
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-
 import { FC } from 'react';
 import { css } from '@emotion/react';
 import ReactMarkdown, { Options } from 'react-markdown';
 import gfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import Image from 'next/image';
 import { Post as PostEntity } from '../../../entities/Post';
 import { colors } from '../../../styles/color';
 import { Tags } from '../../common/Tags/Tags';
@@ -73,13 +71,9 @@ const style = {
             border-top: 1px solid ${colors.black5};
         }
     `,
-    image: css`
-        max-width: 80%;
-    `,
-    picture: css`
-        display: inline-block;
-        text-align: center;
-        width: 100%;
+    imageWrapper: css`
+        display: flex;
+        justify-content: center;
     `,
 };
 
@@ -89,16 +83,20 @@ type PostProps = {
 
 const components: Options['components'] = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    img: ({ node, src, ...props }) => (
-        <picture css={style.picture}>
-            <img
-                data-src={src}
-                className="lazyload"
-                css={style.image}
-                {...props}
-            />
-        </picture>
-    ),
+    img: ({ node, src, width, height, alt, ...props }) => {
+        if (src == null || src === '') return null;
+
+        return (
+            <div css={style.imageWrapper}>
+                <Image
+                    src={src || ''}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                />
+            </div>
+        );
+    },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     code: ({ node, inline, className, children, ref, ...props }) => {
         const match = /language-(\w+)/.exec(className || '');
