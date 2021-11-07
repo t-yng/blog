@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { Post } from '../entities/Post';
 import { PostsRepository } from './PostsRepository';
 import { profile } from '../config/profile';
+import { parseImageTextWithSize } from '../lib/markdown';
 
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {
@@ -26,7 +27,10 @@ export class PostsRepositoryImpl implements PostsRepository {
         }
 
         const fileContent = fs.readFileSync(fullPath);
-        const { data, content } = matter(fileContent);
+        const markdown = matter(fileContent);
+        const { data } = markdown;
+        let { content } = markdown;
+        content = parseImageTextWithSize(content);
 
         return {
             id: crypto.createHash('md5').update(slug).digest('hex'),
@@ -36,7 +40,7 @@ export class PostsRepositoryImpl implements PostsRepository {
             description: data['description'],
             tags: data['tags'],
             author: data['author'] || profile.name,
-            content,
+            content: content,
         };
     }
 
