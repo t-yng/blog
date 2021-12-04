@@ -5,7 +5,7 @@ import { Layout } from '../components/common/Layout/Layout';
 import { Post } from '../entities/Post';
 import { usecases } from '../usecases/UsecaseContainer';
 import { Tag } from '../entities/Tag';
-import { siteMeatadata } from '../config/siteMetadata';
+import { siteMetadata } from '../config/siteMetadata';
 import { PostEntries } from '../components/home/PostEntries/PostEntries';
 import { Pagination } from '../components/home/Pagination';
 import {
@@ -64,7 +64,7 @@ export const getStaticProps = async (): Promise<
             posts: posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE),
             tags,
             pagination,
-            seoMetadata: siteMeatadata,
+            seoMetadata: siteMetadata,
         },
     };
 };
