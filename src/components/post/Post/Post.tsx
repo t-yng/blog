@@ -82,8 +82,7 @@ type PostProps = {
 };
 
 const components: Options['components'] = {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    img: ({ node, src, width, height, alt, ...props }) => {
+    img: ({ src, width, height, alt }) => {
         if (src == null || src === '') return null;
 
         return (
@@ -97,8 +96,11 @@ const components: Options['components'] = {
             </div>
         );
     },
+
+    // NOTE: props に node が含まれるため、node="[object Object]" がタグの属性として出力されるのを防ぐ
+    //       ために node を受け取っている
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    code: ({ node, inline, className, children, ref, ...props }) => {
+    code: ({ node, inline, className, children, ...props }) => {
         const match = /language-(\w+)/.exec(className || '');
 
         return !inline && match ? (
@@ -112,12 +114,40 @@ const components: Options['components'] = {
             </code>
         );
     },
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    a: ({ node, children, ...props }) => (
-        <a target="_blank" rel="noopner noreferrer" {...props}>
-            {children}
-        </a>
-    ),
+    a: ({ node, children, ...props }) => {
+        const isExternalLink =
+            props.href != null ? /^http/.test(props.href) : false;
+
+        return (
+            <a
+                target={isExternalLink ? '_blank' : undefined}
+                rel="noopner noreferrer"
+                {...props}
+            >
+                {children}
+            </a>
+        );
+    },
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    h2: ({ node, children, ...props }) => {
+        return (
+            <h2 id={String(children)} {...props}>
+                {children}
+            </h2>
+        );
+    },
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    h3: ({ node, children, ...props }) => {
+        return (
+            <h3 id={String(children)} {...props}>
+                {children}
+            </h3>
+        );
+    },
 };
 
 export const Post: FC<PostProps> = ({ post }) => {
