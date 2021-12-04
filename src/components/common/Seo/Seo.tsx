@@ -1,6 +1,6 @@
 import React from 'react';
 import { FC } from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 
 export type OGP = {
     url: string;
@@ -21,13 +21,13 @@ export type SeoProps = {
 export const Seo: FC<SeoProps> = ({ title, description, author, ogp }) => {
     return (
         <React.Fragment>
-            <Helmet title={title}>
-                <html lang="ja" />
+            <Head>
+                <title>{title}</title>
                 <meta name="author" content={author} />
                 <meta name="description" content={description} />
-            </Helmet>
+            </Head>
             {ogp != null && (
-                <Helmet>
+                <Head>
                     <meta property="og:url" content={ogp.url} />
                     <meta property="og:type" content={ogp.type} />
                     <meta property="og:title" content={ogp.title} />
@@ -35,7 +35,7 @@ export const Seo: FC<SeoProps> = ({ title, description, author, ogp }) => {
                     <meta property="og:site_name" content={ogp.siteName} />
                     <meta property="og:image" content={ogp.image} />
                     <meta name="twitter:card" content="summary_large_image" />
-                </Helmet>
+                </Head>
             )}
         </React.Fragment>
     );
