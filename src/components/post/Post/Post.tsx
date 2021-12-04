@@ -112,6 +112,23 @@ const components: Options['components'] = {
             </code>
         );
     },
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    a: ({ node, children, ...props }) => {
+        const isExternalLink =
+            props.href != null ? /^http/.test(props.href) : false;
+
+        return (
+            <a
+                target={isExternalLink ? '_blank' : undefined}
+                rel="noopner noreferrer"
+                {...props}
+            >
+                {children}
+            </a>
+        );
+    },
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     a: ({ node, children, ...props }) => (
         <a target="_blank" rel="noopner noreferrer" {...props}>
