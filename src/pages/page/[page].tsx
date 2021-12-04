@@ -12,7 +12,7 @@ import {
     PAGINATION_POST_COUNT_PER_PAGE,
     PAGINATION_MIDDLE_PAGES,
 } from '../../constants';
-import { siteMeatadata } from '../../config/siteMetadata';
+import { siteMetadata } from '../../config/siteMetadata';
 import { Post } from '../../entities/Post';
 import { Tag } from '../../entities/Tag';
 import { sortPostsByDateDesc } from '../../lib/sort';
@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps<PagePageProps, UrlQuery> = async ({
             ),
             tags,
             pagination,
-            seoMetadata: siteMeatadata,
+            seoMetadata: siteMetadata,
         },
     };
 };

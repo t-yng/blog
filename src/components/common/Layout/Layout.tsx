@@ -37,6 +37,7 @@ export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
                 title={seoMetadata.title}
                 description={seoMetadata.description}
                 author={seoMetadata.author}
+                ogp={seoMetadata.ogp}
             />
             <GlobalStyle />
             <GlobalHeader />

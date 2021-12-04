@@ -6,7 +6,7 @@ import {
 import { FC } from 'react';
 import { Layout } from '../../components/common/Layout/Layout';
 import { PostEntries } from '../../components/home/PostEntries';
-import { siteMeatadata } from '../../config/siteMetadata';
+import { siteMetadata } from '../../config/siteMetadata';
 import { Post } from '../../entities/Post';
 import { SeoMetadata } from '../../entities/SeoMetadata';
 import { Tag } from '../../entities/Tag';
@@ -47,7 +47,7 @@ export const getStaticProps: GetStaticProps<TagPostsPageProps, Params> = async (
         props: {
             posts: posts,
             tags: tags,
-            seoMetadata: siteMeatadata,
+            seoMetadata: siteMetadata,
         },
     };
 };
