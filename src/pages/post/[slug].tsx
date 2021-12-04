@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
     const tags = usecases.getGroupedTags.invoke();
 
     const title = `${post.title} - ${siteMetadata.title}`;
-    const ogpImage = `https://res.cloudinary.com/dspeq5lct/image/upload/l_text:MPLUSRounded1c-Bold.ttf_52:${post.title},co_rgb:000,w_1020,c_fit,y_-70/v1638629595/blog-ogp.jpg`;
+    const ogpImage = `https://res.cloudinary.com/dspeq5lct/image/upload/l_text:MPLUSRounded1c-Bold.ttf_52:${post.title},co_rgb:000,w_1020,c_fit,y_-100/v1638629595/blog-ogp.jpg`;
     const seoMetadata: SeoMetadata = {
         ...siteMetadata,
         title: title,
