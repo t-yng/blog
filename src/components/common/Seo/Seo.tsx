@@ -28,12 +28,12 @@ export const Seo: FC<SeoProps> = ({ title, description, author, ogp }) => {
             </Helmet>
             {ogp != null && (
                 <Helmet>
-                    <meta name="og:url" content={ogp.url} />
-                    <meta name="og:type" content={ogp.type} />
-                    <meta name="og:title" content={ogp.title} />
-                    <meta name="og:description" content={ogp.description} />
-                    <meta name="og:site_name" content={ogp.siteName} />
-                    <meta name="og:image" content={ogp.image} />
+                    <meta property="og:url" content={ogp.url} />
+                    <meta property="og:type" content={ogp.type} />
+                    <meta property="og:title" content={ogp.title} />
+                    <meta property="og:description" content={ogp.description} />
+                    <meta property="og:site_name" content={ogp.siteName} />
+                    <meta property="og:image" content={ogp.image} />
                     <meta name="twitter:card" content="summary_large_image" />
                 </Helmet>
             )}
