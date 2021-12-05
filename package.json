@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "start": "next start",
     "bundle-analyze": "ANALYZE=true next build",
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:coverage": "yarn test --coverage",
     "lint": "eslint --ext ts,tsx ./",
     "type-check": "tsc",
