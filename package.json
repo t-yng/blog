@@ -21,8 +21,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json}": [
-      "yarn format",
-      "yarn lint"
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint"
     ]
   },
   "dependencies": {

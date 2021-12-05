@@ -1,25 +1,26 @@
-module.exports = {
-    transform: {
-        '^.+\\.(t|j)sx?$': [
-            '@swc/jest',
-            {
-                sourceMaps: true,
-                module: {
-                    type: 'commonjs',
-                },
-                jsc: {
-                    parser: {
-                        syntax: 'typescript',
-                        tsx: true,
-                    },
-                    transform: {
-                        react: {
-                            runtime: 'automatic',
-                        },
-                    },
-                },
+/** @type {import('@swc/core').Config} */
+const swcConfig = {
+    sourceMaps: true,
+    module: {
+        type: 'commonjs',
+    },
+    jsc: {
+        parser: {
+            syntax: 'typescript',
+            tsx: true,
+        },
+        transform: {
+            react: {
+                runtime: 'automatic',
             },
-        ],
+        },
+    },
+};
+
+/** @type {import('@jest/types').Config.InitialOptions} */
+const jestConfig = {
+    transform: {
+        '^.+\\.(t|j)sx?$': ['@swc/jest', swcConfig],
     },
     testEnvironment: 'jsdom',
     transformIgnorePatterns: ['/node_modules/(?!react-markdown)/'],
@@ -33,3 +34,5 @@ module.exports = {
         'index.ts',
     ],
 };
+
+module.exports = jestConfig;
