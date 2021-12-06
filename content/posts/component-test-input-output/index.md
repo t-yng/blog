@@ -5,6 +5,8 @@ description: 初めてフロントエンドでコンポーネントのユニッ�
 tags: ['TypeScript', 'テスト']
 ---
 
+この記事は [YAMAP エンジニア Advent Calendar 2021](https://qiita.com/advent-calendar/2021/yamap-engginers) の7日目の記事です。
+
 ## はじめに
 初めてフロントエンドでコンポーネントのユニットテストを書く時に「何をテストするのか」が分からず、上手くテストが書けないという事があります。
 
@@ -25,14 +27,14 @@ const isGoogleDomain = (url: string): boolean => {
 
 この関数をテストしてくださいとお願いされたら、どのようなテストを書くでしょうか？  
 大抵は最低限、次の2つのテストを考えるのではないでしょうか？
-1. https://yamap.com/activites の時に true を返すか
+1. https://google.com/search?q=テスト の時に true を返すか
 2. https://example.com の時に false を返すか
 
 このテストケースの入力と出力をまとめると次のようになります。
 
 |入力|出力|
 |--|--|
-|https://yamap.com/activies|true|
+|https://google.com/search?q=テスト|true|
 |https://example.com|false|
 
 ## コンポーネントのテストが難しい理由
@@ -82,7 +84,7 @@ const Counter = ({count}: {count: number}) => {
     return (
         <div>
             <span>{count}</span>
-            <button onClieck={handleClick}>カウントアップ</button>
+            <button onClick={handleClick}>カウントアップ</button>
         </div>
     );
 }
@@ -93,7 +95,7 @@ const Counter = ({count}: {count: number}) => {
 |入力|出力|
 |--|--|
 |count props|count値のテキスト|
-|ボタンクリックイベント|現在のcoutに+1された値のテキスト|
+|ボタンクリックイベント|現在のcountに+1された値のテキスト|
 
 ここでは、span要素として出力されのるが重要ではなく、**カウントの値がテキストとして出力される**ことが期待している結果なので、出力はテキストという表現をしています。
 
@@ -117,7 +119,7 @@ describe('Counter', () => {
     it('propsで指定したカウント数を表示する',  () => {
         render(<Counter count={5} />);
         const count = screen.queryByText(5);
-        expect(count).toBeIntheDocumennt();
+        expect(count).toBeInTheDocument();
     }
 });
 ```
@@ -134,14 +136,14 @@ describe('Counter', () => {
 
 ```tsx
 import { render } from '@testing-library/react';
-import userEvent from '@testing-libyrary/user-event';
+import userEvent from '@testing-library/user-event';
 import { Counter } from './Counter';
 
 describe('Counter', () => {
     it('propsで指定したカウント数を表示する',  () => {
         render(<Counter count={5} />);
         const count = screen.queryByText(5);
-        expect(count).toBeIntheDocumennt();
+        expect(count).toBeIntTheDocument();
     }
 
     it('ボタンをクリックすることで表示するカウント数が増える',  () => {
@@ -150,7 +152,7 @@ describe('Counter', () => {
         userEvent.click(button);
         userEvent.click(button);
         const count = screen.queryByText(7);
-        expect(count).toBeIntheDocumennt();
+        expect(count).toBeInTheDocument();
     }
 });
 ```
@@ -220,7 +222,7 @@ describe('NotificationLink', () => {
     });
 
     it('webLaunchUrlが内部リンクの時に相対パスでリンクを表示する', () => {
-        const notification = { webLaunchUrl: 'https://yamap.com/activities', text: 'test' };
+        const notification = { webLaunchUrl: 'https://t-yng.jp/tag/typescript', text: 'test' };
         render(<NotificationLink notification={notification} />;
         const link = screen.queryByRole('link');
 
