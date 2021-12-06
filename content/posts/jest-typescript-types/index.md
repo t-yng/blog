@@ -2,7 +2,7 @@
 title: TypeScript+Jestでテストを書くときに型安全にモックする方法を教えてほしかった
 date: 2021-12-04
 description: この記事はタイムリープTypeScript 〜TypeScript始めたてのあの頃に知っておきたかったこと〜の5日目の記事です。自分がTypeScriptを書き始めた頃に苦労したのが、Jestでテストを書くときのモックの型をどう書けば良いか分からないことでした。
-tags: ['Jest', 'TypeScript']
+tags: ['Jest', 'TypeScript', 'テスト']
 ---
 
 この記事は

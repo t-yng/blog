@@ -16,6 +16,7 @@ module.exports = {
                     'bash',
                     'shell-session',
                     'yaml',
+                    'tsx',
                 ],
                 plugins: [],
                 theme: 'tomorrow',
