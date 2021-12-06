@@ -21,7 +21,8 @@
       "testing-library__jest-dom",
       "@emotion/react/types/css-prop",
       "gtag.js"
-    ]
+    ],
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", ".next"]
