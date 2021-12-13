@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "export": "next export",
-    "develop": "next dev",
+    "dev": "next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "start": "next start",
     "bundle-analyze": "ANALYZE=true next build",
