@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { css } from '@emotion/react';
 import ReactMarkdown, { Options } from 'react-markdown';
-import gfm from 'remark-gfm';
+import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 import rehypeRaw from 'rehype-raw';
 import Image from 'next/image';
 import { Post as PostEntity } from '../../../entities/Post';
@@ -163,11 +164,11 @@ export const Post: FC<PostProps> = ({ post }) => {
                 css={style.content}
                 components={components}
                 rehypePlugins={[rehypeRaw]}
-                plugins={[gfm]}
+                remarkPlugins={[remarkGfm, remarkBreaks]}
                 data-testid="content"
-            >
-                {post.content}
-            </ReactMarkdown>
+                // eslint-disable-next-line react/no-children-prop
+                children={post.content}
+            />
         </div>
     );
 };
