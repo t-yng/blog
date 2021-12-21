@@ -66,4 +66,15 @@ describe('Post', () => {
             'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
         );
     });
+
+    it('改行コードで改行ができる', () => {
+        const markdown = `テスト\nテスト`;
+        when(mockPost.content).thenReturn(markdown);
+        const post = instance(mockPost);
+        const { container } = render(<Post post={post} />);
+
+        expect(container.innerHTML.replace('\n', '')).toContain(
+            'テスト<br>テスト'
+        );
+    });
 });
