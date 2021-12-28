@@ -75,6 +75,8 @@ const style = {
     imageWrapper: css`
         display: flex;
         justify-content: center;
+        margin-top: 1em;
+        margin-bottom: 1em;
     `,
 };
 
