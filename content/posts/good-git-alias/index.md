@@ -10,13 +10,15 @@ tags: ['git']
 自分は普段ターミナルでgitの操作をしているのですが、開発とレビューを並行して多くのブランチを切り替えたりするなど地味にgitの操作に時間を要する事が多く、効率化を求めて色々とgitエイリアスを設定したら良い感じになったのでまとめてみました。
 
 ## git switch-pr
-![switch-prコマンドの実行の様子](/images/posts/good-git-alias/swpr.gif)
 
 ### 課題
 自分がPRレビューをするためにブランチを切り替える時は「GitHub上でブランチ名をコピーしてターミナルに貼り付けて...」という作業をよくやっていました。
 1日に3,4件かそれ以上のPRレビューをしていると、この作業が地味にストレスとして感じていました。
 
 ### 改善
+
+![switch-prコマンドの実行の様子](/images/posts/good-git-alias/swpr.gif)
+
 `git switch-pr` はリモートリポジトリのプルリクの一覧からブランチ移動をするためのエイリアスです。
 
 ブランチ名をコピペする手間が減りPRレビューが非常に快適になりました！
@@ -33,7 +35,6 @@ tags: ['git']
 ```
 
 ## git history
-![historyコマンドの実行の様子](/images/posts/good-git-alias/history.gif)
 
 ### 課題
 feature ブランチで開発を進めながらPRレビューをしていると、1日に3,4個のブランチを移動することもあります。
@@ -41,6 +42,9 @@ feature ブランチで開発を進めながらPRレビューをしていると�
 特にチケットとPRを紐づけるためにブランチ名にチケット番号などを記載していると、余計に入力が大変になります。
 
 ### 改善
+
+![historyコマンドの実行の様子](/images/posts/good-git-alias/history.gif)
+
 `git history` は過去に移動したブランチ一覧からブランチを選択して移動ができるエイリアスです。
 
 `peco` を使って一覧からブランチを選択可能にしているので、ブランチ名を覚えていなくてもスムーズに移動ができるようになりました。
@@ -70,7 +74,6 @@ $ g config --global push.default current
 ```
 
 ## git create-pr
-![create-prコマンドの実行の様子](/images/posts/good-git-alias/create-pr.gif)
 
 ### 課題
 GitHub上でプルリクエスト(PR)を作成する場合に、初回プッシュをした場合はターミナル上にPR作成のURLを表示してくれます。
@@ -78,6 +81,9 @@ GitHub上でプルリクエスト(PR)を作成する場合に、初回プッシ�
 正直、1回目のURLクリックだけでも面倒だと思っていたので、GitHub上で数クリックの操作が発生するのは非常に手間でした。
 
 ### 改善
+
+![create-prコマンドの実行の様子](/images/posts/good-git-alias/create-pr.gif)
+
 `git create-pr` は現在の作業ブランチのプルリクエストを作成するGitHubのページをブラウザで表示するエイリアスです。
 ターミナル上でコマンド一つでPR作成の準備が整うので非常に快適になりました。
 
@@ -90,12 +96,14 @@ GitHub上でプルリクエスト(PR)を作成する場合に、初回プッシ�
 ```
 
 ## git open-pr
-![open-prコマンドの実行の様子](/images/posts/good-git-alias/open-pr.gif)
 
 ### 課題
 コードレビューでローカルでコードを確認して、改めてGitHub上のPRを表示したい時にいちいちブラウザでページ移動するのが面倒なことがあったりします。
 
 ### 改善
+
+![open-prコマンドの実行の様子](/images/posts/good-git-alias/open-pr.gif)
+
 `git open-pr` は現在の作業ブランチのPRをブラウザで表示するエイリアスです。
 
 これも GitHub CLI のコマンドをエイリアスで登録しているだけです。
