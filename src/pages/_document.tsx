@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { GA4_TRACKING_ID, GA_TRACKING_ID } from '../lib/gtag';
+import { gtagJsUrl, trackingCode } from '../lib/gtag';
 
 class MyDocument extends Document {
     render() {
@@ -7,24 +7,10 @@ class MyDocument extends Document {
             <Html lang="ja">
                 <Head>
                     {/* Global Site Tag (gtag.js) - Google Analytics */}
-                    <script
-                        async
-                        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-                    />
+                    <script async src={gtagJsUrl} />
                     <script
                         dangerouslySetInnerHTML={{
-                            __html: `
-                                window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-
-                                gtag('config', '${GA_TRACKING_ID}', {
-                                    page_path: window.location.pathname,
-                                });
-                                gtag('config', '${GA4_TRACKING_ID}, {
-                                    page_path: window.location.pathname,
-                                });
-                            `,
+                            __html: trackingCode,
                         }}
                     />
                 </Head>
