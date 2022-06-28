@@ -1,7 +1,7 @@
 {
   "reviewers": ["t-yng"],
   "timezone": "Asia/Tokyo",
-  "prHourlyLimit": 5,
+  "prHourlyLimit": 0,
   "prConcurrentLimit": 10,
   "separateMajorMinor": true,
   "separateMinorPatch": false,
@@ -21,6 +21,12 @@
   //   "after 10:00 on the 15th day of the month"
   // ],
   "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "schedule": [
+        "after 10:00 on the 1st day of the month",
+      ],
+    },
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor", "patch"],
