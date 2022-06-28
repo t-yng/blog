@@ -7,6 +7,7 @@
   "separateMinorPatch": false,
   "separateMultipleMajor": true,
   "rebaseWhen": "never",
+  "recreateClosed": true,
   "prBodyColumns": [
     "Package",
     "Update",
