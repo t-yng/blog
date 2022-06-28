@@ -1,0 +1,35 @@
+{
+  "reviewers": ["t-yng"],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 5,
+  "prConcurrentLimit": 10,
+  "separateMajorMinor": true,
+  "separateMinorPatch": false,
+  "separateMultipleMajor": true,
+  "rebaseWhen": "never",
+  "prBodyColumns": [
+    "Package",
+    "Update",
+    "Change",
+    "Age",
+    "Adoption",
+    "Confidence"
+  ],
+  // "schedule": [
+  //   "after 10:00 on the 1st day of the month",
+  //   "after 10:00 on the 15th day of the month"
+  // ],
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all dependencies",
+      "groupSlug": "all-dependencies",
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "platformAutomerge": true,
+    }
+  ]
+}
