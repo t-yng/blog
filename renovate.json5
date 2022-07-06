@@ -47,7 +47,7 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "minor patch dev dependencies",
       "groupSlug": "minor-patch-dev-dependencies",
-      "platformAutomerge": true,
+      "automerge": true,
     },
     {
       "groupName": "emotion",
@@ -69,7 +69,7 @@
     {
       "groupName": "eslint",
       "matchPackagePatterns": ["eslint"],
-      "platformAutomerge": true,
+      "automerge": true,
     },
     {
       "groupName": "unit-test",
@@ -79,7 +79,7 @@
         "^@testing-library",
         "react-test-renderer",
       ],
-      "platformAutomerge": true,
+      "automerge": true,
     },
   ]
 }
