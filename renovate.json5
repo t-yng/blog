@@ -65,7 +65,7 @@
         "react-dom",
         "@types/react-dom"
       ]
-    }
+    },
     {
       "groupName": "eslint",
       "matchPackagePatterns": ["eslint"],
