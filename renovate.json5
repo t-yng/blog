@@ -8,6 +8,9 @@
   "separateMultipleMajor": true,
   "rebaseWhen": "conflicted",
   "recreateClosed": true,
+  // デフォルトでは GitHub Actions なども更新対象となりPRが作成されるので npm だけに制限
+  // @see: https://docs.renovatebot.com/modules/manager/
+  enabledManagers: ['npm'],
   "prBodyColumns": [
     "Package",
     "Update",
@@ -16,27 +19,67 @@
     "Adoption",
     "Confidence"
   ],
-  // "schedule": [
-  //   "after 10:00 on the 1st day of the month",
-  //   "after 10:00 on the 15th day of the month"
-  // ],
   "packageRules": [
     {
-      "matchDepTypes": ["dependencies"],
-      "schedule": [
-        "after 10:00 on the 1st day of the month",
-      ],
+      "matchPackageNames": ["node"],
+      "enabled": false,
     },
+    // {
+    //   "matchUpdateTypes": ["major"],
+    //   "schedule": [
+    //     "after 10:00 on the 1st day of the month",
+    //   ]
+    // },
+    // {
+    //   "matchUpdateTypes": ["minor", "patch"],
+    //   "schedule": [
+    //     "after 10:00 on the 1st day of the 3 month",
+    //   ]
+    // },
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "all dependencies",
-      "groupSlug": "all-dependencies",
+      "groupName": "minor patch dependencies",
+      "groupSlug": "minor-patch-dependencies",
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "automerge": true,
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "minor patch dev dependencies",
+      "groupSlug": "minor-patch-dev-dependencies",
       "platformAutomerge": true,
-    }
+    },
+    {
+      "groupName": "emotion",
+      "matchPackagePatterns": ["@emotion"],
+    },
+    {
+      "groupName": "prismjs",
+      "matchPackagePatterns": ["prismjs"],
+    },
+    {
+      "groupName": "react",
+      "matchPackageNames": [
+        "react",
+        "@types/react",
+        "react-dom",
+        "@types/react-dom"
+      ]
+    },
+    {
+      "groupName": "eslint",
+      "matchPackagePatterns": ["eslint"],
+      "platformAutomerge": true,
+    },
+    {
+      "groupName": "unit-test",
+      "matchPackageNames": ["jest"],
+      "matchPackagePatterns": [
+        "^@swc",
+        "^@testing-library",
+        "react-test-renderer",
+      ],
+      "platformAutomerge": true,
+    },
   ]
 }
