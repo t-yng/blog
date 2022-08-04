@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "11.2.0",
-    "@next/bundle-analyzer": "12.2.3",
+    "@next/bundle-analyzer": "12.2.4",
     "@swc/core": "^1.2.117",
     "@swc/jest": "^0.2.11",
     "@testing-library/jest-dom": "5.16.4",
