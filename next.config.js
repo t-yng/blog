@@ -2,7 +2,12 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 });
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
+const withVanillaExtract = createVanillaExtractPlugin();
+
+/** @type {import('next').NextConfig} */
 const config = {
     webpack: (config, { isServer }) => {
         // fix Can't resolve 'fs'
@@ -13,6 +18,7 @@ const config = {
 
         return config;
     },
+    pageExtensions: ['tsx'],
 };
 
-module.exports = withBundleAnalyzer(config);
+module.exports = withBundleAnalyzer(withVanillaExtract(config));

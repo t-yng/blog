@@ -1,22 +1,16 @@
 import { FC } from 'react';
-import { css } from '@emotion/react';
-import { colors } from '../../../styles/color';
+import * as style from './PageItem.css';
 
-const style = {
-    item: css`
-        color: ${colors.black1};
-        font-size: 1rem;
-        padding: 5px 15px;
-        position: relative;
-        &:hover {
-            color: ${colors.accent};
-            cursor: pointer;
-        }
-    `,
+type PageItemProps = {
+    className?: string;
 };
 
-export const PageItem: FC = ({ children, ...others }) => (
-    <div css={style.item} {...others}>
+export const PageItem: FC<PageItemProps> = ({
+    children,
+    className,
+    ...others
+}) => (
+    <div className={`${style.item} ${className}`} {...others}>
         {children}
     </div>
 );
