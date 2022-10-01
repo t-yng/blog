@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { range } from '../../../lib/array';
+import { range } from '@/lib/array';
 import { PageNumber } from './PageNumber';
 import { PrevPage } from './PrevPage';
 import { NextPage } from './NextPage';

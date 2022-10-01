@@ -1,4 +1,4 @@
-import { Tag } from '../../entities/Tag';
+import { Tag } from '@/entities';
 
 export interface GetGoupedTags {
     invoke(): Tag[];

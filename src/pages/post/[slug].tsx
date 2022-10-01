@@ -4,13 +4,11 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
-import { Layout } from '../../components/common/Layout/Layout';
-import { Post } from '../../components/post/Post/Post';
-import { Tag } from '../../entities/Tag';
-import { Post as PostEntity } from '../../entities/Post';
-import { usecases } from '../../usecases/UsecaseContainer';
-import { SeoMetadata } from '../../entities/SeoMetadata';
-import { siteMetadata } from '../../config/siteMetadata';
+import { Layout } from '@/components/common';
+import { Post } from '@/components/post/Post';
+import { Tag, SeoMetadata, Post as PostEntity } from '@/entities';
+import { usecases } from '@/usecases/UsecaseContainer';
+import { siteMetadata } from '@/config/siteMetadata';
 
 type PostPageProps = {
     post: PostEntity;

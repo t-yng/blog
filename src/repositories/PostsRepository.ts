@@ -1,4 +1,4 @@
-import { Post } from '../entities/Post';
+import { Post } from '@/entities';
 
 export interface PostsRepository {
     getAllPosts(): Post[];

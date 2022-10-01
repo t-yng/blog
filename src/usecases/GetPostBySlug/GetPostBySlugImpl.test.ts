@@ -1,6 +1,6 @@
 import { instance, mock, verify, when } from 'ts-mockito';
-import { Post } from '../../entities/Post';
-import { PostsRepository } from '../../repositories/PostsRepository';
+import { Post } from '@/entities';
+import { PostsRepository } from '@/repositories/PostsRepository';
 import { GetPostBySlugImpl } from './GetPostBySlugImpl';
 import { NotFoundPostError } from './NotFoundPostError';
 

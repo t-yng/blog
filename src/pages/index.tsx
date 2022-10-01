@@ -1,18 +1,15 @@
 import { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
-import { Layout } from '../components/common/Layout/Layout';
-import { Post } from '../entities/Post';
-import { usecases } from '../usecases/UsecaseContainer';
-import { Tag } from '../entities/Tag';
-import { siteMetadata } from '../config/siteMetadata';
-import { PostEntries } from '../components/home/PostEntries/PostEntries';
-import { Pagination } from '../components/home/Pagination';
+import { Layout } from '@/components/common';
+import { PostEntries, Pagination } from '@/components/home';
+import { Post, Tag, SeoMetadata } from '@/entities';
+import { usecases } from '@/usecases/UsecaseContainer';
+import { siteMetadata } from '@/config/siteMetadata';
 import {
     PAGINATION_MIDDLE_PAGES,
     PAGINATION_POST_COUNT_PER_PAGE,
-} from '../constants';
-import { sortPostsByDateDesc } from '../lib/sort';
-import { SeoMetadata } from '../entities/SeoMetadata';
+} from '@/constants';
+import { sortPostsByDateDesc } from '@/lib/sort';
 import * as style from './index.css';
 
 type IndexPageProps = {

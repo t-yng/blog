@@ -4,10 +4,10 @@ import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import rehypeRaw from 'rehype-raw';
 import Image from 'next/image';
-import { Post as PostEntity } from '../../../entities/Post';
-import { Tags } from '../../common/Tags/Tags';
+import { Post as PostEntity } from '@/entities/Post';
+import { Tags } from '@/components/common';
 import * as style from './Post.css';
-import { formatDate } from '../../../lib/format';
+import { formatDate } from '@/lib/format';
 import { Code } from '../Code';
 
 type PostProps = {

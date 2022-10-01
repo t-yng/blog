@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Tag } from '../Tag/Tag';
+import { Tag } from '@/components/common';
 import * as style from './Tags.css';
 
 interface TagsProps {

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { PageItem } from './PageItem';
-import { Link } from '../../common/Link';
+import { Link } from '@/components/common';
 
 type NextPageProps = {
     page: number;
