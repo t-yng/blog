@@ -4,7 +4,6 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
-import { css } from '@emotion/react';
 import { Layout } from '../../components/common/Layout';
 import { Pagination } from '../../components/home/Pagination';
 import { PostEntries } from '../../components/home/PostEntries';
@@ -19,12 +18,7 @@ import { sortPostsByDateDesc } from '../../lib/sort';
 import { usecases } from '../../usecases/UsecaseContainer';
 import { range } from '../../lib/array';
 import { SeoMetadata } from '../../entities/SeoMetadata';
-
-const style = {
-    postEntries: css`
-        margin-bottom: 2rem;
-    `,
-};
+import * as style from './[page].css';
 
 type PagePageProps = {
     posts: Post[];
@@ -45,7 +39,7 @@ const IndexPage: FC<PagePageProps> = ({
 }) => {
     return (
         <Layout tags={tags} seoMetadata={seoMetadata}>
-            <PostEntries posts={posts} css={style.postEntries} />
+            <PostEntries posts={posts} className={style.postEntries} />
             <Pagination {...pagination} />
         </Layout>
     );

@@ -1,17 +1,6 @@
 import { FC, useEffect } from 'react';
 import Prism from 'prismjs';
-import { css } from '@emotion/react';
-
-const style = {
-    pre: css`
-        font-size: inherit !important;
-        background: hsl(233deg 16% 22%) !important;
-    `,
-    code: css`
-        font-size: inherit !important;
-        font-family: '"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace' !important;
-    `,
-};
+import * as style from './Code.css';
 
 type CodeProps = {
     code: string;
@@ -24,10 +13,8 @@ export const Code: FC<CodeProps> = ({ code, language = '' }) => {
     }, []);
 
     return (
-        <pre css={style.pre}>
-            <code className={`language-${language}`} css={style.code}>
-                {code}
-            </code>
+        <pre className={style.pre}>
+            <code className={`language-${language} ${style.code}`}>{code}</code>
         </pre>
     );
 };
