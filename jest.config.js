@@ -20,6 +20,7 @@ const swcConfig = {
 /** @type {import('@jest/types').Config.InitialOptions} */
 const jestConfig = {
     transform: {
+        '\\.css\\.ts$': '@vanilla-extract/jest-transform',
         '^.+\\.(t|j)sx?$': ['@swc/jest', swcConfig],
     },
     testEnvironment: 'jsdom',
