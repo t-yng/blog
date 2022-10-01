@@ -4,14 +4,12 @@ import {
     GetStaticPropsResult,
 } from 'next';
 import { FC } from 'react';
-import { Layout } from '../../components/common/Layout/Layout';
-import { PostEntries } from '../../components/home/PostEntries';
-import { siteMetadata } from '../../config/siteMetadata';
-import { Post } from '../../entities/Post';
-import { SeoMetadata } from '../../entities/SeoMetadata';
-import { Tag } from '../../entities/Tag';
-import { sortPostsByDateDesc } from '../../lib/sort';
-import { usecases } from '../../usecases/UsecaseContainer';
+import { Layout } from '@/components/common';
+import { PostEntries } from '@/components/home';
+import { siteMetadata } from '@/config/siteMetadata';
+import { Post, SeoMetadata, Tag } from '@/entities';
+import { sortPostsByDateDesc } from '@/lib/sort';
+import { usecases } from '@/usecases/UsecaseContainer';
 
 type TagPostsPageProps = {
     posts: Post[];

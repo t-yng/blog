@@ -1,5 +1,5 @@
 import { SidebarSection } from './SidebarSection';
-import { Profile } from '../../../config/profile';
+import { Profile } from '@/config/profile';
 import * as style from './SidebarProfile.css';
 
 export interface SidebarProfileProps {

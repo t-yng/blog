@@ -1,5 +1,5 @@
-import { PostsRepository } from '../repositories/PostsRepository';
-import { PostsRepositoryImpl } from '../repositories/PostsRepositoryImpl';
+import { PostsRepository } from '@/repositories/PostsRepository';
+import { PostsRepositoryImpl } from '@/repositories/PostsRepositoryImpl';
 import { GetAllPosts, GetAllPostsImpl } from './GetAllPosts';
 import { GetGoupedTags, GetGroupedTagsImpl } from './GetGroupedTags';
 import { GetPostBySlug } from './GetPostBySlug/GetPostBySlug';

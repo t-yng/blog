@@ -1,6 +1,6 @@
 import { mock, verify, when, instance } from 'ts-mockito';
-import { Post } from '../../entities/Post';
-import { PostsRepository } from '../../repositories/PostsRepository';
+import { Post } from '@/entities';
+import { PostsRepository } from '@/repositories/PostsRepository';
 import { GetPostsByTagImpl } from './GetPostsByTagImpl';
 
 describe('GetPostsByTagImpl', () => {

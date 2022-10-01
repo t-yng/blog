@@ -1,5 +1,5 @@
 import { compareDesc } from 'date-fns';
-import { Post } from '../entities/Post';
+import { Post } from '@/entities';
 
 export const sortPostsByDateDesc = (posts: Post[]): Post[] => {
     return posts.sort((a, b) =>

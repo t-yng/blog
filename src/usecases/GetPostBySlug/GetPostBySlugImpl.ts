@@ -1,5 +1,5 @@
-import { Post } from '../../entities/Post';
-import { PostsRepository } from '../../repositories/PostsRepository';
+import { Post } from '@/entities';
+import { PostsRepository } from '@/repositories/PostsRepository';
 import { GetPostBySlug } from './GetPostBySlug';
 import { NotFoundPostError } from './NotFoundPostError';
 

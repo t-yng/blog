@@ -23,6 +23,9 @@ const jestConfig = {
         '\\.css\\.ts$': '@vanilla-extract/jest-transform',
         '^.+\\.(t|j)sx?$': ['@swc/jest', swcConfig],
     },
+    moduleNameMapper: {
+        '@/(.*)$': '<rootDir>/src/$1',
+    },
     testEnvironment: 'jsdom',
     transformIgnorePatterns: ['/node_modules/(?!react-markdown)/'],
     testMatch: ['<rootDir>/src/**/?(*.)+(spec|test).[jt]s?(x)'],

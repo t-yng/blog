@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { instance, mock, when } from 'ts-mockito';
-import { profile } from '../config/profile';
-import { Post } from '../entities/Post';
+import { profile } from '@/config/profile';
+import { Post } from '@/entities';
 import { PostsRepositoryImpl } from './PostsRepositoryImpl';
 
 describe('PostsRepositoryImpl', () => {

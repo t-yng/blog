@@ -2,10 +2,10 @@ import fs from 'fs';
 import crypto from 'crypto';
 import { join } from 'path';
 import matter from 'gray-matter';
-import { Post } from '../entities/Post';
+import { Post } from '@/entities';
 import { PostsRepository } from './PostsRepository';
-import { profile } from '../config/profile';
-import { parseImageTextWithSize } from '../lib/markdown';
+import { profile } from '@/config/profile';
+import { parseImageTextWithSize } from '@/lib/markdown';
 
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {

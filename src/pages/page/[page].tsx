@@ -4,20 +4,17 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
-import { Layout } from '../../components/common/Layout';
-import { Pagination } from '../../components/home/Pagination';
-import { PostEntries } from '../../components/home/PostEntries';
+import { Layout } from '@/components/common';
+import { Pagination, PostEntries } from '@/components/home';
 import {
     PAGINATION_POST_COUNT_PER_PAGE,
     PAGINATION_MIDDLE_PAGES,
-} from '../../constants';
-import { siteMetadata } from '../../config/siteMetadata';
-import { Post } from '../../entities/Post';
-import { Tag } from '../../entities/Tag';
-import { sortPostsByDateDesc } from '../../lib/sort';
-import { usecases } from '../../usecases/UsecaseContainer';
-import { range } from '../../lib/array';
-import { SeoMetadata } from '../../entities/SeoMetadata';
+} from '@/constants';
+import { siteMetadata } from '@/config/siteMetadata';
+import { Post, Tag, SeoMetadata } from '@/entities';
+import { sortPostsByDateDesc } from '@/lib/sort';
+import { range } from '@/lib/array';
+import { usecases } from '@/usecases/UsecaseContainer';
 import * as style from './[page].css';
 
 type PagePageProps = {

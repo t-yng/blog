@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from '../../common/Link';
+import { Link } from '@/components/common';
 import { PageItem } from './PageItem';
 import * as style from './PageNumber.css';
 

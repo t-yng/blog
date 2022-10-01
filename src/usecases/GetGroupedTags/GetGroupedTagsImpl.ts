@@ -1,6 +1,5 @@
-import { Post } from '../../entities/Post';
-import { Tag } from '../../entities/Tag';
-import { PostsRepository } from '../../repositories/PostsRepository';
+import { Post, Tag } from '@/entities';
+import { PostsRepository } from '@/repositories/PostsRepository';
 import { GetGoupedTags } from './GetGroupedTags';
 
 export class GetGroupedTagsImpl implements GetGoupedTags {

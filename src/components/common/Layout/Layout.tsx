@@ -1,10 +1,7 @@
 import { FC } from 'react';
-import { GlobalHeader } from '../GlobalHeader';
-import { Sidebar } from '../Sidebar';
-import { profile } from '../../../config/profile';
-import { Tag } from '../../../entities/Tag';
-import { SeoMetadata } from '../../../entities/SeoMetadata';
-import { Seo } from '../Seo';
+import { profile } from '@/config/profile';
+import { Tag, SeoMetadata } from '@/entities';
+import { GlobalHeader, Sidebar, Seo } from '@/components/common';
 import * as style from './Layout.css';
 
 export type LayoutProps = {

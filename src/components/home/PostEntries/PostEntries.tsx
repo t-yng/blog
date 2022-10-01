@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react';
-import { Post } from '../../../entities/Post';
-import { PostEntry } from '../PostEntry/PostEntry';
+import { Post } from '@/entities';
+import { PostEntry } from '../PostEntry';
 import * as style from './PostEntries.css';
 
 type PostEntriesProps = {

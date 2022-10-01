@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Link } from '../Link/Link';
-import { createTagLink } from '../../../lib/link';
+import { Link } from '@/components/common';
+import { createTagLink } from '@/lib/link';
 import { SidebarSection } from './SidebarSection';
 import * as style from './SideBarTags.css';
 
