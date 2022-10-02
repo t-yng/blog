@@ -8,6 +8,22 @@ import { profile } from '@/config/profile';
 import { parseImageTextWithSize } from '@/lib/markdown';
 import MarkdownIt from 'markdown-it';
 import Prism from 'prismjs';
+import loadLanguages from 'prismjs/components/index';
+
+loadLanguages([
+    'typescript',
+    'javascript',
+    'js',
+    'css',
+    'rust',
+    'html',
+    'json',
+    'shell',
+    'bash',
+    'shell-session',
+    'yaml',
+    'tsx',
+]);
 
 export class PostsRepositoryImpl implements PostsRepository {
     getAllPosts(): Post[] {
