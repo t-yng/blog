@@ -18,6 +18,11 @@ export const date = style({
 
 export const content = style({});
 
+globalStyle(`${content} img`, {
+    width: '100%',
+    height: 'auto',
+});
+
 globalStyle(`${content} h2, h3, h4`, {
     marginTop: '2.5rem',
 });
@@ -37,6 +42,17 @@ globalStyle(`${content} blockquote`, {
 globalStyle(`${content} blockquote p`, {
     marginTop: 0,
     marginBottom: 0,
+});
+
+globalStyle(`${content} pre`, {
+    fontSize: 'inherit !important',
+    background: 'hsl(233deg 16% 22%) !important',
+});
+
+globalStyle(`${content} code`, {
+    fontSize: 'inherit !important',
+    fontFamily:
+        '"SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important',
 });
 
 globalStyle(`${content} :not(pre) code`, {

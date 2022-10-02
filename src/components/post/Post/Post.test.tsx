@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { instance, mock, when } from 'ts-mockito';
-import { TEST_IMAGES_DIR_ROOT } from '../../../../test/constants';
-import { Post as PostEntity } from '../../../entities/Post';
-import { parseImageTextWithSize } from '../../../lib/markdown';
+import { TEST_IMAGES_DIR_ROOT } from '@test/constants';
+import { Post as PostEntity } from '@/entities/Post';
+import { parseImageTextWithSize } from '@/lib/markdown';
 import { Post } from './Post';
 
 describe('Post', () => {
@@ -39,14 +39,13 @@ describe('Post', () => {
         expect(screen.queryByText(tags[1])).toBeInTheDocument();
     });
 
-    it('renders post markdown content as html', () => {
-        const markdown = '# 見出し\nテストの内容です。';
-        when(mockPost.content).thenReturn(markdown);
+    it('renders content html', () => {
+        when(mockPost.content).thenReturn('<h1>見出し</h1><p>テキスト</p>');
         const post = instance(mockPost);
         render(<Post post={post} />);
 
-        expect(screen.queryByText('見出し')).toBeInTheDocument();
-        expect(screen.queryByText('テストの内容です。')).toBeInTheDocument();
+        expect(screen.getByText('見出し')).toBeInTheDocument();
+        expect(screen.getByText('テキスト')).toBeInTheDocument();
     });
 
     it('renders image', () => {
@@ -61,20 +60,6 @@ describe('Post', () => {
         const img = screen.queryByRole('img');
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('alt', '代替テキスト');
-        expect(img).toHaveAttribute(
-            'src',
-            'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-        );
-    });
-
-    it('改行コードで改行ができる', () => {
-        const markdown = `テスト\nテスト`;
-        when(mockPost.content).thenReturn(markdown);
-        const post = instance(mockPost);
-        const { container } = render(<Post post={post} />);
-
-        expect(container.innerHTML.replace('\n', '')).toContain(
-            'テスト<br>テスト'
-        );
+        expect(img).toHaveAttribute('src', '/images/test1.jpg');
     });
 });

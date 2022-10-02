@@ -25,6 +25,8 @@ const jestConfig = {
     },
     moduleNameMapper: {
         '@/(.*)$': '<rootDir>/src/$1',
+        '@test/(.*)$': '<rootDir>/test/$1',
+        '\\.css$': 'identity-obj-proxy',
     },
     testEnvironment: 'jsdom',
     transformIgnorePatterns: ['/node_modules/(?!react-markdown)/'],

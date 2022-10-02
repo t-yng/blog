@@ -26,7 +26,9 @@ describe('PostsRepositoryImpl', () => {
             );
             expect(result[0].tags).toEqual(['test']);
             expect(result[0].author).toEqual(profile.name);
-            expect(result[0].content).toEqual('This is test post.\n');
+            expect(result[0].content).toEqual(
+                '<p>This is test post.<br>\ntest</p>\n'
+            );
         });
     });
 
