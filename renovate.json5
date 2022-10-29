@@ -77,7 +77,6 @@
       "matchPackagePatterns": [
         "^@swc",
         "^@testing-library",
-        "react-test-renderer",
       ],
       "automerge": true,
     },

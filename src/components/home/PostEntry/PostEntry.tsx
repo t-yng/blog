@@ -9,24 +9,8 @@ interface PostEntryProps {
     post: Post;
 }
 
-// const style = {
-//     postEntry: css`
-//         padding: 1rem;
-//     `,
-//     date: css`
-//         color: ${colors.black3};
-//         font-size: 0.85rem;
-//     `,
-//     title: css`
-//         margin-top: 0.5rem;
-//     `,
-//     tags: css`
-//         margin-top: 0.5rem;
-//     `,
-// };
-
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
-    <div className={style.postEntry}>
+    <div className={style.postEntry} data-testid="post-entry">
         <div className={style.date}>{formatDate(post.date)}</div>
         <Link href={`/post/${post.slug}`} decoration={false} prefetch={false}>
             <h3 className={style.title}>{post.title}</h3>

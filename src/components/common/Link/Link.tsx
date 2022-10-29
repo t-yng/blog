@@ -1,11 +1,13 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import * as style from './Link.css';
 
-type LinkProps = NextLinkProps & {
-    decoration?: boolean;
-    anchorProps?: HTMLAttributes<HTMLAnchorElement>;
-};
+type LinkProps = PropsWithChildren<
+    NextLinkProps & {
+        decoration?: boolean;
+        anchorProps?: HTMLAttributes<HTMLAnchorElement>;
+    }
+>;
 
 export const Link: FC<LinkProps> = ({
     decoration = true,

@@ -1,8 +1,6 @@
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import { profile } from '../../../config/profile';
 import { Sidebar } from './Sidebar';
-import { SidebarProfile } from './SidebarProfile';
-import { SidebarTags } from './SidebarTags';
 
 describe('Sidebar', () => {
     it('render some components', () => {
@@ -12,11 +10,14 @@ describe('Sidebar', () => {
                 count: 2,
             },
         ];
-        const root = renderer.create(
-            <Sidebar tags={tags} profile={profile} />
-        ).root;
 
-        expect(root.findByType(SidebarTags).props.tags).toEqual(tags);
-        expect(root.findByType(SidebarProfile).props.profile).toEqual(profile);
+        render(<Sidebar tags={tags} profile={profile} />);
+
+        expect(
+            screen.getByText('TypeScript (2)', { exact: false })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText(profile.name, { exact: false })
+        ).toBeInTheDocument();
     });
 });

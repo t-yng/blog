@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import * as style from './SidebarSection.css';
 
-interface SidebarSectionProps {
+type SidebarSectionProps = PropsWithChildren<{
     title: string;
     className?: string;
-}
+}>;
 
 export const SidebarSection: FC<SidebarSectionProps> = ({
     children,
