@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import * as style from './PageItem.css';
 
-type PageItemProps = {
+type PageItemProps = PropsWithChildren<{
     className?: string;
-};
+}>;
 
 export const PageItem: FC<PageItemProps> = ({
     children,

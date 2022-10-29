@@ -1,13 +1,13 @@
-import { FC } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { profile } from '@/config/profile';
 import { Tag, SeoMetadata } from '@/entities';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
 import * as style from './Layout.css';
 
-export type LayoutProps = {
+export type LayoutProps = PropsWithChildren<{
     tags: Tag[];
     seoMetadata: SeoMetadata;
-};
+}>;
 
 export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
     return (
