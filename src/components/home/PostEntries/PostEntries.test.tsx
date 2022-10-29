@@ -1,10 +1,9 @@
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import { Post } from '../../../entities/Post';
 import { PostEntries } from './PostEntries';
-import { PostEntry } from '../PostEntry/PostEntry';
 
 describe('PostEntries', () => {
-    const mockPosts: Post[] = [
+    const posts: Post[] = [
         {
             id: '1',
             slug: 'test-slug',
@@ -28,11 +27,10 @@ describe('PostEntries', () => {
     ];
 
     it('renders PostEntry', () => {
-        const posts = mockPosts.slice();
-        const root = renderer.create(<PostEntries posts={posts} />).root;
+        render(<PostEntries posts={posts} />);
 
-        const postEntries = root.findAllByType(PostEntry);
-        expect(postEntries.length).toBe(posts.length);
-        expect(postEntries[0].props.post).toBe(posts[0]);
+        expect(screen.queryAllByTestId('post-entry')).toHaveLength(
+            posts.length
+        );
     });
 });

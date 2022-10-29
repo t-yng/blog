@@ -1,9 +1,7 @@
-import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import { instance, mock, when } from 'ts-mockito';
 import { Post } from '../../../entities/Post';
 import { PostEntry } from './PostEntry';
-import { Tags } from '../../common/Tags/Tags';
 
 describe('PostEntry', () => {
     let mockPost: Post;
@@ -44,12 +42,11 @@ describe('PostEntry', () => {
     it('renders Tags component', () => {
         const tags = ['TypeScript', 'フロントエンド'];
         when(mockPost.tags).thenReturn(tags);
-
         const post = instance(mockPost);
-        const root = renderer.create(<PostEntry post={post} />).root;
 
-        const tagsComponent = root.findByType(Tags);
-        expect(tagsComponent).not.toBeNull();
-        expect(tagsComponent.props.tags).toEqual(tags);
+        render(<PostEntry post={post} />);
+
+        expect(screen.getByText('TypeScript')).toBeInTheDocument();
+        expect(screen.getByText('フロントエンド')).toBeInTheDocument();
     });
 });
