@@ -10,7 +10,7 @@ import * as style from './GlobalHeaderMain.css';
 export const GlobalHeaderMain: FC = () => (
     <div className={style.wrapper}>
         <div className={style.globalHeaderMain}>
-            <Link href="/" title={TITLE_LOGO_LINK_TITLE}>
+            <Link href="/" anchorProps={{ title: TITLE_LOGO_LINK_TITLE }}>
                 <img
                     src={TITLE_LOGO_IMAGE_URL}
                     alt={TITLE_LOGO_IMAGE_ALT}
