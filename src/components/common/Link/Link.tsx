@@ -16,7 +16,9 @@ export const Link: FC<LinkProps> = ({
     ...others
 }) => {
     return (
-        <NextLink {...others} passHref>
+        // 子要素に任意のコンポーネントを差し込みたいのでlegacyBehaviorを指定
+        // @see: https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag
+        <NextLink {...others} passHref legacyBehavior>
             <a
                 {...anchorProps}
                 className={decoration ? undefined : style.nonDecoration}
