@@ -15,7 +15,7 @@ describe('Common/Link', () => {
 
     it('render passed aProps', () => {
         const title = 'test title';
-        render(<Link href="/test" title={title} />);
+        render(<Link href="/test" anchorProps={{ title: title }} />);
         const link = screen.queryByRole('link');
         expect(link).toHaveAttribute('title', title);
     });
