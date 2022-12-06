@@ -5,7 +5,7 @@ description: Node.js18の環境でmswを使った時にネットワークをイ�
 tags: ['フロントエンド', 'テスト']
 ---
 
-この記事は...
+この記事は [YAMAP エンジニア Advent Calendar 2022](https://qiita.com/advent-calendar/2022/yamap-engineers) 7日目の記事です。
 
 ## mswとは？
 ネットワークレベルでAPIリクエストをモックできるAPIモックライブラリです。
@@ -60,19 +60,23 @@ describe("User", () => {
 });
 ```
 
-## mswのインターセプター
+## mswのインターセプターと対象モジュール
 [mswのインターセプター](https://github.com/mswjs/interceptors)は
+
 - `http.get`/`http.request`
 - `https.get`/`https.request`
 - `XMLHttpRequest`
 - `window.fetch`
-- Any third-party libraries that use the modules above (i.e. axios, request, node-fetch, supertest, etc.)
-により発行されたリクエストを対象として割り込みが発生するように作られています。
+- その他のAPIクライアント(i.e. axios, request, node-fetch, supertest, etc.)
 
-Node.js18のfetch APIの実装は標準の`http`モジュールを利用せず、[undici](https://github.com/nodejs/undici)という別のモジュールによって実装されています。そのため、標準のfetch APIで発生したリクエストはmswのインターセプターの対象とならず今回のエラーが発生していました。
+により発行されたリクエストを割り込み対象としてサポートしています。
+
+Node.jsのfetch APIは標準の`http`モジュールを利用しておらず、[undici](https://github.com/nodejs/undici)という別のモジュールによって実装されています。そのため、標準のfetch APIで発生したリクエストはmswのインターセプターの対象とならず今回のエラーが発生していました。
+
+参考: [Node.js v18 の主な変更点](https://shisama.hatenablog.com/entry/2022/04/20/011103)
 
 ## node-fetchでfetch()を置き換える
-現時点ではmswを利用するために今までと同じように`fetch()`をnode-fetchで置き換えてあげれば、mswがリクエストをインターセプトしてくれるようになります。
+現時点でmswを利用するには今まで通り`fetch()`をnode-fetchで置き換えてあげる必要があります。
 
 ```ts
 // test/setup.ts
