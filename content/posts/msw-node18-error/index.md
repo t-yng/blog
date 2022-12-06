@@ -9,9 +9,10 @@ tags: ['フロントエンド', 'テスト']
 
 ## mswとは？
 ネットワークレベルでAPIリクエストをモックできるAPIモックライブラリです。
+[MSW – Seamless API mocking library for browser and Node \| Mock Service Worker](https://mswjs.io/)
 
 ## Node.js18とグローバルfetch()
-今までは`fetch()`を利用したフロントエンドのコードをユニットテストで実行する場合には、Node.js環境にfetch APIが生えていないので、`fetch()`のモックやテスト実行時に[node-fetch](https://github.com/node-fetch/node-fetch)をPolyfillとして利用してグローバルスコープに`fetch()`を生やすなどの対応をしていました。
+今までは`fetch()`を利用したフロントエンドのコードをNode.js環境でユニットテストを実行するには、グローバルスコープに`fetch()`が存在しないので、モックをしたりテスト実行時に[node-fetch](https://github.com/node-fetch/node-fetch)をPolyfillとして適用してグローバルスコープに`fetch()`を生やすなどの対応をしていました。
 
 Node.js18から新たにグローバルスコープのfetch APIがデフォルトで利用可能になり、モック対応をせずともテスト実行時に`fetch()`が利用できる状態になりました。
 
