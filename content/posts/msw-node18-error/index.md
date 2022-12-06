@@ -42,6 +42,10 @@ export const User = () => {
 };
 
 // User.test.tsx
+import { rest } from "msw";
+import { render, screen, waitFor } from "@testing-library/react";
+import { server } from "../../test/server";
+
 describe("User", () => {
   it("show user name", async () => {
     server.use(
