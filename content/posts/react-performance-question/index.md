@@ -78,9 +78,7 @@ export const TodoList: FC<TodoListProps> = ({ todos, onChange }) => {
 
 `Todo`コンポーネントではpropsで受け取った`todo`のテキストの内容を`<input>`要素のvalueとして表示しています。テキストが変更された時に新しいテキストでTodoオブジェクトを作成して`onChange`関数を実行して親要素に新しいTodoオブジェクトを渡しています。
 
-`[...Array()]`はコンポーネントの描画速度を疑似的に遅くするために仕込んでおり、このコンポーネント単体の描画速度は約10msほどになっています。
-
-![プロファイルの結果](/images/posts/react-performance-question/profile.png)
+`[...Array()]`はコンポーネントの描画速度を疑似的に遅くするために仕込んでいます。は問題を作成するための疑似コードなので、ここを削除しないでください。
 
 ```tsx
 export const Todo: FC<TodoProps> = memo(({ todo, onChange }) => {
@@ -100,6 +98,10 @@ export const Todo: FC<TodoProps> = memo(({ todo, onChange }) => {
   );
 });
 ```
+
+このコンポーネント単体の描画速度は約10msほどになっており、実際の実装でも再現し得る問題になっています。
+
+![プロファイルの結果](/images/posts/react-performance-question/profile.png)
 
 ## 解説
 問題の解答は別の記事で書こうと思います。
