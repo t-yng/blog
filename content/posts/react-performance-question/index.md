@@ -12,7 +12,7 @@ tags: ['フロントエンド', 'React', 'パフォーマンス']
 ## 練習問題
 Reactで`<input>`要素がリストで表示されており、`<input>`要素にテキストを入力してみると非常にレスポンスが遅い状態になっています。このレスポンス速度を改善するのが今回の問題です。
 
-<iframe src="https://stackblitz.com/edit/react-ts-evcw6y?embed=1&file=src/App.tsx" style="width: 100%; height: 400px">
+<iframe src="https://stackblitz.com/edit/react-ts-evcw6y?embed=1&file=src/App.tsx" style="width: 100%; height: 400px"></iframe>
 
 ソースコードを眺めてみるとApp.tsxでTodoの一覧を管理しており`TotoList`コンポーネントを描画しています。
 `onChange`propsには`setTodos`を渡しておりTodoの一覧を更新します。
