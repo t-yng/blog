@@ -13,7 +13,7 @@ type PostProps = {
 
 export const Post: FC<PostProps> = ({ post }) => {
     return (
-        <div className={style.post}>
+        <article className={style.post}>
             <header className={style.header}>
                 <h1 className={heading1}>{post.title}</h1>
                 <div className={style.date}>{formatDate(post.date)}</div>
@@ -25,6 +25,6 @@ export const Post: FC<PostProps> = ({ post }) => {
                 className={style.content}
                 data-test="content"
             />
-        </div>
+        </article>
     );
 };

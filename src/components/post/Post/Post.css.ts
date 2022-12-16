@@ -4,7 +4,7 @@ import { colors } from '../../../styles/color';
 export const post = style({
     backgroundColor: colors.white,
     border: `1px solid ${colors.black6}`,
-    padding: '1rem',
+    padding: '16px 32px',
 });
 
 export const header = style({
