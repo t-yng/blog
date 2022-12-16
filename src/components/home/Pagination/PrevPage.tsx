@@ -7,7 +7,13 @@ type PrevPageProps = {
 };
 
 export const PrevPage: FC<PrevPageProps> = ({ page }) => (
-    <Link href={page === 1 ? '/' : `/page/${page}`} decoration={false}>
-        <PageItem data-testid="pagination-prev">{'<'}</PageItem>
+    <Link
+        href={page === 1 ? '/' : `/page/${page}`}
+        decoration={false}
+        anchorProps={{
+            'aria-label': '前のページへ',
+        }}
+    >
+        <PageItem>{'<'}</PageItem>
     </Link>
 );
