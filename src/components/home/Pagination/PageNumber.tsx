@@ -12,7 +12,7 @@ export const PageNumber: FC<PageProps> = ({ page, currentPage }) => (
     <Link
         href={page === 1 ? '/' : `/page/${page}`}
         decoration={false}
-        aria-label={`${page}ページ`}
+        aria-label={`ページ${page}`}
     >
         <PageItem
             className={page === currentPage ? style.highlight : undefined}
