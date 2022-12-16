@@ -36,7 +36,7 @@ describe('PostEntry', () => {
         const post = instance(mockPost);
         render(<PostEntry post={post} />);
 
-        expect(screen.queryByText('2020年 04月 19日')).toBeInTheDocument();
+        expect(screen.queryByText('2020年04月19日')).toBeInTheDocument();
     });
 
     it('renders Tags component', () => {

@@ -26,7 +26,7 @@ describe('Post', () => {
         when(mockPost.date).thenReturn('2020-04-30T00:00:00.000Z');
         const post = instance(mockPost);
         render(<Post post={post} />);
-        expect(screen.queryByText('2020年 04月 30日')).toBeInTheDocument();
+        expect(screen.queryByText('2020年04月30日')).toBeInTheDocument();
     });
 
     it('renders post tags', () => {

@@ -9,4 +9,5 @@ export const border = style({
     border: 'none',
     height: '1px',
     backgroundColor: colors.black4,
+    margin: 0,
 });

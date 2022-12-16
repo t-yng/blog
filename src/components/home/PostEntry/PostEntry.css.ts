@@ -2,17 +2,18 @@ import { style } from '@vanilla-extract/css';
 import { colors } from '../../../styles/color';
 
 export const postEntry = style({
-    padding: '1rem',
+    padding: '20px 24px',
 });
 
 export const date = style({
     color: colors.black3,
     fontSize: '0.85rem',
+    display: 'block',
+    marginTop: '4px',
 });
 
 export const title = style({
     fontSize: '1.2rem',
-    marginTop: '0.5rem',
     '@media': {
         '(max-width: 850px)': {
             fontSize: '1rem',
