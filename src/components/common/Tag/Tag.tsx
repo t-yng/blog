@@ -11,7 +11,7 @@ export const Tag: FC<TagProps> = ({ name }) => (
     <Link
         href={createTagLink(name)}
         decoration={false}
-        anchorProps={{ 'aria-label': `タグ、${name}` }}
+        aria-label={`タグ、${name}`}
     >
         <div className={style.tag}>{name}</div>
     </Link>

@@ -10,7 +10,6 @@ describe('Pagination', () => {
 
     it('renders prev and next when middle page', () => {
         render(<Pagination currentPage={5} numPages={10} middleNumPages={4} />);
-        screen.debug();
         expect(
             screen.queryByRole('link', { name: '前のページへ' })
         ).toBeInTheDocument();

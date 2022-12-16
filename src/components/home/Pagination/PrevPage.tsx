@@ -10,9 +10,7 @@ export const PrevPage: FC<PrevPageProps> = ({ page }) => (
     <Link
         href={page === 1 ? '/' : `/page/${page}`}
         decoration={false}
-        anchorProps={{
-            'aria-label': '前のページへ',
-        }}
+        aria-label="前のページへ"
     >
         <PageItem>{'<'}</PageItem>
     </Link>

@@ -7,11 +7,7 @@ type NextPageProps = {
 };
 
 export const NextPage: FC<NextPageProps> = ({ page }) => (
-    <Link
-        href={`/page/${page}`}
-        decoration={false}
-        anchorProps={{ 'aria-label': '次のページへ' }}
-    >
+    <Link href={`/page/${page}`} decoration={false} aria-label="次のページへ">
         <PageItem>{'>'}</PageItem>
     </Link>
 );

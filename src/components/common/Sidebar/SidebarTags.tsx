@@ -26,9 +26,7 @@ export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
                         key={tag.name}
                         decoration={false}
                         href={createTagLink(tag.name)}
-                        anchorProps={{
-                            'aria-label': `${tag.name}の記事一覧、${tag.count}件`,
-                        }}
+                        aria-label={`${tag.name}の記事一覧、${tag.count}件`}
                     >{`${tag.name} (${tag.count})`}</Link>
                 </li>
             ))}
