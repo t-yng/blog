@@ -11,7 +11,13 @@ export const date = style({
 });
 
 export const title = style({
+    fontSize: '1.2rem',
     marginTop: '0.5rem',
+    '@media': {
+        '(max-width: 850px)': {
+            fontSize: '1rem',
+        },
+    },
 });
 
 export const tags = style({

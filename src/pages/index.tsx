@@ -11,6 +11,7 @@ import {
 } from '@/constants';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import * as style from './index.css';
+import { heading1 } from '@/styles/typography.css';
 
 type IndexPageProps = {
     posts: Post[];
@@ -31,6 +32,7 @@ const IndexPage: FC<IndexPageProps> = ({
 }) => {
     return (
         <Layout tags={tags} seoMetadata={seoMetadata}>
+            <h1 className={heading1}>記事一覧</h1>
             <PostEntries posts={posts} className={style.postEntries} />
             <Pagination {...pagination} />
         </Layout>
