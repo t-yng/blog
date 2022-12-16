@@ -23,7 +23,7 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                         href={profile.github.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="このブログのGitHubリポジトリ"
+                        aria-label={`${profile.name}のGitHubプロフィールページ`}
                     >
                         <img
                             className={style.icon}
