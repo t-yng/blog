@@ -14,7 +14,7 @@ class MyDocument extends Document {
                         }}
                     />
                 </Head>
-                <body>
+                <body tabIndex={-1}>
                     <Main />
                     <NextScript />
                 </body>
