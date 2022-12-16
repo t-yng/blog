@@ -18,11 +18,6 @@ export const date = style({
 
 export const content = style({});
 
-globalStyle(`${content} img`, {
-    width: '100%',
-    height: 'auto',
-});
-
 globalStyle(`${content} h2, h3, h4`, {
     marginTop: '2.5rem',
 });
@@ -30,6 +25,17 @@ globalStyle(`${content} h2, h3, h4`, {
 globalStyle(`${content} h2`, {
     borderBottom: `0.5px solid ${colors.black4}`,
     paddingBottom: '0.5rem',
+});
+
+globalStyle(`${content} img`, {
+    width: '100%',
+    height: 'auto',
+    marginTop: '1rem',
+});
+
+globalStyle(`${content} p`, {
+    marginBottom: 0,
+    marginTop: '1rem',
 });
 
 globalStyle(`${content} blockquote`, {
@@ -47,6 +53,7 @@ globalStyle(`${content} blockquote p`, {
 globalStyle(`${content} pre`, {
     fontSize: 'inherit !important',
     background: 'hsl(233deg 16% 22%) !important',
+    marginTop: '1rem',
 });
 
 globalStyle(`${content} code`, {
