@@ -29,6 +29,7 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                             className={style.icon}
                             src={profile.github.icon}
                             aria-hidden="true"
+                            alt="GitHubのロゴ"
                         />
                     </a>
                 </div>
