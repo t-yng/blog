@@ -14,7 +14,6 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                 className={style.avatar}
                 src={profile.avatar}
                 alt="筆者のアバター画像"
-                data-testid="avatar-image"
             />
             <div>
                 <div className={style.name}>{profile.name}</div>
@@ -24,12 +23,12 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                         href={profile.github.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="このブログのGitHubリポジトリ"
                     >
                         <img
                             className={style.icon}
                             src={profile.github.icon}
-                            alt="Githubへのリンクアイコン"
-                            data-testid="github-image"
+                            aria-hidden="true"
                         />
                     </a>
                 </div>
