@@ -53,28 +53,28 @@ describe('Pagination', () => {
         render(<Pagination currentPage={5} numPages={7} middleNumPages={8} />);
 
         expect(
-            screen.queryByRole('link', { name: '1ページ' })
+            screen.queryByRole('link', { name: 'ページ1' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '2ページ' })
+            screen.queryByRole('link', { name: 'ページ2' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '3ページ' })
+            screen.queryByRole('link', { name: 'ページ3' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '4ページ' })
+            screen.queryByRole('link', { name: 'ページ4' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '5ページ' })
+            screen.queryByRole('link', { name: 'ページ5' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '6ページ' })
+            screen.queryByRole('link', { name: 'ページ6' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '7ページ' })
+            screen.queryByRole('link', { name: 'ページ7' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '8ページ' })
+            screen.queryByRole('link', { name: 'ページ8' })
         ).not.toBeInTheDocument();
     });
 
@@ -84,25 +84,25 @@ describe('Pagination', () => {
 
         expect(screen.queryAllByText('...').length).toBe(2);
         expect(
-            screen.queryByRole('link', { name: '1ページ' })
+            screen.queryByRole('link', { name: 'ページ1' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '2ページ' })
+            screen.queryByRole('link', { name: 'ページ2' })
         ).not.toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '3ページ' })
+            screen.queryByRole('link', { name: 'ページ3' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '4ページ' })
+            screen.queryByRole('link', { name: 'ページ4' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '5ページ' })
+            screen.queryByRole('link', { name: 'ページ5' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '6ページ' })
+            screen.queryByRole('link', { name: 'ページ6' })
         ).not.toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '7ページ' })
+            screen.queryByRole('link', { name: 'ページ7' })
         ).toBeInTheDocument();
     });
 
@@ -112,25 +112,25 @@ describe('Pagination', () => {
 
         expect(screen.queryAllByText('...').length).toBe(1);
         expect(
-            screen.queryByRole('link', { name: '1ページ' })
+            screen.queryByRole('link', { name: 'ページ1' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '2ページ' })
+            screen.queryByRole('link', { name: 'ページ2' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '3ページ' })
+            screen.queryByRole('link', { name: 'ページ3' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '4ページ' })
+            screen.queryByRole('link', { name: 'ページ4' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '5ページ' })
+            screen.queryByRole('link', { name: 'ページ5' })
         ).not.toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '6ページ' })
+            screen.queryByRole('link', { name: 'ページ6' })
         ).not.toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '7ページ' })
+            screen.queryByRole('link', { name: 'ページ7' })
         ).toBeInTheDocument();
     });
 
@@ -140,25 +140,25 @@ describe('Pagination', () => {
 
         expect(screen.queryAllByText('...').length).toBe(1);
         expect(
-            screen.queryByRole('link', { name: '1ページ' })
+            screen.queryByRole('link', { name: 'ページ1' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '2ページ' })
+            screen.queryByRole('link', { name: 'ページ2' })
         ).not.toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '3ページ' })
+            screen.queryByRole('link', { name: 'ページ3' })
         ).not.toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '4ページ' })
+            screen.queryByRole('link', { name: 'ページ4' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '5ページ' })
+            screen.queryByRole('link', { name: 'ページ5' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '6ページ' })
+            screen.queryByRole('link', { name: 'ページ6' })
         ).toBeInTheDocument();
         expect(
-            screen.queryByRole('link', { name: '7ページ' })
+            screen.queryByRole('link', { name: 'ページ7' })
         ).toBeInTheDocument();
     });
 });
