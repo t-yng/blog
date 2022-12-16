@@ -45,7 +45,10 @@ export const getStaticProps: GetStaticProps<TagPostsPageProps, Params> = async (
         props: {
             posts: posts,
             tags: tags,
-            seoMetadata: siteMetadata,
+            seoMetadata: {
+                ...siteMetadata,
+                title: `${tag}の記事一覧 | ${siteMetadata.title}`,
+            },
         },
     };
 };

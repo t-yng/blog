@@ -55,7 +55,10 @@ export const getStaticProps = async (): Promise<
             posts: posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE),
             tags,
             pagination,
-            seoMetadata: siteMetadata,
+            seoMetadata: {
+                ...siteMetadata,
+                title: `記事一覧 | ${siteMetadata.title}`,
+            },
         },
     };
 };

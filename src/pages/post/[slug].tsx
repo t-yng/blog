@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
     const post = usecases.getPostBySlug.invoke(context.params.slug);
     const tags = usecases.getGroupedTags.invoke();
 
-    const title = `${post.title} - ${siteMetadata.title}`;
+    const title = `${post.title} | ${siteMetadata.title}`;
     // "/"が含まれているとエラーが発生するのでエスケープする
     // @see: https://support.cloudinary.com/hc/en-us/articles/202521512-How-to-add-a-slash-character-or-any-other-special-characters-in-text-overlays-
     const encodedPostTitle = encodeURIComponent(post.title).replace(

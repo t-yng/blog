@@ -68,7 +68,10 @@ export const getStaticProps: GetStaticProps<PagePageProps, UrlQuery> = async ({
             ),
             tags,
             pagination,
-            seoMetadata: siteMetadata,
+            seoMetadata: {
+                ...siteMetadata,
+                title: `記事一覧 ${page}ページ目 | ${siteMetadata.title}`,
+            },
         },
     };
 };
