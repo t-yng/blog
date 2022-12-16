@@ -1,11 +1,10 @@
 {
-    "plugins": [
-        "react-hooks"
-    ],
+    "plugins": ["react-hooks", "jsx-a11y"],
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:jsx-a11y/recommended",
         "prettier"
     ],
     "parserOptions": {

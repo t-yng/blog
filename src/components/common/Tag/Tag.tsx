@@ -8,7 +8,11 @@ interface TagProps {
 }
 
 export const Tag: FC<TagProps> = ({ name }) => (
-    <Link href={createTagLink(name)} decoration={false}>
+    <Link
+        href={createTagLink(name)}
+        decoration={false}
+        aria-label={`タグ、${name}`}
+    >
         <div className={style.tag}>{name}</div>
     </Link>
 );

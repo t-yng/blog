@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import { Post as PostEntity } from '@/entities/Post';
 import { Tags } from '@/components/common';
-import * as style from './Post.css';
 import { formatDate } from '@/lib/format';
+import * as style from './Post.css';
+import { heading1 } from '@/styles/typography.css';
+
 import 'prismjs/themes/prism-tomorrow.css';
 
 type PostProps = {
@@ -13,7 +15,7 @@ export const Post: FC<PostProps> = ({ post }) => {
     return (
         <div className={style.post}>
             <header className={style.header}>
-                <h1>{post.title}</h1>
+                <h1 className={heading1}>{post.title}</h1>
                 <div className={style.date}>{formatDate(post.date)}</div>
                 <Tags tags={post.tags} />
             </header>

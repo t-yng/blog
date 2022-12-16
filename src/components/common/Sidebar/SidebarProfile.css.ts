@@ -25,6 +25,6 @@ export const speciality = style({
 });
 
 export const icon = style({
-    height: '20px',
-    width: '20px',
+    height: '24px',
+    width: '24px',
 });

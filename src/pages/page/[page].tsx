@@ -16,6 +16,7 @@ import { sortPostsByDateDesc } from '@/lib/sort';
 import { range } from '@/lib/array';
 import { usecases } from '@/usecases/UsecaseContainer';
 import * as style from './[page].css';
+import { heading1 } from '@/styles/typography.css';
 
 type PagePageProps = {
     posts: Post[];
@@ -36,6 +37,7 @@ const IndexPage: FC<PagePageProps> = ({
 }) => {
     return (
         <Layout tags={tags} seoMetadata={seoMetadata}>
+            <h1 className={heading1}>記事一覧</h1>
             <PostEntries posts={posts} className={style.postEntries} />
             <Pagination {...pagination} />
         </Layout>
@@ -68,7 +70,10 @@ export const getStaticProps: GetStaticProps<PagePageProps, UrlQuery> = async ({
             ),
             tags,
             pagination,
-            seoMetadata: siteMetadata,
+            seoMetadata: {
+                ...siteMetadata,
+                title: `記事一覧 ${page}ページ目 | ${siteMetadata.title}`,
+            },
         },
     };
 };

@@ -10,16 +10,25 @@ import { siteMetadata } from '@/config/siteMetadata';
 import { Post, SeoMetadata, Tag } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { usecases } from '@/usecases/UsecaseContainer';
+import { heading1 } from '@/styles/typography.css';
+import * as style from './[tag].css';
 
 type TagPostsPageProps = {
+    tag: string;
     posts: Post[];
     tags: Tag[];
     seoMetadata: SeoMetadata;
 };
 
-const TagPostsPage: FC<TagPostsPageProps> = ({ posts, tags, seoMetadata }) => (
+const TagPostsPage: FC<TagPostsPageProps> = ({
+    tag,
+    posts,
+    tags,
+    seoMetadata,
+}) => (
     <Layout tags={tags} seoMetadata={seoMetadata}>
-        <PostEntries posts={posts} />
+        <h1 className={heading1}>{tag}の記事一覧</h1>
+        <PostEntries posts={posts} className={style.postEntries} />
     </Layout>
 );
 
@@ -43,9 +52,13 @@ export const getStaticProps: GetStaticProps<TagPostsPageProps, Params> = async (
 
     return {
         props: {
+            tag: tag,
             posts: posts,
             tags: tags,
-            seoMetadata: siteMetadata,
+            seoMetadata: {
+                ...siteMetadata,
+                title: `${tag}の記事一覧 | ${siteMetadata.title}`,
+            },
         },
     };
 };
