@@ -15,6 +15,9 @@ export const GlobalHeaderMain: FC = () => (
                     src={TITLE_LOGO_IMAGE_URL}
                     alt={TITLE_LOGO_IMAGE_ALT}
                     className={style.titleLogoImg}
+                    width={438}
+                    height={38}
+                    decoding="async"
                 />
             </Link>
         </div>

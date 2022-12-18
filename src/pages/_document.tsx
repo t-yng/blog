@@ -7,7 +7,7 @@ class MyDocument extends Document {
             <Html lang="ja">
                 <Head>
                     {/* Global Site Tag (gtag.js) - Google Analytics */}
-                    <script async src={gtagJsUrl} />
+                    <script defer src={gtagJsUrl} />
                     <script
                         dangerouslySetInnerHTML={{
                             __html: trackingCode,
