@@ -14,6 +14,9 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                 className={style.avatar}
                 src={profile.avatar}
                 alt="筆者のアバター画像"
+                width={64}
+                height={64}
+                decoding="async"
             />
             <div>
                 <div className={style.name}>{profile.name}</div>
@@ -30,6 +33,9 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                             src={profile.github.icon}
                             aria-hidden="true"
                             alt="GitHubのロゴ"
+                            width={24}
+                            height={24}
+                            decoding="async"
                         />
                     </a>
                 </div>
