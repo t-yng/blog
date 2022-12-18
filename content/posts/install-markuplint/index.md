@@ -1,8 +1,8 @@
 ---
 title: Reactのプロダクトにmarkuplintを導入する
-date: 2021-08-23
+date: 2022-12-19
 description: ISUCON11に参加した記録です
-tags: ['フロントエンド']
+tags: ['フロントエンド', 'React']
 ---
 
 HTMLを仕様に基づいて正しく書くには思ったよりも必要な専門知識が必要です。
