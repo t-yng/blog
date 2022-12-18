@@ -14,7 +14,8 @@
     "test:coverage": "yarn test --coverage",
     "lint": "eslint --ext ts,tsx ./",
     "type-check": "tsc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "html:lint": "markuplint -p \"./src/**/*.tsx\""
   },
   "engines": {
     "node": "16.x"
@@ -38,6 +39,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@markuplint/jsx-parser": "2.4.5",
+    "@markuplint/react-spec": "2.1.3",
     "@next/bundle-analyzer": "13.0.7",
     "@swc/core": "^1.2.117",
     "@swc/jest": "^0.2.11",
@@ -63,6 +66,7 @@
     "jest-environment-jsdom": "29.3.1",
     "lint-staged": "13.1.0",
     "markdown-it": "13.0.1",
+    "markuplint": "2.11.4",
     "prettier": "2.8.1",
     "ts-mockito": "2.6.1",
     "typescript": "4.9.4"
