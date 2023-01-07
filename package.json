@@ -12,10 +12,10 @@
     "bundle-analyze": "ANALYZE=true next build",
     "test": "vitest run",
     "test:coverage": "yarn test --coverage",
-    "lint": "eslint --ext ts,tsx ./",
+    "lint": "eslint --ext ts,tsx ./ && yarn lint:html",
+    "lint:html": "markuplint -p \"./src/**/*.tsx\"",
     "type-check": "tsc",
-    "prepare": "husky install",
-    "html:lint": "markuplint -p \"./src/**/*.tsx\""
+    "prepare": "husky install"
   },
   "engines": {
     "node": "16.x"
@@ -26,6 +26,9 @@
     ],
     "*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0"
+    ],
+    "*.{tsx}": [
+      "markuplint -p"
     ]
   },
   "dependencies": {
