@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import { vi } from 'vitest';
 import { Seo, SeoProps } from './Seo';
 
 // next/headは非同期で描画される仕様なので、テスト用に同期的に子要素を描画するようにモックする
 // @see: https://github.com/vercel/next.js/discussions/11060#discussioncomment-127539
-jest.mock('next/head', () => {
+vi.mock('next/head', () => {
     return {
         __esModule: true,
         default: ({ children }: { children: React.ReactElement }) => {

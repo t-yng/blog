@@ -1,9 +1,10 @@
+import { vi } from 'vitest';
 import * as gtag from './gtag';
 
 describe('lib/gtag', () => {
     describe('pageview', () => {
         it('calls window.gtag function', () => {
-            const mockWindowGtag = jest.fn();
+            const mockWindowGtag = vi.fn();
             window.gtag = mockWindowGtag;
             gtag.pageview('/');
 
