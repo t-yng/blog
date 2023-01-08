@@ -6,7 +6,6 @@
   "separateMajorMinor": true,
   "separateMinorPatch": false,
   "separateMultipleMajor": true,
-  "rebaseWhen": "conflicted",
   "recreateClosed": true,
   // デフォルトでは GitHub Actions なども更新対象となりPRが作成されるので npm だけに制限
   // @see: https://docs.renovatebot.com/modules/manager/
