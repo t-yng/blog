@@ -11,8 +11,8 @@ type SidebarProps = {
 };
 
 export const Sidebar: FC<SidebarProps> = ({ tags, profile }) => (
-    <div>
+    <aside>
         <SidebarProfile className={style.section} profile={profile} />
         <SidebarTags tags={tags} />
-    </div>
+    </aside>
 );

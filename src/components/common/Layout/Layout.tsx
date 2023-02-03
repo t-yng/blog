@@ -19,10 +19,10 @@ export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
                 ogp={seoMetadata.ogp}
             />
             <GlobalHeader />
-            <main className={style.main} tabIndex={-1}>
-                <div className={style.content}>{children}</div>
+            <div className={style.main} tabIndex={-1}>
+                <main className={style.content}>{children}</main>
                 <Sidebar tags={tags} profile={profile} />
-            </main>
+            </div>
         </div>
     );
 };
