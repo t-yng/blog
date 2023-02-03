@@ -35,7 +35,7 @@ HTMLを仕様に基づいて正しく書くには思ったよりも必要な専�
 
 vueやsvelteなどの他のライブラリに対応したparserやspecは[公式リポジトリ](https://github.com/markuplint/markuplint/tree/dev/packages/@markuplint)で探すことができます。
 
-```
+```shell
 $ yarn markuplint @markuplint/jsx-parser @markuplint/react-spec
 ```
 
