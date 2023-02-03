@@ -10,11 +10,18 @@ interface PostEntryProps {
 }
 
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
-    <div className={style.postEntry} data-testid="post-entry">
-        <Link href={`/post/${post.slug}`} decoration={false} prefetch={false}>
-            <h2 className={style.title}>{post.title}</h2>
-        </Link>
+    <article className={style.postEntry} data-testid="post-entry">
+        <Link
+            href={`/post/${post.slug}`}
+            prefetch={false}
+            className={style.linkOverlay}
+            aria-labelledby={`post-title-${post.id}`}
+            title={post.title}
+        />
+        <h2 id={`post-title-${post.id}`} className={style.title}>
+            {post.title}
+        </h2>
         <time className={style.date}>{formatDate(post.date)}</time>
         <Tags tags={post.tags} className={style.tags} />
-    </div>
+    </article>
 );
