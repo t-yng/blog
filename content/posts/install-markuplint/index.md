@@ -45,9 +45,9 @@ $ yarn markuplint @markuplint/jsx-parser @markuplint/react-spec
 ```json
 // .markuplintrc
 {
-    // テストファイルを除外
+    // テストファイルやストーリーファイルを除外
     "excludeFiles": [
-        "./**/*.{test,spec}.tsx"
+        "./**/*.{test,spec,stories}.tsx"
     ],
     // ツールの推奨設定を利用
     "extends": [
@@ -55,10 +55,10 @@ $ yarn markuplint @markuplint/jsx-parser @markuplint/react-spec
     ],
     // jsxをHTMLテキストにパース
     "parser": {
-        "\\.tsx": "@markuplint/jsx-parser"
+        ".tsx$": "@markuplint/jsx-parser"
     },
     "specs": {
-        ".tsx?$": "@markuplint/react-spec"
+        ".tsx$": "@markuplint/react-spec"
     }
 
 }
