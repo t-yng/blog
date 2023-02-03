@@ -13,6 +13,7 @@ export const Link: FC<LinkProps> = ({
     href,
     children,
     prefetch,
+    className,
     ...rest
 }) => {
     return (
@@ -21,7 +22,9 @@ export const Link: FC<LinkProps> = ({
         <NextLink href={href} prefetch={prefetch} passHref legacyBehavior>
             <a
                 {...rest}
-                className={decoration ? undefined : style.nonDecoration}
+                className={`${decoration ? '' : style.nonDecoration} ${
+                    className ? className : ''
+                }`}
             >
                 {children}
             </a>
