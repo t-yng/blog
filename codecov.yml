@@ -1,0 +1,3 @@
+coverage:
+  status:
+    patch: off # @see: https://docs.codecov.com/docs/commit-status#patch-status
