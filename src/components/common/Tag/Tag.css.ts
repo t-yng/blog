@@ -2,7 +2,8 @@ import { style } from '@vanilla-extract/css';
 import { colors } from '../../../styles/color';
 
 export const tag = style({
-    backgroundColor: colors.black6,
+    backgroundColor: colors.white,
+    border: `1px solid ${colors.black4}`,
     borderRadius: '4px',
     color: colors.black2,
     display: 'flex',
@@ -12,6 +13,6 @@ export const tag = style({
     lineHeight: 1.5,
     padding: '4px 8px',
     ':hover': {
-        backgroundColor: colors.black5,
+        borderColor: colors.black2,
     },
 });
