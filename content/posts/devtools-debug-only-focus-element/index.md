@@ -1,7 +1,7 @@
 ---
-title: Reactでフォーカス中にのみ表示される要素をdevtoolsでデバッグする
+title: Reactでフォーカス中にのみ表示される要素をChromeのdevtoolsでデバッグする
 date: 2023-03-03
-description: フォーカス中にのみ表示されるDOM要素をdevtoolsでデバッグする方法について解説します
+description: フォーカス中にのみ表示されるDOM要素をChromeのdevtoolsでデバッグする方法について解説します
 tags: ['フロントエンド']
 ---
 
