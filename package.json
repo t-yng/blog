@@ -47,7 +47,7 @@
     "@next/bundle-analyzer": "13.2.3",
     "@swc/core": "^1.2.117",
     "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "14.0.0",
     "@types/gtag.js": "0.0.12",
     "@types/markdown-it": "12.2.3",
     "@types/prismjs": "^1.16.6",
