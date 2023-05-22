@@ -1,20 +1,21 @@
 import { FC } from 'react';
+import { css } from '@linaria/core';
 import { Link } from '../Link/Link';
 import {
     TITLE_LOGO_IMAGE_URL,
     TITLE_LOGO_IMAGE_ALT,
     TITLE_LOGO_LINK_TITLE,
-} from '../../../constants';
-import * as style from './GlobalHeaderMain.css';
+} from '@/constants';
+import { colors } from '@/styles/color';
 
 export const GlobalHeaderMain: FC = () => (
-    <div className={style.wrapper}>
-        <div className={style.globalHeaderMain}>
+    <div className={wrapper}>
+        <div className={globalHeaderMain}>
             <Link href="/" title={TITLE_LOGO_LINK_TITLE}>
                 <img
                     src={TITLE_LOGO_IMAGE_URL}
                     alt={TITLE_LOGO_IMAGE_ALT}
-                    className={style.titleLogoImg}
+                    className={titleLogoImg}
                     width={438}
                     height={38}
                     decoding="async"
@@ -23,3 +24,17 @@ export const GlobalHeaderMain: FC = () => (
         </div>
     </div>
 );
+
+const wrapper = css`
+    background-color: ${colors.main};
+`;
+
+const globalHeaderMain = css`
+    display: flex;
+    justify-content: center;
+    padding: 1rem 20px;
+`;
+
+const titleLogoImg = css`
+    width: 100%;
+`;

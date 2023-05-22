@@ -1,9 +1,7 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from 'vite';
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import react from '@vitejs/plugin-react';
-import '@vanilla-extract/css/disableRuntimeStyles';
 
 export default defineConfig({
     test: {
@@ -33,5 +31,5 @@ export default defineConfig({
         },
     },
     // transform
-    plugins: [vanillaExtractPlugin(), react()],
+    plugins: [react()],
 });
