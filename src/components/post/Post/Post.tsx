@@ -45,8 +45,6 @@ const date = css`
     margin-bottom: 0.5rem;
 `;
 
-// const content = css``;
-
 const contentGlobal = css`
     :global() {
         .content h2,
