@@ -11,7 +11,7 @@ export default defineConfig({
         // setupFilesAfterEnv
         setupFiles: [`test/setup.ts`],
         // testMatch
-        include: [`**/*.{test,spec}.{ts,tsx}`],
+        include: [`src/**/*.{test,spec}.{ts,tsx}`],
         // moduleNameMapper
         alias: {
             '@/': `${__dirname}/src/`,
