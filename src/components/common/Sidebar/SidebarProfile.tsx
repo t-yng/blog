@@ -1,6 +1,7 @@
+import { css } from '@linaria/core';
 import { SidebarSection } from './SidebarSection';
 import { Profile } from '@/config/profile';
-import * as style from './SidebarProfile.css';
+import { colors } from '@/styles/color';
 
 export interface SidebarProfileProps {
     profile: Profile;
@@ -9,9 +10,9 @@ export interface SidebarProfileProps {
 
 export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
     <SidebarSection title="プロフィール" className={className}>
-        <div className={style.wrapper}>
+        <div className={wrapper}>
             <img
-                className={style.avatar}
+                className={avatar}
                 src={profile.avatar}
                 alt="筆者のアバター画像"
                 width={64}
@@ -19,8 +20,8 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                 decoding="async"
             />
             <div>
-                <div className={style.name}>{profile.name}</div>
-                <div className={style.speciality}>{profile.speciality}</div>
+                <div className={name}>{profile.name}</div>
+                <div className={speciality}>{profile.speciality}</div>
                 <div>
                     <a
                         href={profile.github.url}
@@ -29,7 +30,7 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
                         aria-label={`${profile.name}のGitHubプロフィールページ`}
                     >
                         <img
-                            className={style.icon}
+                            className={icon}
                             src={profile.github.icon}
                             aria-hidden="true"
                             alt="GitHubのロゴ"
@@ -43,3 +44,31 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
         </div>
     </SidebarSection>
 );
+
+const wrapper = css`
+    display: flex;
+`;
+
+const avatar = css`
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    object-fit: cover;
+    height: 4rem;
+    width: 4rem;
+`;
+
+const name = css`
+    font-weight: bold;
+    margin-bottom: 4px;
+`;
+
+const speciality = css`
+    font-size: 0.75rem;
+    color: ${colors.black2};
+    margin-bottom: 4px;
+`;
+
+const icon = css`
+    height: 24px;
+    width: 24px;
+`;

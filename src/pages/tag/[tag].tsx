@@ -4,14 +4,14 @@ import {
     GetStaticPropsResult,
 } from 'next';
 import { FC } from 'react';
+import { css } from '@linaria/core';
 import { Layout } from '@/components/common';
 import { PostEntries } from '@/components/home';
 import { siteMetadata } from '@/config/siteMetadata';
 import { Post, SeoMetadata, Tag } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { usecases } from '@/usecases/UsecaseContainer';
-import { heading1 } from '@/styles/typography.css';
-import * as style from './[tag].css';
+import { heading1 } from '@/styles/typography';
 
 type TagPostsPageProps = {
     tag: string;
@@ -28,9 +28,13 @@ const TagPostsPage: FC<TagPostsPageProps> = ({
 }) => (
     <Layout tags={tags} seoMetadata={seoMetadata}>
         <h1 className={heading1}>{tag}の記事一覧</h1>
-        <PostEntries posts={posts} className={style.postEntries} />
+        <PostEntries posts={posts} className={postEntries} />
     </Layout>
 );
+
+export const postEntries = css`
+    margin-top: 16px;
+`;
 
 export default TagPostsPage;
 

@@ -1,9 +1,9 @@
 import { FC } from 'react';
+import { css } from '@linaria/core';
 import { range } from '@/lib/array';
 import { PageNumber } from './PageNumber';
 import { PrevPage } from './PrevPage';
 import { NextPage } from './NextPage';
-import * as style from './Pagination.css';
 
 type PaginationProps = {
     currentPage: number;
@@ -30,18 +30,28 @@ export const Pagination: FC<PaginationProps> = ({
     );
 
     return (
-        <div className={style.pagination}>
+        <div className={pagination}>
             {shouldShowPrev && <PrevPage page={currentPage - 1} />}
             <PageNumber page={1} currentPage={currentPage} />
-            {middleStartPage > 2 && <div className={style.ellipsis}>...</div>}
+            {middleStartPage > 2 && <div className={ellipsis}>...</div>}
             {middlePages.map((page) => (
                 <PageNumber key={page} page={page} currentPage={currentPage} />
             ))}
             {middleStartPage < numPages - middleNumPages && (
-                <div className={style.ellipsis}>...</div>
+                <div className={ellipsis}>...</div>
             )}
             <PageNumber page={numPages} currentPage={currentPage} />
             {shouldShowNext && <NextPage page={currentPage + 1} />}
         </div>
     );
 };
+
+const pagination = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const ellipsis = css`
+    cursor: default;
+`;
