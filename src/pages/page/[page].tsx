@@ -4,6 +4,7 @@ import {
     GetStaticProps,
     GetStaticPropsResult,
 } from 'next';
+import { css } from '@linaria/core';
 import { Layout } from '@/components/common';
 import { Pagination, PostEntries } from '@/components/home';
 import {
@@ -15,8 +16,7 @@ import { Post, Tag, SeoMetadata } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { range } from '@/lib/array';
 import { usecases } from '@/usecases/UsecaseContainer';
-import * as style from './[page].css';
-import { heading1 } from '@/styles/typography.css';
+import { heading1 } from '@/styles/typography';
 
 type PagePageProps = {
     posts: Post[];
@@ -38,11 +38,16 @@ const IndexPage: FC<PagePageProps> = ({
     return (
         <Layout tags={tags} seoMetadata={seoMetadata}>
             <h1 className={heading1}>記事一覧</h1>
-            <PostEntries posts={posts} className={style.postEntries} />
+            <PostEntries posts={posts} className={postEntries} />
             <Pagination {...pagination} />
         </Layout>
     );
 };
+
+export const postEntries = css`
+    margin-top: 16px;
+    margin-bottom: 2rem;
+`;
 
 export default IndexPage;
 

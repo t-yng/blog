@@ -1,7 +1,8 @@
 import { FC } from 'react';
+import { css } from '@linaria/core';
 import { Link } from '@/components/common';
 import { PageItem } from './PageItem';
-import * as style from './PageNumber.css';
+import { colors } from '@/styles/color';
 
 type PageProps = {
     page: number;
@@ -14,10 +15,27 @@ export const PageNumber: FC<PageProps> = ({ page, currentPage }) => (
         decoration={false}
         aria-label={`ページ${page}`}
     >
-        <PageItem
-            className={page === currentPage ? style.highlight : undefined}
-        >
+        <PageItem className={page === currentPage ? highlight : undefined}>
             {page}
         </PageItem>
     </Link>
 );
+
+const highlight = css`
+    align-items: center;
+    background-color: ${colors.accent};
+    border-radius: 50%;
+    color: ${colors.white};
+    display: flex;
+    justify-content: center;
+    height: 28px;
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 28px;
+
+    &:hover {
+        color: ${colors.white};
+        cursor: default;
+    }
+`;

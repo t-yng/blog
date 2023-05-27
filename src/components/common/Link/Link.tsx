@@ -1,6 +1,6 @@
 import { ComponentProps, FC, PropsWithChildren } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import * as style from './Link.css';
+import { css } from '@linaria/core';
 
 type LinkProps = PropsWithChildren<{
     decoration?: boolean;
@@ -22,7 +22,7 @@ export const Link: FC<LinkProps> = ({
         <NextLink href={href} prefetch={prefetch} passHref legacyBehavior>
             <a
                 {...rest}
-                className={`${decoration ? '' : style.nonDecoration} ${
+                className={`${decoration ? '' : nonDecoration} ${
                     className ? className : ''
                 }`}
             >
@@ -31,3 +31,8 @@ export const Link: FC<LinkProps> = ({
         </NextLink>
     );
 };
+
+export const nonDecoration = css`
+    text-decoration: none;
+    color: inherit;
+`;

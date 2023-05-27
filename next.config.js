@@ -2,10 +2,9 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 });
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
-const withVanillaExtract = createVanillaExtractPlugin();
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withLinaria = require('next-linaria');
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -21,4 +20,4 @@ const config = {
     pageExtensions: ['tsx'],
 };
 
-module.exports = withBundleAnalyzer(withVanillaExtract(config));
+module.exports = withBundleAnalyzer(withLinaria(config));
