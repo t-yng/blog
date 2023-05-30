@@ -1,6 +1,6 @@
 ---
 title: Playwrightでビジュアルリグレッションテストを導入して安全にCSSライブラリを置き換える
-date: 2022-05-12
+date: 2023-05-27
 description: 今回は自分のプルリクエストを自分でレビューをするメリットについて話をしたいと思います。
 tags: ['フロントエンド', 'テスト']
 ---
@@ -135,7 +135,11 @@ $ yarn playwright test
 ビジュアルリグレッションテストをしていなかったら、気づかずにそのままになっていました。
 
 ```css
+/* 文字列で囲っているのでCSSの構文として正しくない */
 font-family: "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
+
+/* 正しくはこう */
+font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 ```
 
 ## まとめ
