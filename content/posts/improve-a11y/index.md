@@ -43,7 +43,7 @@ export const NextPage: FC<NextPageProps> = ({ page }) => (
 #### タグ
 記事に付いてるタグをスクリーンリーダーで読み上げた時に「リンク、フロントエンド」と読まれてタグである事が分かりませんでした。
 
-![タグのデザイン](/images/posts/improve-a11y/tag.png)
+![タグのデザイン](tag.png)
 
 今回は「タグ、<ラベル名>」とラベルを追加して、タグである事が分かるように改善しました。
 「フロントエンドの記事一覧」などのリンク先の説明をするか悩みましたが、記事がタグ付けされていることを情報として伝えたいと思ったので、このようにしてみました。
@@ -65,7 +65,7 @@ export const Tag: FC<TagProps> = ({ name }) => (
 #### タグの一覧
 サイドバーのタグ一覧のリンクも「リンク、フロントエンド(22)」と読み上げられ分かりにくい状態でした。
 
-<img src="/images/posts/improve-a11y/sidebar-tag.png" alt="サイドバーのタグ" style="width:60%;">
+<img src="sidebar-tag.png" alt="サイドバーのタグ" style="width:60%;">
 
 リンクで「フロントエンドの記事一覧、22件」というラベルを追加して、遷移先のページの内容が把握できるように改善をしました。
 
@@ -88,18 +88,18 @@ Next.jsには[Route Announcements](https://nextjs.org/docs/accessibility#route-a
 ### ページ見出しを追加
 ページに見出しがない状態でスクリーンリーダーで読み上げた時に、突然記事の情報が読まれており文脈的に何の情報か分かりにくいと感じたので、ページ見出しを追加しました。
 
-![見出し追加前](/images/posts/improve-a11y/before-add-page-heading.png)
+![見出し追加前](before-add-page-heading.png)
 
-![見出し追加後](/images/posts/improve-a11y/after-add-page-heading.png)
+![見出し追加後](after-add-page-heading.png)
 
 ### 記事一覧の投稿日時の表示位置を変更
 記事一覧の表示で投稿日時がタイトルよりも上に来ていましたが、スクリーンリーダーで読ませてみると日付が読まれた後にタイトルが読まれる流れになっており、少し投稿日時であることが分かりにくいなと感じました。
 
 情報の優先度を考えると記事のタイトルが一番重要になってくるので、タイトル、日付の順番に並び替えを行いました。
 
-![日付の移動前](/images/posts/improve-a11y/before-move-date.png)
+![日付の移動前](before-move-date.png)
 
-![日付の移動後](/images/posts/improve-a11y/after-move-date.png)
+![日付の移動後](after-move-date.png)
 
 ### アイコンサイズを変更
 チェックリストに従って、GitHubへのリンクアイコンのサイズを24x24pxに変更しました。

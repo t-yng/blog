@@ -101,7 +101,7 @@ export const Todo: FC<TodoProps> = memo(({ todo, onChange }) => {
 
 このコンポーネント単体の描画速度は約10msほどになっており、実際の実装でも再現し得る問題になっています。
 
-![プロファイルの結果](/images/posts/react-performance-question/profile.png)
+![プロファイルの結果](profile.png)
 
 ## 解説
 問題の解答は別の記事で書こうと思います。

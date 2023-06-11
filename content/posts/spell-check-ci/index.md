@@ -163,7 +163,7 @@ jobs:
 
 これでスペルミスがあった時に Reviewdog がPRに自動でコメントしてくれます。
 
-![Reviewdogのコメント](/images/posts/spell-check-ci/spell-check-reviewdog.png)
+![Reviewdogのコメント](spell-check-reviewdog.png)
 
 ### 修正差分に対してのみスペルチェックを実行する
 リポジトリが肥大化していくとスペルチェックの対象コードが膨大になりスペルチェックの実行に時間がかかるので、修正差分だけを対象としてスペルチェックを実行するようにします。

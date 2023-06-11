@@ -74,6 +74,6 @@ $ codesign --remove-signature /Applications/zoom.us.app
 ### Zoomを起動
 4.1 Zoom で 設定 > カメラ > CamTwist を選択
 
-![zoom](/images/posts/avatarify/zoom.gif)
+![zoom](zoom.gif)
 
 GPUが無いと ~1FPS しかパフォーマンスが出ないので、動いてはいるのですが全く楽しめないです。😢  

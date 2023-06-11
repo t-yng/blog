@@ -21,4 +21,4 @@ More tools > Rendering > Enable a focused page を有効にすることで、こ
 
 この設定を有効にすることでページ全体がフォーカスされた状態を維持できるので、devtoolsをクリックしてもポップアップが消えずに残り続けてデバッグすることできます。
 
-![devtoolsでDOMをクリックしてもポップアップが非表示ならない様子](/images/posts/devtools-debug-only-focus-element/emulate-focus-page.png)
+![devtoolsでDOMをクリックしてもポップアップが非表示ならない様子](emulate-focus-page.png)
