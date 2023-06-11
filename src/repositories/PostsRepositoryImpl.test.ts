@@ -1,8 +1,19 @@
 import { join } from 'path';
+import { load } from 'cheerio';
 import { instance, mock, when } from 'ts-mockito';
 import { profile } from '@/config/profile';
 import { Post } from '@/entities';
 import { PostsRepositoryImpl } from './PostsRepositoryImpl';
+import type cpx from 'cpx';
+
+vi.mock('cpx', async () => {
+    // publicディレクトリに画像をコピーする処理をモック
+    const actual = await vi.importActual<typeof cpx>('cpx');
+    return {
+        ...actual,
+        copySync: vi.fn(),
+    };
+});
 
 describe('PostsRepositoryImpl', () => {
     beforeAll(() => {
@@ -26,7 +37,7 @@ describe('PostsRepositoryImpl', () => {
             );
             expect(result[0].tags).toEqual(['test']);
             expect(result[0].author).toEqual(profile.name);
-            expect(result[0].content).toEqual(
+            expect(result[0].content).toContain(
                 '<p>This is test post.<br>\ntest</p>\n'
             );
         });
@@ -37,6 +48,15 @@ describe('PostsRepositoryImpl', () => {
             const repo = new PostsRepositoryImpl();
             const result = repo.getPostBySlug('test-post');
             expect(result).not.toBeNull();
+
+            // 画像タグが正しく変換されているか
+            const $ = load(result?.content || '');
+            expect($('img').attr('src')).toBe(
+                '/images/posts/test-post/test.png'
+            );
+            expect($('img').attr('alt')).toBe('代替テキスト');
+            expect($('img').attr('width')).toBe('150');
+            expect($('img').attr('height')).toBe('150');
         });
 
         it('returns null if slug does not exists', () => {

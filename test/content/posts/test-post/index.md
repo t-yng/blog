@@ -6,3 +6,5 @@ tags: ['test']
 ---
 This is test post.
 test
+
+![代替テキスト](test.png)

@@ -72,13 +72,12 @@ export class PostsRepositoryImpl implements PostsRepository {
         md.renderer.rules.image = (tokens, idx, options, _env, self) => {
             const token = tokens[idx];
             token.attrSet('loading', 'lazy');
+            token.attrSet('alt', token.content); // alt属性が正常にセットされないので設定
 
             const src = token.attrGet('src');
             if (src) {
                 const contentDir = path.join(
-                    process.cwd(),
-                    'content',
-                    'posts',
+                    PostsRepositoryImpl.postsDirectory(),
                     slug
                 );
                 const imagePath = path.join(contentDir, src);

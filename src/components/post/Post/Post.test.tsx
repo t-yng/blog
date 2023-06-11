@@ -1,8 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { instance, mock, when } from 'ts-mockito';
-import { TEST_IMAGES_DIR_ROOT } from '@test/constants';
 import { Post as PostEntity } from '@/entities/Post';
-import { parseImageTag } from '@/lib/markdown';
 import { Post } from './Post';
 
 describe('Post', () => {
@@ -49,10 +47,7 @@ describe('Post', () => {
     });
 
     it('renders image', () => {
-        const markdown = parseImageTag(
-            '![代替テキスト](/images/test1.jpg)',
-            TEST_IMAGES_DIR_ROOT
-        );
+        const markdown = "<img src='/images/test1.jpg' alt='代替テキスト'>";
         when(mockPost.content).thenReturn(markdown);
         const post = instance(mockPost);
         render(<Post post={post} />);
