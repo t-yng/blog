@@ -128,7 +128,7 @@ $ yarn playwright test
 
 テストを実行したら画像の差分が発生して、テストに失敗しました。
 
-![ビジュアルリグレッションテストの結果](/images/posts/playwright-vrt/failed.png)
+![ビジュアルリグレッションテストの結果](failed.png)
 
 コードを確認してみるとLinariaに移行するためにCSSの記述をJS ObjectからCSSスタイルに書き換えるにあたり、フォント指定の値が誤って文字列のままとなっていました。
 

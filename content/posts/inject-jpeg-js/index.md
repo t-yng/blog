@@ -7,7 +7,7 @@ tags: ['セキュリティ']
 JPEG画像にJavaScriptのコードを埋め込む手法が紹介されていたので試してみました。  
 今回は次の画像に対してコードの埋め込んでみます。
 
-![埋め込み画像](/images/posts/inject-jpeg-js/donarudo.jpg)
+![埋め込み画像](donarudo.jpg)
 
 ## 注意
 
@@ -134,7 +134,7 @@ jsを埋め込んだ画像を読み込んでみます。
 </html>
 ```
 
-![JavaScriptを埋め込んだ画像](/images/posts/inject-jpeg-js/donarudo-xss.png)
+![JavaScriptを埋め込んだ画像](donarudo-xss.png)
 
 正常に画像は表示されて、jsファイルとしても読み込む事ができました！  
 Chromeでは対策済みでアラートが表示されず、IE11でアラートの表示が確認できました。

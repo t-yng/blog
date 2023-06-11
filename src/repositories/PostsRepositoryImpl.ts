@@ -5,10 +5,13 @@ import matter from 'gray-matter';
 import { Post } from '@/entities';
 import { PostsRepository } from './PostsRepository';
 import { profile } from '@/config/profile';
-import { parseImageTextWithSize } from '@/lib/markdown';
 import MarkdownIt from 'markdown-it';
 import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index';
+import urlJoin from 'url-join';
+import path from 'path';
+import sizeOf from 'image-size';
+import cpx from 'cpx';
 
 loadLanguages([
     'typescript',
@@ -69,6 +72,43 @@ export class PostsRepositoryImpl implements PostsRepository {
         md.renderer.rules.image = (tokens, idx, options, _env, self) => {
             const token = tokens[idx];
             token.attrSet('loading', 'lazy');
+            token.attrSet('alt', token.content); // alt属性が正常にセットされないので設定
+
+            const src = token.attrGet('src');
+            if (src) {
+                const contentDir = path.join(
+                    PostsRepositoryImpl.postsDirectory(),
+                    slug
+                );
+                const imagePath = path.join(contentDir, src);
+
+                if (!fs.existsSync(imagePath)) {
+                    throw new Error(`image doesn't exist for "${imagePath}"`);
+                }
+
+                // CLS対策のため画像のサイズを取得して設定
+                const dimensions = sizeOf(imagePath);
+                if (dimensions.width && dimensions.height) {
+                    token.attrSet('width', dimensions.width.toString());
+                    token.attrSet('height', dimensions.height.toString());
+                }
+
+                // publicディレクトリに画像をコピー
+                // FIXME: このタイミングで画像をコピーすべきか悩ましいVercelBlobなどの外部サービスを利用することも検討する
+                const publicImageDirectory = path.join(
+                    process.cwd(),
+                    'public',
+                    'images',
+                    'posts',
+                    slug
+                );
+                cpx.copySync(imagePath, publicImageDirectory, {
+                    update: true,
+                });
+
+                // 画像パスをpublicディレクトリへのパスに変換
+                token.attrSet('src', urlJoin(`/images/posts/${slug}`, src));
+            }
 
             return self.renderToken(tokens, idx, options);
         };
@@ -102,7 +142,6 @@ export class PostsRepositoryImpl implements PostsRepository {
 
             return self.renderToken(tokens, idx, options);
         };
-        content = parseImageTextWithSize(content);
         content = md.render(content);
 
         return {

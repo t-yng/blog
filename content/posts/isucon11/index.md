@@ -18,7 +18,7 @@ tags: ['ISUCON']
 
 17:00以降の固定ダッシュボードで25位まで上昇していたので、これは！？と思ったのですが、壁は厚かったです。
 
-![ダッシュボードでの最終スコア](/images/posts/isucon11/dashboard-last-score.jpg)
+![ダッシュボードでの最終スコア](dashboard-last-score.jpg)
 
 5年間毎年参加して、ずっと初期実装のスコアから大きく点数を上げられなかったので、6年目の今年は非常に大きな進歩があって嬉しかったです！
 
@@ -222,4 +222,4 @@ if rand.Float64() <= dropProbability {
 ### 競技終了
 17:00で更新が停止された状態でのダッシュボード上での最終スコア  
 
-![ダッシュボードでの最終スコア](/images/posts/isucon11/dashboard-last-score.jpg)
+![ダッシュボードでの最終スコア](dashboard-last-score.jpg)

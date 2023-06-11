@@ -110,7 +110,7 @@ Publish directory: public/
 
 <ブログのドメイン名>/admin にアクセスすれば管理画面を表示できます。
 
-![テンプレートの画面](/images/posts/netlify-cms/blog-template.png)
+![テンプレートの画面](blog-template.png)
 
 テンプレートのままですが、自分のブログが公開されました (*'ω'ﾉﾉﾞ☆ﾊﾟﾁﾊﾟﾁ
 

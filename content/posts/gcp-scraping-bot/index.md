@@ -10,7 +10,7 @@ tags: ['Google Cloud']
 ## 全体構成
 Cloud Functionsでスクレイピングを実行してSlackに結果を通知するHTTP関数を用意して、Cloud Scheduler で定期的にCloud FunctionsにHTTPリクエストを送信するジョブを実行することでBotを構築します。
 
-![構成図](/images/posts/gcp-scraping-bot/archecture.png)
+![構成図](archecture.png)
 
 ## スクレイピングを実装
 まずはローカルでスクレイピングを実行するコードを実装します。

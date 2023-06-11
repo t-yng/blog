@@ -17,7 +17,7 @@ tags: ['git']
 
 ### 改善
 
-![switch-prコマンドの実行の様子](/images/posts/good-git-alias/swpr.gif)
+![switch-prコマンドの実行の様子](swpr.gif)
 
 `git switch-pr` はリモートリポジトリのプルリクの一覧からブランチ移動をするためのエイリアスです。
 
@@ -43,7 +43,7 @@ feature ブランチで開発を進めながらPRレビューをしていると�
 
 ### 改善
 
-![historyコマンドの実行の様子](/images/posts/good-git-alias/history.gif)
+![historyコマンドの実行の様子](history.gif)
 
 `git history` は過去に移動したブランチ一覧からブランチを選択して移動ができるエイリアスです。
 
@@ -82,7 +82,7 @@ GitHub上でプルリクエスト(PR)を作成する場合に、初回プッシ�
 
 ### 改善
 
-![create-prコマンドの実行の様子](/images/posts/good-git-alias/create-pr.gif)
+![create-prコマンドの実行の様子](create-pr.gif)
 
 `git create-pr` は現在の作業ブランチのプルリクエストを作成するGitHubのページをブラウザで表示するエイリアスです。
 ターミナル上でコマンド一つでPR作成の準備が整うので非常に快適になりました。
@@ -102,7 +102,7 @@ GitHub上でプルリクエスト(PR)を作成する場合に、初回プッシ�
 
 ### 改善
 
-![open-prコマンドの実行の様子](/images/posts/good-git-alias/open-pr.gif)
+![open-prコマンドの実行の様子](open-pr.gif)
 
 `git open-pr` は現在の作業ブランチのPRをブラウザで表示するエイリアスです。
 

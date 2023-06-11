@@ -8,9 +8,9 @@ tags: ['その他']
 ## 問題
 自分は普段 Emacs キーバインドを利用しているのですが、Alfred の検索結果でカーソル移動をするために Ctrl + N をタイプするとカーソル移動せずにパッケージが選択される問題に悩まされていました。
 
-![ctrl+nでパッケージ選択される](/images/posts/alfred-ctrl-n/alfred-ctrl-n-bad.gif)
+![ctrl+nでパッケージ選択される](alfred-ctrl-n-bad.gif)
 
 ## 解決策
 Alfredの設定で Features > Actions > Show Actions で ctrl のチェックボックスを外せば問題は解消しました。
 
-![Alfredの設定画面](/images/posts/alfred-ctrl-n/alfred-settings.jpeg)
+![Alfredの設定画面](alfred-settings.jpeg)
