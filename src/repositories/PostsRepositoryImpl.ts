@@ -142,7 +142,6 @@ export class PostsRepositoryImpl implements PostsRepository {
 
             return self.renderToken(tokens, idx, options);
         };
-        // content = parseImageTextWithSize(content);
         content = md.render(content);
 
         return {

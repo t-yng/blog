@@ -59,7 +59,7 @@ const contentGlobal = css`
         }
 
         .content img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             margin-top: 1rem;
         }
