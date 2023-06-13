@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { css } from '@linaria/core';
 import { Link } from '@/components/common';
-import { PageItem } from './PageItem';
 import { colors } from '@/styles/color';
+import { PageItem } from './PageItem';
 
 type PageProps = {
     page: number;
