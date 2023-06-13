@@ -1,9 +1,9 @@
 import { FC } from 'react';
+import { css } from '@linaria/core';
 import { Post as PostEntity } from '@/entities/Post';
 import { Tags } from '@/components/common';
 import { formatDate } from '@/lib/format';
 import { heading1 } from '@/styles/typography';
-import { css } from '@linaria/core';
 import { colors } from '@/styles/color';
 
 import 'prismjs/themes/prism-tomorrow.css';

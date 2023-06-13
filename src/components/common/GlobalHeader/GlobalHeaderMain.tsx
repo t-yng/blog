@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { css } from '@linaria/core';
-import { Link } from '../Link/Link';
 import {
     TITLE_LOGO_IMAGE_URL,
     TITLE_LOGO_IMAGE_ALT,
     TITLE_LOGO_LINK_TITLE,
 } from '@/constants';
 import { colors } from '@/styles/color';
+import { Link } from '../Link/Link';
 
 export const GlobalHeaderMain: FC = () => (
     <div className={wrapper}>

@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from 'react';
+import { css } from '@linaria/core';
 import { profile } from '@/config/profile';
 import { Tag, SeoMetadata } from '@/entities';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
-import { css } from '@linaria/core';
 import { colors } from '@/styles/color';
 
 export type LayoutProps = PropsWithChildren<{

@@ -16,7 +16,7 @@ jobs:
       - name: install dependencies
         run: yarn install --no-progress
       - name: lint
-        run: yarn lint
+        run: yarn lint:all
       - name: type check
         run: yarn type-check
       - name: unit test

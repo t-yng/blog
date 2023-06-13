@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { css } from '@linaria/core';
 import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
-import { SidebarSection } from './SidebarSection';
 import { colors } from '@/styles/color';
+import { SidebarSection } from './SidebarSection';
 
 interface Tag {
     name: string;

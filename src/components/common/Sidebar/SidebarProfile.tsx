@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
-import { SidebarSection } from './SidebarSection';
 import { Profile } from '@/config/profile';
 import { colors } from '@/styles/color';
+import { SidebarSection } from './SidebarSection';
 
 export interface SidebarProfileProps {
     profile: Profile;
