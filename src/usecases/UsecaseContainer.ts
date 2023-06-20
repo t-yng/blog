@@ -1,5 +1,4 @@
 import { PostsRepository } from '@/repositories/PostsRepository';
-import { PostsRepositoryImpl } from '@/repositories/PostsRepositoryImpl';
 import { GetAllPosts, GetAllPostsImpl } from './GetAllPosts';
 import { GetGoupedTags, GetGroupedTagsImpl } from './GetGroupedTags';
 import { GetPostBySlug } from './GetPostBySlug/GetPostBySlug';
@@ -14,7 +13,7 @@ export type Usecases = {
     getGroupedTags: GetGoupedTags;
 };
 
-const postsRepository: PostsRepository = new PostsRepositoryImpl();
+const postsRepository: PostsRepository = new PostsRepository();
 
 const getAllPostsImpl: GetAllPosts = new GetAllPostsImpl(postsRepository);
 const getPostBySlugImpl: GetPostBySlug = new GetPostBySlugImpl(postsRepository);
