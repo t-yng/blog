@@ -8,6 +8,7 @@ import type cpx from 'cpx';
 
 vi.mock('cpx', async () => {
     // publicディレクトリに画像をコピーする処理をモック
+    // WARNING: VSCodeの拡張機能でテスト実行すると正常にモックされない
     const actual = await vi.importActual<typeof cpx>('cpx');
     return {
         ...actual,
@@ -18,7 +19,7 @@ vi.mock('cpx', async () => {
 describe('PostsRepository', () => {
     beforeAll(() => {
         Object.defineProperty(PostsRepository, 'postsDirectory', {
-            value: () => join(process.cwd(), 'test/content/posts'),
+            value: () => join(__dirname, 'test', 'content', 'posts'),
         });
     });
 
