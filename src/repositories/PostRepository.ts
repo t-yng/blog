@@ -27,7 +27,7 @@ loadLanguages([
   'tsx',
 ]);
 
-export class PostsRepository {
+export class PostRepository {
   getAllPosts(): Post[] {
     const slugs = this.getAllSlugs();
     return slugs
@@ -36,7 +36,7 @@ export class PostsRepository {
   }
 
   getPostBySlug(slug: string): Post {
-    const fullPath = join(PostsRepository.postsDirectory(), slug, 'index.md');
+    const fullPath = join(PostRepository.postsDirectory(), slug, 'index.md');
 
     if (!fs.existsSync(fullPath)) {
       throw new NotFoundPostError(`Post is not found by slug: ${slug}`);
@@ -67,7 +67,7 @@ export class PostsRepository {
 
       const src = token.attrGet('src');
       if (src) {
-        const contentDir = path.join(PostsRepository.postsDirectory(), slug);
+        const contentDir = path.join(PostRepository.postsDirectory(), slug);
         const imagePath = path.join(contentDir, src);
 
         if (!fs.existsSync(imagePath)) {
@@ -147,7 +147,7 @@ export class PostsRepository {
   }
 
   private getAllSlugs(): string[] {
-    return fs.readdirSync(PostsRepository.postsDirectory());
+    return fs.readdirSync(PostRepository.postsDirectory());
   }
 
   private static postsDirectory(): string {

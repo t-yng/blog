@@ -16,7 +16,7 @@ import { Post, Tag, SeoMetadata } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { range } from '@/lib/array';
 import { heading1 } from '@/styles/typography';
-import { PostsRepository, TagRepository } from '@/repositories';
+import { PostRepository, TagRepository } from '@/repositories';
 
 type PagePageProps = {
   posts: Post[];
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps<PagePageProps, UrlQuery> = async ({
   params,
 }): Promise<GetStaticPropsResult<PagePageProps>> => {
   const page = Number(params?.page);
-  const postRepository = new PostsRepository();
+  const postRepository = new PostRepository();
   const tagRepository = new TagRepository();
   const posts = sortPostsByDateDesc(postRepository.getAllPosts());
   const tags = tagRepository.getAllTags();
@@ -88,7 +88,7 @@ export const getStaticProps: GetStaticProps<PagePageProps, UrlQuery> = async ({
 export const getStaticPaths = async (): Promise<
   GetStaticPathsResult<UrlQuery>
 > => {
-  const repository = new PostsRepository();
+  const repository = new PostRepository();
   const posts = sortPostsByDateDesc(repository.getAllPosts());
   const numPages = Math.ceil(posts.length / PAGINATION_POST_COUNT_PER_PAGE);
   const pages = range(2, numPages);

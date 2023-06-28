@@ -11,7 +11,7 @@ import { siteMetadata } from '@/config/siteMetadata';
 import { Post, SeoMetadata, Tag } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { heading1 } from '@/styles/typography';
-import { PostsRepository, TagRepository } from '@/repositories';
+import { PostRepository, TagRepository } from '@/repositories';
 
 type TagPostsPageProps = {
   tag: string;
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps<TagPostsPageProps, Params> = async (
     };
   }
   const tag = context.params.tag;
-  const postRepository = new PostsRepository();
+  const postRepository = new PostRepository();
   const tagRepository = new TagRepository();
   const posts = sortPostsByDateDesc(postRepository.getPostsByTag(tag));
   const tags = tagRepository.getAllTags();

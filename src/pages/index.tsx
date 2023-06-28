@@ -11,7 +11,7 @@ import {
 } from '@/constants';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { heading1 } from '@/styles/typography';
-import { PostsRepository } from '@/repositories';
+import { PostRepository } from '@/repositories';
 import { TagRepository } from '@/repositories/TagRepository';
 
 type IndexPageProps = {
@@ -45,7 +45,7 @@ export default IndexPage;
 export const getStaticProps = async (): Promise<
   GetStaticPropsResult<IndexPageProps>
 > => {
-  const postsRepository: PostsRepository = new PostsRepository();
+  const postsRepository: PostRepository = new PostRepository();
   const tagRepository = new TagRepository();
   const posts = sortPostsByDateDesc(postsRepository.getAllPosts());
   const tags = tagRepository.getAllTags();

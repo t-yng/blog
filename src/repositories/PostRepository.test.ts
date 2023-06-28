@@ -3,7 +3,7 @@ import { load } from 'cheerio';
 import { instance, mock, when } from 'ts-mockito';
 import { profile } from '@/config/profile';
 import { Post } from '@/entities';
-import { PostsRepository } from './PostsRepository';
+import { PostRepository } from './PostRepository';
 import { NotFoundPostError } from './error';
 import type cpx from 'cpx';
 
@@ -17,16 +17,16 @@ vi.mock('cpx', async () => {
   };
 });
 
-describe('PostsRepository', () => {
+describe('PostRepository', () => {
   beforeAll(() => {
-    Object.defineProperty(PostsRepository, 'postsDirectory', {
+    Object.defineProperty(PostRepository, 'postsDirectory', {
       value: () => join(__dirname, 'test', 'content', 'posts'),
     });
   });
 
   describe('getAllPosts', () => {
     it('returns all posts', () => {
-      const repo = new PostsRepository();
+      const repo = new PostRepository();
       const result = repo.getAllPosts();
 
       expect(result.length).toBe(1);
@@ -45,7 +45,7 @@ describe('PostsRepository', () => {
 
   describe('getPostBySlug', () => {
     it('returns post by slug', () => {
-      const repo = new PostsRepository();
+      const repo = new PostRepository();
       const result = repo.getPostBySlug('test-post');
       expect(result).not.toBeNull();
 
@@ -58,7 +58,7 @@ describe('PostsRepository', () => {
     });
 
     it('throws NotFoundPostError if slug does not exists', () => {
-      const repo = new PostsRepository();
+      const repo = new PostRepository();
       expect(() => repo.getPostBySlug('not-exist-slug')).toThrowError(
         NotFoundPostError
       );
@@ -67,7 +67,7 @@ describe('PostsRepository', () => {
 
   describe('getPostsByTag', () => {
     it('returns posts by tag', () => {
-      const repo = new PostsRepository();
+      const repo = new PostRepository();
       const mockPosts: Post[] = [...Array(3)].map(() => mock<Post>());
       when(mockPosts[0].tags).thenReturn(['TypeScript', 'フロントエンド']);
       when(mockPosts[1].tags).thenReturn(['TypeScript', 'サーバー']);
@@ -81,7 +81,7 @@ describe('PostsRepository', () => {
     });
 
     it('ignores Upper or Lower', () => {
-      const repo = new PostsRepository();
+      const repo = new PostRepository();
       const mockPosts: Post[] = [mock<Post>()];
       when(mockPosts[0].tags).thenReturn(['TypeScript']);
       Object.defineProperty(repo, 'getAllPosts', {

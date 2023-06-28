@@ -2,16 +2,16 @@ import { instance, mock, when } from 'ts-mockito';
 import { Post } from '@/entities';
 import { TagRepository } from './TagRepository';
 
-vi.mock('./PostsRepository.ts', () => {
+vi.mock('./PostRepository.ts', () => {
   const mockPosts = [...Array(2)].map(() => mock<Post>());
   when(mockPosts[0].tags).thenReturn(['フロントエンド', 'TypeScript']);
   when(mockPosts[1].tags).thenReturn(['サーバー', 'TypeScript']);
 
-  const PostsRepository = vi.fn();
-  PostsRepository.prototype.getAllPosts = () =>
+  const PostRepository = vi.fn();
+  PostRepository.prototype.getAllPosts = () =>
     mockPosts.map((post) => instance(post));
 
-  return { PostsRepository };
+  return { PostRepository };
 });
 
 describe('GetGoupedTagsImpl', () => {

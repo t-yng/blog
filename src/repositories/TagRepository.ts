@@ -1,9 +1,9 @@
 import { Tag } from '@/entities';
-import { PostsRepository } from './PostsRepository';
+import { PostRepository } from './PostRepository';
 
 export class TagRepository {
   getAllTags() {
-    const postsRespository = new PostsRepository();
+    const postsRespository = new PostRepository();
     const posts = postsRespository.getAllPosts();
     const groupTags = posts.reduce((acc, post) => {
       // タグごとにカウントを更新する

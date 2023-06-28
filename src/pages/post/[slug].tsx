@@ -8,7 +8,7 @@ import { Layout } from '@/components/common';
 import { Post } from '@/components/post/Post';
 import { Tag, SeoMetadata, Post as PostEntity } from '@/entities';
 import { siteMetadata } from '@/config/siteMetadata';
-import { PostsRepository, TagRepository } from '@/repositories';
+import { PostRepository, TagRepository } from '@/repositories';
 
 type PostPageProps = {
   post: PostEntity;
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
     };
   }
 
-  const repository = new PostsRepository();
+  const repository = new PostRepository();
   const tagRepository = new TagRepository();
   const post = repository.getPostBySlug(context.params.slug);
   const tags = tagRepository.getAllTags();
@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps<PostPageProps, Params> = async (
 };
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
-  const repository = new PostsRepository();
+  const repository = new PostRepository();
   const posts = repository.getAllPosts();
 
   return {
