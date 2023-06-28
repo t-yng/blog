@@ -1,3 +1,3 @@
-export * from './Post';
-export * from './SeoMetadata';
-export * from './Tag';
+export type { Post } from './Post';
+export type { SeoMetadata } from './SeoMetadata';
+export type { Tag } from './Tag';

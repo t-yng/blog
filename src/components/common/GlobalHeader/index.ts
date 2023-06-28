@@ -1,1 +1,1 @@
-export * from './GlobalHeader';
+export { GlobalHeader } from './GlobalHeader';

@@ -1,1 +1,1 @@
-export * from './PostEntry';
+export { PostEntry } from './PostEntry';
