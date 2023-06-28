@@ -1,7 +1,7 @@
 import {
-    GetStaticPathsResult,
-    GetStaticProps,
-    GetStaticPropsResult,
+  GetStaticPathsResult,
+  GetStaticProps,
+  GetStaticPropsResult,
 } from 'next';
 import { FC } from 'react';
 import { css } from '@linaria/core';
@@ -10,72 +10,75 @@ import { PostEntries } from '@/components/home';
 import { siteMetadata } from '@/config/siteMetadata';
 import { Post, SeoMetadata, Tag } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
-import { usecases } from '@/usecases/UsecaseContainer';
 import { heading1 } from '@/styles/typography';
+import { PostRepository, TagRepository } from '@/repositories';
 
 type TagPostsPageProps = {
-    tag: string;
-    posts: Post[];
-    tags: Tag[];
-    seoMetadata: SeoMetadata;
+  tag: string;
+  posts: Post[];
+  tags: Tag[];
+  seoMetadata: SeoMetadata;
 };
 
 const TagPostsPage: FC<TagPostsPageProps> = ({
-    tag,
-    posts,
-    tags,
-    seoMetadata,
+  tag,
+  posts,
+  tags,
+  seoMetadata,
 }) => (
-    <Layout tags={tags} seoMetadata={seoMetadata}>
-        <h1 className={heading1}>{tag}の記事一覧</h1>
-        <PostEntries posts={posts} className={postEntries} />
-    </Layout>
+  <Layout tags={tags} seoMetadata={seoMetadata}>
+    <h1 className={heading1}>{tag}の記事一覧</h1>
+    <PostEntries posts={posts} className={postEntries} />
+  </Layout>
 );
 
 export const postEntries = css`
-    margin-top: 16px;
+  margin-top: 16px;
 `;
 
 export default TagPostsPage;
 
 type Params = {
-    tag: string;
+  tag: string;
 };
 
 export const getStaticProps: GetStaticProps<TagPostsPageProps, Params> = async (
-    context
+  context
 ): Promise<GetStaticPropsResult<TagPostsPageProps>> => {
-    if (context.params == null) {
-        return {
-            notFound: true,
-        };
-    }
-    const tag = context.params.tag;
-    const posts = sortPostsByDateDesc(usecases.getPostsByTag.invoke(tag));
-    const tags = usecases.getGroupedTags.invoke();
-
+  if (context.params == null) {
     return {
-        props: {
-            tag: tag,
-            posts: posts,
-            tags: tags,
-            seoMetadata: {
-                ...siteMetadata,
-                title: `${tag}の記事一覧 | ${siteMetadata.title}`,
-            },
-        },
+      notFound: true,
     };
+  }
+  const tag = context.params.tag;
+  const postRepository = new PostRepository();
+  const tagRepository = new TagRepository();
+  const posts = sortPostsByDateDesc(postRepository.getPostsByTag(tag));
+  const tags = tagRepository.getAllTags();
+
+  return {
+    props: {
+      tag: tag,
+      posts: posts,
+      tags: tags,
+      seoMetadata: {
+        ...siteMetadata,
+        title: `${tag}の記事一覧 | ${siteMetadata.title}`,
+      },
+    },
+  };
 };
 
 export const getStaticPaths = async (): Promise<GetStaticPathsResult> => {
-    const tags = usecases.getGroupedTags.invoke();
+  const tagRepository = new TagRepository();
+  const tags = tagRepository.getAllTags();
 
-    return {
-        paths: tags.map((tag) => ({
-            params: {
-                tag: tag.name.toLowerCase(),
-            },
-        })),
-        fallback: false,
-    };
+  return {
+    paths: tags.map((tag) => ({
+      params: {
+        tag: tag.name.toLowerCase(),
+      },
+    })),
+    fallback: false,
+  };
 };
