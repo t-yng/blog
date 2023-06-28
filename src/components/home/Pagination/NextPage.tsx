@@ -3,11 +3,11 @@ import { Link } from '@/components/common';
 import { PageItem } from './PageItem';
 
 type NextPageProps = {
-    page: number;
+  page: number;
 };
 
 export const NextPage: FC<NextPageProps> = ({ page }) => (
-    <Link href={`/page/${page}`} decoration={false} aria-label="次のページへ">
-        <PageItem>{'>'}</PageItem>
-    </Link>
+  <Link href={`/page/${page}`} decoration={false} aria-label="次のページへ">
+    <PageItem>{'>'}</PageItem>
+  </Link>
 );
