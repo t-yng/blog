@@ -5,37 +5,37 @@ import { colors } from '@/styles/color';
 import { PageItem } from './PageItem';
 
 type PageProps = {
-    page: number;
-    currentPage: number;
+  page: number;
+  currentPage: number;
 };
 
 export const PageNumber: FC<PageProps> = ({ page, currentPage }) => (
-    <Link
-        href={page === 1 ? '/' : `/page/${page}`}
-        decoration={false}
-        aria-label={`ページ${page}`}
-    >
-        <PageItem className={page === currentPage ? highlight : undefined}>
-            {page}
-        </PageItem>
-    </Link>
+  <Link
+    href={page === 1 ? '/' : `/page/${page}`}
+    decoration={false}
+    aria-label={`ページ${page}`}
+  >
+    <PageItem className={page === currentPage ? highlight : undefined}>
+      {page}
+    </PageItem>
+  </Link>
 );
 
 const highlight = css`
-    align-items: center;
-    background-color: ${colors.accent};
-    border-radius: 50%;
-    color: ${colors.white};
-    display: flex;
-    justify-content: center;
-    height: 28px;
-    padding: 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    width: 28px;
+  align-items: center;
+  background-color: ${colors.accent};
+  border-radius: 50%;
+  color: ${colors.white};
+  display: flex;
+  justify-content: center;
+  height: 28px;
+  padding: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 28px;
 
-    &:hover {
-        color: ${colors.white};
-        cursor: default;
-    }
+  &:hover {
+    color: ${colors.white};
+    cursor: default;
+  }
 `;
