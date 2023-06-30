@@ -4,7 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const withLinaria = require('next-linaria');
+const withLinaria = require('next-with-linaria');
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -17,7 +17,7 @@ const config = {
 
     return config;
   },
-  pageExtensions: ['tsx'],
+  pageExtensions: ['tsx', 'page.tsx'],
 };
 
 module.exports = withBundleAnalyzer(withLinaria(config));

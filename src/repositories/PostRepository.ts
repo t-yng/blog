@@ -3,8 +3,8 @@ import crypto from 'crypto';
 import path, { join } from 'path';
 import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
-import Prism from 'prismjs';
 import loadLanguages from 'prismjs/components/index';
+import Prism from 'prismjs';
 import urlJoin from 'url-join';
 import sizeOf from 'image-size';
 import cpx from 'cpx';
@@ -12,27 +12,41 @@ import { Post } from '@/entities';
 import { profile } from '@/config/profile';
 import { NotFoundPostError } from './error';
 
-loadLanguages([
-  'typescript',
-  'javascript',
-  'js',
-  'css',
-  'rust',
-  'html',
-  'json',
-  'shell',
-  'bash',
-  'shell-session',
-  'yaml',
-  'tsx',
-]);
-
 export class PostRepository {
   getAllPosts(): Post[] {
     const slugs = this.getAllSlugs();
     return slugs
       .map((slug) => this.getPostBySlug(slug))
       .filter((x): x is Post => x != null);
+  }
+
+  getAllPostEntries() {
+    const slugs = this.getAllSlugs();
+    return slugs.map((slug) => this.getRawPostBySlug(slug));
+  }
+
+  getRawPostBySlug(slug: string): Post {
+    const fullPath = join(PostRepository.postsDirectory(), slug, 'index.md');
+
+    if (!fs.existsSync(fullPath)) {
+      throw new NotFoundPostError(`Post is not found by slug: ${slug}`);
+    }
+
+    const fileContent = fs.readFileSync(fullPath);
+    const markdown = matter(fileContent);
+    const { data } = markdown;
+    const { content } = markdown;
+
+    return {
+      id: crypto.createHash('md5').update(slug).digest('hex'),
+      slug,
+      date: data['date'].toISOString(),
+      title: data['title'],
+      description: data['description'],
+      tags: data['tags'],
+      author: data['author'] || profile.name,
+      content,
+    };
   }
 
   getPostBySlug(slug: string): Post {
@@ -50,6 +64,10 @@ export class PostRepository {
       html: true,
       breaks: true,
       highlight: (str, lang) => {
+        if (lang && !Prism.languages[lang]) {
+          // prism.jsで言語ハイライトでテキストをトークナイズするために言語パッケージを読み込み
+          loadLanguages(lang);
+        }
         if (lang && Prism.languages[lang]) {
           const html = Prism.highlight(str, Prism.languages[lang], lang);
 
