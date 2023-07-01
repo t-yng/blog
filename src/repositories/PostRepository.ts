@@ -9,6 +9,7 @@ import urlJoin from 'url-join';
 import sizeOf from 'image-size';
 import cpx from 'cpx';
 import { Post } from '@/entities';
+import { Post as PostModel } from '@/models';
 import { profile } from '@/config/profile';
 import { NotFoundPostError } from './error';
 
@@ -162,6 +163,18 @@ export class PostRepository {
       const tags = post.tags.map((tag) => tag.toLowerCase());
       return tags.includes(tag.toLowerCase());
     });
+  }
+
+  createDraftPost(post: PostModel) {
+    const slug = Date.now().toString();
+    const dirPath = join(PostRepository.postsDirectory(), slug);
+
+    if (fs.existsSync(dirPath)) {
+      throw new Error(`Post is already exist by slug: ${slug}`);
+    }
+
+    fs.mkdirSync(dirPath);
+    fs.writeFileSync(join(dirPath, 'index.md'), post.toMarkdown());
   }
 
   private getAllSlugs(): string[] {

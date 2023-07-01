@@ -8,6 +8,9 @@ const withLinaria = require('next-with-linaria');
 
 /** @type {import('next').NextConfig} */
 const config = {
+  experimental: {
+    serverActions: true,
+  },
   webpack: (config, { isServer }) => {
     // fix Can't resolve 'fs'
     // @see: https://github.com/vercel/next.js/issues/7755#issuecomment-508633125
