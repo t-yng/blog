@@ -6,25 +6,23 @@ import { useEditorForm } from './EditorForm';
 import type { FC } from 'react';
 
 type HeaderProps = {
-  formId?: string;
-  canSaveDraft: boolean;
-  isSubmittingDraft: boolean;
+  formId: string;
 };
 
-export const EditPageHeader: FC<HeaderProps> = ({ formId, canSaveDraft }) => {
+export const EditPageHeader: FC<HeaderProps> = ({ formId }) => {
   const { isSubmitting } = useEditorForm();
 
   return (
     <div className={header}>
       <Button
-        type={formId ? 'submit' : 'button'}
+        type="submit"
         form={formId}
         variant="solid"
+        colorScheme="blue"
         isLoading={isSubmitting}
         loadingText="保存中..."
-        isDisabled={!canSaveDraft}
       >
-        下書き保存
+        保存
       </Button>
     </div>
   );

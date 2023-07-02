@@ -37,11 +37,7 @@ export default function NewPostPage() {
 
   return (
     <EditorFormProvider>
-      <EditPageHeader
-        formId="form"
-        isSubmittingDraft={false}
-        canSaveDraft={true}
-      />
+      <EditPageHeader formId="form" />
       <EditorForm id="form" serverAction={createDraftPost} />
     </EditorFormProvider>
   );

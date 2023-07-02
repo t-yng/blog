@@ -16,7 +16,11 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
 import { AutoLinkNode, LinkNode } from '@lexical/link';
-import { CodeHighlightNode, CodeNode } from '@lexical/code';
+import {
+  CodeHighlightNode,
+  CodeNode,
+  registerCodeHighlighting,
+} from '@lexical/code';
 import { ListNode, ListItemNode } from '@lexical/list';
 import { type InitialConfigType } from '@lexical/react/LexicalComposer';
 
@@ -32,6 +36,17 @@ function MyCustomAutoFocusPlugin() {
 
   return null;
 }
+
+const CodeHighlightPlugin = () => {
+  const [editor] = useLexicalComposerContext();
+
+  useEffect(() => {
+    return registerCodeHighlighting(editor);
+  }, [editor]);
+
+  return null;
+};
+
 const onError = (error: Error) => {
   console.error(error);
 };
@@ -41,6 +56,39 @@ const theme = {
   rtl: 'rtl',
   placeholder: 'editor-placeholder',
   paragraph: 'editor-paragraph',
+  code: 'editor-code',
+  codeHighlight: {
+    atrule: 'editor-tokenAttr',
+    attr: 'editor-tokenAttr',
+    boolean: 'editor-tokenProperty',
+    builtin: 'editor-tokenSelector',
+    cdata: 'editor-tokenComment',
+    char: 'editor-tokenSelector',
+    class: 'editor-tokenFunction',
+    'class-name': 'editor-tokenFunction',
+    comment: 'editor-tokenComment',
+    constant: 'editor-tokenProperty',
+    deleted: 'editor-tokenProperty',
+    doctype: 'editor-tokenComment',
+    entity: 'editor-tokenOperator',
+    function: 'editor-tokenFunction',
+    important: 'editor-tokenVariable',
+    inserted: 'editor-tokenSelector',
+    keyword: 'editor-tokenAttr',
+    namespace: 'editor-tokenVariable',
+    number: 'editor-tokenProperty',
+    operator: 'editor-tokenOperator',
+    prolog: 'editor-tokenComment',
+    property: 'editor-tokenProperty',
+    punctuation: 'editor-tokenPunctuation',
+    regex: 'editor-tokenVariable',
+    selector: 'editor-tokenSelector',
+    string: 'editor-tokenSelector',
+    symbol: 'editor-tokenProperty',
+    tag: 'editor-tokenProperty',
+    url: 'editor-tokenOperator',
+    variable: 'editor-tokenVariable',
+  },
 };
 
 type EditorProps = {
@@ -57,9 +105,9 @@ export const RichTextEditor: FC<EditorProps> = ({ content = '', onChange }) => {
       HeadingNode,
       ListNode,
       ListItemNode,
-      QuoteNode,
       CodeNode,
       CodeHighlightNode,
+      QuoteNode,
       TableNode,
       TableCellNode,
       TableRowNode,
@@ -67,7 +115,9 @@ export const RichTextEditor: FC<EditorProps> = ({ content = '', onChange }) => {
       LinkNode,
     ],
     // 記事の内容を初期状態としてセットする
-    editorState: () => $convertFromMarkdownString(content, TRANSFORMERS),
+    editorState: () => {
+      $convertFromMarkdownString(content, TRANSFORMERS);
+    },
   };
 
   const handleChange = useCallback(
@@ -92,10 +142,11 @@ export const RichTextEditor: FC<EditorProps> = ({ content = '', onChange }) => {
           }
           ErrorBoundary={LexicalErrorBoundary}
         />
+        <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+        <MyCustomAutoFocusPlugin />
         <OnChangePlugin onChange={handleChange} />
         <HistoryPlugin />
-        <MyCustomAutoFocusPlugin />
-        <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+        <CodeHighlightPlugin />
       </div>
     </LexicalComposer>
   );
@@ -121,6 +172,60 @@ const editorContainer = css`
   &:focus-within {
     outline-color: #3182ce;
     box-shadow: 0 0 0 1px #3182ce;
+  }
+
+  .editor-code {
+    background-color: rgb(240, 242, 245);
+    font-family: Menlo, Consolas, Monaco, monospace;
+    display: block;
+    padding: 8px 8px 8px 52px;
+    line-height: 1.53;
+    font-size: 13px;
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    overflow-x: auto;
+    position: relative;
+    tab-size: 2;
+  }
+
+  .editor-code:before {
+    content: attr(data-gutter);
+    position: absolute;
+    background-color: #eee;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #ccc;
+    padding: 8px;
+    color: #777;
+    white-space: pre-wrap;
+    text-align: right;
+    min-width: 25px;
+  }
+
+  .editor-tokenComment {
+    color: slategray;
+  }
+  .editor-tokenPunctuation {
+    color: #999;
+  }
+  .editor-tokenProperty {
+    color: #905;
+  }
+  .editor-tokenSelector {
+    color: #690;
+  }
+  .editor-tokenOperator {
+    color: #9a6e3a;
+  }
+  .editor-tokenAttr {
+    color: #07a;
+  }
+  .editor-tokenVariable {
+    color: #e90;
+  }
+  .editor-tokenFunction {
+    color: #dd4a68;
   }
 `;
 
