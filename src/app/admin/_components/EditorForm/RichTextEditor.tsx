@@ -7,6 +7,10 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
 import {
+  AutoLinkPlugin,
+  createLinkMatcherWithRegExp,
+} from '@lexical/react/LexicalAutoLinkPlugin';
+import {
   TRANSFORMERS,
   $convertToMarkdownString,
   $convertFromMarkdownString,
@@ -22,9 +26,17 @@ import {
   registerCodeHighlighting,
 } from '@lexical/code';
 import { ListNode, ListItemNode } from '@lexical/list';
+import { css } from 'linaria';
 import { type InitialConfigType } from '@lexical/react/LexicalComposer';
 
-import { css } from 'linaria';
+const URL_REGEX =
+  /((https?:\/\/(www\.)?)|(www\.))[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
+
+const AUTO_LINK_MATCHERS = [
+  createLinkMatcherWithRegExp(URL_REGEX, (text) => {
+    return text.startsWith('http') ? text : `https://${text}`;
+  }),
+];
 
 function MyCustomAutoFocusPlugin() {
   const [editor] = useLexicalComposerContext();
@@ -147,6 +159,7 @@ export const RichTextEditor: FC<EditorProps> = ({ content = '', onChange }) => {
         <OnChangePlugin onChange={handleChange} />
         <HistoryPlugin />
         <CodeHighlightPlugin />
+        <AutoLinkPlugin matchers={AUTO_LINK_MATCHERS} />
       </div>
     </LexicalComposer>
   );
