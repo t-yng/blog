@@ -1,3 +1,4 @@
+import { css } from 'linaria';
 import { Post } from '@/models';
 import { PostRepository } from '@/repositories';
 import { EditPageHeader, EditorForm } from '../_components';
@@ -38,7 +39,16 @@ export default function NewPostPage() {
   return (
     <EditorFormProvider>
       <EditPageHeader formId="form" />
-      <EditorForm id="form" serverAction={createDraftPost} />
+      <EditorForm
+        id="form"
+        serverAction={createDraftPost}
+        className={editorForm}
+      />
     </EditorFormProvider>
   );
 }
+
+const editorForm = css`
+  max-width: 800px;
+  margin: 0 auto;
+`;

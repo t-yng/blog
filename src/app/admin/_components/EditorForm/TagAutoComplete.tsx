@@ -119,6 +119,7 @@ export const TagAutoComplete: FC<TagAutoCompleteProps> = ({
         onKeyDown={handleKeyDown}
         autoComplete="off"
         className={tagInput}
+        placeholder="タグを入力してください"
       />
       {/* 配列形式でformDataを送信する */}
       {selectedTags.map((tag) => (

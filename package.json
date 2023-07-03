@@ -45,6 +45,7 @@
     "@linaria/core": "4.2.10",
     "@linaria/react": "4.3.8",
     "@primer/octicons-react": "19.4.0",
+    "clsx": "1.2.1",
     "date-fns": "2.30.0",
     "framer-motion": "10.12.17",
     "gray-matter": "4.0.3",

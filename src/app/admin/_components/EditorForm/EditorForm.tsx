@@ -9,6 +9,7 @@ import {
 } from 'react';
 import { Input } from '@chakra-ui/react';
 import { css } from 'linaria';
+import { clsx } from 'clsx';
 import { type Post } from '@/entities';
 import { TagAutoComplete } from './TagAutoComplete';
 import { RichTextEditor } from './RichTextEditor';
@@ -27,6 +28,7 @@ export const EditorForm: FC<EditorFormProps> = ({
   onChangeFulFilled,
   action: _action,
   serverAction,
+  className,
   ...formProps
 }) => {
   const [title, setTitle] = useState(post?.title ?? '');
@@ -34,7 +36,6 @@ export const EditorForm: FC<EditorFormProps> = ({
   const [content, setContent] = useState(post?.content ?? '');
   const [fulFilled, setFulFilled] = useState(false);
   const { updateSubmitting, updateError, error } = useEditorForm();
-  // const [error, setError] = useState<string | null>(null);
 
   const handleChangeContent = useCallback((content: string) => {
     setContent(content);
@@ -84,7 +85,7 @@ export const EditorForm: FC<EditorFormProps> = ({
   return (
     <form
       aria-hidden="true"
-      className={form}
+      className={clsx(form, className)}
       action={formAction}
       {...formProps}
     >
@@ -100,12 +101,6 @@ export const EditorForm: FC<EditorFormProps> = ({
       <TagAutoComplete selectedTags={tags} />
       <RichTextEditor content={content} onChange={handleChangeContent} />
       <input type="hidden" name="content" value={content} aria-hidden="true" />
-      {/* <input
-        type="hidden"
-        name="path"
-        value={post?.path ?? ''}
-        aria-hidden="true"
-      /> */}
     </form>
   );
 };
