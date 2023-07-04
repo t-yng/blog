@@ -1,12 +1,17 @@
 import { css } from 'linaria';
-import { redirect } from 'next/navigation';
 import { Post } from '@/models';
 import { PostRepository } from '@/repositories';
-import { EditPageHeader, EditorForm } from '../_components';
-import { EditorFormProvider } from '../_components/EditorForm';
+import { EditPageHeader, EditorForm } from '../../_components';
+import { EditorFormProvider } from '../../_components/EditorForm';
 
-export default function NewPostPage() {
-  const createDraftPost = async (formData: FormData) => {
+const getPost = (slug: string) => {
+  const postRepository = new PostRepository();
+  return postRepository.getRawPostBySlug(slug);
+};
+
+export default function EditPostPage({ params }: { params: { slug: string } }) {
+  const post = getPost(params.slug);
+  const updatePost = async (formData: FormData) => {
     'use server';
 
     const title = formData.get('title')?.toString() ?? null;
@@ -17,30 +22,23 @@ export default function NewPostPage() {
       return {
         error: 'title is empty',
         success: false,
-        slug: '',
       };
     }
     if (!content) {
       return {
         error: 'content is empty',
         success: false,
-        slug: '',
       };
     }
 
     const post = new Post({ title, tags, content });
 
     const postRepository = new PostRepository();
-    const { slug } = postRepository.createDraftPost(post);
-
-    if (slug) {
-      redirect(`/admin/edit/${slug}`);
-    }
+    postRepository.createDraftPost(post);
 
     return {
       success: true,
       error: null,
-      slug,
     };
   };
 
@@ -49,8 +47,9 @@ export default function NewPostPage() {
       <EditPageHeader formId="form" />
       <EditorForm
         id="form"
-        serverAction={createDraftPost}
+        serverAction={updatePost}
         className={editorForm}
+        post={post}
       />
     </EditorFormProvider>
   );

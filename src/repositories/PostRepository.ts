@@ -41,7 +41,7 @@ export class PostRepository {
     return {
       id: crypto.createHash('md5').update(slug).digest('hex'),
       slug,
-      date: data['date'].toISOString(),
+      date: data['date']?.toISOString(),
       title: data['title'],
       description: data['description'],
       tags: data['tags'],
@@ -175,6 +175,10 @@ export class PostRepository {
 
     fs.mkdirSync(dirPath);
     fs.writeFileSync(join(dirPath, 'index.md'), post.toMarkdown());
+
+    return {
+      slug,
+    };
   }
 
   private getAllSlugs(): string[] {

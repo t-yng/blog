@@ -148,9 +148,11 @@ export const RichTextEditor: FC<EditorProps> = ({ content = '', onChange }) => {
         <RichTextPlugin
           contentEditable={<ContentEditable className={editorInput} />}
           placeholder={
-            <div className={`${editorPlaceholder} editor-placeholder`}>
-              Enter some text...
-            </div>
+            content === '' ? (
+              <span className={`${editorPlaceholder} editor-placeholder`}>
+                Enter some text...
+              </span>
+            ) : null
           }
           ErrorBoundary={LexicalErrorBoundary}
         />
