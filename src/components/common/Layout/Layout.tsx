@@ -1,9 +1,9 @@
+import '@/styles/style.linaria.global';
 import { FC, PropsWithChildren } from 'react';
 import { css } from '@linaria/core';
 import { profile } from '@/config/profile';
 import { Tag, SeoMetadata } from '@/entities';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
-import { colors } from '@/styles/color';
 
 export type LayoutProps = PropsWithChildren<{
   tags: Tag[];
@@ -12,7 +12,7 @@ export type LayoutProps = PropsWithChildren<{
 
 export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
   return (
-    <div className={globals}>
+    <div>
       <Seo
         title={seoMetadata.title}
         description={seoMetadata.description}
@@ -42,26 +42,4 @@ export const main = css`
 
 export const content = css`
   overflow: auto;
-`;
-
-const globals = css`
-  :global() {
-    body {
-      background-color: ${colors.background};
-      color: ${colors.textBlack};
-      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
-        'Hiragino Sans', Meiryo, sans-serif;
-      margin: 0;
-    }
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-    }
-
-    p,
-    ul {
-      line-height: 1.8;
-    }
-  }
 `;
