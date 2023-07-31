@@ -1,7 +1,10 @@
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { HighlightInit } from '@highlight-run/next/highlight-init';
 import { usePageTracking } from '@/hooks/usePageTracking';
+
+const HIGH_LIGHT_INIT_PROJECT_ID = 'mem8kyg2';
 
 const App = ({ Component, pageProps }: AppProps) => {
   usePageTracking();
@@ -19,7 +22,20 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <HighlightInit
+        projectId={HIGH_LIGHT_INIT_PROJECT_ID}
+        tracingOrigins
+        networkRecording={{
+          enabled: true,
+          recordHeadersAndBody: true,
+          urlBlocklist: [],
+        }}
+      />
+      <Component {...pageProps} />
+    </>
+  );
 };
 
 export default App;
