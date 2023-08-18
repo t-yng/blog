@@ -1998,10 +1998,10 @@
     type-fest "^3.12.0"
     whatwg-mimetype "^3.0.0"
 
-"@next/bundle-analyzer@13.4.17":
-  version "13.4.17"
-  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-13.4.17.tgz#10de5ec5084c8867f312f9359c970da9ec538a4d"
-  integrity sha512-bU7O9Wxx2rIMBstQpldLjBmZhqduzn34IVd+mGkRUdYujEdMRopp/aWy6bL/5J5kr//KnrIskHPHUV8ytSj7rA==
+"@next/bundle-analyzer@13.4.18":
+  version "13.4.18"
+  resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-13.4.18.tgz#18f76165f8f24100591b756154828c34c43e370a"
+  integrity sha512-5tSSaq1Id1G4TjhUvU/r+4dVRRZFvwKVxSY9K1aLjsg46XxC4l/cN+m9iMHPw9VjNAq8ENx0QO4ElP6wVC8q4w==
   dependencies:
     webpack-bundle-analyzer "4.7.0"
 
