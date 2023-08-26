@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { HighlightInit } from '@highlight-run/next/highlight-init';
+import { HighlightInit } from '@highlight-run/next/client';
 import { usePageTracking } from '@/hooks/usePageTracking';
 
 const HIGH_LIGHT_INIT_PROJECT_ID = 'mem8kyg2';
