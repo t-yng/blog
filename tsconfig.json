@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": ["node", "testing-library__jest-dom", "gtag.js", "vitest/globals"],
+    "types": ["node", "gtag.js", "vitest/globals"],
     "incremental": true,
     "baseUrl": "./",
     "paths": {
