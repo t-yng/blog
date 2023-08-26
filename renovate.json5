@@ -6,10 +6,14 @@
   "separateMajorMinor": true,
   "separateMinorPatch": false,
   "separateMultipleMajor": true,
-  "recreateClosed": true,
+  "recreateClosed": false,
   // デフォルトでは GitHub Actions なども更新対象となりPRが作成されるので npm だけに制限
   // @see: https://docs.renovatebot.com/modules/manager/
   enabledManagers: ['npm'],
+  // コンフリクト発生時のみリベースする
+  rebaseWhen: 'conflicted',
+  // PRのアップデートは設定しているスケジュールのタイミングだけに固定
+  updateNotScheduled: false,
   "prBodyColumns": [
     "Package",
     "Update",
