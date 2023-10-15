@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
           node-version: "18.x"
@@ -19,7 +21,7 @@ jobs:
         run: yarn lint:all
       - name: type check
         run: yarn type-check
-      - name: unit test
+      - name: unit test only changed
         run: yarn test:coverage
       - name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v3
