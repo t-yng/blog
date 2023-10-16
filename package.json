@@ -48,7 +48,7 @@
   "devDependencies": {
     "@markuplint/jsx-parser": "3.10.0",
     "@markuplint/react-spec": "3.11.0",
-    "@next/bundle-analyzer": "13.5.4",
+    "@next/bundle-analyzer": "13.5.5",
     "@playwright/test": "1.39.0",
     "@swc/core": "^1.2.117",
     "@testing-library/jest-dom": "6.1.4",
