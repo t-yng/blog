@@ -54,7 +54,7 @@
     "@testing-library/jest-dom": "6.1.4",
     "@testing-library/react": "14.0.0",
     "@types/cpx": "1.5.4",
-    "@types/gtag.js": "0.0.16",
+    "@types/gtag.js": "0.0.17",
     "@types/markdown-it": "13.0.2",
     "@types/prismjs": "^1.16.6",
     "@typescript-eslint/eslint-plugin": "6.8.0",
