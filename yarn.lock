@@ -3432,10 +3432,10 @@
     "@types/keygrip" "*"
     "@types/node" "*"
 
-"@types/cpx@1.5.3":
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/@types/cpx/-/cpx-1.5.3.tgz#23394d0b7905689f6b50c035de6efefbcd39a227"
-  integrity sha512-ziUb5nL8+ZImy5hdD9mkDJvDprVUxJwZd8NA5+jK84atRSAUDuQkCWRVlJ/6NvFM2wfDk83gqOd2xo34Je5swA==
+"@types/cpx@1.5.4":
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/@types/cpx/-/cpx-1.5.4.tgz#9be67b8c8fb51ef0d302152286677373835c7e92"
+  integrity sha512-jn8DL2xo9vLayKPzWzFq9e3zbzU3qwE1Qn+JsFCSMUqvdw2naZ0N2HjnOP5SXXauf37AKELLb1D1M8QaS77wOg==
   dependencies:
     "@types/node" "*"
 
