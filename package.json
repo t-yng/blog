@@ -46,8 +46,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@markuplint/jsx-parser": "3.10.0",
-    "@markuplint/react-spec": "3.11.0",
+    "@markuplint/jsx-parser": "3.11.0",
+    "@markuplint/react-spec": "3.12.0",
     "@next/bundle-analyzer": "13.5.6",
     "@playwright/test": "1.39.0",
     "@swc/core": "^1.2.117",
@@ -79,7 +79,7 @@
     "linaria": "4.5.4",
     "lint-staged": "14.0.1",
     "markdown-it": "13.0.2",
-    "markuplint": "3.13.0",
+    "markuplint": "3.14.0",
     "next-linaria": "0.11.0",
     "prettier": "3.0.3",
     "ts-mockito": "2.6.1",
