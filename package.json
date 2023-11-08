@@ -52,7 +52,7 @@
     "@playwright/test": "1.39.0",
     "@swc/core": "^1.2.117",
     "@testing-library/jest-dom": "6.1.4",
-    "@testing-library/react": "14.0.0",
+    "@testing-library/react": "14.1.0",
     "@types/cpx": "1.5.5",
     "@types/gtag.js": "0.0.18",
     "@types/markdown-it": "13.0.6",
