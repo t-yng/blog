@@ -10,7 +10,6 @@ import {
   PAGINATION_POST_COUNT_PER_PAGE,
 } from '@/constants';
 import { sortPostsByDateDesc } from '@/lib/sort';
-import { heading1 } from '@/styles/typography';
 import { PostRepository } from '@/repositories';
 import { TagRepository } from '@/repositories/TagRepository';
 
@@ -32,8 +31,7 @@ const IndexPage: FC<IndexPageProps> = ({
   seoMetadata,
 }) => {
   return (
-    <Layout tags={tags} seoMetadata={seoMetadata}>
-      <h1 className={heading1}>記事一覧</h1>
+    <Layout tags={tags} seoMetadata={seoMetadata} title="記事一覧">
       <PostEntries posts={posts} className={postEntries} />
       <Pagination {...pagination} />
     </Layout>

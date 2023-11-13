@@ -10,7 +10,6 @@ import { PostEntries } from '@/components/home';
 import { siteMetadata } from '@/config/siteMetadata';
 import { Post, SeoMetadata, Tag } from '@/entities';
 import { sortPostsByDateDesc } from '@/lib/sort';
-import { heading1 } from '@/styles/typography';
 import { PostRepository, TagRepository } from '@/repositories';
 
 type TagPostsPageProps = {
@@ -26,8 +25,7 @@ const TagPostsPage: FC<TagPostsPageProps> = ({
   tags,
   seoMetadata,
 }) => (
-  <Layout tags={tags} seoMetadata={seoMetadata}>
-    <h1 className={heading1}>{tag}の記事一覧</h1>
+  <Layout tags={tags} seoMetadata={seoMetadata} title={`${tag}の記事一覧`}>
     <PostEntries posts={posts} className={postEntries} />
   </Layout>
 );

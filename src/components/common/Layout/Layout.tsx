@@ -4,10 +4,12 @@ import { profile } from '@/config/profile';
 import { Tag, SeoMetadata } from '@/entities';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
 import { colors } from '@/styles/color';
+import { heading1 } from '@/styles/typography';
 
 export type LayoutProps = PropsWithChildren<{
   tags: Tag[];
   seoMetadata: SeoMetadata;
+  title?: string;
   pt?: string;
   pb?: string;
   mpt?: string;
@@ -18,6 +20,7 @@ export const Layout: FC<LayoutProps> = ({
   children,
   tags,
   seoMetadata,
+  title = '',
   pt = '2rem',
   pb = '2rem',
   mpt = '1rem',
@@ -43,12 +46,19 @@ export const Layout: FC<LayoutProps> = ({
       />
       <GlobalHeader />
       <div className={main} tabIndex={-1}>
-        <main className={content}>{children}</main>
+        <main className={content}>
+          {title && <h1 className={`${heading1} ${titleCss}`}>{title}</h1>}
+          {children}
+        </main>
         <Sidebar tags={tags} profile={profile} />
       </div>
     </div>
   );
 };
+
+const titleCss = css`
+  padding-left: 1rem;
+`;
 
 export const main = css`
   display: grid;

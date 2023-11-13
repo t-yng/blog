@@ -127,5 +127,10 @@ const contentGlobal = css`
       background-color: white;
       border-top: 1px solid ${colors.black5};
     }
+
+    .content ul,
+    .content ol {
+      padding-left: 1.8em;
+    }
   }
 `;
