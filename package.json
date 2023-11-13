@@ -12,7 +12,7 @@
     "bundle-analyze": "ANALYZE=true next build",
     "test": "vitest run",
     "test:diff": "yarn test --changed=origin/main",
-    "test:coverage": "yarn test:diff --coverage",
+    "test:coverage": "yarn test --coverage",
     "test:e2e": "playwright test",
     "lint:all": "eslint --ext ts,tsx ./ && yarn lint:html",
     "lint:html": "markuplint -p \"./src/**/*.tsx\"",
