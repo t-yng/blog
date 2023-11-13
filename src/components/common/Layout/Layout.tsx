@@ -8,11 +8,33 @@ import { colors } from '@/styles/color';
 export type LayoutProps = PropsWithChildren<{
   tags: Tag[];
   seoMetadata: SeoMetadata;
+  pt?: string;
+  pb?: string;
+  mpt?: string;
+  mpb?: string;
 }>;
 
-export const Layout: FC<LayoutProps> = ({ children, tags, seoMetadata }) => {
+export const Layout: FC<LayoutProps> = ({
+  children,
+  tags,
+  seoMetadata,
+  pt = '2rem',
+  pb = '2rem',
+  mpt = '1rem',
+  mpb = '0',
+}) => {
   return (
-    <div className={globals}>
+    <div
+      className={globals}
+      style={
+        {
+          '--layout-main-pt': pt,
+          '--layout-main-pb': pb,
+          '--layout-main-mpt': mpt,
+          '--layout-main-mpb': mpb,
+        } as React.CSSProperties
+      }
+    >
       <Seo
         title={seoMetadata.title}
         description={seoMetadata.description}
@@ -34,9 +56,13 @@ export const main = css`
   grid-gap: 3rem;
   margin: 0 auto;
   max-width: 1152px;
-  padding: 2rem 20px;
+  padding-top: var(--layout-main-pt);
+  padding-bottom: var(--layout-main-pb);
+
   @media (max-width: 850px) {
     grid-template-columns: 1fr;
+    padding-top: var(--layout-main-mpt);
+    padding-bottom: var(--layout-main-mpb);
   }
 `;
 

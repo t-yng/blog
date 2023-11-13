@@ -34,6 +34,10 @@ const postCss = css`
   background-color: ${colors.white};
   border: 1px solid ${colors.black6};
   padding: 16px 32px;
+
+  @media (max-width: 850px) {
+    padding: 16px 20px;
+  }
 `;
 
 const header = css`
@@ -83,13 +87,13 @@ const contentGlobal = css`
     }
 
     .content pre {
-      font-size: inherit !important;
+      font-size: 0.875rem;
       background: hsl(233deg 16% 22%) !important;
       margin-top: 1rem;
     }
 
     .content code {
-      font-size: inherit !important;
+      font-size: 0.875rem;
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
         monospace !important;
     }

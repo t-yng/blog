@@ -17,7 +17,7 @@ type PostPageProps = {
 };
 
 const PostPage: FC<PostPageProps> = ({ post, tags, seoMetadata }) => (
-  <Layout tags={tags} seoMetadata={seoMetadata}>
+  <Layout tags={tags} seoMetadata={seoMetadata} mpt="0">
     <Post post={post} />
   </Layout>
 );
