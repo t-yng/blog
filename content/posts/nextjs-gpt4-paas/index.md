@@ -1,7 +1,7 @@
 ---
 title: Next.js+GPT4で作ったアプリケーションを無料ホスティングするPaaSを探す
 date: 2023-12-11
-description: 年末年始にこの技術ブログを GatsbyJS から Next.js にリプレースを行っていました。レプレースを実施した結果、Lighthouseのパフォーマンス結果が低下してしまったので、原因の調査と改善を実施しました。
+description: Next.jS+ChatGPTで開発する際に無料でホスティングする際の問題点と無料でホスティングするのにオススメのPaaSを紹介します。
 tags: ['Next.js', 'AI']
 ---
 
