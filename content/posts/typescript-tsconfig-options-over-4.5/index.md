@@ -1,5 +1,5 @@
 ---
-title: TypeScript4.5以降で追加されたTSConfigのオプションを確認してみる
+title: TypeScript4.5以降で追加されたTSConfigのオプションを調べてみた
 date: 2023-12-14
 description: 直近2年間でTSConfigのオプションが新たにどれだけ追加されたのかふと気になりました。TypeScriptの4.5のリリースが2021年の11月頃で約2年前なので、TypeScript4.5以降で追加されたTSConfigのオプションを調べてみました。
 tags: ['TypeScript']
@@ -26,7 +26,6 @@ TypeScriptの4.5のリリースが2021年の11月頃で約2年前なので、Typ
 
 ## preserveValueImports
 tscで未使用と判定されたコードが削除されるのを防ぐことができます。
-
 このオプションは5.0で`verbatimModuleSyntax`が追加された関係で、最新では非推奨となっています。
 
 ### 使い方
@@ -49,7 +48,6 @@ tsconfig.jsonで`preserveValueImports`をtrueに設定することで、未使�
 
 ## moduleSuffixes
 moduleSuffixesは、モジュール解決の際にファイルの拡張子をどのように扱うかを定義するための設定です。
-
 異なる環境（例えばブラウザとNode.js）向けに異なるファイル拡張子を持つモジュールをビルドする際にこのオプションを利用することで、環境に応じたファイル解決を行うことができます。
 
 例えば、プロジェクト内で異なる種類のモジュール（例: .browser.ts と .node.ts）を区別して管理する場合、moduleSuffixes によってこれらのファイルを適切に解決し、コードの整理に役立ちます。
