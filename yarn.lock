@@ -7332,6 +7332,11 @@ highlight.run@7.4.3:
   resolved "https://registry.yarnpkg.com/highlight.run/-/highlight.run-7.4.3.tgz#af75866bfb3b0e93e0fa0a1721ce1bb7c78f2ca3"
   integrity sha512-Sc0E/ZEydjegHXHbvZCSOUYhZLfVwk0MLqSgE5ez8uHUjn+rSzb3U+Ct2y4Bo36sZcPhxVLf4RHH7BvRJJUtOQ==
 
+highlight.run@8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/highlight.run/-/highlight.run-8.3.2.tgz#ef2e086463c5451b09f76dc8fde0987b9d71d0f0"
+  integrity sha512-3psEgrM+wyRbq8uvLBXo2FXGMn5ahWyQUXZPUZd5cMkCNvmFaCnBlzOabw77YVClJM6ZdN0C/X/YIzssGotFcA==
+
 homedir-polyfill@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"
