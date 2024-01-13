@@ -8,7 +8,7 @@ import { css } from '@linaria/core';
 import { Layout } from '@/components/common';
 import { PostEntries } from '@/components/home';
 import { siteMetadata } from '@/config/siteMetadata';
-import { Post, SeoMetadata, Tag } from '@/entities';
+import { Post, SeoMetadata, Tag } from '@/types';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { PostRepository, TagRepository } from '@/repositories';
 

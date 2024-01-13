@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { instance, mock, when } from 'ts-mockito';
-import { Post as PostEntity } from '@/entities/Post';
+import { Post as PostEntity } from '@/types/Post';
 import { Post } from './Post';
 
 describe('Post', () => {

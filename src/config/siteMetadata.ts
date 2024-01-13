@@ -1,4 +1,4 @@
-import { SeoMetadata } from '@/entities';
+import { SeoMetadata } from '@/types';
 
 export const siteMetadata: SeoMetadata = {
   title: 'みどりのさるのエンジニア',

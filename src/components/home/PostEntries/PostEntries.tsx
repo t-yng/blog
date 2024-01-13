@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react';
 import { css } from '@linaria/core';
-import { Post } from '@/entities';
+import { Post } from '@/types';
 import { colors } from '@/styles/color';
 import { PostEntry } from '../PostEntry';
 

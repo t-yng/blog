@@ -6,7 +6,7 @@ import {
 } from 'next';
 import { Layout } from '@/components/common';
 import { Post } from '@/components/post/Post';
-import { Tag, SeoMetadata, Post as PostEntity } from '@/entities';
+import { Tag, SeoMetadata, Post as PostEntity } from '@/types';
 import { siteMetadata } from '@/config/siteMetadata';
 import { PostRepository, TagRepository } from '@/repositories';
 

@@ -3,7 +3,7 @@ import { GetStaticPropsResult } from 'next';
 import { css } from '@linaria/core';
 import { Layout } from '@/components/common';
 import { PostEntries, Pagination } from '@/components/home';
-import { Post, Tag, SeoMetadata } from '@/entities';
+import { Post, Tag, SeoMetadata } from '@/types';
 import { siteMetadata } from '@/config/siteMetadata';
 import {
   PAGINATION_MIDDLE_PAGES,

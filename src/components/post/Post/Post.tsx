@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { css } from '@linaria/core';
-import { Post as PostEntity } from '@/entities/Post';
+import { Post as PostEntity } from '@/types/Post';
 import { Tags } from '@/components/common';
 import { formatDate } from '@/lib/format';
 import { heading1 } from '@/styles/typography';

@@ -12,7 +12,7 @@ import {
   PAGINATION_MIDDLE_PAGES,
 } from '@/constants';
 import { siteMetadata } from '@/config/siteMetadata';
-import { Post, Tag, SeoMetadata } from '@/entities';
+import { Post, Tag, SeoMetadata } from '@/types';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { range } from '@/lib/array';
 import { PostRepository, TagRepository } from '@/repositories';

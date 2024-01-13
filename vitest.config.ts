@@ -27,6 +27,8 @@ export default defineConfig({
         `src/styles/`,
         `src/constants/`,
         `src/**/index.ts`,
+        `src/types/`,
+        `src/pages/`,
       ],
     },
   },

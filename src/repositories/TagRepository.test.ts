@@ -1,5 +1,5 @@
 import { instance, mock, when } from 'ts-mockito';
-import { Post } from '@/entities';
+import { Post } from '@/types';
 import { TagRepository } from './TagRepository';
 
 vi.mock('./PostRepository.ts', () => {

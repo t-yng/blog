@@ -1,5 +1,5 @@
 import { instance, mock, when } from 'ts-mockito';
-import { Post } from '../entities/Post';
+import { Post } from '../types/Post';
 import { sortPostsByDateDesc } from './sort';
 
 describe('sort', () => {
