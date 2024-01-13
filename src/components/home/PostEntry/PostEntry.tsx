@@ -5,6 +5,7 @@ import { Tags } from '@/components/common/Tags/Tags';
 import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
 import { colors } from '@/styles/color';
+import { Text } from '@/components/common/Text';
 
 interface PostEntryProps {
   post: Post;
@@ -19,10 +20,14 @@ export const PostEntry: FC<PostEntryProps> = ({ post }) => (
       aria-labelledby={`post-title-${post.id}`}
       title={post.title}
     />
-    <h2 id={`post-title-${post.id}`} className={title}>
+    <Text as="h2" fontSize={{ sm: '1rem', md: '1.2rem' }}>
       {post.title}
-    </h2>
-    <time className={date}>{formatDate(post.date)}</time>
+    </Text>
+    <time className={date}>
+      <Text as="span" color={colors.black3} fontSize="0.85rem">
+        {formatDate(post.date)}
+      </Text>
+    </time>
     <Tags tags={post.tags} className={tags} />
   </article>
 );
@@ -33,22 +38,13 @@ const postEntry = css`
 `;
 
 const date = css`
-  color: ${colors.black3};
-  font-size: 0.85rem;
   display: block;
   margin-top: 4px;
 `;
 
-const title = css`
-  font-size: 1.2rem;
-  @media (max-width: 850px) {
-    font-size: 1rem;
-  }
-`;
-
 const tags = css`
   position: relative;
-  margin-top: 0.5rem;
+  margin-top: 8px;
 `;
 
 const linkOverlay = css`

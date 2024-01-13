@@ -2,6 +2,7 @@ import { css } from '@linaria/core';
 import { Profile } from '@/config/profile';
 import { colors } from '@/styles/color';
 import { Flex } from '../Flex';
+import { Text } from '../Text/Text';
 import { SidebarSection } from './SidebarSection';
 
 export interface SidebarProfileProps {
@@ -20,9 +21,11 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
         height={64}
         decoding="async"
       />
-      <div>
-        <div className={name}>{profile.name}</div>
-        <div className={speciality}>{profile.speciality}</div>
+      <Flex direction="column" gap="4px">
+        <Text fontWeight="bold">{profile.name}</Text>
+        <Text color={colors.black2} fontSize="0.75rem">
+          {profile.speciality}
+        </Text>
         <div>
           <a
             href={profile.github.url}
@@ -41,7 +44,7 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
             />
           </a>
         </div>
-      </div>
+      </Flex>
     </Flex>
   </SidebarSection>
 );
@@ -52,17 +55,6 @@ const avatar = css`
   object-fit: cover;
   height: 4rem;
   width: 4rem;
-`;
-
-const name = css`
-  font-weight: bold;
-  margin-bottom: 4px;
-`;
-
-const speciality = css`
-  font-size: 0.75rem;
-  color: ${colors.black2};
-  margin-bottom: 4px;
 `;
 
 const icon = css`

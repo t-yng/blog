@@ -27,7 +27,9 @@ export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
             decoration={false}
             href={createTagLink(tag.name)}
             aria-label={`${tag.name}の記事一覧、${tag.count}件`}
-          >{`${tag.name} (${tag.count})`}</Link>
+          >
+            {`${tag.name} (${tag.count})`}
+          </Link>
         </li>
       ))}
     </ul>
@@ -43,9 +45,9 @@ const tagsCss = css`
 
 const tagCss = css`
   color: ${colors.black2};
+  margin-bottom: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.15rem;
-  margin-bottom: 0.5rem;
 
   &:hover {
     color: ${colors.accent};
