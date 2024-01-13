@@ -34,7 +34,6 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
             aria-label={`${profile.name}のGitHubプロフィールページ`}
           >
             <img
-              className={icon}
               src={profile.github.icon}
               aria-hidden="true"
               alt="GitHubのロゴ"
@@ -53,11 +52,4 @@ const avatar = css`
   border-radius: 50%;
   margin-right: 0.5rem;
   object-fit: cover;
-  height: 4rem;
-  width: 4rem;
-`;
-
-const icon = css`
-  height: 24px;
-  width: 24px;
 `;
