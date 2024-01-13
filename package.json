@@ -37,7 +37,7 @@
   "dependencies": {
     "@highlight-run/next": "7.3.3",
     "@highlight-run/react": "3.2.1",
-    "date-fns": "2.30.0",
+    "date-fns": "3.2.0",
     "gray-matter": "4.0.3",
     "highlight.run": "8.3.2",
     "next": "13.4.19",
