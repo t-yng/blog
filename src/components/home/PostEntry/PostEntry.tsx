@@ -4,7 +4,7 @@ import { Link } from '@/components/common/Link/Link';
 import { Tags } from '@/components/common/Tags/Tags';
 import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { Text } from '@/components/common/Text';
 
 interface PostEntryProps {
@@ -20,11 +20,11 @@ export const PostEntry: FC<PostEntryProps> = ({ post }) => (
       aria-labelledby={`post-title-${post.id}`}
       title={post.title}
     />
-    <Text as="h2" fontSize={{ sm: '1rem', md: '1.2rem' }}>
+    <Text as="h2" fontSize={{ sm: 'md', md: 'xl' }}>
       {post.title}
     </Text>
     <time className={date}>
-      <Text as="span" color={colors.black3} fontSize="0.85rem">
+      <Text as="span" color={colors.black3} fontSize="sm">
         {formatDate(post.date)}
       </Text>
     </time>

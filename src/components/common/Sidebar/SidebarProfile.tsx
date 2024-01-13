@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 import { Profile } from '@/config/profile';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { Flex } from '../Flex';
 import { Text } from '../Text/Text';
 import { SidebarSection } from './SidebarSection';
@@ -23,7 +23,7 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
       />
       <Flex direction="column" gap="4px">
         <Text fontWeight="bold">{profile.name}</Text>
-        <Text color={colors.black2} fontSize="0.75rem">
+        <Text color={colors.black2} fontSize="xs">
           {profile.speciality}
         </Text>
         <div>

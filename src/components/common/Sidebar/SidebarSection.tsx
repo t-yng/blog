@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 import { css } from '@linaria/core';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 
 type SidebarSectionProps = PropsWithChildren<{
   title: string;

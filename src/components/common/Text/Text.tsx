@@ -1,15 +1,16 @@
 import { CSSProperties, css, cx } from 'linaria';
 import { FC, PropsWithChildren, createElement } from 'react';
 import { screen } from '@/styles/media';
+import * as token from '@/styles/token';
 
 type Props = PropsWithChildren<{
   as?: keyof JSX.IntrinsicElements;
   fontSize?:
-    | CSSProperties['fontSize']
+    | keyof typeof token.fontSize
     | {
-        sm?: CSSProperties['fontSize'];
-        md?: CSSProperties['fontSize'];
-        lg?: CSSProperties['fontSize'];
+        sm?: keyof typeof token.fontSize;
+        md?: keyof typeof token.fontSize;
+        lg?: keyof typeof token.fontSize;
       };
   fontWeight?: CSSProperties['fontWeight'];
   color?: CSSProperties['color'];
@@ -19,7 +20,7 @@ type Props = PropsWithChildren<{
 
 export const Text: FC<Props> = ({
   as = 'span',
-  fontSize,
+  fontSize = 'md',
   fontWeight,
   color,
   lineHeight,
@@ -31,14 +32,47 @@ export const Text: FC<Props> = ({
     {
       className: cx(text, className),
       style: {
-        '--font-size': typeof fontSize !== 'object' ? fontSize : undefined,
-        '--font-size-sm': typeof fontSize === 'object' ? fontSize.sm : fontSize,
-        '--font-size-md':
-          typeof fontSize === 'object' ? fontSize.md || fontSize.sm : fontSize,
-        '--font-size-lg':
-          typeof fontSize === 'object'
-            ? fontSize.lg || fontSize.md || fontSize.sm
-            : fontSize,
+        '--font-size':
+          typeof fontSize !== 'object' ? token.fontSize[fontSize] : undefined,
+        '--font-size-sm': (() => {
+          if (typeof fontSize === 'object') {
+            if (fontSize.sm) {
+              return token.fontSize[fontSize.sm];
+            } else {
+              return undefined;
+            }
+          } else {
+            return token.fontSize[fontSize];
+          }
+        })(),
+        '--font-size-md': (() => {
+          if (typeof fontSize === 'object') {
+            if (fontSize.md) {
+              return token.fontSize[fontSize.md];
+            } else if (fontSize.sm) {
+              return token.fontSize[fontSize.sm];
+            } else {
+              return undefined;
+            }
+          } else {
+            return token.fontSize[fontSize];
+          }
+        })(),
+        '--font-size-lg': (() => {
+          if (typeof fontSize === 'object') {
+            if (fontSize.lg) {
+              return token.fontSize[fontSize.lg];
+            } else if (fontSize.md) {
+              return token.fontSize[fontSize.md];
+            } else if (fontSize.sm) {
+              return token.fontSize[fontSize.sm];
+            } else {
+              return undefined;
+            }
+          } else {
+            return token.fontSize[fontSize];
+          }
+        })(),
         '--font-weight': fontWeight || '',
         '--color': color,
         '--line-height': lineHeight,

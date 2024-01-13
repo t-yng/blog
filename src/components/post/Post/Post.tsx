@@ -4,7 +4,7 @@ import { Post as PostEntity } from '@/types/Post';
 import { Tags } from '@/components/common';
 import { formatDate } from '@/lib/format';
 import { heading1 } from '@/styles/typography';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 
 import 'prismjs/themes/prism-tomorrow.css';
 

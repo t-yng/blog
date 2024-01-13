@@ -5,7 +5,7 @@ import {
   TITLE_LOGO_IMAGE_ALT,
   TITLE_LOGO_LINK_TITLE,
 } from '@/constants';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { Link } from '../Link/Link';
 import { Flex } from '../Flex';
 

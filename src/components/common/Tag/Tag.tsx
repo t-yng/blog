@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { css } from '@linaria/core';
 import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { Flex } from '../Flex';
 import { Text } from '../Text/Text';
 
@@ -17,7 +17,7 @@ export const Tag: FC<TagProps> = ({ name }) => (
     aria-label={`タグ、${name}`}
   >
     <Flex alignItems="center" py="4px" px="8px" className={tag}>
-      <Text fontSize="0.75rem" lineHeight="1.5" color={colors.black2}>
+      <Text fontSize="xs" lineHeight="1.5" color={colors.black2}>
         {name}
       </Text>
     </Flex>

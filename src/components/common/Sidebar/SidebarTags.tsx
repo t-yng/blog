@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { css } from '@linaria/core';
 import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { SidebarSection } from './SidebarSection';
 
 interface Tag {

@@ -1,8 +1,4 @@
-export const breakpoints = {
-  sm: '768px',
-  md: '992px',
-  lg: '1200px',
-};
+import { breakpoints } from './token';
 
 export const screen = {
   sm: `@media screen and (max-width: ${breakpoints.sm})`,

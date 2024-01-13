@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { css } from '@linaria/core';
 import { cx } from 'linaria';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { Flex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Text';
 
@@ -15,9 +15,7 @@ export const PageItem: FC<PageItemProps> = ({
   ...others
 }) => (
   <Flex justifyContent="center" className={cx(item, className)} {...others}>
-    <Text fontSize="1rem" lineHeight="1.5">
-      {children}
-    </Text>
+    <Text lineHeight="1.5">{children}</Text>
   </Flex>
 );
 
