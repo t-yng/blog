@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Post } from '../../../entities/Post';
+import { Post } from '../../../types/Post';
 import { PostEntries } from './PostEntries';
 
 describe('PostEntries', () => {

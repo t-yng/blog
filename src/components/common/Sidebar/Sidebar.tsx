@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { css } from '@linaria/core';
-import { Tag } from '@/entities';
+import { Tag } from '@/types';
 import { Profile } from '@/config/profile';
 import { SidebarTags } from './SidebarTags';
 import { SidebarProfile } from './SidebarProfile';

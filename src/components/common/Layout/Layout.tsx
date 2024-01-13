@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
 import { css } from '@linaria/core';
 import { profile } from '@/config/profile';
-import { Tag, SeoMetadata } from '@/entities';
+import { Tag, SeoMetadata } from '@/types';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
 import { colors } from '@/styles/color';
 import { heading1 } from '@/styles/typography';

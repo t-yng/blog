@@ -2,7 +2,7 @@ import { join } from 'path';
 import { load } from 'cheerio';
 import { instance, mock, when } from 'ts-mockito';
 import { profile } from '@/config/profile';
-import { Post } from '@/entities';
+import { Post } from '@/types';
 import { PostRepository } from './PostRepository';
 import { NotFoundPostError } from './error';
 import type cpx from 'cpx';

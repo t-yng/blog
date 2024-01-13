@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { css } from '@linaria/core';
 import { Link } from '@/components/common/Link/Link';
 import { Tags } from '@/components/common/Tags/Tags';
-import { Post } from '@/entities/Post';
+import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
 import { colors } from '@/styles/color';
 

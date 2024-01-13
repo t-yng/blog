@@ -8,7 +8,7 @@ import loadLanguages from 'prismjs/components/index';
 import urlJoin from 'url-join';
 import sizeOf from 'image-size';
 import cpx from 'cpx';
-import { Post } from '@/entities';
+import { Post } from '@/types';
 import { profile } from '@/config/profile';
 import { NotFoundPostError } from './error';
 
