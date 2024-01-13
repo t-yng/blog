@@ -1,6 +1,8 @@
 import { FC, PropsWithChildren } from 'react';
 import { css } from '@linaria/core';
+import { cx } from 'linaria';
 import { colors } from '@/styles/color';
+import { Flex } from '@/components/common/Flex';
 
 type PageItemProps = PropsWithChildren<{
   className?: string;
@@ -11,15 +13,14 @@ export const PageItem: FC<PageItemProps> = ({
   className,
   ...others
 }) => (
-  <div className={`${item} ${className}`} {...others}>
+  <Flex justifyContent="center" className={cx(item, className)} {...others}>
     {children}
-  </div>
+  </Flex>
 );
 
 const item = css`
   color: ${colors.black1};
   font-size: 1rem;
-  padding: 5px 15px;
   position: relative;
 
   &:hover {

@@ -3,6 +3,7 @@ import { css } from '@linaria/core';
 import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
 import { colors } from '@/styles/color';
+import { Flex } from '../Flex';
 
 interface TagProps {
   name: string;
@@ -14,7 +15,15 @@ export const Tag: FC<TagProps> = ({ name }) => (
     decoration={false}
     aria-label={`タグ、${name}`}
   >
-    <div className={tag}>{name}</div>
+    <Flex
+      direction="column"
+      justifyContent="center"
+      py="4px"
+      px="8px"
+      className={tag}
+    >
+      {name}
+    </Flex>
   </Link>
 );
 
@@ -23,12 +32,8 @@ const tag = css`
   border: 1px solid ${colors.black4};
   border-radius: 4px;
   color: ${colors.black2};
-  display: flex;
-  flex-direction: column;
   font-size: 0.75rem;
-  justify-content: center;
   line-height: 1.5;
-  padding: 4px 8px;
 
   &:hover {
     border-color: ${colors.black2};

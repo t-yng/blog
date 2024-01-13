@@ -1,6 +1,7 @@
 import { css } from '@linaria/core';
 import { Profile } from '@/config/profile';
 import { colors } from '@/styles/color';
+import { Flex } from '../Flex';
 import { SidebarSection } from './SidebarSection';
 
 export interface SidebarProfileProps {
@@ -10,7 +11,7 @@ export interface SidebarProfileProps {
 
 export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
   <SidebarSection title="プロフィール" className={className}>
-    <div className={wrapper}>
+    <Flex>
       <img
         className={avatar}
         src={profile.avatar}
@@ -41,13 +42,9 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
           </a>
         </div>
       </div>
-    </div>
+    </Flex>
   </SidebarSection>
 );
-
-const wrapper = css`
-  display: flex;
-`;
 
 const avatar = css`
   border-radius: 50%;

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { css } from '@linaria/core';
 import { Tag } from '@/components/common';
+import { Flex } from '../Flex';
 
 interface TagsProps {
   tags: string[];
@@ -23,14 +23,9 @@ const sortTags = (tags: string[]): string[] => {
 };
 
 export const Tags: FC<TagsProps> = ({ tags, className }) => (
-  <div className={`${tagsCss} ${className}`}>
+  <Flex className={className} gap="0.5rem">
     {sortTags(tags).map((tag) => {
       return <Tag name={tag} key={tag} />;
     })}
-  </div>
+  </Flex>
 );
-
-const tagsCss = css`
-  display: flex;
-  gap: 0.5rem;
-`;

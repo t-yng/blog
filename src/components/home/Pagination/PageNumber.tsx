@@ -26,12 +26,8 @@ const highlight = css`
   background-color: ${colors.accent};
   border-radius: 50%;
   color: ${colors.white};
-  display: flex;
-  justify-content: center;
   height: 28px;
   padding: 0;
-  margin-left: 15px;
-  margin-right: 15px;
   width: 28px;
 
   &:hover {
