@@ -6,13 +6,21 @@ import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
 import { colors } from '@/styles/token';
 import { Text } from '@/components/common/Text';
+import { Box } from '@/components/common/Box';
 
 interface PostEntryProps {
   post: Post;
 }
 
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
-  <article className={postEntry} data-testid="post-entry">
+  <Box
+    py="20px"
+    px="24px"
+    className={css`
+      position: relative;
+    `}
+    data-testid="post-entry"
+  >
     <Link
       href={`/post/${post.slug}`}
       prefetch={false}
@@ -29,13 +37,8 @@ export const PostEntry: FC<PostEntryProps> = ({ post }) => (
       </Text>
     </time>
     <Tags tags={post.tags} className={tags} />
-  </article>
+  </Box>
 );
-
-const postEntry = css`
-  position: relative;
-  padding: 20px 24px;
-`;
 
 const date = css`
   display: block;

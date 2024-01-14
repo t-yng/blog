@@ -1,53 +1,65 @@
-import { FC, PropsWithChildren, createElement } from 'react';
-import { cx } from 'linaria';
+import { FC, PropsWithChildren } from 'react';
+import { styled } from 'linaria/react';
+import { screen } from '@/styles/media';
 import {
-  createPaddingCssVariables,
   hasSmPadding,
-  padding,
-  mdPadding,
-  smPadding,
   hasMdPadding,
   hasLgPadding,
-  lgPadding,
   PaddingProps,
+  getPadding,
+  getPaddingBottom,
+  getPaddingLeft,
+  getPaddingRight,
+  getPaddingTop,
 } from './padding';
 
 type Props = PropsWithChildren<
   {
     as?: keyof JSX.IntrinsicElements;
     className?: string;
-    style?: React.CSSProperties;
   } & PaddingProps
 >;
 
-export const Box: FC<Props> = ({
-  as = 'div',
-  p,
-  pt,
-  pr,
-  pb,
-  pl,
-  px,
-  py,
-  style,
-  className,
-  children,
-}) => {
-  return createElement(
-    as,
-    {
-      className: cx(
-        padding,
-        hasSmPadding({ p, pt, pr, pb, pl, px, py }) && smPadding,
-        hasMdPadding({ p, pt, pr, pb, pl, px, py }) && mdPadding,
-        hasLgPadding({ p, pt, pr, pb, pl, px, py }) && lgPadding,
-        className
-      ),
-      style: {
-        ...createPaddingCssVariables({ p, pt, pr, pb, pl, px, py }),
-        ...style,
-      },
-    },
-    children
-  );
+export const Box: FC<Props> = (props: Props) => {
+  const { children, ...rest } = props;
+
+  if (hasSmPadding(props) || hasMdPadding(props) || hasLgPadding(props)) {
+    return <ResponsiveBox {...rest}>{children}</ResponsiveBox>;
+  }
+
+  return <BaseBox {...rest}>{children}</BaseBox>;
 };
+
+const BaseBox = styled.div<Props>`
+  padding: ${(props) => getPadding(props)};
+  padding-top: ${(props) => getPaddingTop(props)};
+  padding-right: ${(props) => getPaddingRight(props)};
+  padding-bottom: ${(props) => getPaddingBottom(props)};
+  padding-left: ${(props) => getPaddingLeft(props)};
+`;
+
+const ResponsiveBox = styled.div<Props>`
+  ${screen.sm} {
+    padding: ${(props) => getPadding(props)};
+    padding-top: ${(props) => getPaddingTop(props)};
+    padding-right: ${(props) => getPaddingRight(props)};
+    padding-bottom: ${(props) => getPaddingBottom(props)};
+    padding-left: ${(props) => getPaddingLeft(props)};
+  }
+
+  ${screen.md} {
+    padding: ${(props) => getPadding(props)};
+    padding-top: ${(props) => getPaddingTop(props)};
+    padding-right: ${(props) => getPaddingRight(props)};
+    padding-bottom: ${(props) => getPaddingBottom(props)};
+    padding-left: ${(props) => getPaddingLeft(props)};
+  }
+
+  ${screen.lg} {
+    padding: ${(props) => getPadding(props)};
+    padding-top: ${(props) => getPaddingTop(props)};
+    padding-right: ${(props) => getPaddingRight(props)};
+    padding-bottom: ${(props) => getPaddingBottom(props)};
+    padding-left: ${(props) => getPaddingLeft(props)};
+  }
+`;

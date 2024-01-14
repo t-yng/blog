@@ -1,50 +1,26 @@
 import {
   CSSProperties,
   ComponentPropsWithoutRef,
-  FC,
   PropsWithChildren,
 } from 'react';
-import { css, cx } from 'linaria';
+import { styled } from 'linaria/react';
 import { Box } from '../Box';
 
-type Props = PropsWithChildren<
-  {
-    direction?: CSSProperties['flexDirection'];
-    justifyContent?: CSSProperties['justifyContent'];
-    alignItems?: CSSProperties['alignItems'];
-    gap?: CSSProperties['gap'];
-  } & ComponentPropsWithoutRef<typeof Box>
->;
-
-export const Flex: FC<Props> = ({
-  direction: flexDirection,
-  justifyContent,
-  alignItems,
-  gap,
-  children,
-  className,
-  ...rest
-}) => {
-  return (
-    <Box
-      className={cx(flex, className)}
-      style={{
-        '--flex-direction': flexDirection,
-        '--justify-content': justifyContent,
-        '--align-items': alignItems,
-        '--gap': gap,
-      }}
-      {...rest}
-    >
-      {children}
-    </Box>
-  );
+type FlexCssProps = {
+  direction: CSSProperties['flexDirection'];
+  justifyContent: CSSProperties['justifyContent'];
+  alignItems: CSSProperties['alignItems'];
+  gap: CSSProperties['gap'];
 };
 
-const flex = css`
+type Props = PropsWithChildren<
+  Partial<FlexCssProps> & ComponentPropsWithoutRef<typeof Box>
+>;
+
+export const Flex = styled(Box)<Props>`
   display: flex;
-  flex-direction: var(--flex-direction, initial);
-  justify-content: var(--justify-content, initial);
-  align-items: var(--align-items, initial);
-  gap: var(--gap, initial);
+  flex-direction: ${(props) => props.direction || 'row'};
+  justify-content: ${(props) => props.justifyContent || 'flex-start'};
+  align-items: ${(props) => props.alignItems || 'flex-start'};
+  gap: ${(props) => props.gap || 0};
 `;

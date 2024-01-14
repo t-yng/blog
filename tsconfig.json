@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": ["node", "gtag.js", "vitest/globals", "./src/types/react"],
+    "types": ["node", "gtag.js", "vitest/globals"],
     "incremental": true,
     "baseUrl": "./",
     "paths": {
