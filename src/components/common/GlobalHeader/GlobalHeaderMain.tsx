@@ -5,12 +5,13 @@ import {
   TITLE_LOGO_IMAGE_ALT,
   TITLE_LOGO_LINK_TITLE,
 } from '@/constants';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { Link } from '../Link/Link';
+import { Flex } from '../Flex';
 
 export const GlobalHeaderMain: FC = () => (
   <div className={wrapper}>
-    <div className={globalHeaderMain}>
+    <Flex justifyContent="center" py="1rem" px="20px">
       <Link href="/" title={TITLE_LOGO_LINK_TITLE}>
         <img
           src={TITLE_LOGO_IMAGE_URL}
@@ -21,18 +22,12 @@ export const GlobalHeaderMain: FC = () => (
           decoding="async"
         />
       </Link>
-    </div>
+    </Flex>
   </div>
 );
 
 const wrapper = css`
   background-color: ${colors.main};
-`;
-
-const globalHeaderMain = css`
-  display: flex;
-  justify-content: center;
-  padding: 1rem 20px;
 `;
 
 const titleLogoImg = css`

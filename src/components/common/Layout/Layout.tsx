@@ -3,8 +3,8 @@ import { css } from '@linaria/core';
 import { profile } from '@/config/profile';
 import { Tag, SeoMetadata } from '@/types';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
-import { colors } from '@/styles/color';
-import { heading1 } from '@/styles/typography';
+import { colors } from '@/styles/token';
+import { Heading } from '../Heading';
 
 export type LayoutProps = PropsWithChildren<{
   tags: Tag[];
@@ -47,7 +47,11 @@ export const Layout: FC<LayoutProps> = ({
       <GlobalHeader />
       <div className={main} tabIndex={-1}>
         <main className={content}>
-          {title && <h1 className={`${heading1} ${titleCss}`}>{title}</h1>}
+          {title && (
+            <Heading level={1} className={titleCss}>
+              {title}
+            </Heading>
+          )}
           {children}
         </main>
         <Sidebar tags={tags} profile={profile} />

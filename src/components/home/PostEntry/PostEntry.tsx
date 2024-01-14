@@ -4,14 +4,23 @@ import { Link } from '@/components/common/Link/Link';
 import { Tags } from '@/components/common/Tags/Tags';
 import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
+import { Text } from '@/components/common/Text';
+import { Box } from '@/components/common/Box';
 
 interface PostEntryProps {
   post: Post;
 }
 
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
-  <article className={postEntry} data-testid="post-entry">
+  <Box
+    py="20px"
+    px="24px"
+    className={css`
+      position: relative;
+    `}
+    data-testid="post-entry"
+  >
     <Link
       href={`/post/${post.slug}`}
       prefetch={false}
@@ -19,36 +28,26 @@ export const PostEntry: FC<PostEntryProps> = ({ post }) => (
       aria-labelledby={`post-title-${post.id}`}
       title={post.title}
     />
-    <h2 id={`post-title-${post.id}`} className={title}>
+    <Text as="h2" fontSize={{ sm: 'md', md: 'xl' }}>
       {post.title}
-    </h2>
-    <time className={date}>{formatDate(post.date)}</time>
+    </Text>
+    <time className={date}>
+      <Text as="span" color={colors.black3} fontSize="sm">
+        {formatDate(post.date)}
+      </Text>
+    </time>
     <Tags tags={post.tags} className={tags} />
-  </article>
+  </Box>
 );
 
-const postEntry = css`
-  position: relative;
-  padding: 20px 24px;
-`;
-
 const date = css`
-  color: ${colors.black3};
-  font-size: 0.85rem;
   display: block;
   margin-top: 4px;
 `;
 
-const title = css`
-  font-size: 1.2rem;
-  @media (max-width: 850px) {
-    font-size: 1rem;
-  }
-`;
-
 const tags = css`
   position: relative;
-  margin-top: 0.5rem;
+  margin-top: 8px;
 `;
 
 const linkOverlay = css`

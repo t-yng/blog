@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
 import { css } from '@linaria/core';
 import { Post } from '@/types';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 import { PostEntry } from '../PostEntry';
 
 type PostEntriesProps = {

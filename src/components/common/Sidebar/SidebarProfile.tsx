@@ -1,6 +1,8 @@
 import { css } from '@linaria/core';
 import { Profile } from '@/config/profile';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
+import { Flex } from '../Flex';
+import { Text } from '../Text/Text';
 import { SidebarSection } from './SidebarSection';
 
 export interface SidebarProfileProps {
@@ -10,7 +12,7 @@ export interface SidebarProfileProps {
 
 export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
   <SidebarSection title="プロフィール" className={className}>
-    <div className={wrapper}>
+    <Flex>
       <img
         className={avatar}
         src={profile.avatar}
@@ -19,9 +21,11 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
         height={64}
         decoding="async"
       />
-      <div>
-        <div className={name}>{profile.name}</div>
-        <div className={speciality}>{profile.speciality}</div>
+      <Flex direction="column" gap="4px">
+        <Text fontWeight="bold">{profile.name}</Text>
+        <Text color={colors.black2} fontSize="xs">
+          {profile.speciality}
+        </Text>
         <div>
           <a
             href={profile.github.url}
@@ -30,7 +34,6 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
             aria-label={`${profile.name}のGitHubプロフィールページ`}
           >
             <img
-              className={icon}
               src={profile.github.icon}
               aria-hidden="true"
               alt="GitHubのロゴ"
@@ -40,35 +43,13 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
             />
           </a>
         </div>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   </SidebarSection>
 );
-
-const wrapper = css`
-  display: flex;
-`;
 
 const avatar = css`
   border-radius: 50%;
   margin-right: 0.5rem;
   object-fit: cover;
-  height: 4rem;
-  width: 4rem;
-`;
-
-const name = css`
-  font-weight: bold;
-  margin-bottom: 4px;
-`;
-
-const speciality = css`
-  font-size: 0.75rem;
-  color: ${colors.black2};
-  margin-bottom: 4px;
-`;
-
-const icon = css`
-  height: 24px;
-  width: 24px;
 `;

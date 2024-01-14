@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { css } from '@linaria/core';
 import { range } from '@/lib/array';
+import { Flex } from '@/components/common/Flex';
 import { PageNumber } from './PageNumber';
 import { PrevPage } from './PrevPage';
 import { NextPage } from './NextPage';
@@ -30,7 +31,7 @@ export const Pagination: FC<PaginationProps> = ({
   );
 
   return (
-    <div className={pagination}>
+    <Flex justifyContent="center" alignItems="center" gap="24px">
       {shouldShowPrev && <PrevPage page={currentPage - 1} />}
       <PageNumber page={1} currentPage={currentPage} />
       {middleStartPage > 2 && <div className={ellipsis}>...</div>}
@@ -42,15 +43,9 @@ export const Pagination: FC<PaginationProps> = ({
       )}
       <PageNumber page={numPages} currentPage={currentPage} />
       {shouldShowNext && <NextPage page={currentPage + 1} />}
-    </div>
+    </Flex>
   );
 };
-
-const pagination = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const ellipsis = css`
   cursor: default;

@@ -3,10 +3,10 @@ import { css } from '@linaria/core';
 import { Post as PostEntity } from '@/types/Post';
 import { Tags } from '@/components/common';
 import { formatDate } from '@/lib/format';
-import { heading1 } from '@/styles/typography';
-import { colors } from '@/styles/color';
+import { colors } from '@/styles/token';
 
 import 'prismjs/themes/prism-tomorrow.css';
+import { Heading } from '@/components/common/Heading';
 
 type PostProps = {
   post: PostEntity;
@@ -16,7 +16,7 @@ export const Post: FC<PostProps> = ({ post }) => {
   return (
     <article className={`${postCss} ${contentGlobal}`}>
       <header className={header}>
-        <h1 className={heading1}>{post.title}</h1>
+        <Heading level={1}>{post.title}</Heading>
         <div className={date}>{formatDate(post.date)}</div>
         <Tags tags={post.tags} />
       </header>
