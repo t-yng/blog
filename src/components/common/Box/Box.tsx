@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { ComponentPropsWithoutRef, FC, PropsWithChildren } from 'react';
 import { styled } from 'linaria/react';
 import { screen } from '@/styles/media';
 import {
@@ -17,7 +17,8 @@ type Props = PropsWithChildren<
   {
     as?: keyof JSX.IntrinsicElements;
     className?: string;
-  } & PaddingProps
+  } & PaddingProps &
+    ComponentPropsWithoutRef<'div'>
 >;
 
 export const Box: FC<Props> = (props: Props) => {
