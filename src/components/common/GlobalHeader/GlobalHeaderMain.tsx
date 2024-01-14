@@ -11,7 +11,7 @@ import { Flex } from '../Flex';
 
 export const GlobalHeaderMain: FC = () => (
   <div className={wrapper}>
-    <Flex justifyContent="center" py="1rem" px="20">
+    <Flex justifyContent="center" py="1rem" px="20px">
       <Link href="/" title={TITLE_LOGO_LINK_TITLE}>
         <img
           src={TITLE_LOGO_IMAGE_URL}
