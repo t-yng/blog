@@ -1,55 +1,43 @@
-import { CSSProperties, FC, PropsWithChildren, createElement } from 'react';
+import {
+  CSSProperties,
+  ComponentPropsWithoutRef,
+  FC,
+  PropsWithChildren,
+} from 'react';
 import { css, cx } from 'linaria';
+import { Box } from '../Box';
 
-type Padding =
-  | CSSProperties['padding']
-  | {
-      sm?: CSSProperties['padding'];
-      md?: CSSProperties['padding'];
-      lg?: CSSProperties['padding'];
-    };
-
-type Props = PropsWithChildren<{
-  as?: keyof JSX.IntrinsicElements;
-  className?: string;
-  direction?: CSSProperties['flexDirection'];
-  justifyContent?: CSSProperties['justifyContent'];
-  alignItems?: CSSProperties['alignItems'];
-  gap?: CSSProperties['gap'];
-  p?: Padding;
-  px?: Padding;
-  py?: Padding;
-}>;
+type Props = PropsWithChildren<
+  {
+    direction?: CSSProperties['flexDirection'];
+    justifyContent?: CSSProperties['justifyContent'];
+    alignItems?: CSSProperties['alignItems'];
+    gap?: CSSProperties['gap'];
+  } & ComponentPropsWithoutRef<typeof Box>
+>;
 
 export const Flex: FC<Props> = ({
-  as = 'div',
   direction: flexDirection,
   justifyContent,
   alignItems,
   gap,
-  p,
-  px,
-  py,
-  className,
   children,
+  className,
+  ...rest
 }) => {
-  return createElement(
-    as,
-    {
-      className: cx(flex, className),
-      style: {
+  return (
+    <Box
+      className={cx(flex, className)}
+      style={{
         '--flex-direction': flexDirection,
         '--justify-content': justifyContent,
         '--align-items': alignItems,
         '--gap': gap,
-        '--padding': p,
-        '--padding-right': px || p || '',
-        '--padding-left': px || p || '',
-        '--padding-top': py || p || '',
-        '--padding-bottom': py || p || '',
-      },
-    },
-    children
+      }}
+      {...rest}
+    >
+      {children}
+    </Box>
   );
 };
 
@@ -59,9 +47,4 @@ const flex = css`
   justify-content: var(--justify-content, initial);
   align-items: var(--align-items, initial);
   gap: var(--gap, initial);
-  padding: var(--padding, initial);
-  padding-top: var(--padding-top, initial);
-  padding-right: var(--padding-right, initial);
-  padding-bottom: var(--padding-bottom, initial);
-  padding-left: var(--padding-left, initial);
 `;
