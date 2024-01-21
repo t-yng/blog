@@ -75,7 +75,7 @@
     "hygen": "6.2.11",
     "identity-obj-proxy": "3.0.0",
     "image-size": "^1.0.0",
-    "jsdom": "23.2.0",
+    "jsdom": "24.0.0",
     "linaria": "4.5.4",
     "lint-staged": "15.2.0",
     "markdown-it": "14.0.0",
