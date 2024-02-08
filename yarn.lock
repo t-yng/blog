@@ -2663,10 +2663,10 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
-"@types/gtag.js@0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.18.tgz#d6bc7cb1acc64ff4f4e4be918d401c53fe9ccf20"
-  integrity sha512-GJxnIvuXuVhKaHfsOdzGipoOoXq72y3mdcncc9h6i6E7nlz89zBEj2wrLM7bqO5Xk9Lm2B94MwdQsSwRlaPSWw==
+"@types/gtag.js@0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.19.tgz#40ebbef85c8b2915df164d16304d3fbdfdaa1a41"
+  integrity sha512-KHoDzrf9rSd0mooKN576PjExpdk/XRrNu4RQnmigsScSTSidwyOUe9kDrHz9UPKjiBrx2QEsSkexbJSgS0j72w==
 
 "@types/has-yarn@^1.0.1":
   version "1.0.1"
@@ -7301,10 +7301,10 @@ linkify-it@^5.0.0:
   dependencies:
     uc.micro "^2.0.0"
 
-lint-staged@15.2.1:
-  version "15.2.1"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-15.2.1.tgz#25beb6e587f54245b20163f5efede073f12c4d1b"
-  integrity sha512-dhwAPnM85VdshybV9FWI/9ghTvMLoQLEXgVMx+ua2DN7mdfzd/tRfoU2yhMcBac0RHkofoxdnnJUokr8s4zKmQ==
+lint-staged@15.2.2:
+  version "15.2.2"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-15.2.2.tgz#ad7cbb5b3ab70e043fa05bff82a09ed286bc4c5f"
+  integrity sha512-TiTt93OPh1OZOsb5B7k96A/ATl2AjIZo+vnzFZ6oHK5FuTk63ByDtxGQpHm+kFETjEWqgkF95M8FRXKR/LEBcw==
   dependencies:
     chalk "5.3.0"
     commander "11.1.0"
