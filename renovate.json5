@@ -14,6 +14,8 @@
   rebaseWhen: 'conflicted',
   // PRのアップデートは設定しているスケジュールのタイミングだけに固定
   updateNotScheduled: false,
+  // updateNotScheduledを有効にするために明示的にスケジュールを設定
+  schedule: "every weekend",
   "prBodyColumns": [
     "Package",
     "Update",
@@ -27,18 +29,6 @@
       "matchPackageNames": ["node"],
       "enabled": false,
     },
-    // {
-    //   "matchUpdateTypes": ["major"],
-    //   "schedule": [
-    //     "after 10:00 on the 1st day of the month",
-    //   ]
-    // },
-    // {
-    //   "matchUpdateTypes": ["minor", "patch"],
-    //   "schedule": [
-    //     "after 10:00 on the 1st day of the 3 month",
-    //   ]
-    // },
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor", "patch"],
@@ -50,6 +40,10 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "minor patch dev dependencies",
       "groupSlug": "minor-patch-dev-dependencies",
+      "automerge": true,
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
       "automerge": true,
     },
     {
