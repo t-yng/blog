@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { GetStaticPropsResult } from 'next';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Layout } from '@/components/common';
 import { PostEntries, Pagination } from '@/components/home';
 import { Post, Tag, SeoMetadata } from '@/types';
@@ -66,7 +66,7 @@ export const getStaticProps = async (): Promise<
   };
 };
 
-const postEntries = css`
-  margin-top: 16px;
-  margin-bottom: 2rem;
-`;
+const postEntries = css({
+  marginTop: '16px',
+  marginBottom: '2rem',
+});

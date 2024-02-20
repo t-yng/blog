@@ -1,7 +1,4 @@
 import { FC } from 'react';
-import { css, cx } from 'linaria';
-import { fontSize } from '@/styles/token';
-import { screen } from '@/styles/media';
 import { Text } from '../Text';
 
 type Props = {
@@ -14,17 +11,11 @@ export const Heading: FC<Props> = ({ level, className, children, ...rest }) => {
   return (
     <Text
       as={`h${level}`}
-      className={cx(level === 1 && heading1, className)}
+      className={className}
+      fontSize={level === 1 ? { base: '2xl', md: '3xl' } : undefined}
       {...rest}
     >
       {children}
     </Text>
   );
 };
-
-const heading1 = css`
-  font-size: ${fontSize['2xl']};
-  ${screen.over('md')} {
-    font-size: ${fontSize['3xl']};
-  }
-`;

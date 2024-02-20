@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
-import { colors } from '@/styles/token';
+
 import { SidebarSection } from './SidebarSection';
 
 interface Tag {
@@ -36,20 +36,19 @@ export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
   </SidebarSection>
 );
 
-const tagsCss = css`
-  list-style: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-`;
+const tagsCss = css({
+  listStyle: 'none',
+  marginTop: 0,
+  marginBottom: 0,
+  paddingLeft: 0,
+});
 
-const tagCss = css`
-  color: ${colors.black2};
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.15rem;
-
-  &:hover {
-    color: ${colors.accent};
-  }
-`;
+const tagCss = css({
+  color: 'black2',
+  marginBottom: '0.5rem',
+  fontSize: 'sm',
+  lineHeight: '1.15rem',
+  '&:hover': {
+    color: 'accent',
+  },
+});

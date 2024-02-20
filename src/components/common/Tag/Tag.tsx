@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { css } from '@linaria/core';
 import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
-import { colors } from '@/styles/token';
+
+import { css } from '@/styled-system/css';
 import { Flex } from '../Flex';
 import { Text } from '../Text/Text';
 
@@ -16,20 +16,20 @@ export const Tag: FC<TagProps> = ({ name }) => (
     decoration={false}
     aria-label={`タグ、${name}`}
   >
-    <Flex alignItems="center" py="4px" px="8px" className={tag}>
-      <Text fontSize="xs" lineHeight="1.5" color={colors.black2}>
+    <Flex align="center" py="4px" px="8px" className={tag}>
+      <Text fontSize="xs" lineHeight="1.5" color="black2">
         {name}
       </Text>
     </Flex>
   </Link>
 );
 
-const tag = css`
-  background-color: ${colors.white};
-  border: 1px solid ${colors.black4};
-  border-radius: 4px;
+const tag = css({
+  backgroundColor: 'white',
+  border: `1px solid token(colors.black4)`,
+  borderRadius: 4,
 
-  &:hover {
-    border-color: ${colors.black2};
-  }
-`;
+  '&:hover': {
+    borderColor: 'black2',
+  },
+});

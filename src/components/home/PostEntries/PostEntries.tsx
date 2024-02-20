@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Post } from '@/types';
-import { colors } from '@/styles/token';
+
 import { PostEntry } from '../PostEntry';
 
 type PostEntriesProps = {
@@ -20,13 +20,13 @@ export const PostEntries: FC<PostEntriesProps> = ({ posts, className }) => (
   </div>
 );
 
-const postEntries = css`
-  background-color: ${colors.white};
-`;
+const postEntries = css({
+  backgroundColor: 'white',
+});
 
-const border = css`
-  border: none;
-  height: 1px;
-  background-color: ${colors.black4};
-  margin: 0;
-`;
+const border = css({
+  border: 'none',
+  height: '1px',
+  backgroundColor: 'black4',
+  margin: 0,
+});

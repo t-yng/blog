@@ -4,7 +4,7 @@ import {
   GetStaticPropsResult,
 } from 'next';
 import { FC } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Layout } from '@/components/common';
 import { PostEntries } from '@/components/home';
 import { siteMetadata } from '@/config/siteMetadata';
@@ -30,9 +30,9 @@ const TagPostsPage: FC<TagPostsPageProps> = ({
   </Layout>
 );
 
-export const postEntries = css`
-  margin-top: 16px;
-`;
+export const postEntries = css({
+  marginTop: '16px',
+});
 
 export default TagPostsPage;
 

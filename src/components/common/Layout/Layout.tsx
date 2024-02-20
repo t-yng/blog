@@ -1,9 +1,8 @@
 import { FC, PropsWithChildren } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { profile } from '@/config/profile';
 import { Tag, SeoMetadata } from '@/types';
 import { GlobalHeader, Sidebar, Seo } from '@/components/common';
-import { colors } from '@/styles/token';
 import { Heading } from '../Heading';
 
 export type LayoutProps = PropsWithChildren<{
@@ -28,7 +27,6 @@ export const Layout: FC<LayoutProps> = ({
 }) => {
   return (
     <div
-      className={globals}
       style={
         {
           '--layout-main-pt': pt,
@@ -60,48 +58,26 @@ export const Layout: FC<LayoutProps> = ({
   );
 };
 
-const titleCss = css`
-  padding-left: 1rem;
-`;
+const titleCss = css({
+  paddingLeft: '1rem',
+});
 
-export const main = css`
-  display: grid;
-  grid-template-columns: auto 240px;
-  grid-gap: 3rem;
-  margin: 0 auto;
-  max-width: 1152px;
-  padding-top: var(--layout-main-pt);
-  padding-bottom: var(--layout-main-pb);
+export const main = css({
+  display: 'grid',
+  gridTemplateColumns: 'auto 240px',
+  gridGap: '3rem',
+  margin: '0 auto',
+  maxWidth: '1152px',
+  paddingTop: 'var(--layout-main-pt)',
+  paddingBottom: 'var(--layout-main-pb)',
 
-  @media (max-width: 850px) {
-    grid-template-columns: 1fr;
-    padding-top: var(--layout-main-mpt);
-    padding-bottom: var(--layout-main-mpb);
-  }
-`;
+  '@media (max-width: 850px)': {
+    gridTemplateColumns: '1fr',
+    paddingTop: 'var(--layout-main-mpt)',
+    paddingBottom: 'var(--layout-main-mpb)',
+  },
+});
 
-export const content = css`
-  overflow: auto;
-`;
-
-const globals = css`
-  :global() {
-    body {
-      background-color: ${colors.background};
-      color: ${colors.textBlack};
-      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
-        'Hiragino Sans', Meiryo, sans-serif;
-      margin: 0;
-    }
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-    }
-
-    p,
-    ul {
-      line-height: 1.8;
-    }
-  }
-`;
+export const content = css({
+  overflow: 'auto',
+});
