@@ -136,3 +136,7 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+## Panda
+styled-system
+styled-system-studio

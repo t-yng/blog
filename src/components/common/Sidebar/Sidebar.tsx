@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Tag } from '@/types';
 import { Profile } from '@/config/profile';
 import { SidebarTags } from './SidebarTags';
@@ -12,11 +12,11 @@ type SidebarProps = {
 
 export const Sidebar: FC<SidebarProps> = ({ tags, profile }) => (
   <aside>
-    <SidebarProfile className={section} profile={profile} />
+    <SidebarProfile className={profileStyle} profile={profile} />
     <SidebarTags tags={tags} />
   </aside>
 );
 
-export const section = css`
-  margin-bottom: 2rem;
-`;
+export const profileStyle = css({
+  mb: '2rem',
+});

@@ -3,9 +3,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withLinaria = require('next-linaria');
-
 /** @type {import('next').NextConfig} */
 const config = {
   webpack: (config, { isServer }) => {
@@ -20,4 +17,4 @@ const config = {
   pageExtensions: ['tsx'],
 };
 
-module.exports = withBundleAnalyzer(withLinaria(config));
+module.exports = withBundleAnalyzer(config);

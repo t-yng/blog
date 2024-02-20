@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { range } from '@/lib/array';
 import { Flex } from '@/components/common/Flex';
 import { PageNumber } from './PageNumber';
@@ -47,6 +47,6 @@ export const Pagination: FC<PaginationProps> = ({
   );
 };
 
-const ellipsis = css`
-  cursor: default;
-`;
+const ellipsis = css({
+  cursor: 'default',
+});

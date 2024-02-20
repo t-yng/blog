@@ -1,26 +1,19 @@
 import { FC } from 'react';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Link } from '@/components/common/Link/Link';
 import { Tags } from '@/components/common/Tags/Tags';
 import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
-import { colors } from '@/styles/token';
+
 import { Text } from '@/components/common/Text';
-import { Box } from '@/components/common/Box';
+import { Container } from '@/components/common/Container';
 
 interface PostEntryProps {
   post: Post;
 }
 
 export const PostEntry: FC<PostEntryProps> = ({ post }) => (
-  <Box
-    py="20px"
-    px="24px"
-    className={css`
-      position: relative;
-    `}
-    data-testid="post-entry"
-  >
+  <Container py="20px" px="24px" data-testid="post-entry">
     <Link
       href={`/post/${post.slug}`}
       prefetch={false}
@@ -28,33 +21,33 @@ export const PostEntry: FC<PostEntryProps> = ({ post }) => (
       aria-labelledby={`post-title-${post.id}`}
       title={post.title}
     />
-    <Text as="h2" fontSize={{ sm: 'md', md: 'xl' }}>
+    <Text as="h2" fontSize={{ base: 'md', md: 'xl' }}>
       {post.title}
     </Text>
     <time className={date}>
-      <Text as="span" color={colors.black3} fontSize="sm">
+      <Text as="span" color="black3" fontSize="sm">
         {formatDate(post.date)}
       </Text>
     </time>
     <Tags tags={post.tags} className={tags} />
-  </Box>
+  </Container>
 );
 
-const date = css`
-  display: block;
-  margin-top: 4px;
-`;
+const date = css({
+  display: 'block',
+  marginTop: '4px',
+});
 
-const tags = css`
-  position: relative;
-  margin-top: 8px;
-`;
+const tags = css({
+  position: 'relative',
+  marginTop: '8px',
+});
 
-const linkOverlay = css`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-`;
+const linkOverlay = css({
+  display: 'block',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+});

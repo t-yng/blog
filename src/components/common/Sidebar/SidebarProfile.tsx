@@ -1,8 +1,8 @@
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Profile } from '@/config/profile';
-import { colors } from '@/styles/token';
+
 import { Flex } from '../Flex';
-import { Text } from '../Text/Text';
+import { Text } from '../Text';
 import { SidebarSection } from './SidebarSection';
 
 export interface SidebarProfileProps {
@@ -23,7 +23,7 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
       />
       <Flex direction="column" gap="4px">
         <Text fontWeight="bold">{profile.name}</Text>
-        <Text color={colors.black2} fontSize="xs">
+        <Text color="black2" fontSize="xs">
           {profile.speciality}
         </Text>
         <div>
@@ -48,8 +48,8 @@ export const SidebarProfile = ({ profile, className }: SidebarProfileProps) => (
   </SidebarSection>
 );
 
-const avatar = css`
-  border-radius: 50%;
-  margin-right: 0.5rem;
-  object-fit: cover;
-`;
+const avatar = css({
+  borderRadius: '50%',
+  marginRight: '0.5rem',
+  objectFit: 'cover',
+});

@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
-import { css } from '@linaria/core';
-import { colors } from '@/styles/token';
-import { Box } from '../Box';
+import { css } from '@/styled-system/css';
+
+import { Container } from '../Container';
 
 type SidebarSectionProps = PropsWithChildren<{
   title: string;
@@ -15,19 +15,19 @@ export const SidebarSection: FC<SidebarSectionProps> = ({
 }) => (
   <section className={`${main} ${className}`}>
     <header className={header}>{title}</header>
-    <Box pt="10px" pr="4px" pb="6px" pl="12px">
+    <Container pt="10px" pr="4px" pb="6px" pl="12px">
       {children}
-    </Box>
+    </Container>
   </section>
 );
 
-const main = css`
-  background-color: ${colors.white};
-`;
+const main = css({
+  backgroundColor: 'white',
+});
 
-const header = css`
-  background-color: ${colors.main};
-  color: ${colors.white};
-  font-weight: bold;
-  padding: 4px 12px;
-`;
+const header = css({
+  backgroundColor: 'main',
+  color: 'white',
+  fontWeight: 'bold',
+  padding: '4px 12px',
+});

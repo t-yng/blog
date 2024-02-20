@@ -4,7 +4,7 @@ import {
   GetStaticProps,
   GetStaticPropsResult,
 } from 'next';
-import { css } from '@linaria/core';
+import { css } from '@/styled-system/css';
 import { Layout } from '@/components/common';
 import { Pagination, PostEntries } from '@/components/home';
 import {
@@ -42,10 +42,10 @@ const IndexPage: FC<PagePageProps> = ({
   );
 };
 
-export const postEntries = css`
-  margin-top: 16px;
-  margin-bottom: 2rem;
-`;
+export const postEntries = css({
+  marginTop: '16px',
+  marginBottom: '2rem',
+});
 
 export default IndexPage;
 
