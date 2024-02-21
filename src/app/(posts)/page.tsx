@@ -1,12 +1,10 @@
-import { PageBody } from '@/components/PageBody';
 import {
   PAGINATION_POST_COUNT_PER_PAGE,
   PAGINATION_MIDDLE_PAGES,
 } from '@/constants';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { PostRepository, TagRepository } from '@/repositories';
-import { Container } from '@/styled-system/jsx';
-import { PostEntries, Pagination } from './_components';
+import { PostsPageBody } from './_components';
 
 const getPosts = () => {
   const postsRepository: PostRepository = new PostRepository();
@@ -28,11 +26,11 @@ export default function HomePage() {
   };
 
   return (
-    <PageBody title="記事一覧" tags={tags}>
-      <Container mt="16px" mb="32px">
-        <PostEntries posts={posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE)} />
-      </Container>
-      <Pagination {...pagination} />
-    </PageBody>
+    <PostsPageBody
+      title="記事一覧"
+      posts={posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE)}
+      tags={tags}
+      pagination={pagination}
+    />
   );
 }

@@ -6,7 +6,7 @@ import {
 import { FC } from 'react';
 import { css } from '@/styled-system/css';
 import { Layout } from '@/components/common';
-import { PostEntries } from '@/app/(home)/_components';
+import { PostEntries } from '@/app/(posts)/_components';
 import { siteMetadata } from '@/config/siteMetadata';
 import { Post, SeoMetadata, Tag } from '@/types';
 import { sortPostsByDateDesc } from '@/lib/sort';
