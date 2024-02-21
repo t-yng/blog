@@ -6,7 +6,7 @@ import {
 } from 'next';
 import { css } from '@/styled-system/css';
 import { Layout } from '@/components/common';
-import { Pagination, PostEntries } from '@/components/home';
+import { Pagination, PostEntries } from '@/app/(home)/_components';
 import {
   PAGINATION_POST_COUNT_PER_PAGE,
   PAGINATION_MIDDLE_PAGES,

@@ -4,7 +4,7 @@ import path, { join } from 'path';
 import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
 import Prism from 'prismjs';
-import loadLanguages from 'prismjs/components/index';
+// import loadLanguages from 'prismjs/components/index';
 import urlJoin from 'url-join';
 import sizeOf from 'image-size';
 import cpx from 'cpx';
@@ -12,20 +12,23 @@ import { Post } from '@/types';
 import { profile } from '@/config/profile';
 import { NotFoundPostError } from './error';
 
-loadLanguages([
-  'typescript',
-  'javascript',
-  'js',
-  'css',
-  'rust',
-  'html',
-  'json',
-  'shell',
-  'bash',
-  'shell-session',
-  'yaml',
-  'tsx',
-]);
+// FIXME: loadLanguagesを使うとビルド時にエラーが発生するためコメントアウト
+//         cannot find module './prism-markup'
+// loadLanguages([
+//   'typescript',
+//   'javascript',
+//   'js',
+//   'css',
+//   'rust',
+//   'html',
+//   'json',
+//   'shell',
+//   'bash',
+//   'shell-session',
+//   'yaml',
+//   'tsx',
+//   'markup',
+// ]);
 
 export class PostRepository {
   getAllPosts(): Post[] {
