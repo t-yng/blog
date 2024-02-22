@@ -4,6 +4,7 @@ import {
 } from '@/constants';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { PostRepository, TagRepository } from '@/repositories';
+import { GlobalHeader } from '@/components/common/GlobalHeader';
 import { PostsPageBody } from './_components';
 
 const getPosts = () => {
@@ -26,11 +27,14 @@ export default function HomePage() {
   };
 
   return (
-    <PostsPageBody
-      title="記事一覧"
-      posts={posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE)}
-      tags={tags}
-      pagination={pagination}
-    />
+    <>
+      <GlobalHeader />
+      <PostsPageBody
+        title="記事一覧"
+        posts={posts.slice(0, PAGINATION_POST_COUNT_PER_PAGE)}
+        tags={tags}
+        pagination={pagination}
+      />
+    </>
   );
 }

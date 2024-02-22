@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 import {
   PAGINATION_POST_COUNT_PER_PAGE,
   PAGINATION_MIDDLE_PAGES,
@@ -9,6 +10,7 @@ import { PostRepository, TagRepository } from '@/repositories';
 import { range } from '@/lib/array';
 import { siteMetadata } from '@/config/siteMetadata';
 import { PostsPageBody } from '@/app/(posts)/_components';
+import { GlobalHeader } from '@/components/common/GlobalHeader';
 
 type Props = {
   params: { page: string };
@@ -20,15 +22,15 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-const getPosts = () => {
+const getPosts = cache(() => {
   const postRepository: PostRepository = new PostRepository();
   return sortPostsByDateDesc(postRepository.getAllPosts());
-};
+});
 
-const getTags = () => {
+const getTags = cache(() => {
   const tagRepository = new TagRepository();
   return tagRepository.getAllTags();
-};
+});
 
 export function generateStaticParams() {
   const repository = new PostRepository();
@@ -56,14 +58,17 @@ export default function PostsPage({ params }: Props) {
   };
 
   return (
-    <PostsPageBody
-      title="記事一覧"
-      posts={posts.slice(
-        (page - 1) * PAGINATION_POST_COUNT_PER_PAGE,
-        page * PAGINATION_POST_COUNT_PER_PAGE
-      )}
-      tags={tags}
-      pagination={pagination}
-    />
+    <>
+      <GlobalHeader />
+      <PostsPageBody
+        title="記事一覧"
+        posts={posts.slice(
+          (page - 1) * PAGINATION_POST_COUNT_PER_PAGE,
+          page * PAGINATION_POST_COUNT_PER_PAGE
+        )}
+        tags={tags}
+        pagination={pagination}
+      />
+    </>
   );
 }

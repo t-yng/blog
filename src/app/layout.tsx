@@ -7,7 +7,6 @@ import { HighlightInit } from '@highlight-run/next/client';
 import Script from 'next/script';
 import { gtagJsUrl, trackingCode } from '@/lib/gtag';
 // import { usePageTracking } from '@/hooks/usePageTracking';
-import { GlobalHeader } from '@/components/common/GlobalHeader';
 import { siteMetadata } from '@/config/siteMetadata';
 
 const HIGH_LIGHT_INIT_PROJECT_ID = 'mem8kyg2';
@@ -58,7 +57,6 @@ export default function RootLayout({
             urlBlocklist: [],
           }}
         />
-        <GlobalHeader />
         {children}
       </body>
     </html>
