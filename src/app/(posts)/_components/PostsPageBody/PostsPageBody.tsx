@@ -9,7 +9,7 @@ type Props = {
   title: string;
   posts: Post[];
   tags: Tag[];
-  pagination: ComponentProps<typeof Pagination>;
+  pagination?: ComponentProps<typeof Pagination>;
 };
 
 export const PostsPageBody: FC<Props> = ({
@@ -23,7 +23,7 @@ export const PostsPageBody: FC<Props> = ({
       <Container mt="16px" mb="32px">
         <PostEntries posts={posts} />
       </Container>
-      <Pagination {...pagination} />
+      {pagination && <Pagination {...pagination} />}
     </PageBody>
   );
 };
