@@ -3,8 +3,6 @@ import { css, cx } from '@/styled-system/css';
 import { Post as PostEntity } from '@/types/Post';
 import { Tags } from '@/components/common';
 import { formatDate } from '@/lib/format';
-
-import 'prismjs/themes/prism-tomorrow.css';
 import { Heading } from '@/components/common/Heading';
 
 type PostProps = {
@@ -82,6 +80,10 @@ const content = css({
     fontSize: '0.875rem !important',
     background: 'hsl(233deg 16% 22%) !important',
     marginTop: '1rem !important',
+  },
+  '& pre:has(code)': {
+    padding: '1rem !important',
+    overflow: 'auto !important',
   },
   '& code': {
     fontSize: '0.875rem !important',
