@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { PostRepository, TagRepository } from '@/repositories';
 import { PageBody } from '@/components/PageBody';
 import { siteMetadata } from '@/config/siteMetadata';
-import { GlobalHeader } from '@/components/common/GlobalHeader';
+import { GlobalHeader } from '@/components/GlobalHeader';
 import { Post } from './_components/Post';
 
 type Props = {

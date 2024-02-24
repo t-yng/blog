@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Tag } from '@/components/common';
 import { Flex } from '../Flex';
+import { Tag } from './Tag';
 
 interface TagsProps {
   tags: string[];

@@ -10,7 +10,7 @@ import { PostRepository, TagRepository } from '@/repositories';
 import { range } from '@/lib/array';
 import { siteMetadata } from '@/config/siteMetadata';
 import { PostsPageBody } from '@/app/(posts)/_components';
-import { GlobalHeader } from '@/components/common/GlobalHeader';
+import { GlobalHeader } from '@/components/GlobalHeader';
 
 type Props = {
   params: { page: string };

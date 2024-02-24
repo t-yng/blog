@@ -3,9 +3,9 @@ import { profile } from '@/config/profile';
 import { css } from '@/styled-system/css';
 import { Tag } from '@/types';
 import { StyleProps } from '@/styled-system/types';
-import { Heading } from '../common/Heading';
-import { Sidebar } from '../common/Sidebar';
-import { Grid } from '../common/Grid';
+import { Heading } from '../Heading';
+import { Sidebar } from '../Sidebar';
+import { Grid } from '../Grid';
 
 type Props = PropsWithChildren<{
   title?: string;

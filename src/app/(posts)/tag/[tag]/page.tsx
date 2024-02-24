@@ -3,7 +3,7 @@ import { PostsPageBody } from '@/app/(posts)/_components';
 import { siteMetadata } from '@/config/siteMetadata';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { PostRepository, TagRepository } from '@/repositories';
-import { GlobalHeader } from '@/components/common';
+import { GlobalHeader } from '@/components/GlobalHeader';
 
 type Props = {
   params: { tag: string };

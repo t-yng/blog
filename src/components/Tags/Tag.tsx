@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import { Link } from '@/components/common';
 import { createTagLink } from '@/lib/link';
-
 import { css } from '@/styled-system/css';
+import { Link } from '../Link';
 import { Flex } from '../Flex';
 import { Text } from '../Text/Text';
 

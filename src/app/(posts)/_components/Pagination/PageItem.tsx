@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { css, cx } from '@/styled-system/css';
-import { Flex } from '@/components/common/Flex';
-import { Text } from '@/components/common/Text';
+import { Flex } from '@/components/Flex';
+import { Text } from '@/components/Text';
 
 type PageItemProps = PropsWithChildren<{
   highlight?: boolean;

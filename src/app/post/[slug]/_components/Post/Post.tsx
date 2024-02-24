@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { css, cx } from '@/styled-system/css';
 import { Post as PostEntity } from '@/types/Post';
-import { Tags } from '@/components/common';
+import { Tags } from '@/components/Tags';
 import { formatDate } from '@/lib/format';
-import { Heading } from '@/components/common/Heading';
+import { Heading } from '@/components/Heading';
 
 type PostProps = {
   post: PostEntity;

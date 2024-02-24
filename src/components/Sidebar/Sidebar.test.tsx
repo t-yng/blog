@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { profile } from '../../../config/profile';
+import { profile } from '../../config/profile';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {

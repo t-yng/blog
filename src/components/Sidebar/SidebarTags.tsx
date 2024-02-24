@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { css } from '@/styled-system/css';
-import { Link } from '@/components/common';
+import { Link } from '@/components/Link';
 import { createTagLink } from '@/lib/link';
 
 import { SidebarSection } from './SidebarSection';

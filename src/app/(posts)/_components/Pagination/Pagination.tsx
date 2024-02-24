@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { css } from '@/styled-system/css';
 import { range } from '@/lib/array';
-import { Flex } from '@/components/common/Flex';
+import { Flex } from '@/components/Flex';
 import { PageNumber } from './PageNumber';
 import { PrevPage } from './PrevPage';
 import { NextPage } from './NextPage';

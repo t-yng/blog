@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { css } from '@/styled-system/css';
-import { Link } from '@/components/common/Link/Link';
-import { Tags } from '@/components/common/Tags/Tags';
+import { Link } from '@/components/Link/Link';
+import { Tags } from '@/components/Tags/Tags';
 import { Post } from '@/types/Post';
 import { formatDate } from '@/lib/format';
 
-import { Text } from '@/components/common/Text';
-import { Container } from '@/components/common/Container';
+import { Text } from '@/components/Text';
+import { Container } from '@/components/Container';
 
 interface PostEntryProps {
   post: Post;

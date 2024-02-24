@@ -4,7 +4,7 @@ import {
 } from '@/constants';
 import { sortPostsByDateDesc } from '@/lib/sort';
 import { PostRepository, TagRepository } from '@/repositories';
-import { GlobalHeader } from '@/components/common/GlobalHeader';
+import { GlobalHeader } from '@/components/GlobalHeader';
 import { PostsPageBody } from './_components';
 
 const getPosts = () => {

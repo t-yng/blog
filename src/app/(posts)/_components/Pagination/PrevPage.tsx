@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from '@/components/common';
+import { Link } from '@/components/Link';
 import { PageItem } from './PageItem';
 
 type PrevPageProps = {
