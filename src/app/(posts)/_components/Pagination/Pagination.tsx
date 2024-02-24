@@ -31,7 +31,12 @@ export const Pagination: FC<PaginationProps> = ({
   );
 
   return (
-    <Flex justifyContent="center" alignItems="center" gap="24px">
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      gap="24px"
+      data-testid="pagination"
+    >
       {shouldShowPrev && <PrevPage page={currentPage - 1} />}
       <PageNumber page={1} currentPage={currentPage} />
       {middleStartPage > 2 && <div className={ellipsis}>...</div>}
