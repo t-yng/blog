@@ -29,6 +29,7 @@ export default defineConfig({
         `src/**/index.ts`,
         `src/types/`,
         `src/**/page.tsx`,
+        `src/**/layout.tsx`,
       ],
     },
   },
