@@ -28,7 +28,7 @@ export default defineConfig({
         `src/constants/`,
         `src/**/index.ts`,
         `src/types/`,
-        `src/pages/`,
+        `src/**/page.tsx`,
       ],
     },
   },

@@ -3,29 +3,17 @@ import crypto from 'crypto';
 import path, { join } from 'path';
 import matter from 'gray-matter';
 import MarkdownIt from 'markdown-it';
-import Prism from 'prismjs';
-import loadLanguages from 'prismjs/components/index';
 import urlJoin from 'url-join';
 import sizeOf from 'image-size';
 import cpx from 'cpx';
+import Shiki from '@shikijs/markdown-it';
 import { Post } from '@/types';
 import { profile } from '@/config/profile';
 import { NotFoundPostError } from './error';
 
-loadLanguages([
-  'typescript',
-  'javascript',
-  'js',
-  'css',
-  'rust',
-  'html',
-  'json',
-  'shell',
-  'bash',
-  'shell-session',
-  'yaml',
-  'tsx',
-]);
+const markdownItShiki = await Shiki({
+  theme: 'dark-plus',
+});
 
 export class PostRepository {
   getAllPosts(): Post[] {
@@ -46,18 +34,13 @@ export class PostRepository {
     const markdown = matter(fileContent);
     const { data } = markdown;
     let { content } = markdown;
+
     const md = new MarkdownIt({
       html: true,
       breaks: true,
-      highlight: (str, lang) => {
-        if (lang && Prism.languages[lang]) {
-          const html = Prism.highlight(str, Prism.languages[lang], lang);
-
-          return `<pre class="language-${lang}"><code class="language-${lang}">${html}</code></pre>`;
-        }
-        return '';
-      },
     });
+
+    md.use(markdownItShiki);
 
     // TODO: imgタグにlazy loading の設定を追加
     md.renderer.rules.image = (tokens, idx, options, _env, self) => {
