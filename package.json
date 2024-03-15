@@ -51,9 +51,9 @@
     "@markuplint/jsx-parser": "4.3.0",
     "@markuplint/react-spec": "4.1.0",
     "@next/bundle-analyzer": "14.1.3",
-    "@pandacss/dev": "0.34.3",
+    "@pandacss/dev": "0.35.0",
     "@playwright/test": "1.42.1",
-    "@shikijs/markdown-it": "1.1.7",
+    "@shikijs/markdown-it": "1.2.0",
     "@swc/core": "^1.2.117",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/react": "14.2.1",
@@ -86,6 +86,6 @@
     "ts-mockito": "2.6.1",
     "typescript": "5.4.2",
     "url-join": "5.0.0",
-    "vitest": "1.3.1"
+    "vitest": "1.4.0"
   }
 }
