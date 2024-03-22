@@ -50,8 +50,8 @@
   "devDependencies": {
     "@markuplint/jsx-parser": "4.3.0",
     "@markuplint/react-spec": "4.1.0",
-    "@next/bundle-analyzer": "14.1.3",
-    "@pandacss/dev": "0.35.0",
+    "@next/bundle-analyzer": "14.1.4",
+    "@pandacss/dev": "0.36.0",
     "@playwright/test": "1.42.1",
     "@shikijs/markdown-it": "1.2.0",
     "@swc/core": "^1.2.117",
@@ -80,11 +80,11 @@
     "image-size": "^1.0.0",
     "jsdom": "24.0.0",
     "lint-staged": "15.2.2",
-    "markdown-it": "14.0.0",
+    "markdown-it": "14.1.0",
     "markuplint": "4.3.0",
     "prettier": "3.2.5",
     "ts-mockito": "2.6.1",
-    "typescript": "5.4.2",
+    "typescript": "5.4.3",
     "url-join": "5.0.0",
     "vitest": "1.4.0"
   }
