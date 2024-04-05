@@ -51,7 +51,7 @@
     "@markuplint/jsx-parser": "4.5.0",
     "@markuplint/react-spec": "4.3.0",
     "@next/bundle-analyzer": "14.1.4",
-    "@pandacss/dev": "0.37.1",
+    "@pandacss/dev": "0.37.2",
     "@playwright/test": "1.43.0",
     "@shikijs/markdown-it": "1.2.4",
     "@swc/core": "^1.2.117",
