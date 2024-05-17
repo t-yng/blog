@@ -12,16 +12,16 @@
     "start": "next start",
     "bundle-analyze": "ANALYZE=true next build",
     "test": "vitest run",
-    "test:diff": "yarn test --changed=origin/main",
-    "test:coverage": "yarn test --coverage",
+    "test:diff": "bun run test --changed=origin/main",
+    "test:coverage": "bun run test --coverage",
     "test:e2e": "playwright test",
-    "test:update-snapshots": "yarn test:e2e --update-snapshots",
-    "lint:all": "eslint --ext ts,tsx ./ && yarn lint:html",
+    "test:update-snapshots": "bun run test:e2e --update-snapshots",
+    "lint:all": "eslint --ext ts,tsx ./ && bun run lint:html",
     "lint:html": "markuplint -p \"./src/**/*.tsx\"",
     "lint:fix": "eslint --fix --ext ts,tsx ./",
     "type-check": "tsc",
     "panda:codegen": "panda codegen --clean -c src/styles/panda.config.ts",
-    "prepare": "husky install && yarn panda:codegen"
+    "prepare": "husky install && bun run panda:codegen"
   },
   "engines": {
     "node": ">=20"
