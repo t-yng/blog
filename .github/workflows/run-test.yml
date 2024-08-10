@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: "1.x"
+          bun-version: latest
       - name: install dependencies
         run: bun install --no-progress
       - name: lint
