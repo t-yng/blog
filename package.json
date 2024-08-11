@@ -38,12 +38,12 @@
     ]
   },
   "dependencies": {
-    "@highlight-run/next": "7.3.7",
-    "@highlight-run/react": "3.2.1",
-    "date-fns": "3.3.1",
+    "@highlight-run/next": "7.5.18",
+    "@highlight-run/react": "3.2.5",
+    "date-fns": "3.6.0",
     "gray-matter": "4.0.3",
-    "highlight.run": "8.4.1",
-    "next": "14.1.0",
+    "highlight.run": "8.13.0",
+    "next": "14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
