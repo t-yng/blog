@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@highlight-run/next": "7.5.18",
-    "@highlight-run/react": "4.0.0",
+    "@highlight-run/react": "5.0.4",
     "date-fns": "3.6.0",
     "gray-matter": "4.0.3",
     "highlight.run": "8.13.0",
