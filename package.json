@@ -21,7 +21,7 @@
     "lint:fix": "eslint src --fix",
     "type-check": "tsc",
     "panda:codegen": "panda codegen --clean -c src/styles/panda.config.ts",
-    "prepare": "husky install && bun run panda:codegen"
+    "prepare": "husky && bun run panda:codegen"
   },
   "engines": {
     "node": ">=20"
