@@ -87,5 +87,8 @@
     "typescript": "6.0.3",
     "url-join": "5.0.0",
     "vitest": "4.1.7"
+  },
+  "resolutions": {
+    "estree-walker": "npm:@benpsnyder/estree-walker@3.0.3"
   }
 }
