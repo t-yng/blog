@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import { profile } from '../../config/profile';
 import { Sidebar } from './Sidebar';
 

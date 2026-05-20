@@ -7,9 +7,9 @@ import { GlobalHeader } from '@/components/GlobalHeader';
 import { Post } from './_components/Post';
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const getPost = cache((slug: string) => {
@@ -33,8 +33,10 @@ export const generateStaticParams = () => {
   }));
 };
 
-export const generateMetadata = ({ params }: Props): Metadata => {
-  const slug = decodeURI(params.slug);
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const slug = decodeURI((await params).slug);
   const post = getPost(slug);
 
   // "/"が含まれているとエラーが発生するのでエスケープする
@@ -63,8 +65,8 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   };
 };
 
-export default function PostPage({ params }: Props) {
-  const slug = decodeURI(params.slug);
+export default async function PostPage({ params }: Props) {
+  const slug = decodeURI((await params).slug);
   const post = getPost(slug);
   const tags = getTags();
 

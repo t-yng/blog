@@ -1,11 +1,11 @@
-import { FC } from 'react';
 import { Text } from '../Text';
+import type { ComponentProps, FC, ReactNode } from 'react';
 
 type Props = {
   level: 1 | 2 | 3 | 4 | 5 | 6;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
-} & React.ComponentProps<typeof Text>;
+} & ComponentProps<typeof Text>;
 
 export const Heading: FC<Props> = ({ level, className, children, ...rest }) => {
   return (

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { cache } from 'react';
 import { PostsPageBody } from '@/app/(posts)/_components';
 import { siteMetadata } from '@/config/siteMetadata';
@@ -6,12 +7,16 @@ import { PostRepository, TagRepository } from '@/repositories';
 import { GlobalHeader } from '@/components/GlobalHeader';
 
 type Props = {
-  params: { tag: string };
+  params: Promise<{ tag: string }>;
 };
 
-export const generateMetadata = ({ params }: Props) => {
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const tag = decodeURI((await params).tag);
+
   return {
-    title: `${params.tag}の記事一覧 | ${siteMetadata.title}`,
+    title: `${tag}の記事一覧 | ${siteMetadata.title}`,
   };
 };
 
@@ -34,8 +39,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function TagPostsPage({ params }: Props) {
-  const tag = decodeURI(params.tag);
+export default async function TagPostsPage({ params }: Props) {
+  const tag = decodeURI((await params).tag);
   const [posts, tags] = [getPosts(tag), getTags()];
 
   return (

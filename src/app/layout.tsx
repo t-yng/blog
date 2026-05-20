@@ -1,8 +1,9 @@
-import '@/styles/global.css';
 import { Metadata } from 'next';
 import Script from 'next/script';
-import { gtagJsUrl, trackingCode } from '@/lib/gtag';
 import { siteMetadata } from '@/config/siteMetadata';
+import { gtagJsUrl, trackingCode } from '@/lib/gtag';
+import type { ReactNode } from 'react';
+import '@/styles/global.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://t-yng.jp'),
   title: siteMetadata.title,
@@ -10,11 +11,7 @@ export const metadata: Metadata = {
   description: siteMetadata.description,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       {/* Global Site Tag (gtag.js) - Google Analytics */}

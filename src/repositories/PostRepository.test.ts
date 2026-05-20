@@ -1,24 +1,17 @@
 import { join } from 'path';
 import { load } from 'cheerio';
+import cpx from 'cpx';
 import { instance, mock, when } from 'ts-mockito';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { profile } from '@/config/profile';
 import { Post } from '@/types';
 import { PostRepository } from './PostRepository';
 import { NotFoundPostError } from './error';
-import type cpx from 'cpx';
-
-vi.mock('cpx', async () => {
-  // publicディレクトリに画像をコピーする処理をモック
-  // WARNING: VSCodeの拡張機能でテスト実行すると正常にモックされない
-  const actual = await vi.importActual<typeof cpx>('cpx');
-  return {
-    ...actual,
-    copySync: vi.fn(),
-  };
-});
 
 describe('PostRepository', () => {
   beforeAll(() => {
+    // 画像コピーの副作用を防止
+    vi.spyOn(cpx, 'copySync').mockImplementation(() => undefined);
     Object.defineProperty(PostRepository, 'postsDirectory', {
       value: () => join(__dirname, 'test', 'content', 'posts'),
     });

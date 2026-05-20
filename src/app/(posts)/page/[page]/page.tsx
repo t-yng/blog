@@ -13,12 +13,14 @@ import { PostsPageBody } from '@/app/(posts)/_components';
 import { GlobalHeader } from '@/components/GlobalHeader';
 
 type Props = {
-  params: { page: string };
+  params: Promise<{ page: string }>;
 };
 
-export function generateMetadata({ params }: Props): Metadata {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const page = (await params).page;
+
   return {
-    title: `記事一覧 ${params.page}ページ目 | ${siteMetadata.title}`,
+    title: `記事一覧 ${page}ページ目 | ${siteMetadata.title}`,
   };
 }
 
@@ -43,8 +45,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PostsPage({ params }: Props) {
-  const page = Number(params.page);
+export default async function PostsPage({ params }: Props) {
+  const page = Number((await params).page);
   if (isNaN(page)) {
     return notFound();
   }

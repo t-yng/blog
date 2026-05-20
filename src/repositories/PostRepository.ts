@@ -58,7 +58,7 @@ export class PostRepository {
         }
 
         // CLS対策のため画像のサイズを取得して設定
-        const dimensions = sizeOf(imagePath);
+        const dimensions = sizeOf(fs.readFileSync(imagePath));
         if (dimensions.width && dimensions.height) {
           token.attrSet('width', dimensions.width.toString());
           token.attrSet('height', dimensions.height.toString());

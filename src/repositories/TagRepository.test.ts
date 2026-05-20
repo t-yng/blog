@@ -1,22 +1,23 @@
 import { instance, mock, when } from 'ts-mockito';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Post } from '@/types';
+import { PostRepository } from './PostRepository';
 import { TagRepository } from './TagRepository';
 
-vi.mock('./PostRepository.ts', () => {
-  const mockPosts = [...Array(2)].map(() => mock<Post>());
-  when(mockPosts[0].tags).thenReturn(['フロントエンド', 'TypeScript']);
-  when(mockPosts[1].tags).thenReturn(['サーバー', 'TypeScript']);
-
-  const PostRepository = vi.fn();
-  PostRepository.prototype.getAllPosts = () =>
-    mockPosts.map((post) => instance(post));
-
-  return { PostRepository };
+afterEach(() => {
+  vi.restoreAllMocks();
 });
 
 describe('GetGoupedTagsImpl', () => {
   describe('getAll', () => {
     it('returns all tags', () => {
+      const mockPosts = [...Array(2)].map(() => mock<Post>());
+      when(mockPosts[0].tags).thenReturn(['フロントエンド', 'TypeScript']);
+      when(mockPosts[1].tags).thenReturn(['サーバー', 'TypeScript']);
+      vi.spyOn(PostRepository.prototype, 'getAllPosts').mockReturnValue(
+        mockPosts.map((post) => instance(post))
+      );
+
       const tagRepository = new TagRepository();
       const result = tagRepository.getAllTags();
       expect(result.length).toEqual(3);
