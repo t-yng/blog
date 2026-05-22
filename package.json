@@ -50,7 +50,7 @@
     "@next/bundle-analyzer": "16.2.6",
     "@pandacss/dev": "0.37.2",
     "@playwright/test": "1.43.0",
-    "@shikijs/markdown-it": "2.5.0",
+    "@shikijs/markdown-it": "3.23.0",
     "@swc/core": "^1.2.117",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "14.3.1",
