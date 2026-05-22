@@ -1,5 +1,6 @@
 import { ComponentProps, FC, PropsWithChildren } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import clsx from 'clsx';
 import { css } from '@/styled-system/css';
 
 type LinkProps = PropsWithChildren<{
@@ -17,17 +18,18 @@ export const Link: FC<LinkProps> = ({
   ...rest
 }) => {
   return (
-    // 子要素に任意のコンポーネントを差し込みたいのでlegacyBehaviorを指定
-    // @see: https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag
-    <NextLink href={href} prefetch={prefetch} passHref legacyBehavior>
-      <a
-        {...rest}
-        className={`${decoration ? '' : nonDecoration} ${
-          className ? className : ''
-        }`}
-      >
-        {children}
-      </a>
+    <NextLink
+      href={href}
+      prefetch={prefetch}
+      {...rest}
+      className={clsx(
+        {
+          [nonDecoration]: !decoration,
+        },
+        className
+      )}
+    >
+      {children}
     </NextLink>
   );
 };

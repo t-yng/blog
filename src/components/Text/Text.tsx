@@ -1,13 +1,14 @@
-import { FC, PropsWithChildren, createElement } from 'react';
-import { StyleProps } from '@/styled-system/types';
+import { createElement } from 'react';
+import { JsxStyleProps } from '@/styled-system/types';
 import { css, cx } from '@/styled-system/css';
+import type { FC, JSX, PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{
   as?: keyof JSX.IntrinsicElements;
-  fontSize?: StyleProps['fontSize'];
-  fontWeight?: StyleProps['fontWeight'];
-  color?: StyleProps['color'];
-  lineHeight?: StyleProps['lineHeight'];
+  fontSize?: JsxStyleProps['fontSize'];
+  fontWeight?: JsxStyleProps['fontWeight'];
+  color?: JsxStyleProps['color'];
+  lineHeight?: JsxStyleProps['lineHeight'];
   className?: string;
 }>;
 

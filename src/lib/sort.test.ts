@@ -1,4 +1,5 @@
 import { instance, mock, when } from 'ts-mockito';
+import { describe, expect, it } from 'vitest';
 import { Post } from '../types/Post';
 import { sortPostsByDateDesc } from './sort';
 

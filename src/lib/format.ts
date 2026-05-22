@@ -1,5 +1,8 @@
-import { format } from 'date-fns';
-
 export const formatDate = (date: string) => {
-  return format(new Date(date), 'yyyy年MM月dd日');
+  const parsedDate = new Date(date);
+  const year = parsedDate.getUTCFullYear();
+  const month = String(parsedDate.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(parsedDate.getUTCDate()).padStart(2, '0');
+
+  return `${year}年${month}月${day}日`;
 };

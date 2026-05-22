@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react';
 import { profile } from '@/config/profile';
 import { css } from '@/styled-system/css';
 import { Tag } from '@/types';
-import { StyleProps } from '@/styled-system/types';
+import { JsxStyleProps } from '@/styled-system/types';
 import { Heading } from '../Heading';
 import { Sidebar } from '../Sidebar';
 import { Grid } from '../Grid';
@@ -10,8 +10,8 @@ import { Grid } from '../Grid';
 type Props = PropsWithChildren<{
   title?: string;
   tags: Tag[];
-  pt?: StyleProps['paddingTop'];
-  pb?: StyleProps['paddingBottom'];
+  pt?: JsxStyleProps['paddingTop'];
+  pb?: JsxStyleProps['paddingBottom'];
 }>;
 
 export const PageBody: FC<Props> = ({

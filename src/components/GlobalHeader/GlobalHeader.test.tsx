@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 import {
   TITLE_LOGO_IMAGE_ALT,
   TITLE_LOGO_IMAGE_URL,

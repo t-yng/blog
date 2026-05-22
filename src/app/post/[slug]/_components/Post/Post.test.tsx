@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { instance, mock, when } from 'ts-mockito';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { Post as PostEntity } from '@/types/Post';
 import { Post } from './Post';
 
