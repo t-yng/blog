@@ -1,15 +1,14 @@
 'use client';
 
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { css } from '@/styled-system/css';
 import { locales, type Locale } from '@/config/i18n';
 import { setPreferredLocale } from '@/lib/cookie';
-import { Flex } from '../Flex';
 
-const localeLabels: Record<Locale, string> = {
-  ja: '日本語',
-  en: 'English',
+const localeOptions: Record<Locale, { flag: string; label: string }> = {
+  ja: { flag: '🇯🇵', label: '日本語' },
+  en: { flag: '🇺🇸', label: 'English' },
 };
 
 type Props = {
@@ -28,62 +27,62 @@ export const LanguageSwitcher: FC<Props> = ({
   const getHref = (targetLocale: Locale) =>
     pathname.replace(`/${locale}`, `/${targetLocale}`);
 
-  const handleSwitch = (targetLocale: Locale) => {
-    setPreferredLocale(targetLocale);
-    router.push(getHref(targetLocale));
-  };
-
   return (
-    <Flex gap="4px" align="center" className={wrapper}>
-      {locales.map((l, i) => (
-        <Fragment key={l}>
-          {i > 0 && <span className={divider}>|</span>}
-          {l === locale ? (
-            <span className={`${langBtn} ${active}`}>{localeLabels[l]}</span>
-          ) : availableLocales.includes(l) ? (
-            <button
-              className={`${langBtn} ${linkStyle}`}
-              onClick={() => handleSwitch(l)}
-            >
-              {localeLabels[l]}
-            </button>
-          ) : (
-            <span className={`${langBtn} ${inactive}`}>{localeLabels[l]}</span>
-          )}
-        </Fragment>
-      ))}
-    </Flex>
+    <div className={wrapper}>
+      <select
+        className={select}
+        value={locale}
+        onChange={(e) => {
+          const targetLocale = e.target.value as Locale;
+          setPreferredLocale(targetLocale);
+          router.push(getHref(targetLocale));
+        }}
+      >
+        {availableLocales.map((l) => {
+          const { flag, label } = localeOptions[l];
+          return (
+            <option key={l} value={l}>
+              {flag} {label}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 };
 
 const wrapper = css({
-  fontSize: 'sm',
-  color: 'white',
+  position: 'relative',
+  display: 'inline-flex',
+  alignItems: 'center',
 });
 
-const langBtn = css({
+const select = css({
+  appearance: 'none',
+  background: 'rgba(255,255,255,0.15)',
+  border: '1px solid rgba(255,255,255,0.4)',
+  borderRadius: '6px',
   color: 'white',
-  background: 'none',
-  border: 'none',
-  padding: 0,
-  font: 'inherit',
   cursor: 'pointer',
-});
-
-const linkStyle = css({
-  '&:hover': { opacity: 0.8 },
-});
-
-const active = css({
-  fontWeight: 'bold',
-});
-
-const inactive = css({
-  opacity: 0.5,
-  cursor: 'default',
-});
-
-const divider = css({
-  color: 'white',
-  opacity: 0.5,
+  fontSize: 'sm',
+  fontFamily: 'inherit',
+  paddingBlock: '4px',
+  paddingInline: '8px 28px',
+  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'right 8px center',
+  '&:hover': {
+    background: 'rgba(255,255,255,0.25)',
+    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right 8px center',
+  },
+  '&:focus': {
+    outline: '2px solid rgba(255,255,255,0.6)',
+    outlineOffset: '2px',
+  },
+  '& option': {
+    background: '#333',
+    color: 'white',
+  },
 });
