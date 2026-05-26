@@ -40,14 +40,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
 
   return {
-    title: `${post.title} | ${siteMetadata.title}`,
+    title: `${post.title} | ${siteMetadata[lang].title}`,
     description: post.description,
     authors: [{ name: post.author }],
     openGraph: {
-      url: siteMetadata.url,
+      url: siteMetadata[lang].url,
       type: 'article',
       description: post.description,
-      siteName: siteMetadata.title,
+      siteName: siteMetadata[lang].title,
       images: [
         `https://res.cloudinary.com/dspeq5lct/image/upload/l_text:MPLUSRounded1c-Bold.ttf_52:${encodedPostTitle},co_rgb:000,w_1020,c_fit,y_-100/v1638629595/blog-ogp.jpg`,
       ],
