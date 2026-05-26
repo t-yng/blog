@@ -9,6 +9,7 @@ import { GlobalHeader } from './GlobalHeader';
 
 vi.mock('next/navigation', () => ({
   useRouter: () => ({ push: vi.fn() }),
+  usePathname: () => '/',
 }));
 
 describe('GlobalHeader', () => {
