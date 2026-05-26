@@ -1,0 +1,1 @@
+export { LangAttributeSetter } from './LangAttributeSetter';
