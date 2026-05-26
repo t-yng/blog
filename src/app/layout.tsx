@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       {process.env.NODE_ENV === 'production' && (
         <>
