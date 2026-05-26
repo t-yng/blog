@@ -9,6 +9,7 @@ import cpx from 'cpx';
 import Shiki from '@shikijs/markdown-it';
 import { Post } from '@/types';
 import { profile } from '@/config/profile';
+import { type Locale, defaultLocale } from '@/config/i18n';
 import { NotFoundPostError } from './error';
 
 const markdownItShiki = await Shiki({
@@ -16,15 +17,16 @@ const markdownItShiki = await Shiki({
 });
 
 export class PostRepository {
-  getAllPosts(): Post[] {
-    const slugs = this.getAllSlugs();
+  getAllPosts(locale: Locale = defaultLocale): Post[] {
+    const slugs = this.getAllSlugs(locale);
     return slugs
-      .map((slug) => this.getPostBySlug(slug))
+      .map((slug) => this.getPostBySlug(slug, locale))
       .filter((x): x is Post => x != null);
   }
 
-  getPostBySlug(slug: string): Post {
-    const fullPath = join(PostRepository.postsDirectory(), slug, 'index.md');
+  getPostBySlug(slug: string, locale: Locale = defaultLocale): Post {
+    const fileName = PostRepository.postFileName(locale);
+    const fullPath = join(PostRepository.postsDirectory(), slug, fileName);
 
     if (!fs.existsSync(fullPath)) {
       throw new NotFoundPostError(`Post is not found by slug: ${slug}`);
@@ -118,19 +120,39 @@ export class PostRepository {
       tags: data['tags'],
       author: data['author'] || profile.name,
       content: content,
+      lang: locale,
     };
   }
 
-  getPostsByTag(tag: string) {
-    const posts = this.getAllPosts();
+  getPostsByTag(tag: string, locale: Locale = defaultLocale) {
+    const posts = this.getAllPosts(locale);
     return posts.filter((post) => {
       const tags = post.tags.map((tag) => tag.toLowerCase());
       return tags.includes(tag.toLowerCase());
     });
   }
 
-  private getAllSlugs(): string[] {
-    return fs.readdirSync(PostRepository.postsDirectory());
+  availableLocales(slug: string, locales: Locale[]): Locale[] {
+    return locales.filter((locale) => this.hasLocale(slug, locale));
+  }
+
+  private hasLocale(slug: string, locale: Locale): boolean {
+    const fullPath = join(
+      PostRepository.postsDirectory(),
+      slug,
+      PostRepository.postFileName(locale)
+    );
+    return fs.existsSync(fullPath);
+  }
+
+  private getAllSlugs(locale: Locale = defaultLocale): string[] {
+    const dirs = fs.readdirSync(PostRepository.postsDirectory());
+    if (locale === defaultLocale) return dirs;
+    return dirs.filter((slug) => this.hasLocale(slug, locale));
+  }
+
+  private static postFileName(locale: Locale): string {
+    return locale === defaultLocale ? 'index.md' : `index.${locale}.md`;
   }
 
   private static postsDirectory(): string {

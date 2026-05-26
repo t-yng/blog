@@ -1,3 +1,5 @@
+import type { Locale } from '@/config/i18n';
+
 export type Post = {
   id: string;
   slug: string;
@@ -9,4 +11,5 @@ export type Post = {
   tags: string[];
   author: string;
   content: string;
+  lang: Locale;
 };

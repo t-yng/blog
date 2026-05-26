@@ -5,14 +5,24 @@ import {
   TITLE_LOGO_IMAGE_ALT,
   TITLE_LOGO_LINK_TITLE,
 } from '@/constants';
+import { type Locale } from '@/config/i18n';
 import { Link } from '../Link/Link';
 import { Flex } from '../Flex';
+import { LanguageSwitcher } from '../LanguageSwitcher';
 
-export const GlobalHeader: FC = () => (
+type Props = {
+  locale?: Locale;
+  availableLocales?: Locale[];
+};
+
+export const GlobalHeader: FC<Props> = ({
+  locale = 'ja',
+  availableLocales,
+}) => (
   <header>
     <div className={wrapper}>
-      <Flex justify="center" py="1rem" px="20px">
-        <Link href="/" title={TITLE_LOGO_LINK_TITLE}>
+      <Flex justify="center" py="1rem" px="20px" position="relative">
+        <Link href={`/${locale}`} title={TITLE_LOGO_LINK_TITLE}>
           <img
             src={TITLE_LOGO_IMAGE_URL}
             alt={TITLE_LOGO_IMAGE_ALT}
@@ -22,6 +32,12 @@ export const GlobalHeader: FC = () => (
             decoding="async"
           />
         </Link>
+        <div className={switcher}>
+          <LanguageSwitcher
+            locale={locale}
+            availableLocales={availableLocales}
+          />
+        </div>
       </Flex>
     </div>
   </header>
@@ -33,4 +49,11 @@ const wrapper = css({
 
 const titleLogoImg = css({
   width: '100%',
+});
+
+const switcher = css({
+  position: 'absolute',
+  right: '20px',
+  top: '50%',
+  transform: 'translateY(-50%)',
 });

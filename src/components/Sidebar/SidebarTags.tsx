@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { css } from '@/styled-system/css';
 import { Link } from '@/components/Link';
 import { createTagLink } from '@/lib/link';
-
 import { SidebarSection } from './SidebarSection';
+import type { Locale } from '@/config/i18n';
 
 interface Tag {
   name: string;
@@ -12,20 +12,25 @@ interface Tag {
 
 export interface SidebarTagsProps {
   tags: Tag[];
+  locale?: Locale;
 }
 
 const sortTags = (tags: Tag[]): Tag[] => {
   return tags.sort((a, b) => b.count - a.count);
 };
 
-export const SidebarTags: FC<SidebarTagsProps> = ({ tags, ...others }) => (
+export const SidebarTags: FC<SidebarTagsProps> = ({
+  tags,
+  locale,
+  ...others
+}) => (
   <SidebarSection title="タグ" {...others}>
     <ul className={tagsCss}>
       {sortTags(tags).map((tag) => (
         <li key={tag.name} className={tagCss}>
           <Link
             decoration={false}
-            href={createTagLink(tag.name)}
+            href={createTagLink(tag.name, locale)}
             aria-label={`${tag.name}の記事一覧、${tag.count}件`}
           >
             {`${tag.name} (${tag.count})`}

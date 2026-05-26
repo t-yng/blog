@@ -4,14 +4,16 @@ import { css } from '@/styled-system/css';
 import { Link } from '../Link';
 import { Flex } from '../Flex';
 import { Text } from '../Text/Text';
+import type { Locale } from '@/config/i18n';
 
 interface TagProps {
   name: string;
+  locale?: Locale;
 }
 
-export const Tag: FC<TagProps> = ({ name }) => (
+export const Tag: FC<TagProps> = ({ name, locale }) => (
   <Link
-    href={createTagLink(name)}
+    href={createTagLink(name, locale)}
     decoration={false}
     aria-label={`タグ、${name}`}
   >

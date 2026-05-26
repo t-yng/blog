@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import { Flex } from '../Flex';
 import { Tag } from './Tag';
+import type { Locale } from '@/config/i18n';
 
 interface TagsProps {
   tags: string[];
   className?: string;
+  locale?: Locale;
 }
 
 const sortTags = (tags: string[]): string[] => {
@@ -22,10 +24,10 @@ const sortTags = (tags: string[]): string[] => {
   });
 };
 
-export const Tags: FC<TagsProps> = ({ tags, className }) => (
+export const Tags: FC<TagsProps> = ({ tags, className, locale }) => (
   <Flex className={className} gap="0.5rem">
     {sortTags(tags).map((tag) => {
-      return <Tag name={tag} key={tag} />;
+      return <Tag name={tag} key={tag} locale={locale} />;
     })}
   </Flex>
 );

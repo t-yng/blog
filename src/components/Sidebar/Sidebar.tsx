@@ -4,16 +4,18 @@ import { Tag } from '@/types';
 import { Profile } from '@/config/profile';
 import { SidebarTags } from './SidebarTags';
 import { SidebarProfile } from './SidebarProfile';
+import type { Locale } from '@/config/i18n';
 
 type SidebarProps = {
   tags: Tag[];
   profile: Profile;
+  locale?: Locale;
 };
 
-export const Sidebar: FC<SidebarProps> = ({ tags, profile }) => (
+export const Sidebar: FC<SidebarProps> = ({ tags, profile, locale }) => (
   <aside>
     <SidebarProfile className={profileStyle} profile={profile} />
-    <SidebarTags tags={tags} />
+    <SidebarTags tags={tags} locale={locale} />
   </aside>
 );
 

@@ -6,10 +6,12 @@ import { JsxStyleProps } from '@/styled-system/types';
 import { Heading } from '../Heading';
 import { Sidebar } from '../Sidebar';
 import { Grid } from '../Grid';
+import type { Locale } from '@/config/i18n';
 
 type Props = PropsWithChildren<{
   title?: string;
   tags: Tag[];
+  locale?: Locale;
   pt?: JsxStyleProps['paddingTop'];
   pb?: JsxStyleProps['paddingBottom'];
 }>;
@@ -17,6 +19,7 @@ type Props = PropsWithChildren<{
 export const PageBody: FC<Props> = ({
   title,
   tags,
+  locale,
   pt = { base: '1rem', md: '2rem' },
   pb = { base: 0, md: '2rem' },
   children,
@@ -39,7 +42,7 @@ export const PageBody: FC<Props> = ({
         )}
         {children}
       </main>
-      <Sidebar tags={tags} profile={profile} />
+      <Sidebar tags={tags} profile={profile} locale={locale} />
     </Grid>
   );
 };
