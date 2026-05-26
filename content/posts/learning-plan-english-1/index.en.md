@@ -1,5 +1,5 @@
 ---
-title: My English Study Plan — Listening and Reading Edition
+title: My English study plan — listening and reading edition
 date: 2022-05-23
 description: My motivation for studying English has come back after a while. This time I decided to make a study plan first to keep myself on track.
 tags: ['English']
@@ -9,7 +9,7 @@ My motivation for studying English has come back after a while.
 
 Looking back at my past English study, one of the biggest reasons I couldn't continue was not knowing what to do next. So this time, I decided to make a study plan first.
 
-## Setting a Goal
+## Setting a goal
 
 Goal: TOEIC score of 800
 
@@ -17,7 +17,7 @@ One reason I couldn't keep studying in the past was that I had no clear, measura
 
 I used to think that a high TOEIC score doesn't mean you can actually speak English, so there was no point in aiming for a high score. But then I realized that's something people who already score high should think about — it's wrong for someone who can't even get a good score to say that. So I changed my thinking.
 
-## Choosing What to Study
+## Choosing what to study
 
 Study targets: Listening and Reading only
 
@@ -29,7 +29,7 @@ From experience, if you just want to get your point across, you can manage with 
 
 ![English skills](english-skills.png)
 
-## Listening Study Plan
+## Listening study plan
 
 ### Challenges
 
@@ -39,7 +39,7 @@ From experience, if you just want to get your point across, you can manage with 
 - Even when I catch words, I can't understand the meaning at natural speaking speed
   - If I can't read English sentences quickly, I can't keep up with listening speed
 
-### Strengthening Pronunciation
+### Strengthening pronunciation
 
 Goal: Close the gap between the sounds I think I hear and the actual sounds, so I can understand English words better
 
@@ -58,7 +58,7 @@ First learn the shadowing method, then find material and do it properly.
 - [ ] Work through "Definitive English Shadowing [Super Beginner]"
 - [ ] Work through "Definitive English Shadowing [Revised Edition]"
 
-### Building Vocabulary
+### Building vocabulary
 
 Goal: Increase the number of words I know so I can catch more words when listening
 
@@ -68,7 +68,7 @@ The specific book is just one that came up as recommended when I searched — I 
 
 - [ ] Go through "TOEIC L & R TEST Deru-tan Tokkyu: Gold Phrases (TOEIC TEST Tokkyu Series)" many times
 
-### Strengthening Word Recognition
+### Strengthening word recognition
 
 Goal: Improve my ability to catch English words when listening
 
@@ -76,13 +76,13 @@ Try 10-second listening as an experiment.
 
 - [ ] Work through "10-Second Listening: A New Method to Dramatically Improve Your Ability to Hear English"
 
-### Strengthening Reading
+### Strengthening reading
 
 Goal: Understand the meaning of English at listening speed
 
 Work on reading study.
 
-### Checking Listening Progress
+### Checking listening progress
 
 Goal: Review whether my study methods are effective
 
@@ -90,7 +90,7 @@ Periodically do TOEIC listening practice problems to check if my study is workin
 
 - Do TOEIC listening practice problems
 
-## Reading Study Plan
+## Reading study plan
 
 ### Challenges
 
@@ -100,7 +100,7 @@ Periodically do TOEIC listening practice problems to check if my study is workin
   - I often lose track of modifier relationships and go back, which takes time
   - Sometimes I lose track of sentence structure and lose the subject and verb
 
-### Building Vocabulary
+### Building vocabulary
 
 Goal: Reduce unknown words to understand text
 
@@ -108,7 +108,7 @@ When I feel like I can't understand a text, it's usually because it has many wor
 
 The approach is the same as "Building Vocabulary" in the listening section.
 
-### Reviewing English Grammar
+### Reviewing English grammar
 
 Goal: Understand English sentence structure and quickly identify modifier relationships
 
@@ -118,7 +118,7 @@ I'll try "Reading Textbook" after finishing "Basic Textbook" and add it as a sec
 - [ ] Work through "English Basic Textbook — Understand from Zero"
 - [ ] Work through "English Reading Textbook — Understand from the Basics"
 
-### Improving Reading Speed
+### Improving reading speed
 
 Goal: Read English faster so I can keep up with listening
 

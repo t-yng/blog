@@ -1,5 +1,5 @@
 ---
-title: Issue with Loading Icons in Material-UI + webpack
+title: Issue with loading icons in Material-UI + webpack
 date: 2020-09-19
 description: The problem where the way you import the Material-UI icons package affects build time in a Material-UI + webpack environment.
 tags: ['Frontend']

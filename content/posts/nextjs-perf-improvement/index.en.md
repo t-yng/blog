@@ -1,5 +1,5 @@
 ---
-title: Improving the Performance of My Next.js Blog
+title: Improving the performance of my Next.js blog
 date: 2021-01-09
 description: During the year-end holidays, I replaced this tech blog from GatsbyJS to Next.js. After the replacement, the Lighthouse performance score dropped, so I investigated the cause and made improvements.
 tags: ['Frontend', 'Next.js', 'Performance']
@@ -11,9 +11,9 @@ During the year-end holidays, I replaced this tech blog from GatsbyJS to Next.js
 
 ![Lighthouse result before improvement](lighthouse-result.jpg)
 
-## Investigating the Cause
+## Investigating the cause
 
-### Analyzing the Lighthouse Results
+### Analyzing the Lighthouse results
 
 Looking at the Lighthouse details, a very large JS file of 722.4kb was being sent. As shown by "Potential Saving 99.8kb," most of this JS file was unused code.
 
@@ -68,7 +68,7 @@ I also added it to `package.json` for future use.
 }
 ```
 
-### Analyzing the Webpack Bundle Analyzer Results
+### Analyzing the Webpack Bundle Analyzer results
 
 Running webpack-bundle-analyzer opens a browser during the build with a visualization of the bundle.
 Looking at the result, a module called [refractor](https://github.com/wooorm/refractor) took up most of the space. Loading this module seemed to be the cause of the problem.
@@ -92,7 +92,7 @@ react-syntax-highlighter@^15.4.3:
 
 Now that I found the cause of the performance problem, I moved on to fixing it.
 
-## Improving Performance
+## Improving performance
 
 `refractor` includes JS files for each language used in syntax highlighting, and all of them were being loaded at the time of the first render, causing the performance issue. Since `react-syntax-highlighter` supports dynamic imports, I changed it to use dynamic imports to avoid blocking rendering.
 

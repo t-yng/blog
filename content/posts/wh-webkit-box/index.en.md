@@ -1,5 +1,5 @@
 ---
-title: Truncating Multi-Line Text and -webkit-box
+title: Truncating multi-line text and -webkit-box
 date: 2021-06-04
 description: A quick look at -webkit-box, which is used when truncating multi-line text.
 tags: ['Frontend', 'CSS']

@@ -1,5 +1,5 @@
 ---
-title: TypeScript Type Parameter Variance and Variance Annotations
+title: TypeScript type parameter variance and variance annotations
 date: 2023-10-21
 description: An overview of the default behavior of type parameter variance in TypeScript and the variance annotations available.
 tags: ['TypeScript']
@@ -40,7 +40,7 @@ interface Pomeranian extends Dog {
 }
 ```
 
-## Type Parameter Variance
+## Type parameter variance
 
 In TypeScript, the variance of a type parameter `T` changes based on where that type is used.
 
@@ -97,7 +97,7 @@ getSetDog = getSetDog;
 getSetDog = getSetPomeranian;
 ```
 
-## Variance Annotations
+## Variance annotations
 
 Starting from TypeScript 4.7, you can explicitly specify variance behavior using `in`, `out`, and `in out` annotations.
 
@@ -128,14 +128,14 @@ setDog = setDog;
 setDog = setPomeranian;
 ```
 
-## When to Use Variance Annotations
+## When to use variance annotations
 
 Now that we understand the behavior, when would you actually use variance annotations, given the risk of bugs? Based on the official [Optional Variance Annotations for Type Parameters](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#optional-variance-annotations-for-type-parameters), the two main benefits are:
 
 - Making the behavior explicit improves code readability and prevents unintended use of the type parameter
 - Telling the compiler the variance explicitly reduces computation cost and improves type inference accuracy
 
-### Improving Readability
+### Improving readability
 
 For example, suppose you want to restrict a type parameter to only be used as input, and you want to prevent any future additions that return the type parameter.
 
@@ -171,7 +171,7 @@ interface State<in T> {
 }
 ```
 
-## Improving Compiler Type Inference Accuracy
+## Improving compiler type inference accuracy
 
 TypeScript's type inference allows assigning a variable with type parameter `string` to one with type parameter `unknown`.
 

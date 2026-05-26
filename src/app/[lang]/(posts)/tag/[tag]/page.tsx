@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, tag: encodedTag } = await params;
   const tag = decodeURI(encodedTag);
   return {
-    title: `${messages[lang].tagPostsTitle(tag)} | ${siteMetadata.title}`,
+    title: `${messages[lang].tagPostsTitle(tag)} | ${siteMetadata[lang].title}`,
   };
 }
 

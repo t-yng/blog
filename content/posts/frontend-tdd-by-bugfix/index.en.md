@@ -1,5 +1,5 @@
 ---
-title: Introduction to Frontend TDD Starting from Bug Fixes
+title: Introduction to frontend TDD starting from bug fixes
 date: 2021-12-22
 description: This article is for Day 22 of the YAMAP Engineer Advent Calendar 2021. I am currently reading "Test-Driven Development" (TDD) in a book club. Starting TDD from bug fixes worked well for me, so I want to share the experience.
 tags: ['Frontend', 'Testing']
@@ -12,7 +12,7 @@ This article is for Day 22 of the [YAMAP Engineer Advent Calendar 2021](https://
 I am currently reading [Test-Driven Development](https://www.amazon.co.jp/dp/B077D2L69C/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) (TDD) in a book club.
 I have learned a lot from the book and wanted to apply it in real work. Starting TDD from bug fixes worked well for me, so I want to share it.
 
-## Why Start from Bug Fixes?
+## Why start from bug fixes?
 
 The hardest part of TDD for me is **not knowing what tests to write before implementing**.
 If you have little experience writing tests, it is hard to imagine what to test when there is no code yet.
@@ -21,7 +21,7 @@ With bug fixes, the code already exists, and you need to write a test that repro
 
 For this reason, bug fixes are a good way to practice the TDD flow without much difficulty.
 
-## Try TDD for Bug Fixing
+## Try TDD for bug fixing
 
 ### Overview
 
@@ -52,7 +52,7 @@ export const UserBio: FC<Props> = ({ user }) => {
 }
 ```
 
-### Write a Test That Reproduces the Bug
+### Write a test that reproduces the bug
 
 Hold back the urge to fix the code right away. Write the test first.
 
@@ -97,7 +97,7 @@ $ yarn jest src/components/UserBio.spec.tsx
       null
 ```
 
-### Fix the Bug
+### Fix the bug
 
 Now that we have a test that reproduces the bug, let's write the fix.
 
@@ -125,7 +125,7 @@ $ yarn jest src/components/UserBio.spec.tsx
     ✓ shows a thumbnail image when no avatar is set (61 ms)
 ```
 
-### No Browser Needed for Verification
+### No browser needed for verification
 
 During this bug fix, I never opened a browser to verify the behavior.
 I will do a final browser check before creating the PR, but that is only once.

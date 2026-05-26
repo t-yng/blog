@@ -1,5 +1,5 @@
 ---
-title: Adding Google Analytics via Google Tag Manager to a Gatsby Blog
+title: Adding Google Analytics via Google Tag Manager to a Gatsby blog
 date: 2020-02-13
 description: How to add Google Analytics via Google Tag Manager to a Gatsby blog
 tags: ['Frontend', 'GatsbyJS']
@@ -10,17 +10,17 @@ Since releasing every time I add a new event tracking would be annoying, I set u
 
 Here is how to set up Google Tag Manager in a Gatsby blog.
 
-## Create a Google Tag Manager Container
+## Create a Google Tag Manager container
 
 First, create a container in Google Tag Manager.
 
 ![Create container](gtm-container-new.png)
 
-## Set Up Google Analytics
+## Set up Google Analytics
 
 Go to Admin > +Create Property to create a new property for tracking.
 
-## Add the Plugin
+## Add the plugin
 
 ### gatsby-plugin-google-tagmanager
 
@@ -62,19 +62,19 @@ You can find the values from Admin > Live > Get code in the embed code.
 
 ![Google Tag Manager embed code](gtm-script.png)
 
-## Google Tag Manager Settings
+## Google Tag Manager settings
 
-### Create a Trigger
+### Create a trigger
 
 Since GatsbyJS is a SPA running with CSR, create a trigger based on history changes.
 
-### Create a Variable
+### Create a variable
 
 Create a Google Analytics Settings variable with the GA tracking ID.
 
 ![Create Google Analytics variable](gtm-ga-variable.png)
 
-### Create a Tag
+### Create a tag
 
 Create a tag to send page views to Google Analytics.
 
@@ -84,7 +84,7 @@ Set the Google Analytics Settings to the variable created above, and set two tri
 
 ![Create tag](gtm-tag.png)
 
-## Check Before Release
+## Check before release
 
 You can use Google Tag Manager's preview mode to check that the embedding works correctly on your local machine.
 

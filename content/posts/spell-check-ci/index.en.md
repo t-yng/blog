@@ -1,5 +1,5 @@
 ---
-title: I Tried Automating Spell Checking in CI, But Eventually Stopped
+title: I tried automating spell checking in CI, but eventually stopped
 date: 2021-12-14
 description: We started noticing spelling mistakes in code reviews, so I tried automating spell checking in CI. Here's how I set it up and what happened afterward.
 tags: ['Automation']
@@ -15,7 +15,7 @@ Since machines are better at checking spelling than people, I tried setting up a
 
 All the code in this article can be found at [t-yng/ci-spell-check-sample](https://github.com/t-yng/ci-spell-check-sample).
 
-## Choosing a Tool
+## Choosing a tool
 
 ### Existing GitHub Actions
 
@@ -31,7 +31,7 @@ I tried a few, but they didn't give me the results I wanted, so I ended up build
 - [misspell-fixer-action](https://github.com/marketplace/actions/misspell-fixer-action)
   - There was a recommended article about this on Developers.io
 
-### Building a Custom GitHub Action with a Spell Check Library
+### Building a custom GitHub Action with a spell check library
 
 I decided to build a custom GitHub Action using [cspell](https://github.com/streetsidesoftware/cspell).
 
@@ -46,9 +46,9 @@ I decided to build a custom GitHub Action using [cspell](https://github.com/stre
   - Easy to run from the CLI and proven through the VSCode extension
   - The only downside is that library names and proper nouns like `prismjs` are flagged as spelling mistakes (you can add them to a word dictionary to skip them)
 
-## Setting Up the CI
+## Setting up the CI
 
-### Installing cspell and Creating an npm Script
+### Installing cspell and creating an npm script
 
 Install cspell:
 
@@ -143,7 +143,7 @@ jobs:
         run: yarn spell-check
 ```
 
-### Posting PR Comments with Reviewdog
+### Posting PR comments with Reviewdog
 
 In its current state, it's hard to see where the spelling mistakes are. I used Reviewdog to post comments directly on the PR.
 Also, cspell exits with an error when it finds a spelling mistake, which would cause the CI to fail. Using Reviewdog avoids this issue.
@@ -167,7 +167,7 @@ Now Reviewdog automatically comments on PRs when there are spelling mistakes.
 
 ![Reviewdog comment](spell-check-reviewdog.png)
 
-### Running Spell Check Only on Changed Files
+### Running spell check only on changed files
 
 As the repository grows, running spell check on all files takes longer. I changed it to only check the files that were changed in the PR.
 
@@ -187,13 +187,13 @@ As the repository grows, running spell check on all files takes longer. I change
       | reviewdog -level=warning -efm="%f:%l:%c - %m" -reporter=github-pr-review
 ```
 
-## Results After Introducing CI
+## Results after introducing CI
 
 After introducing it, spelling mistakes were automatically found in PRs, and it had a certain effect.
 
 However, as mentioned in the downsides section, library names and proper nouns were flagged as spelling mistakes, and words that weren't actually mistakes were being commented on. This was very noisy and made code reviews harder, so we eventually decided to remove the CI.
 
-## What We Did Instead
+## What we did instead
 
 In the end, each person installed a spell check extension as a plugin in their own development editor. This allowed everyone to notice spelling mistakes while coding. As a result, spelling mistakes in code reviews almost completely disappeared!
 

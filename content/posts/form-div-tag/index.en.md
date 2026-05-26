@@ -1,5 +1,5 @@
 ---
-title: Should You Use a form Tag or a div Tag for Forms?
+title: Should you use a form tag or a div tag for forms?
 date: 2020-04-21
 description: Comparing the form tag and the div tag for form implementation
 tags: ['Frontend']
@@ -48,7 +48,7 @@ Example using a form tag:
 </form>
 ```
 
-## Differences Between the form Tag and the div Tag
+## Differences between the form tag and the div tag
 
 When using the `form` tag, the browser provides these default behaviors:
 

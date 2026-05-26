@@ -19,7 +19,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, page } = await params;
   return {
-    title: `${messages[lang].postsPageTitle(Number(page))} | ${siteMetadata.title}`,
+    title: `${messages[lang].postsPageTitle(Number(page))} | ${siteMetadata[lang].title}`,
   };
 }
 

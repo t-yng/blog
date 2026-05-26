@@ -1,5 +1,5 @@
 ---
-title: Embedding JavaScript Code into a JPEG Image
+title: Embedding JavaScript code into a JPEG image
 date: 2020-02-14
 description: How to embed JavaScript code into a JPEG image
 tags: ['Security']
@@ -15,7 +15,7 @@ I used the following image for the experiment.
 This article is written for learning about security by understanding attack methods. The experiments are run in a virtual environment.
 Please never use this against external sites.
 
-## Look at the Image Binary
+## Look at the image binary
 
 The method I tried modifies the binary of an image to embed code.
 First, let's look at the binary of the image.
@@ -46,7 +46,7 @@ $ node
 '616c6572742831293b'
 ```
 
-## Embed the JS Code
+## Embed the JS code
 
 Below is what the binary looks like after modifying it to embed JS code.
 
@@ -114,7 +114,7 @@ const hexBinary = new Buffer(injectedJsJpeg, 'hex');
 fs.writeFileSync('bad-donarudo.jpg', hexBinary);
 ```
 
-## Load the JPEG Image
+## Load the JPEG image
 
 Let's load the image with embedded JS.
 
@@ -139,7 +139,7 @@ Chrome has protection against this so no alert appeared, but IE11 showed the ale
 
 The number of browsers where this works is limited, but IE11 still has many users in Japan, so this technique cannot be ignored.
 
-## How the Attack Is Used
+## How the attack is used
 
 I thought this would be an easy way to do XSS, but loading the file via an `<img>` tag only processes it as an image, so the code is not executed.
 The file must be loaded as a `<script>` tag on the target site for the code to run.

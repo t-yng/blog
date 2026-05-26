@@ -32,13 +32,13 @@ For the WebAssembly implementation, I used Rust. The main reason I chose Rust is
 
 Since it runs in binary format, it achieves faster processing speeds than JavaScript. Languages like Rust, C/C++, and TypeScript can be compiled to WebAssembly, which means you can write the business logic for web frontends in languages other than JavaScript.
 
-## How WebAssembly Works in This Project
+## How WebAssembly works in this project
 
 I implemented the business logic for searching the best move in Rust, compiled it, and output it as a `.wasm` binary file. This file is served the same way as a JavaScript file and loaded in the browser. By calling the wasm binary code from JavaScript, part of the business logic runs in WebAssembly.
 
 ![WebAssembly image diagram](wasm.png)
 
-## Implementing the CPU with the Minimax Algorithm
+## Implementing the CPU with the minimax algorithm
 
 The minimax algorithm is one of the most commonly used search techniques for implementing game algorithms like Othello or Shogi. It uses an evaluation function to calculate a score for each board position. On the CPU's turn, it picks the move that maximizes the score; on the opponent's turn, it picks the move that minimizes the score.
 
@@ -71,7 +71,7 @@ The evaluation function I implemented uses the following rules:
 - Own stone diagonally adjacent to a corner: -100
 - Opponent stone diagonally adjacent to a corner: +100
 
-## Speed Results
+## Speed results
 
 I visualized the processing speed of the TypeScript implementation vs. the WebAssembly (Rust) implementation in a graph.
 

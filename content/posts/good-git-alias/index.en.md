@@ -1,5 +1,5 @@
 ---
-title: Git Aliases and Settings That Dramatically Improve Development Efficiency
+title: Git aliases and settings that dramatically improve development efficiency
 date: 2021-12-28
 description: This article is for Day 23 of the YAMAP Engineer Advent Calendar 2021. I use git in the terminal and often spend time on small git operations. After setting up various git aliases, things improved a lot.
 tags: ['git']

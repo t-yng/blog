@@ -1,11 +1,11 @@
 ---
-title: Changing Checkbox Design with Accessibility in Mind
+title: Changing checkbox design with accessibility in mind
 date: 2022-12-11
 description: How to implement a custom Checkbox with accessibility considerations.
 tags: ['Frontend', 'Testing']
 ---
 
-## Problem with Sample Implementations Found on Google
+## Problem with sample implementations found on Google
 
 Customizing the checkbox design is difficult with the default checkbox, so you need to build your own. If you search "checkbox design change" on Google and look at the top results, many implementations hide `input[type="checkbox"]` with `display:none` like the sample below.
 
@@ -14,7 +14,7 @@ Also, screen readers cannot detect the checkbox, so screen reader users cannot e
 
 <iframe src="https://stackblitz.com/edit/react-ts-2tdsqo?embed=1&file=src/BadCheckbox/style.css&initialpath=?bad" style="width: 100%; height: 400px;"></iframe>
 
-## Implementing a Checkbox with Accessibility
+## Implementing a checkbox with accessibility
 
 Since `display:none` prevents focus, use `opacity:0;` to hide the `<input>` instead.
 Since the `<input>` is still hidden, add a design for when it receives focus.
@@ -38,7 +38,7 @@ input[type='checkbox']:focus-visible + label::before {
 
 <iframe src="https://stackblitz.com/edit/react-ts-2tdsqo?embed=1&file=src/GoodCheckbox/style.css" style="width: 100%; height: 400px;"></iframe>
 
-## Refactoring the Design Implementation (Bonus)
+## Refactoring the design implementation (Bonus)
 
 This next part is a matter of preference, but the CSS pseudo-element approach used in the sample is not very intuitive, which makes it a bit hard to maintain. Let's refactor it to specify design without pseudo-elements.
 

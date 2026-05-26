@@ -1,5 +1,5 @@
 ---
-title: Understanding Ownership and Borrowing in Rust
+title: Understanding ownership and borrowing in Rust
 date: 2020-04-18
 description: Understanding ownership and borrowing in Rust.
 tags: ['Frontend', 'Rust']
@@ -9,7 +9,7 @@ Rust achieves memory safety without a garbage collector by using the ownership s
 
 I read through the documentation and got a good understanding of the overview, so I'll write an explanation to organize my thoughts.
 
-## What is Ownership?
+## What is ownership?
 
 There are generally two common ways to manage memory in programs.
 The first is for the programmer to manually allocate and free memory, as in C or C++. The second is to use a garbage collector that periodically frees unused memory, as in Java or Go.
@@ -17,7 +17,7 @@ The first approach requires programmers to always think about memory, which is c
 
 In Rust, the compiler checks memory safety at compile time based on the ownership system, which guarantees memory safety automatically without needing a garbage collector.
 
-### Ownership Rules
+### Ownership rules
 
 The ownership system has the following rules:
 
@@ -25,7 +25,7 @@ The ownership system has the following rules:
 - Rule 2: There can only be one owner at a time.
 - Rule 3: When the owner goes out of scope, the value is dropped.
 
-### Memory and Variable Scope
+### Memory and variable scope
 
 ```rust
 fn main() {
@@ -39,7 +39,7 @@ By the rule "when the owner goes out of scope, the value is dropped," when `s1` 
 
 ![memory1](memory1.png)
 
-### Move of Ownership
+### Move of ownership
 
 Next, let's think about what happens to memory when a variable is assigned to another variable.
 

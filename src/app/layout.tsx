@@ -1,14 +1,11 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
-import { siteMetadata } from '@/config/siteMetadata';
 import { gtagJsUrl, trackingCode } from '@/lib/gtag';
 import type { ReactNode } from 'react';
 import '@/styles/global.css';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://t-yng.jp'),
-  title: siteMetadata.title,
-  authors: { name: siteMetadata.author },
-  description: siteMetadata.description,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -1,5 +1,5 @@
 ---
-title: Replacing ts-jest with @swc/jest to Cut CI Test Time in Half
+title: Replacing ts-jest with @swc/jest to cut CI test time in half
 date: 2021-12-26
 description: How replacing ts-jest with @swc/jest cut the CI test execution time by half in a real project.
 tags: ['Jest', 'Testing']
@@ -7,7 +7,7 @@ tags: ['Jest', 'Testing']
 
 This article is the 21st entry in the [YAMAP Engineer Advent Calendar 2021](https://qiita.com/advent-calendar/2021/yamap-engginers).
 
-## The Problem with ts-jest
+## The problem with ts-jest
 
 Using ts-jest adds noticeable overhead because of the compilation time.
 
@@ -96,7 +96,7 @@ module.exports = {
 };
 ```
 
-## Concern About Different Compilers
+## Concern about different compilers
 
 Because of the existing babel configuration, the production build still uses tsc. This means the compiler used in tests differs from the one used in production. There is a small concern that some compiler-specific behavior could make a test pass even if the production code has a problem.
 

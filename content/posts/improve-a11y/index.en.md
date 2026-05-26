@@ -1,5 +1,5 @@
 ---
-title: Checking and Improving Accessibility on My Personal Blog
+title: Checking and improving accessibility on my personal blog
 date: 2022-12-17
 description: I used the accessibility checklist published by freee to check and improve the accessibility of my personal blog.
 tags: ['Frontend', 'Accessibility']
@@ -9,7 +9,7 @@ This article is for Day 17 of the [Accessibility Advent Calendar 2022 - Adventar
 
 Recently, I read an accessibility book in a team book club at work and lost my fear of accessibility. I wanted to apply what I learned by writing about it, so I decided to improve the accessibility of this blog.
 
-## Checking Accessibility
+## Checking accessibility
 
 First, to understand the current state, I used the [Accessibility Checklist](https://a11y-guidelines.freee.co.jp/checks/index.html) published by freee, and checked the "Product: Web" items against this blog.
 
@@ -25,11 +25,11 @@ All the check results are available in the [published check results](https://doc
 
 After doing the check, I found that many items were hard to judge without specialist knowledge. For example, the item "Can link areas be identified in grayscale?" raised the question of what exactly makes a link area identifiable. I read the [WCAG 2.1 failure example for 1.4.1](https://waic.jp/docs/WCAG21/Techniques/failures/F73) and interpreted it in my own way to continue the check.
 
-## Improving Accessibility
+## Improving accessibility
 
 You can see all the changes in the [improvement pull request](https://github.com/t-yng/blog/pull/427).
 
-### Make Link Intent Clear
+### Make link intent clear
 
 #### Pagination
 
@@ -66,7 +66,7 @@ export const Tag: FC<TagProps> = ({ name }) => (
 );
 ```
 
-#### Tag List
+#### Tag list
 
 The tag list links in the sidebar were also read as "link, Frontend (22)" which was hard to understand.
 
@@ -83,7 +83,7 @@ I added a label like "Frontend article list, 22 items" to make the destination p
 >{`${tag.name} (${tag.count})`}</Link>
 ```
 
-### Set Appropriate Page Titles
+### Set appropriate page titles
 
 The title for the tag article list page and the paginated pages was just "midori no saru engineer," which did not match the purpose of the page.
 
@@ -91,7 +91,7 @@ Also, this blog is built with Next.js and page navigation happens on the client 
 
 Next.js has a feature called [Route Announcements](https://nextjs.org/docs/accessibility#route-announcements). When navigating with `next/link`, it checks `document.title` and notifies the screen reader when the title changes. So by setting a unique title for each page, screen reader users will automatically be notified of page transitions.
 
-### Add Page Headings
+### Add page headings
 
 Without page headings, a screen reader would suddenly start reading article information with no context. I added page headings to make the structure clearer.
 
@@ -99,7 +99,7 @@ Without page headings, a screen reader would suddenly start reading article info
 
 ![After adding heading](after-add-page-heading.png)
 
-### Change the Position of the Post Date in Article Lists
+### Change the position of the post date in article lists
 
 In the article list, the post date appeared above the title. When read by a screen reader, the date was read before the title, which was slightly confusing.
 
@@ -109,11 +109,11 @@ Since the article title is the most important information, I reordered them to s
 
 ![After moving date](after-move-date.png)
 
-### Change Icon Size
+### Change icon size
 
 Following the checklist, I changed the GitHub link icon size to 24x24px.
 
-### Reset Focus on Page Navigation
+### Reset focus on page navigation
 
 In SPAs, page navigation does not reload the window. When clicking a tag link in the sidebar to go to the tag article list, the focus stays at the link's position.
 
@@ -141,7 +141,7 @@ useEffect(() => {
 <body tabIndex={-1}>
 ```
 
-## Automatic Code Checking with eslint-plugin-jsx-a11y
+## Automatic code checking with eslint-plugin-jsx-a11y
 
 The freee checklist also has a "Code: Web" sheet, but manually checking the code would be very time-consuming. So I introduced [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y) for automatic code checking.
 

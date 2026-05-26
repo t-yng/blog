@@ -1,5 +1,5 @@
 ---
-title: Automating npm Package Releases with GitHub Actions
+title: Automating npm package releases with GitHub Actions
 date: 2023-10-15
 description: How to automate npm package releases using GitHub Actions.
 tags: ['GitHub']
@@ -16,7 +16,7 @@ The GitHub Action described in this article can be found at [t-yng/release-npm-p
 This article assumes that the default branch (main) has branch protection enabled and that direct pushes are not allowed.
 If this setting is disabled, you can handle everything from updating `package.json` to publishing in a single Action. However, if it is enabled, you need to add steps to create and merge a pull request, which changes how the workflow is built.
 
-## Release Flow
+## Release flow
 
 1. A GitHub Action automatically creates a PR to update `package.json`
     - The PR is created with auto-merge enabled
@@ -26,9 +26,9 @@ If this setting is disabled, you can handle everything from updating `package.js
     - Publishes the new version of the package
     - Creates release notes for the new version
 
-## Building the Workflows
+## Building the workflows
 
-### Creating the Workflow to Auto-Generate a PR
+### Creating the workflow to auto-generate a PR
 
 This workflow creates a PR that updates the version in `package.json`. Merging this PR triggers the release workflow.
 
@@ -112,7 +112,7 @@ jobs:
           GH_TOKEN: ${{ steps.generate-token.outputs.token }}
 ```
 
-### Issuing a GitHub App Token
+### Issuing a GitHub App token
 
 1. Go to GitHub account > Settings > Developer settings > GitHub Apps > New GitHub App and create a new GitHub App
     - Enter a GitHub App name
@@ -128,13 +128,13 @@ jobs:
 
 Reference: [authenticating-with-github-app-generated-tokens](https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#authenticating-with-github-app-generated-tokens)
 
-### Triggering PR Creation via GitHub Actions
+### Triggering PR creation via GitHub Actions
 
 You can manually trigger the Action from GitHub Actions to create a release PR as shown in the image.
 
 ![Manually trigger the release PR creation Action](dispatch-create-pr.png)
 
-### Creating the Release Workflow
+### Creating the release workflow
 
 This workflow is triggered when a PR with the `release` label is merged into the default branch. It also has a manual trigger as a safety valve, in case something goes wrong and only `package.json` gets updated without a full release.
 

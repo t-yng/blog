@@ -1,5 +1,5 @@
 ---
-title: Spoofing a MAC Address
+title: Spoofing a MAC address
 date: 2020-03-21
 description: How to spoof a MAC address
 tags: ['Security']
@@ -59,7 +59,7 @@ $ sudo spoof list
 $ sudo spoof reset en0
 ```
 
-## Without the Tool
+## Without the tool
 
 It turns out you can do it without the tool too.
 [How to change your MAC address using Terminal on macOS - yu8mada](https://yu8mada.com/2018/06/27/how-to-change-one-s-own-mac-address-using-terminal-on-macos/)

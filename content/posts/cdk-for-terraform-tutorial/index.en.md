@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Build a VPC with CDK for Terraform
+title: Tutorial - build a VPC with CDK for Terraform
 date: 2020-07-23
 description: A tutorial for building a VPC using CDK for Terraform
 tags: ['Terraform', 'TypeScript']
@@ -22,7 +22,7 @@ $ brew install terraform
 $ yarn global add cdktf-cli
 ```
 
-## Tutorial: Build a VPC on AWS
+## Tutorial: build a VPC on AWS
 
 ### Create the project
 

@@ -1,5 +1,5 @@
 ---
-title: Fix Ctrl+N Cursor Movement Not Working in Alfred
+title: Fix Ctrl+N cursor movement not working in Alfred
 date: 2021-10-02
 description: How to fix the issue where Ctrl+N selects a package instead of moving the cursor in Alfred
 tags: ['Other']

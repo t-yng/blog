@@ -1,5 +1,5 @@
 ---
-title: Notes on Converting a TypeScript Project to a Monorepo
+title: Notes on converting a TypeScript project to a monorepo
 date: 2020-08-09
 description: Notes on refactoring a repository that managed frontend and server code in separate directories into a monorepo structure.
 tags: ['TypeScript']
@@ -10,14 +10,14 @@ Here are the things I considered during that process.
 
 Note: The refactored repository is private, so it is not public.
 
-## Development Environment
+## Development environment
 
 I use Next.js as the frontend framework, and I implemented a BFF (Backend for Frontend) using Express as a custom Next.js server for proxying external API requests.
 
 * BFF: TypeScript, Node.js, Express (Next.js custom server)
 * Frontend: TypeScript, Next.js
 
-### Initial Structure
+### Initial structure
 
 The structure before refactoring looked like this. Frontend and server code were managed by directory separation.
 
@@ -48,14 +48,14 @@ The structure before refactoring looked like this. Frontend and server code were
 └── tsconfig.server.json
 ```
 
-### Problems with the Initial Structure
+### Problems with the initial structure
 
 In the initial directory structure, many files and directories existed at the root level. For a first-time reader, it was very hard to understand which files and directories related to the frontend and which to the server. Also, while `src` and `test` were split into `server` and `client` directories, the TypeScript settings were different for the frontend and server, making the tsconfig configuration complex.
 Note: I simplified for explanation, but in reality there were also Docker directories and more.
 
-## Converting to Monorepo
+## Converting to monorepo
 
-### Choosing a Tool
+### Choosing a tool
 
 For this conversion, I only used yarn workspace.
 
@@ -65,13 +65,13 @@ I also considered [Nx](https://nx.dev/react) as a tool for managing frontend and
 
 For reference, there are articles like [Yarn Workspaces: monorepo management without Lerna for applications and coding examples](https://codewithhugo.com/yarn-workspaces-application-monorepo/).
 
-### TypeScript Project References
+### TypeScript project references
 
 For the monorepo conversion, I introduced TypeScript's [Project References](https://www.typescriptlang.org/docs/handbook/project-references.html). This feature was added in TypeScript 3.0. It lets you manage TypeScript projects independently. Since I was splitting into packages with the monorepo, I also wanted to split TypeScript builds by package.
 
 In a monorepo environment, when `@app/web` depends on `@app/server`, if you build `@app/web` first, `@app/server` may not be built yet, causing module resolution failures. With Project References, running `tsc --build` will automatically build `@app/server` if needed when building `@app/web`, solving the dependency problem.
 
-### Final Structure
+### Final structure
 
 The directory structure after converting to a monorepo looks like this. Frontend and server are now split into separate packages, and related config files and directories are organized within each package. The structure is much easier to understand.
 

@@ -1,5 +1,5 @@
 ---
-title: Using TypeScript Generics with Arrays to Restrict Return Value Keys
+title: Using TypeScript generics with arrays to restrict return value keys
 date: 2023-10-20
 description: How to make a function that returns an object with array element values as keys type-safe. Also covers how to make it even safer using const-type-parameters.
 tags: ['TypeScript']
@@ -7,7 +7,7 @@ tags: ['TypeScript']
 
 This article shows how to make a function that returns an object with array element values as keys type-safe. It also covers how to make it even safer using const-type-parameters.
 
-## A Function That Specifies Keys with an Array
+## A function that specifies keys with an array
 
 Let's think about how to make this function type-safe. It takes an array of strings as an argument and creates an object with those values as keys, each holding a random number.
 Currently, the return type's key is `string`, so accessing a key that doesn't exist doesn't cause a type error.
@@ -26,7 +26,7 @@ const ids = useIds(['a', 'b']);
 console.log(ids.hoge);
 ```
 
-## Making It Type-Safe
+## Making it type-safe
 
 The key part is `[key in (typeof keys[number])]: number`. By combining Mapped Types with the technique to create a union type from an array, we can generate an object type that only has array element values as keys.
 

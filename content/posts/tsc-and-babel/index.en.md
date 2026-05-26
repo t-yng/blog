@@ -52,7 +52,7 @@ Babel solves this problem.
 
 Babel is a transpiler that converts modern JavaScript (like ES2020) into JavaScript that works in browsers like IE11. In addition to transpiling syntax, it can also do things like removing `test-id` attributes used in tests or removing `console.log` statements in production builds.
 
-### Plugins and Presets
+### Plugins and presets
 
 When using Babel, you need to understand two concepts: `Plugins` and `Presets`.
 
@@ -129,7 +129,7 @@ Note: the polyfills are loaded using `require` (CommonJS Module format), so this
 
 There are a few important things to know when using @babel/preset-typescript.
 
-#### Type Checking
+#### Type checking
 
 One thing to note is that type checking is not performed. Babel only strips the TypeScript types and transpiles to JavaScript, so even if there are type errors, transpilation will succeed.
 
@@ -162,7 +162,7 @@ $ tsc --noEmit src/index.ts && babel src/index.ts
 src/test.ts:1:7 - error TS2322: Type 'string' is not assignable to type 'number'.
 ```
 
-#### Some Features Are Not Supported
+#### Some features are not supported
 
 Some TypeScript features like `const enums` and decorators cannot be transpiled correctly. This isn't always a blocking issue, but it can be important depending on your project. It's important to be aware of these limitations.
 For details, see [Choosing between Babel and TypeScript](https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/).

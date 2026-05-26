@@ -1,5 +1,5 @@
 ---
-title: Finding a Free PaaS to Host a Next.js + GPT-4 Application
+title: Finding a free PaaS to host a Next.js + GPT-4 application
 date: 2023-12-11
 description: The problems with free hosting for Next.js + ChatGPT apps, and recommended PaaS services for free hosting.
 tags: ['Next.js', 'AI']
@@ -16,12 +16,12 @@ The application uses API Routes so it runs entirely on Next.js. When I tried hos
 
 ![Application example](./language-teacher.png)
 
-## Conclusion First
+## Conclusion first
 
 I tried three hosting services: [Vercel](https://vercel.com), [Fly.io](https://fly.io/), and [Render](https://render.com/).
 Vercel and Fly.io both had problems on the free plan, so I ended up using Render.
 
-## PaaS Comparison
+## PaaS comparison
 
 | PaaS | Execution Limits | Resources | Ease of Deployment |
 |---|---|---|---|
@@ -47,7 +47,7 @@ This might be a problem I could fix by improving memory management in the app, b
 
 Another downside of Fly.io is that, unlike Vercel, there is no system to automatically set up a deployment environment by linking a repository. You need to run commands from the CLI like Heroku, which makes setting up the deployment environment a bit more work.
 
-### Problem Solved with Render
+### Problem solved with Render
 
 Render, like Fly.io, has no proxy request limits, and the free plan gives 512MB of memory — twice as much as Fly.io.
 Since I was just barely running out of memory at 256MB, moving to Render solved the memory problem and the app became stable.

@@ -1,5 +1,5 @@
 ---
-title: Using Playwright Visual Regression Testing to Safely Replace a CSS Library
+title: Using Playwright visual regression testing to safely replace a CSS library
 date: 2023-05-27
 description: How I used Playwright visual regression testing to safely migrate the CSS library on my blog.
 tags: ['Frontend', 'Testing']
@@ -14,7 +14,7 @@ You can see the Playwright setup and the Linaria migration in these pull request
 - [Add visual regression testing with Playwright #543](https://github.com/t-yng/blog/pull/543)
 - [Migrate vanilla-extract to linaria #544](https://github.com/t-yng/blog/pull/544)
 
-## Installing and Setting Up Playwright
+## Installing and setting up Playwright
 
 You can install Playwright as a package, but using the `create` command automatically generates the configuration file and sets up the environment.
 
@@ -22,7 +22,7 @@ You can install Playwright as a package, but using the `create` command automati
 $ yarn create playwright
 ```
 
-## Editing the Configuration File
+## Editing the configuration file
 
 I edited the auto-generated configuration file to suit my preferences:
 
@@ -77,7 +77,7 @@ export default defineConfig({
 });
 ```
 
-## Creating the Visual Regression Tests
+## Creating the visual regression tests
 
 Playwright has built-in image diff comparison, so you can run a visual regression test just by navigating to a page and calling `toHaveScreenshot`.
 
@@ -109,7 +109,7 @@ test('visual regression', async ({ page }) => {
 });
 ```
 
-## Creating the Screenshots
+## Creating the screenshots
 
 On the first run, there are no baseline screenshots to compare against, so first create the baseline screenshots.
 
@@ -118,7 +118,7 @@ On the first run, there are no baseline screenshots to compare against, so first
 $ yarn playwright test --update-snapshots
 ```
 
-## Running the Tests
+## Running the tests
 
 Now that the visual regression setup is ready, let's run the tests.
 

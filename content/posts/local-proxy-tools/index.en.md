@@ -1,5 +1,5 @@
 ---
-title: Comparing Local Proxy Tools
+title: Comparing local proxy tools
 date: 2021-06-30
 description: A quick comparison of four local proxy tools.
 tags: ['Security']
@@ -13,7 +13,7 @@ Modify parts of JSON API responses from a specific service.
 
 Note: I tested this against the development environment of a service I am developing myself.
 
-## Tools Compared
+## Tools compared
 
 All tools were compared using their free versions. If a tool has a trial period for the paid version, I wrote my impressions based on the paid features during the trial.
 

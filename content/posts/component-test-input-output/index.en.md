@@ -1,5 +1,5 @@
 ---
-title: Writing Unit Tests by Thinking About Component Inputs and Outputs
+title: Writing unit tests by thinking about component inputs and outputs
 date: 2021-12-07
 description: When writing frontend component unit tests for the first time, it can be hard to know "what to test." This article explains how thinking about component inputs and outputs helps you understand what to test.
 tags: ['React', 'Frontend', 'Testing']
@@ -13,7 +13,7 @@ When writing frontend component unit tests for the first time, it can be hard to
 
 This article explains how thinking about component inputs and outputs helps you understand what to test in unit tests.
 
-## What Do Automated Tests Test?
+## What do automated tests test?
 
 First, let me clarify what automated tests generally test.
 
@@ -39,7 +39,7 @@ Summarizing the inputs and outputs of these test cases:
 | https://google.com/search?q=test | true |
 | https://example.com | false |
 
-## Why Component Tests Are Hard
+## Why component tests are hard
 
 As we just saw, utility functions have clear inputs and outputs, so they are relatively easy to test. Compared to them, components can feel harder to test because inputs and outputs are less obvious.
 
@@ -47,7 +47,7 @@ I think the main reason component tests feel hard is not that **you don't know h
 
 In other words, if you can identify a component's inputs and outputs, you can write component tests in the same way as utility function tests.
 
-## Component Inputs and Outputs
+## Component inputs and outputs
 
 From here I'll use React function components as an example, but the basic idea is the same for Vue components too.
 A React function component is, as the name says, just a function. A function has inputs and outputs.
@@ -62,7 +62,7 @@ The inputs are mainly these three types:
 
 From this, you can write component tests by checking **whether the correct HTML structure is output for each of the three types of input**.
 
-## Why It Feels Strange Not to Write Tests for Components
+## Why it feels strange not to write tests for components
 
 When you think about it this way, function components and utility functions are the same — they are both just functions.
 
@@ -72,9 +72,9 @@ These are clearly logic. It feels strange to write tests for utility function lo
 
 So I think it's fine to write component tests with the same mindset as utility function tests.
 
-## Try Writing Tests by Thinking About Inputs and Outputs
+## Try writing tests by thinking about inputs and outputs
 
-### Think About Inputs and Outputs
+### Think about inputs and outputs
 
 Let's think about the inputs and outputs of the following counter component.
 
@@ -106,7 +106,7 @@ The inputs and outputs look like this:
 
 Here, it doesn't matter that the output is a span element. What matters is that **the count value is output as text**. So I describe the output as "text."
 
-### Write the Tests
+### Write the tests
 
 Now that we have identified the inputs and outputs, let's write the tests.
 
@@ -164,7 +164,7 @@ describe('Counter', () => {
 });
 ```
 
-## Think About Tests for a More Realistic Component
+## Think about tests for a more realistic component
 
 The counter component might be too simple as an example. Let's think about tests for a more realistic component: `NotificationLink`, which shows a link based on notification content.
 
@@ -241,9 +241,9 @@ describe('NotificationLink', () => {
 })
 ```
 
-## Benefits of Writing Component Tests
+## Benefits of writing component tests
 
-### A Standard for Good Design
+### A standard for good design
 
 "Code that is hard to test has bad design" is a common saying in testing, and this applies to components too.
 
@@ -251,7 +251,7 @@ When you try to write tests for a complex component with many responsibilities, 
 
 Component design is especially difficult to judge. Writing tests gives you a clear standard: if tests are easy to write, the design is probably good. This gives you confidence to move forward with your implementation.
 
-### Safe Refactoring
+### Safe refactoring
 
 In general, automated tests are most useful when you are refactoring — that is, modifying existing code.
 
@@ -259,7 +259,7 @@ During code review, it is common to refactor components based on review feedback
 
 Tests give you benefits even if you write them just before release.
 
-### Reduced Verification Cost
+### Reduced verification cost
 
 For the `NotificationLink` component, if the `notification` object comes from an API response, manual verification requires mocking different API responses and manually operating the browser for each pattern. This can take 10 to 15 minutes including setup.
 

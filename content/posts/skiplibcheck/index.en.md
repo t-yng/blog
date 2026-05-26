@@ -8,7 +8,7 @@ tags: ['TypeScript']
 `tsconfig.json` has a configuration option called [skipLibCheck](https://www.typescriptlang.org/tsconfig#skipLibCheck).
 Here is a summary of how this option works and when to use it.
 
-## What skipLibCheck Does
+## What skipLibCheck does
 
 The default value of this option is `false`. Setting it to `true` skips type checking for `*.d.ts` files.
 

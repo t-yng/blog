@@ -1,5 +1,5 @@
 ---
-title: Adding Color to Standard Output in Rust
+title: Adding color to standard output in Rust
 date: 2020-06-13
 description: How to add color to standard output in Rust.
 tags: ['Rust']

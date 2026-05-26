@@ -1,5 +1,5 @@
 ---
-title: Starting an Engineering Blog with GatsbyJS + Netlify CMS
+title: Starting an engineering blog with GatsbyJS + Netlify CMS
 date: 2019-12-31
 description: Starting an engineering blog with GatsbyJS + Netlify CMS
 tags: ['Frontend', 'GatsbyJS']
@@ -11,7 +11,7 @@ Netlify CMS is a CMS tool provided by Netlify that can be used with any static s
 It provides a web-based UI with features like text editing, preview, and image upload.
 It uses the GitHub API internally, so the flow of writing an article in the admin panel → pushing to GitHub → deploying to Netlify is done automatically.
 
-## Creating a Blog from a GatsbyJS Template
+## Creating a blog from a GatsbyJS template
 
 We can't do anything without a blog to set up.
 
@@ -87,7 +87,7 @@ If you go to http://localhost:8000/admin and see the CMS login screen, you're go
 
 To log in, you need to set up Netlify authentication, which is described later.
 
-### Publishing the Blog
+### Publishing the blog
 
 Now it's time to publish the blog to Netlify.
 
@@ -115,7 +115,7 @@ You can view the admin panel by going to `<your blog domain>/admin`.
 
 It's still the template, but my blog is now published!
 
-## Creating a CMS Admin User
+## Creating a CMS admin user
 
 To log in to the CMS admin panel, set up Netlify authentication and create an admin user. Select the published site from the Netlify dashboard and follow these steps.
 
@@ -126,7 +126,7 @@ To log in to the CMS admin panel, set up Netlify authentication and create an ad
 
 You can now log in to the CMS admin panel.
 
-## Writing a Post
+## Writing a post
 
 Finally, let's write the first post in the CMS.
 

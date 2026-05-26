@@ -1,11 +1,7 @@
 import { FC } from 'react';
 import { css } from '@/styled-system/css';
-import {
-  TITLE_LOGO_IMAGE_URL,
-  TITLE_LOGO_IMAGE_ALT,
-  TITLE_LOGO_LINK_TITLE,
-} from '@/constants';
 import { type Locale } from '@/config/i18n';
+import { siteMetadata } from '@/config/siteMetadata';
 import { Link } from '../Link/Link';
 import { Flex } from '../Flex';
 import { LanguageSwitcher } from '../LanguageSwitcher';
@@ -15,6 +11,17 @@ type Props = {
   availableLocales?: Locale[];
 };
 
+const config = {
+  ja: {
+    imageUrl: '/images/title-logo.svg',
+    linkTitle: 'みどりのさるのエンジニアのホームへ',
+  },
+  en: {
+    imageUrl: '/images/title-logo-en.svg',
+    linkTitle: 'Go to home of green engineer',
+  },
+} as const;
+
 export const GlobalHeader: FC<Props> = ({
   locale = 'ja',
   availableLocales,
@@ -22,10 +29,10 @@ export const GlobalHeader: FC<Props> = ({
   <header>
     <div className={wrapper}>
       <Flex justify="center" py="1rem" px="20px" position="relative">
-        <Link href={`/${locale}`} title={TITLE_LOGO_LINK_TITLE}>
+        <Link href={`/${locale}`} title={config[locale].linkTitle}>
           <img
-            src={TITLE_LOGO_IMAGE_URL}
-            alt={TITLE_LOGO_IMAGE_ALT}
+            src={config[locale].imageUrl}
+            alt={siteMetadata[locale].title}
             className={titleLogoImg}
             width={438}
             height={38}

@@ -1,5 +1,5 @@
 ---
-title: Understanding ESLint Properly
+title: Understanding ESLint properly
 date: 2021-01-19
 description: I always set up ESLint at the start of a project and then rarely touch it again. Since I often forget what each setting does, I summarized the purpose of each configuration option and plugin.
 tags: ['Frontend']
@@ -11,7 +11,7 @@ I always set up [ESLint](https://github.com/eslint/eslint) at the start of a pro
 
 ESLint is a linter tool for EcmaScript/JavaScript. It is difficult for a team to agree on coding conventions and have everyone follow them manually. When a new member joins, you may need to point out the same issues in code review many times until they get used to the team's rules. By introducing ESLint, you can automate code rule checking and ensure consistent code.
 
-## ESLint Configuration
+## ESLint configuration
 
 In ESLint, you can configure all rules in a configuration file. Let's look at the basic configuration options.
 
@@ -84,7 +84,7 @@ In the example below, settings from `eslint:recommended` are overwritten by sett
 }
 ```
 
-### Parser Options
+### Parser options
 
 ESLint supports ES5 syntax by default. To support ES6+ syntax or JSX, configure `parserOptions`.
 
@@ -336,7 +336,7 @@ The example above is intentionally verbose to show how `plugins` works. If you w
 }
 ```
 
-### Shared Settings
+### Shared settings
 
 The `settings` option defines common values that are referenced when ESLint rules run. This is useful when you want custom rules to share a common value.
 
@@ -390,7 +390,7 @@ The recommended approach is to install [eslint-config-prettier](https://github.c
 $ prettier && eslint
 ```
 
-## Example Configuration for React
+## Example configuration for React
 
 Packages to install:
 - [yannickcr/eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
@@ -427,7 +427,7 @@ Configuration file:
 }
 ```
 
-## Example Configuration for TypeScript
+## Example configuration for TypeScript
 
 Packages to install:
 - [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser)

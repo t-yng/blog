@@ -10,7 +10,7 @@ This tech blog is hosted on Netlify, but I had been concerned about reports that
 - [Netlify is slow from Japan - id:anatoo's blog](https://blog.anatoo.jp/2020-08-03)
 - [Considering migration from Netlify to Vercel](https://www.suzu6.net/posts/268-blog-server/)
 
-## Speed Comparison
+## Speed comparison
 
 I hosted the same blog on Vercel too, and compared the response speed for a 1.3MB image between Netlify and Vercel, following the approach from those articles.
 The test was run around 12:00 on a Wednesday.
@@ -91,7 +91,7 @@ Transfer rate:          7594.93 [Kbytes/sec] received
 (omitted)
  ```
 
-## Why is Netlify Slow?
+## Why is Netlify slow?
 
 As I mentioned at the beginning, the CDN edge servers are not in Japan. Requests are routed through servers in Singapore or other countries outside Japan, which causes network latency.
 
@@ -123,7 +123,7 @@ traceroute to t-yng.jp (104.248.158.121), 64 hops max, 52 byte packets
 
 ## Migrating to Vercel
 
-### Remove Netlify Integration
+### Remove Netlify integration
 
 First, I removed the GitHub repository integration with Netlify to stop automatic deploys.
 Go to your GitHub repository, then Settings > Integrations > Netlify, and delete it.
@@ -133,12 +133,12 @@ Go to your GitHub repository, then Settings > Integrations > Netlify, and delete
 Since the blog is built with Next.js, I followed the [official Next.js documentation](https://nextjs.org/docs/deployment#vercel-recommended).
 Basically, you just go to the Vercel website and click through to import your GitHub repository as a Vercel project.
 
-### Remove Custom Domain from Netlify
+### Remove custom domain from Netlify
 
 Change the custom domain from pointing to Netlify to pointing to Vercel.
 To set a custom domain on Netlify, I had changed the nameservers in my domain registrar. I reverted those nameservers back to the default ones from my domain registrar.
 
-### Add Custom Domain to Vercel
+### Add custom domain to Vercel
 
 After that, go to your project on Vercel and add the custom domain under Settings > Domains.
 After adding the custom domain, DNS record settings are displayed. Register those DNS records with your domain registrar.
