@@ -1,5 +1,5 @@
 ---
-title: TSConfig Options Added in TypeScript 4.5 and Later
+title: TSConfig options added in TypeScript 4.5 and later
 date: 2023-12-14
 description: I got curious about how many new TSConfig options were added in the past two years. TypeScript 4.5 was released around November 2021, so I looked at all options added since then.
 tags: ['TypeScript']
@@ -13,7 +13,7 @@ This article is the 14th entry in the [TypeScript Advent Calendar](https://qiita
 
 TypeScript 4.5 was released around November 2021, which is about two years ago, so I looked at all TSConfig options added since TypeScript 4.5.
 
-## List of New Options Added Since Version 4.5
+## List of new options added since version 4.5
 
 | Option | Added in version |
 |--|--|
@@ -212,11 +212,11 @@ When enabled, TypeScript uses the `exports` field for module resolution.
 
 This setting defaults to `true` when `--moduleResolution` is `node16`, `nodenext`, or `bundler`.
 
-### About the exports Field
+### About the exports field
 
 The `exports` field in `package.json` lets the package publisher control which file is loaded for each platform.
 
-### Compatibility Issues
+### Compatibility issues
 
 One backward compatibility issue: when `resolvePackageJsonExports` is `true`, referencing the `exports` field may block imports of files that the package didn't intend to expose, causing compile errors.
 
@@ -245,7 +245,7 @@ When enabled, TypeScript references the `imports` field when resolving imports.
 
 This setting defaults to `true` when `--moduleResolution` is `node16`, `nodenext`, or `bundler`.
 
-### About the imports Field
+### About the imports field
 
 The `imports` field in `package.json` lets you map custom names to packages.
 In the example below, `#dep` is mapped to `dep-node-native`.

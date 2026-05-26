@@ -1,5 +1,5 @@
 ---
-title: I Wish Someone Had Taught Me How to Type-Safe Mock in TypeScript + Jest
+title: I wish someone had taught me how to type-safe mock in TypeScript + Jest
 date: 2021-12-04
 description: This article is for Day 5 of "Time Leap TypeScript — Things I Wish I Knew When I Started TypeScript." When I first started writing TypeScript, one thing I struggled with was how to write types for mocks when writing tests with Jest.
 tags: ['Jest', 'TypeScript', 'Testing']
@@ -17,13 +17,13 @@ When writing tests with compromised types in TypeScript, I had these problems:
 - No autocompletion, making coding tedious
 - Missing typos in property names, then being confused when tests fail without understanding why
 
-## Table of Contents
+## Table of contents
 
 - [Typing Module Mocks](#typing-module-mocks)
 - [Typing Function Mocks](#typing-function-mocks)
 - [Typing Spy Mocks](#typing-spy-mocks)
 
-## Typing Module Mocks
+## Typing module mocks
 
 Let's consider a test for a function that fetches a list of users from an API.
 
@@ -77,7 +77,7 @@ test('should fetch users', async () => {
 });
 ```
 
-## Typing Function Mocks
+## Typing function mocks
 
 Next, consider an implementation where a data fetching function is passed as an argument.
 
@@ -172,7 +172,7 @@ it('fetch all users', () => {
 })
 ```
 
-## Typing Spy Mocks
+## Typing spy mocks
 
 In frontend development, you might write a `Storage` class that wraps the Storage API.
 

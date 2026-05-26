@@ -1,5 +1,5 @@
 ---
-title: Buying Keycaps Online
+title: Buying keycaps online
 date: 2020-01-26
 description: A list of shops I looked at when buying keycaps online.
 tags: ['Keyboard']

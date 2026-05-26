@@ -1,5 +1,5 @@
 ---
-title: Trying the ISUCON Summer Course 2017
+title: Trying the ISUCON summer course 2017
 date: 2020-08-02
 description: Notes from working through the ISUCON Summer Course 2017, covering the basic data collection steps up to finding bottlenecks.
 tags: ['ISUCON']
@@ -7,7 +7,7 @@ tags: ['ISUCON']
 
 I worked through [ISUCON Summer Course 2017](http://isucon.net/archives/50648750.html) as practice for ISUCON10. Here I summarize only the basic data collection steps for finding bottlenecks.
 
-## Environment Setup
+## Environment setup
 
 I used VirtualBox as the virtual machine and the [isucon7 qualifying problem](https://github.com/matsuu/vagrant-isucon/tree/master/isucon7-qualifier).
 
@@ -27,7 +27,7 @@ $ vagrant halt # The app did not start on the image VM on the first boot
 $ vagrant up 
 ```
 
-## Run the Benchmark
+## Run the benchmark
 
 First, check the IP address assigned to the application server VM.
 
@@ -52,11 +52,11 @@ $ bin/bench -remotes 172.28.128.8 # Specify the image machine's IP address
 [isu7q-bench] 2020/07/26 09:34:02.557313 bench.go:260: Cannot increase Load Level. Reason: RecentErr 2020-07-26 09:34:02.336753948 +0000 UTC m=+16.304791155 Request timed out (POST /message) Before 220.553901ms
 ```
 
-## Check the Application
+## Check the application
 
 Open http://192.168.33.10 in your browser to check the app. Since there is no data before running the benchmark, it is recommended to run the benchmark first. You can create a new account and log in.
 
-## Connect to MySQL in the Virtual Environment
+## Connect to MySQL in the virtual environment
 
 Check the SSH config. The MySQL connection info was found in the [ansible config file](https://github.com/matsuu/ansible-isucon/blob/master/isucon7-qualifier/roles/mysql/tasks/main.yml).
 
@@ -82,7 +82,7 @@ SSH User: vagrant
 Private Key: ~/isucon7-qualifier/.vagrant/machines/image/virtualbox/private_key
 ```
 
-## Change the Implementation Language
+## Change the implementation language
 
 ISUCON allows you to choose your preferred language from several options. Here I switch to JavaScript (Node.js). I referenced [ISUCON7 Qualifying Manual](https://gist.github.com/941/8c64842b71995a2d448315e2594f62c2) for switching the reference implementation.
 
@@ -122,9 +122,9 @@ $ service isubata.nodejs status
    Active: active (running) since Sun 2020-07-26 12:24:52 UTC; 2min 59s ago
 ```
 
-## Measuring Bottlenecks
+## Measuring bottlenecks
 
-### Install Monitoring Tools
+### Install monitoring tools
 
 Choose and install any of these tools:
 
@@ -140,7 +140,7 @@ $ sudo apt install glances
 $ bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
 ```
 
-### Monitoring During Benchmark
+### Monitoring during benchmark
 
 These tools let you visualize CPU, memory, and other resources while the benchmark is running.
 
@@ -163,7 +163,7 @@ Access http://<image machine IP>:19999 in your browser. In this case, http://172
 
 ![netdata](netdata.png)
 
-## Analyzing Access Logs with alp
+## Analyzing access logs with alp
 
 ### Install alp
 
@@ -174,7 +174,7 @@ $ unzip alp_linux_amd64.zip
 $ sudo install ./alp /usr/local/bin
 ```
 
-### Add alp Output Format to nginx
+### Add alp output format to nginx
 
 ```shell
 $ sudo vi /etc/nginx/nginx.conf
@@ -196,7 +196,7 @@ http {
 $ sudo rm /var/log/nginx/access.log && sudo systemctl reload nginx
 ```
 
-### Analyze Access Logs with alp
+### Analyze access logs with alp
 
 After running the benchmark, aggregate the access logs with alp. Looking at the results sorted by total time in descending order, access to `/message` and `/fetch` is taking the most time. The responses for images under `/icons` are also notable.
 Hold back the urge to fix things and move on to analyzing MySQL queries.
@@ -212,7 +212,7 @@ $ alp ltsv -r --sort sum --file /var/log/nginx/access.log
 ...
 ```
 
-## MySQL Query Analysis
+## MySQL query analysis
 
 Add slow query log output settings, rerun the benchmark, and output the log. If setup is correct, `/var/log/mysql/mysql-slow.log` will be created.
 
@@ -242,7 +242,7 @@ $ perl Makefile.PL && make && sudo make install
 $ sudo pt-query-digest --help
 ```
 
-### View Slow Query Logs
+### View slow query logs
 
 Use `pt-query-digest` to analyze slow query logs.
 

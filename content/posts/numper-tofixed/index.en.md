@@ -1,5 +1,5 @@
 ---
-title: Formatting Numbers with a Fixed Number of Decimal Places in JavaScript
+title: Formatting numbers with a fixed number of decimal places in JavaScript
 date: 2020-09-01
 description: How to format numbers with a specified number of decimal places in JavaScript.
 tags: ['Frontend']

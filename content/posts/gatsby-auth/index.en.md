@@ -1,5 +1,5 @@
 ---
-title: Building an Authenticated Site with GatsbyJS
+title: Building an authenticated site with GatsbyJS
 date: 2020-09-27
 description: Notes from following a tutorial on implementing authentication with GatsbyJS.
 tags: ['Frontend', 'GatsbyJS']
@@ -14,14 +14,14 @@ For the full implementation, see [t-yng/examples/gatsby-auth](https://github.com
 * Users can log in and log out
 * Protected pages cannot be viewed when not logged in
 
-## Create the Project
+## Create the project
 
 ```
 $ gatsby new gatsby-auth gatsbyjs/gatsby-starter-hello-world
 $ cd gatsby-auth
 ```
 
-## Implement the Navigation Bar
+## Implement the navigation bar
 
 Create the navigation bar component.
 
@@ -78,7 +78,7 @@ const Home = () => (
 export default Home;
 ```
 
-## Implement User Authentication
+## Implement user authentication
 
 First, define the User type as a model.
 
@@ -120,7 +120,7 @@ const setUser = (user: User) => {
 };
 ```
 
-## Add Client-Side Routing
+## Add client-side routing
 
 In GatsbyJS, files under the `pages` directory are output as static pages at build time. However, authenticated sites need to render different content per user, so static page builds cannot meet this requirement.
 The solution is to create an app page and define client-side routes for dynamic rendering. See [Client-only Routes & User Authentication | Gatsby](https://www.gatsbyjs.com/docs/client-only-routes-and-user-authentication/) for details.
@@ -256,7 +256,7 @@ exports.onCreatePage = async ({ page, actions }) => {
 };
 ```
 
-## Page Redirect Based on Auth State
+## Page redirect based on auth state
 
 Right now, anyone can access the profile page regardless of login state. Let's change it to redirect to the login page when not logged in.
 
@@ -309,7 +309,7 @@ const App = () => (
 export default App;
 ```
 
-## Implement Logout
+## Implement logout
 
 Implement the logout logic.
 
@@ -365,7 +365,7 @@ export const NavBar = () => {
 };
 ```
 
-## Display Profile Information
+## Display profile information
 
 Update to pass user information to private pages.
 

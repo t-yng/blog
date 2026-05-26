@@ -1,5 +1,5 @@
 ---
-title: Adding markuplint to a React Project
+title: Adding markuplint to a React project
 date: 2022-12-19
 description: How to add markuplint to a React project for HTML syntax checking
 tags: ['Frontend', 'React']
@@ -14,7 +14,7 @@ For example, the following code is invalid HTML because the `p` element only all
 </p>
 ```
 
-## Why Write HTML Based on the Specification
+## Why write HTML based on the specification
 
 The code above is a syntax error in HTML, but browsers still display it without any problem. You might think: if there's no visible issue, does it really matter?
 
@@ -42,7 +42,7 @@ For parsers and specs for other libraries like Vue and Svelte, check the [offici
 $ yarn add markuplint @markuplint/jsx-parser @markuplint/react-spec
 ```
 
-### Create a Config File
+### Create a config file
 
 Create `.markuplintrc` at the project root with the following content.
 
@@ -67,7 +67,7 @@ Create `.markuplintrc` at the project root with the following content.
 }
 ```
 
-### Run the Syntax Check
+### Run the syntax check
 
 Let's run the syntax check on this component file:
 

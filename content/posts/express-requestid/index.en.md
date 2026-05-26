@@ -1,5 +1,5 @@
 ---
-title: Output a Request ID in All Logs with Express
+title: Output a request ID in all logs with Express
 date: 2020-02-22
 description: How to output a request ID in all logs with Express
 tags: ['Node.js']
@@ -71,7 +71,7 @@ We could store it in the global object, but since Node.js is single-threaded, th
 
 So we use zone.js to manage the value globally per request, making it accessible from the logger module.
 
-## get Syntax
+## get syntax
 
 The second key point is the [get syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) for objects.
 

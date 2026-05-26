@@ -1,5 +1,5 @@
 ---
-title: Accessibility Conference Fukuoka - Attendance Notes
+title: Accessibility conference Fukuoka - attendance notes
 date: 2023-11-11
 description: Notes from the sessions at the Accessibility Conference held in Fukuoka.
 tags: ['Frontend', 'a11y']
@@ -8,11 +8,11 @@ tags: ['Frontend', 'a11y']
 I attended [Accessibility Conference Fukuoka](https://fukuoka.a11yconf.net/) in person.
 Here are my session notes from the conference.
 
-## Expanding "Being Understood" through Accessibility
+## Expanding "being understood" through accessibility
 
 Speaker: [Sachi Majima](https://fukuoka.a11yconf.net/#speaker-majima)
 
-### What is Accessibility?
+### What is accessibility?
 
 - Access + ability
 - Accessibility is not 0 or 100 — it is something you **improve**

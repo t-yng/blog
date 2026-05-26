@@ -1,5 +1,5 @@
 ---
-title: Setting Up the DK6 Ergo on macOS
+title: Setting up the DK6 Ergo on macOS
 date: 2021-05-28
 description: How to set up the DK6 Ergo split keyboard on macOS
 tags: ['Split Keyboard']

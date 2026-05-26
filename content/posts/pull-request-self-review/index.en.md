@@ -1,5 +1,5 @@
 ---
-title: The Benefits of Self-Reviewing Your Own Pull Requests
+title: The benefits of self-reviewing your own pull requests
 date: 2022-05-12
 description: Let's talk about the benefits of reviewing your own pull requests.
 tags: ['Other']
@@ -7,13 +7,13 @@ tags: ['Other']
 
 Let's talk about the benefits of reviewing your own pull requests.
 
-## What is a Self-Review?
+## What is a self-review?
 
 A self-review means reviewing your own pull request before asking others to review it.
 
 For complex implementations or large pull requests, I sometimes review my own pull request before asking others for a review.
 
-## Benefits of Self-Reviews
+## Benefits of self-reviews
 
 - You can find inefficient code, unnecessary logic, forgotten debug code, and places where a comment is needed
 - You can see your code objectively, the way a reviewer would
@@ -26,7 +26,7 @@ Reviewing objectively also helps you spot places where a reviewer is likely to a
 
 Self-reviews benefit not only yourself but also the reviewers. When asking someone to review your code, it is very important to think about **how to make the review as easy as possible for them**.
 
-## Self-Review Driven Development
+## Self-review driven development
 
 You can also write code, create a pull request, do a self-review and leave comments, then fix the code based on those comments. This is a kind of self-review driven development.
 

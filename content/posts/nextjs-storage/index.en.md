@@ -1,5 +1,5 @@
 ---
-title: Using the Storage Object in Next.js
+title: Using the Storage object in Next.js
 date: 2020-09-05
 description: How to use the browser's Storage object in Next.js.
 tags: ['Frontend', 'React', 'Next.js']
@@ -9,7 +9,7 @@ This article summarizes how to use the browser's Storage object in Next.js.
 
 For a reference implementation, see [t-yng/examples/nextjs-localstorage](https://github.com/t-yng/examples/tree/master/nextjs-localstorage).
 
-## Trying to Use the Storage Object
+## Trying to use the Storage object
 
 Let's think about an example where we get user information from `sessionStorage` and display it on the screen.
 
@@ -119,7 +119,7 @@ The code above lets us use `sessionStorage`, but there is one problem. Even thou
 
 ![Page loading](move-page.gif)
 
-## Dynamic Import
+## Dynamic import
 
 In Next.js, you can use [Dynamic import](https://nextjs.org/docs/advanced-features/dynamic-import) to prevent a module from being loaded on the server side. This way, `sessionStorage` is only accessed on the frontend.
 

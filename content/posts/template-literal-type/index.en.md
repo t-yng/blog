@@ -1,5 +1,5 @@
 ---
-title: A Use Case for TypeScript Template Literal Types
+title: A use case for TypeScript template literal types
 date: 2021-02-20
 description: An example of using TypeScript template literal types.
 tags: ['TypeScript']
@@ -40,7 +40,7 @@ i18n.init({
 console.log(t('common.bage.required'));
 ```
 
-## Defining Types with Template Literal Types
+## Defining types with template literal types
 
 This problem can be solved by using template literal types to generate a literal type of all keys joined by `.` from the object.
 

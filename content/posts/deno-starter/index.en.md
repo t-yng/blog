@@ -1,5 +1,5 @@
 ---
-title: Let's Try Deno
+title: Let's try Deno
 date: 2020-04-06
 description: Getting started with Deno
 tags: ['Deno', 'TypeScript']
@@ -25,7 +25,7 @@ Note: Adjust the path to match your environment.
 You can also install using Homebrew or Cargo.
 See [https://deno.land/](https://deno.land/) for details.
 
-## VS Code Extension
+## VS Code extension
 
 Without any setup, VS Code treats Deno code as TypeScript and shows errors for Deno syntax.
 Install [Deno - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=axetroy.vscode-deno) to fix this.
@@ -39,7 +39,7 @@ I enable it per project to avoid conflicts with Node.js TypeScript environments.
 }
 ```
 
-## Display Hello World
+## Display hello world
 
 Let's implement a simple sample that shows "Hello World."
 
@@ -96,7 +96,7 @@ Now open http://localhost:8000/ in your browser to see "Hello World" displayed. 
 
 Next, let's implement a web server that returns HTML.
 
-### Directory Structure
+### Directory structure
 
 Create `public/index.html` with any content you like.
 
@@ -141,7 +141,7 @@ $ deno --allow-net --allow-read server.ts
 access to http://localhost:8000/
 ```
 
-## Package Management
+## Package management
 
 ### Problem
 

@@ -1,5 +1,5 @@
 ---
-title: A Practice Problem for Learning React Performance Improvement
+title: A practice problem for learning React performance improvement
 date: 2022-12-13
 description: I had a chance to improve React performance at work, so I made a practice problem based on that experience.
 tags: ['Frontend', 'React', 'Performance']
@@ -9,7 +9,7 @@ This article is the 14th entry in the [YAMAP Engineer Advent Calendar 2022](http
 
 I improved the performance of a form implemented in React at work, so I made a practice problem based on that experience.
 
-## The Problem
+## The problem
 
 A React app shows a list of `<input>` elements, but typing into them is very slow. The goal is to improve the response speed.
 

@@ -1,5 +1,5 @@
 ---
-title: Fix Auto-Zoom on Form Fields in iOS
+title: Fix auto-zoom on form fields in iOS
 date: 2021-02-17
 description: Solutions for the auto-zoom behavior that happens when focusing on form input elements in iOS.
 tags: ['Frontend']
@@ -32,7 +32,7 @@ The default value of `maximum-scale` is `1.6`. By changing it to `1.0`, even if 
 <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0" />
 ```
 
-## Which One Should You Use?
+## Which one should you use?
 
 Setting the font size to 16px or more can become a hidden rule that is easy to forget, so I prefer to avoid it.
 Personally, 16px also feels too large for input elements and limits design choices. So I think setting the viewport is generally the best approach.

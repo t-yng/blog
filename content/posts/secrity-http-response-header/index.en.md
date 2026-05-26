@@ -1,5 +1,5 @@
 ---
-title: HTTP Response Headers for Web Security
+title: HTTP response headers for web security
 date: 2020-04-08
 description: HTTP response headers you should know about when thinking about security in frontend development.
 tags: ['Frontend', 'Security']
@@ -22,7 +22,7 @@ X-Powered-By: Next.js
 
 Since this header includes information about the framework and version used on the server, it can give attackers useful information to help exploit other vulnerabilities.
 
-### How to Fix
+### How to fix
 
 Configure the server to not send the X-Powered-By header.
 
@@ -41,7 +41,7 @@ X-Runtime: 0.094235
 
 This header can be used in timing attacks.
 
-### Timing Attacks
+### Timing attacks
 
 A timing attack is a technique that analyzes a service by measuring differences in server response times.
 For example, suppose a login process is implemented like this:
@@ -70,7 +70,7 @@ X-Runtime: 0.6421
 
 Reference: [X-Runtime Header Timing Attacks - Virtue Security](https://www.virtuesecurity.com/kb/x-runtime-header-timing-attacks/)
 
-### How to Fix
+### How to fix
 
 Configure the server to not send the X-Runtime header.
 
@@ -91,7 +91,7 @@ Cache-Control: max-age=86400
 If no Cache-Control is set, browsers will cache server responses by default when possible.
 If the response includes sensitive information like a user's password, and an attacker can somehow access the user's physical machine, they could steal that information from the browser cache.
 
-### How to Fix
+### How to fix
 
 Set appropriate Cache-Control values based on the type of data.
 For example, if the response includes data that should not be stored on the user's device, use `no-store` to prevent caching.
@@ -126,7 +126,7 @@ For example, suppose a user is using a service with these characteristics:
 
 In this case, the attacker embeds the account page of the target service in a transparent iframe placed over their own page. If the user is logged in, the account page is shown transparently on top. By placing a clickable button at the position that overlaps with the delete button, the attacker can trick the user into clicking it and deleting their account.
 
-### How to Fix
+### How to fix
 
 Use `X-Frame-Options: DENY` to prevent the page from being embedded in iframes.
 
@@ -164,7 +164,7 @@ For example, the following allows loading scripts only from your own domain and 
 Content-Security-Policy: default-src 'self' cdnjs.cloudflare.com
 ```
 
-### How to Fix
+### How to fix
 
 Set the Content-Security-Policy header appropriately.
 
@@ -199,7 +199,7 @@ Strict-Transport-Security: max-age=31536000;
 Suppose you regularly use a banking site that allows HTTP access.
 If you connect to free WiFi at a cafe and use that banking site over HTTP, an attacker could intercept your HTTP requests and steal your bank account or login information.
 
-### How to Fix
+### How to fix
 
 Set the Strict-Transport-Security header.
 

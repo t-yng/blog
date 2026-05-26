@@ -1,5 +1,5 @@
 ---
-title: Download a GitHub Directory from the CLI
+title: Download a GitHub directory from the CLI
 date: 2020-04-01
 description: How to download a specific directory from a GitHub repository using the CLI
 tags: ['Terminal']

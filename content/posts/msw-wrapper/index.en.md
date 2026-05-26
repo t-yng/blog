@@ -1,11 +1,11 @@
 ---
-title: Creating Utility Functions to Wrap msw
+title: Creating utility functions to wrap msw
 date: 2022-12-07
 description: Implementing useful utility functions by wrapping msw.
 tags: ['Frontend', 'Testing']
 ---
 
-## Mocking API Responses with server.use
+## Mocking API responses with server.use
 
 In msw, you can use `server.use` to change the API response for each test case.
 However, `server.use` requires a lot of repetitive code, which can be tedious to write.
@@ -75,7 +75,7 @@ it('shows default image when no avatar is set', () => {
 });
 ```
 
-## Mocking Pagination APIs
+## Mocking pagination APIs
 
 For pagination APIs, you need to write code that changes the response based on the request parameter, which makes the code quite long. Writing this in every test is annoying.
 

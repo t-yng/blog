@@ -1,5 +1,5 @@
 ---
-title: I Became Einstein on Zoom
+title: I became Einstein on Zoom
 date: 2020-04-19
 description: How to use Avatarify to become Einstein on Zoom
 tags: ['Other']

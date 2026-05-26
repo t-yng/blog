@@ -1,5 +1,5 @@
 ---
-title: Building a Web Scraping Bot on Google Cloud That Sends Notifications
+title: Building a web scraping bot on Google Cloud that sends notifications
 date: 2022-09-27
 description: I had the chance to join the G.I.G program at my company, so as a learning exercise I built a bot on Google Cloud that regularly scrapes the web and sends results to Slack.
 tags: ['Google Cloud']
@@ -7,13 +7,13 @@ tags: ['Google Cloud']
 
 I had the chance to join the G.I.G program at my company. As a learning exercise, I built a bot on Google Cloud that regularly scrapes the web and sends results to Slack.
 
-## Overall Architecture
+## Overall architecture
 
 A Cloud Functions HTTP function runs the scraping and sends the results to Slack. A Cloud Scheduler job sends regular HTTP requests to the Cloud Functions function, which creates the bot.
 
 ![Architecture diagram](archecture.png)
 
-## Implement the Scraping
+## Implement the scraping
 
 First, implement the code that runs the scraping locally.
 I use [axios](https://axios-http.com/) and [cheerio](https://cheerio.js.org/) to fetch and parse HTML.
@@ -41,7 +41,7 @@ const main = async () => {
 main();
 ```
 
-## Implement the Slack Notification
+## Implement the Slack notification
 
 Next, implement the part that sends the scraping result to Slack.
 To send messages to Slack, generate a Webhook URL using [Incoming Webhook](https://slack.com/intl/en-jp/help/articles/115005265063-Incoming-webhooks-for-Slack) and send a POST request.
@@ -79,11 +79,11 @@ Login to authenticate so you can use the `gcloud` command to operate Google Clou
 $ gcloud auth login
 ```
 
-## Create a Project
+## Create a project
 
 Create a project in Google Cloud to build the services.
 
-## Implement the Cloud Functions HTTP Handler
+## Implement the Cloud Functions HTTP handler
 
 Now build the application on Google Cloud.
 For details on Cloud Functions, see the [official guide](https://cloud.google.com/functions/docs/how-to).
@@ -194,7 +194,7 @@ $ curl https://reservation-vacancy-notify-xxxxxx.run.app
 ok
 ```
 
-## Run Regularly with Cloud Scheduler
+## Run regularly with Cloud Scheduler
 
 The `gcloud scheduler jobs create http` command creates a job that sends HTTP requests.
 The schedule uses crontab format. For the timezone, use a timezone from the [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).

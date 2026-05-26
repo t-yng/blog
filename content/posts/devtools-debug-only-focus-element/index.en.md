@@ -1,5 +1,5 @@
 ---
-title: Debugging Elements That Only Show When Focused in React with Chrome DevTools
+title: Debugging elements that only show when focused in React with Chrome DevTools
 date: 2023-03-03
 description: How to debug DOM elements that only appear when focused using Chrome DevTools
 tags: ['Frontend']
@@ -7,7 +7,7 @@ tags: ['Frontend']
 
 I got stuck debugging a popup that only shows when an element is focused in React. Here is the solution.
 
-## The Problem
+## The problem
 
 Consider a situation where you want to debug the CSS of a popup that only shows when an input element is focused, like this:
 

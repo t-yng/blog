@@ -1,5 +1,5 @@
 ---
-title: Participated in ISUCON11 Qualifying and Set a Personal Best
+title: Participated in ISUCON11 qualifying and set a personal best
 date: 2021-08-23
 description: A record of participating in ISUCON11
 tags: ['ISUCON']
@@ -33,7 +33,7 @@ The key challenge was how to handle this DB load.
 
 ## Retrospective
 
-### What Went Well
+### What went well
 
 - This year we connected via Zoom and worked online, using screen sharing to collaborate effectively as a team
 - When a benchmark run showed no improvement, we thoroughly reverted to the previous state, so we never had the app break
@@ -41,13 +41,13 @@ The key challenge was how to handle this DB load.
 - We carefully read the manual and understood the scoring rules, which helped us decide on approach
 - We used Miro for task management so everyone knew what others were doing
 
-### What Needs Improvement
+### What needs improvement
 
 - We hadn't studied Go enough and it took a long time to modify the app
 - Due to lack of preparation, we couldn't set up New Relic DB monitoring
 - After the score improved, we couldn't think of the next step and hit a ceiling
 
-## What the Team Did
+## What the team did
 
 - Set up the initial infrastructure and launched the servers
 - Read the contest manual and app manual carefully
@@ -70,18 +70,18 @@ The key challenge was how to handle this DB load.
 - Stopped nginx and app debug logging: 33000 => 35000
 - Redirected /api/trend requests to Server 3: 35000 => 47000
 
-### Understanding App Features by Running the App
+### Understanding app features by running the app
 
 The app this year seemed smaller in scale than previous years, so it was easy to understand the whole picture.
 The pre-event service introduction in the opening also helped us understand the overview.
 
-### Adding the New Relic Go Agent
+### Adding the New Relic Go agent
 
 I added the agent as an Echo middleware, referencing these docs:
 - [Install New Relic for Go | New Relic Documentation](https://docs.newrelic.com/jp/docs/agents/go-agent/installation/install-new-relic-go/)
 - [Go agent compatibility and requirements | New Relic Documentation](https://docs.newrelic.com/jp/docs/agents/go-agent/get-started/go-agent-compatibility-requirements/)
 
-### Checking HTTP Requests and Finding Bottlenecks
+### Checking HTTP requests and finding bottlenecks
 
 Most requests were `POST /api/condition/:jia_isu_uuid`, which is the API endpoint that receives chair condition and writes to the DB. This was as expected.
 
@@ -89,13 +89,13 @@ Most requests were `POST /api/condition/:jia_isu_uuid`, which is the API endpoin
 
 We focused on these two endpoints, checked the implementation details, and decided on a bottleneck approach.
 
-### Change Server Config: Server 1: DB, Server 2: App — Score: 1000 => 8000
+### Change server config: Server 1: DB, Server 2: App — Score: 1000 => 8000
 
 DB CPU load was very high at 150-180%, so we dedicated Server 1 to DB and moved request handling to Server 2.
 
 Score improved by about 7000 points.
 
-### Don't Query Image Column in isu Table
+### Don't query image column in isu table
 
 The isu_conditions table stored images as binary data.
 `/api/trend` was doing `SELECT * FROM isu`, which included the image column even though it was not needed. We predicted this was causing slow reads, so we changed the query to only select needed columns. The improvement was not significant.
@@ -105,7 +105,7 @@ The isu_conditions table stored images as binary data.
 + "SELECT `id`, `jia_isu_uuid` FROM `isu` WHERE `character` = ?",
 ```
 
-### Distribute Chair Condition Data Sending Across 3 Servers
+### Distribute chair condition data sending across 3 servers
 
 Since large amounts of chair condition data were being sent, we thought other requests might be waiting. We tried distributing requests across 3 servers, but it had little effect.
 
@@ -114,7 +114,7 @@ Since large amounts of chair condition data were being sent, we thought other re
 + postIsuConditionTargetBaseURLs []string
 ```
 
-### Change Server Config Again
+### Change server config again
 
 We still thought chair condition HTTP requests were causing other requests like /api/trend to wait, so we moved all POST /api/condition/:jia_isu_uuid requests to a separate server.
 
@@ -124,7 +124,7 @@ There was no score improvement, but CPU load was distributed.
 - Server 2: App
 - Server 3: Chair condition receiver
 
-### Reconsider the Approach
+### Reconsider the approach
 
 We tried various approaches based on our initial guesses but didn't get results, so we reconsidered.
 
@@ -149,7 +149,7 @@ Based on these two scenarios, we concluded we needed to increase users to improv
 
 To do that, we needed to fix the timeouts. The obvious timeout culprit was `/api/trend`, so we continued bottleneck analysis focusing on that endpoint.
 
-### Add Index to isu_condition.jia_isu_uuid — Score: 8000 => 25000
+### Add index to isu_condition.jia_isu_uuid — Score: 8000 => 25000
 
 While thinking about the `/api/trend` bottleneck, I realized that constant writes to `isu_condition` might be causing table locks, making reads from `isu_condition` wait.
 
@@ -171,7 +171,7 @@ CREATE INDEX jia_isucon_uuid_index ON isu_condition(jia_isu_uuid);
 
 This improved `/api/trend` response time and the score increased significantly.
 
-### Add Index to isu_condition.timestamp — Score: 25000 => 28000
+### Add index to isu_condition.timestamp — Score: 25000 => 28000
 
 For the same reason, we also added an index to `timestamp` in `isu_condition`.
 
@@ -179,7 +179,7 @@ For the same reason, we also added an index to `timestamp` in `isu_condition`.
 CREATE INDEX jia_isucon_uuid_timestamp_index ON isu_condition(jia_isu_uuid, timestamp);
 ```
 
-### Change Data Drop Ratio from 90% to 75% — Score: 28000 => 33000
+### Change data drop ratio from 90% to 75% — Score: 28000 => 33000
 
 The initial implementation dropped 90% of received chair condition data.
 
@@ -199,24 +199,24 @@ Since points are added when users check new conditions, dropping chair condition
 + dropProbability := 0.75
 ```
 
-### Cache Images on the Client
+### Cache images on the client
 
 After these improvements, `GET /api/isu/:jia_isu_uuid/icon` emerged as a new bottleneck endpoint.
 
 This was clearly caused by storing images as binary data in the DB. We tried caching images on the client, but couldn't implement it successfully.
 
-### Stop Logging — Score: 33000 => 35000
+### Stop logging — Score: 33000 => 35000
 
 As the contest was nearing the end, we stopped nginx and app debug log output.
 I don't remember exactly, but the score seemed to improve slightly.
 
-### Redirect Trend Requests to Server 3 — Score: 35000 => 47000
+### Redirect trend requests to Server 3 — Score: 35000 => 47000
 
 Looking at overall CPU usage, Server 2 (App) was under high load while Server 3 (Chair condition receiver) had low load. To distribute the load, we boldly added a redirect for `/api/trend` requests to Server 3.
 
 This worked perfectly — CPU load was distributed and the score increased significantly.
 
-### Contest End
+### Contest end
 
 Final score on the dashboard with updates stopped at 17:00:
 

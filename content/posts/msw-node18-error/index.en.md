@@ -1,5 +1,5 @@
 ---
-title: msw Not Intercepting Network Requests in Node.js 18
+title: msw not intercepting network requests in Node.js 18
 date: 2022-09-22
 description: How to fix the problem where msw does not intercept network requests in Node.js 18
 tags: ['Frontend', 'Testing']

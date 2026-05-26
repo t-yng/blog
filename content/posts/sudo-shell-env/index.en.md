@@ -1,5 +1,5 @@
 ---
-title: Environment Variables Not Passed to sudo
+title: Environment variables not passed to sudo
 date: 2020-02-27
 description: Environment variables defined in the user's shell are not passed when using sudo.
 tags: ['Shell']

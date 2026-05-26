@@ -1,5 +1,5 @@
 ---
-title: Study Notes for the Professional Cloud Developer Certification Exam
+title: Study notes for the Professional Cloud Developer certification exam
 date: 2023-01-08
 description: Notes I wrote while studying for Google's Professional Cloud Developer certification exam
 tags: ['Other', 'GCP']
@@ -44,7 +44,7 @@ These are my notes from studying GCP in order to [pass the Professional Cloud De
   - Works independent of infrastructure or cloud — also works on AWS and on-premises
   - Pricing based on the amount of data collected — free tier available
 
-## IAM Member Types
+## IAM member types
 
 - Google Account
 - Service Account
@@ -87,7 +87,7 @@ Use this when you need to allow access to an application without requiring users
 - A sandbox environment where you can try Google Cloud APIs
   - Search and test methods within APIs
 
-## Data Storage Options
+## Data storage options
 
 - Cloud Storage
 - Cloud Datastore
@@ -146,7 +146,7 @@ Use this when you need to allow access to an application without requiring users
 
 A low-cost, fully managed data warehouse for analysis.
 
-### Truncated Exponential Backoff
+### Truncated exponential backoff
 
 Truncated exponential backoff is a standard way to handle errors in network applications. The client retries failed requests at increasing intervals between each retry.
 
@@ -156,7 +156,7 @@ Reference: [A note on exponential backoff with a minimal implementation](https:/
 
 ## IAM
 
-### Service Account
+### Service account
 
 A special Google account attached to an application or VM.
 
@@ -165,13 +165,13 @@ A special Google account attached to an application or VM.
 Helps deploy, manage, and scale a Kubernetes environment for containerized applications on GCP.
 Node: A VM in the cluster that hosts containers.
 
-### Union File System (UnionFS)
+### Union file system (UnionFS)
 
 UnionFS is a file system service for Linux and FreeBSD that can transparently overlay (merge) files and directories from multiple different file systems (called branches), forming a single virtual file system.
 
 Used in Linux containers to efficiently encapsulate applications and dependencies in a series of clean and minimal layers.
 
-## Compute Options
+## Compute options
 
 ### Compute Engine
 
@@ -205,7 +205,7 @@ Used in Linux containers to efficiently encapsulate applications and dependencie
 
 ## Kubernetes
 
-### Kubernetes Concepts
+### Kubernetes concepts
 
 - Kubernetes manages objects that represent the desired and current state of elements running in the cluster
 - Objects are defined as persistent entities representing the desired and current state of cluster elements
@@ -214,7 +214,7 @@ Used in Linux containers to efficiently encapsulate applications and dependencie
 - Multiple containers in a Pod can share resources like networking and storage
 - All running containers exist inside Pods
 
-### Kubernetes Control Plane
+### Kubernetes control plane
 
 - Computers in the cluster that coordinate the entire cluster
 - Multiple important Kubernetes components run in the control plane
@@ -223,7 +223,7 @@ Used in Linux containers to efficiently encapsulate applications and dependencie
   - Accessible via the kubectl command
 - etcd: stores the cluster state
 
-### GKE Concepts
+### GKE concepts
 
 - Build can be automated with the kubeadm command
 - GKE handles all provisioning and management of the underlying control plane infrastructure
@@ -232,7 +232,7 @@ Used in Linux containers to efficiently encapsulate applications and dependencie
 - Control planes are not accessible from outside; accessible from internal IP addresses
 - Authorized external IP access is also possible
 
-### Kubernetes Object Management
+### Kubernetes object management
 
 - Define controller objects to manage Pods: Deployment, StatefulSet, DaemonSet, Job
 - Namespaces allow building multiple virtual clusters on a physical cluster
@@ -265,21 +265,21 @@ Ephemeral — its lifetime is the same as the Pod's lifecycle.
 - Pods can use ConfigMaps as environment variables, command-line arguments, or config files in a volume
 - ConfigMaps let you separate environment-specific configuration from container images, making apps more portable
 
-#### Secret Volume
+#### Secret volume
 
 - Stores sensitive information
 - Based on an in-memory file system
 
-#### downwardAPI Volume
+#### downwardAPI volume
 
 - A volume for making the downwardAPI available
 - The downwardAPI is how containers can learn about the Pod environment
 
-### Vertical Pod Autoscaling
+### Vertical pod autoscaling
 
 GKE's Vertical Pod Autoscaling automatically adjusts container resources (CPU/RAM) for Pods.
 
-### Horizontal Pod Autoscaling
+### Horizontal pod autoscaling
 
 GKE's Horizontal Pod Autoscaling automatically adjusts the number of Pods based on container resource (CPU/RAM) usage or custom metrics.
 
@@ -294,16 +294,16 @@ A highly durable persistent storage resource managed at the cluster level.
 
 ## Networking
 
-### Carrier Peering
+### Carrier peering
 
 Carrier peering is used to access Google applications like Google Workspace through a service provider and connect infrastructure to Google with enterprise-class network services.
 
-### VPC Network Peering
+### VPC network peering
 
 - VPC Network Peering allows workloads in different VPC networks to communicate in private (RFC 1918) space
 - Traffic stays within Google's network and does not go through the public internet
 
-### Shared VPC Network
+### Shared VPC network
 
 Shared VPC connects resources from multiple projects in an organization to a common VPC network for secure and efficient communication using that network's internal IPs.
 

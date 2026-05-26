@@ -1,5 +1,5 @@
 ---
-title: Building an Electron App with a Monorepo Structure
+title: Building an Electron app with a monorepo structure
 date: 2023-01-06
 description: I changed the Electron app repository to a monorepo structure. Here is a summary of what I did.
 tags: ['Electron']
@@ -11,7 +11,7 @@ For the full code and directory structure, see [higeOhige/review-cat](https://gi
 
 When I looked at the repository again after a long time, it took longer than expected to remember how the build system worked. I wanted to make build management easier, so I tried a monorepo structure as a solution.
 
-## Problems Before the Change
+## Problems before the change
 
 Before the change, the directory structure looked like this. The main process and renderer process code were managed in `electron` and `renderer` directories.
 
@@ -62,7 +62,7 @@ Looking at the build script, the build configuration was set up to merge build o
 }
 ```
 
-## Converting to Monorepo Structure
+## Converting to monorepo structure
 
 I created a new `packages` directory and added `main` (for the main process) and `web` (for the renderer process) directories inside it.
 
@@ -99,7 +99,7 @@ To use Yarn Workspaces for the monorepo, I added `workspaces` to `package.json`.
 }
 ```
 
-### Building the Renderer Process
+### Building the renderer process
 
 For the renderer process, I simply moved files like `vite.config.ts` to the `web` directory. There were no special changes. To define it as a package in the monorepo, I set `"name": "web"` in `package.json` and simplified the npm scripts since each package can now be built independently.
 
@@ -114,7 +114,7 @@ For the renderer process, I simply moved files like `vite.config.ts` to the `web
 }
 ```
 
-### Building the Main Process
+### Building the main process
 
 I changed the HTML file reference to use `require.resolve` to dynamically find the path to the HTML file in the `web` package. This fixes the problem where the HTML file reference depended on the built directory structure.
 
@@ -134,7 +134,7 @@ I added the `web` package dependency to `package.json`.
 }
 ```
 
-### Understanding Build Dependencies
+### Understanding build dependencies
 
 To understand the build dependencies of this monorepo structure, I looked inside the app packaged by [electron-builder](https://www.electron.build/) to see how it was packaged.
 
@@ -168,7 +168,7 @@ By making the renderer process an external package and using `require.resolve` t
 
 This shows how managing the main process and renderer process as independent packages in a monorepo makes the build dependencies much simpler.
 
-### Managing tsconfig as a Package
+### Managing tsconfig as a package
 
 By making packages independent in the monorepo, `tsconfig.json` was now duplicated across packages. I referenced Turborepo's [examples/basic](https://github.com/vercel/turbo/tree/main/examples/basic) and added a new package to manage tsconfig as a shared config.
 
@@ -205,7 +205,7 @@ I put shared settings in `packages/tsconfig/base.json` and each package's `tscon
 }
 ```
 
-### Managing ESLint Config as a Package
+### Managing ESLint config as a package
 
 I also manage ESLint plugins and config files in a single package.
 
@@ -242,7 +242,7 @@ Like tsconfig, I put shared settings in `packages/eslint-config-custom/index.js`
 }
 ```
 
-### Full Build and App Packaging
+### Full build and app packaging
 
 Finally, the overall build configuration. I wrote npm scripts in the root `package.json` to manage the build for each package.
 
@@ -258,7 +258,7 @@ The code builds are independent, so parallel builds like `xxx & yyy` should work
 }
 ```
 
-### Sending Coverage Reports to Codecov
+### Sending coverage reports to Codecov
 
 With the monorepo structure, test coverage is now in multiple directories. To handle this, I used Codecov's Flags feature, which lets you manage multiple coverage reports in one project.
 
@@ -285,6 +285,6 @@ jobs:
           directory: packages/web
 ```
 
-## Thoughts After the Change
+## Thoughts after the change
 
 I achieved my goal of being able to manage the main process and renderer process builds independently. I think Electron apps and monorepo structures work very well together.

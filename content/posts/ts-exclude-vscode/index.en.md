@@ -1,5 +1,5 @@
 ---
-title: Why TSConfig exclude Files Still Show Type Errors in VSCode
+title: Why TSConfig exclude files still show type errors in VSCode
 date: 2024-02-15
 description: Even when a file is excluded from compilation in TSConfig, VSCode may still show type errors when you open that file.
 tags: ['TypeScript']
@@ -32,11 +32,11 @@ import { it } from 'vitest';
 import { add } from '@/utils/math';
 ```
 
-## How VSCode Establishes the Project Context
+## How VSCode establishes the project context
 
 VSCode uses `tsconfig.json` to establish the project context. If a file is not included in the paths specified by the `include` option, or if it is listed in `exclude`, that file is not considered part of the project and is treated as out of project scope.
 
-## How Out-of-Scope Files Are Handled
+## How out-of-scope files are handled
 
 Files outside the project scope are not affected by the project settings (the settings defined in `tsconfig.json`).
 This means that compile options, module resolution strategies, and type definition file references are not applied.
