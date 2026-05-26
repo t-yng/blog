@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   TITLE_LOGO_IMAGE_ALT,
   TITLE_LOGO_IMAGE_URL,
@@ -7,32 +7,42 @@ import {
 } from '@/constants';
 import { GlobalHeader } from './GlobalHeader';
 
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({ push: vi.fn() }),
+}));
+
 describe('GlobalHeader', () => {
   describe('title logo', () => {
     describe('link', () => {
-      it('navigate to index page', () => {
-        render(<GlobalHeader />);
-        const link = screen.queryByRole('link');
-        expect(link).toHaveAttribute('href', '/');
+      it('navigates to /ja by default', () => {
+        render(<GlobalHeader locale="ja" />);
+        const links = screen.queryAllByRole('link');
+        expect(links[0]).toHaveAttribute('href', '/ja');
+      });
+
+      it('navigates to /en when locale is en', () => {
+        render(<GlobalHeader locale="en" />);
+        const links = screen.queryAllByRole('link');
+        expect(links[0]).toHaveAttribute('href', '/en');
       });
 
       it('has title attribute', () => {
-        render(<GlobalHeader />);
-        const link = screen.queryByRole('link');
-        expect(link).toHaveAttribute('title', TITLE_LOGO_LINK_TITLE);
+        render(<GlobalHeader locale="ja" />);
+        const links = screen.queryAllByRole('link');
+        expect(links[0]).toHaveAttribute('title', TITLE_LOGO_LINK_TITLE);
       });
     });
 
     describe('image', () => {
       it('render', () => {
-        render(<GlobalHeader />);
+        render(<GlobalHeader locale="ja" />);
         const image = screen.queryByRole('img');
         expect(image).toBeInTheDocument();
         expect(image).toHaveAttribute('src', TITLE_LOGO_IMAGE_URL);
       });
 
       it('has alt attribute', () => {
-        render(<GlobalHeader />);
+        render(<GlobalHeader locale="ja" />);
         const logo = screen.queryByRole('img');
         expect(logo).toHaveAttribute('alt', TITLE_LOGO_IMAGE_ALT);
       });
