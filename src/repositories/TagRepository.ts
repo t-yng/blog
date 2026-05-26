@@ -1,10 +1,11 @@
 import { Tag } from '@/types';
+import { type Locale, defaultLocale } from '@/config/i18n';
 import { PostRepository } from './PostRepository';
 
 export class TagRepository {
-  getAllTags() {
+  getAllTags(locale: Locale = defaultLocale) {
     const postsRespository = new PostRepository();
-    const posts = postsRespository.getAllPosts();
+    const posts = postsRespository.getAllPosts(locale);
     const groupTags = posts.reduce(
       (acc, post) => {
         // タグごとにカウントを更新する
