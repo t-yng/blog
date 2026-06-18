@@ -39,10 +39,10 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "date-fns": "4.2.1",
+    "date-fns": "4.4.0",
     "gray-matter": "4.0.3",
     "js-cookie": "^3.0.7",
-    "next": "16.2.6",
+    "next": "16.2.9",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
